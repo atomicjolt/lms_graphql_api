@@ -3,7 +3,7 @@ require_relative "../../types/canvas/assignment_group"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class DestroyAssignmentGroup < CanvasBaseMutation
+      class DestroyAssignmentGroup < BaseMutation
         argument :course_id, ID, required: true
         argument :assignment_group_id, ID, required: true
         argument :move_assignments_to, Int, required: false

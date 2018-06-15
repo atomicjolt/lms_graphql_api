@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class CreateCalendarEvent < CanvasBaseMutation
+      class CreateCalendarEvent < BaseMutation
         argument :calendar_event_context_code, String, required: true
         argument :calendar_event_title, String, required: false
         argument :calendar_event_description, String, required: false

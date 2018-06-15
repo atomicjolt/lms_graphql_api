@@ -3,9 +3,9 @@ require_relative "../../types/canvas/assignment_override"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class BatchCreateOverridesInCourse < CanvasBaseMutation
+      class BatchCreateOverridesInCourse < BaseMutation
         argument :course_id, ID, required: true
-        argument :assignment_overrides, [LMSGraphQL::Types::Canvas::CanvasAssignmentOverride], required: true
+        argument :assignment_overrides, [LMSGraphQL::Types::Canvas::CanvasAssignmentOverrideInput], required: true
         field :assignment_override, [LMSGraphQL::Types::Canvas::CanvasAssignmentOverride], null: false
         def resolve(course_id:, assignment_overrides:)
           context[:canvas_api].call("BATCH_CREATE_OVERRIDES_IN_COURSE").proxy(

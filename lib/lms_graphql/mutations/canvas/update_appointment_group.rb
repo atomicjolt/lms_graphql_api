@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class UpdateAppointmentGroup < CanvasBaseMutation
+      class UpdateAppointmentGroup < BaseMutation
         argument :id, ID, required: true
         argument :appointment_group_context_codes, String, required: true
         argument :appointment_group_sub_context_codes, String, required: false

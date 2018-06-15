@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class MarkSubmissionAsReadSection < CanvasBaseMutation
+      class MarkSubmissionAsReadSection < BaseMutation
         argument :section_id, ID, required: true
         argument :assignment_id, ID, required: true
         argument :user_id, ID, required: true

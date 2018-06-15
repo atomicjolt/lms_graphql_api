@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class CreateExternalToolCourse < CanvasBaseMutation
+      class CreateExternalToolCourse < BaseMutation
         argument :course_id, ID, required: true
         argument :name, String, required: true
         argument :privacy_level, String, required: true

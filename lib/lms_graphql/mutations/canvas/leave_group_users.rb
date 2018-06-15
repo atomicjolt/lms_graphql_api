@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class LeaveGroupUser < CanvasBaseMutation
+      class LeaveGroupUser < BaseMutation
         argument :group_id, ID, required: true
         argument :user_id, ID, required: true
         field :return_value, Boolean, null: false

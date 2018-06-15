@@ -3,7 +3,7 @@ require_relative "../../types/canvas/module"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class CreateModule < CanvasBaseMutation
+      class CreateModule < BaseMutation
         argument :course_id, ID, required: true
         argument :module_name, String, required: true
         argument :module_unlock_at, LMSGraphQL::Types::DateTimeType, required: false

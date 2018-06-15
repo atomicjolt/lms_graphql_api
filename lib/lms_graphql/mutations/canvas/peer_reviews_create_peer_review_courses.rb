@@ -3,7 +3,7 @@ require_relative "../../types/canvas/peer_review"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class PeerReviewsCreatePeerReviewCourse < CanvasBaseMutation
+      class PeerReviewsCreatePeerReviewCourse < BaseMutation
         argument :course_id, ID, required: true
         argument :assignment_id, ID, required: true
         argument :submission_id, ID, required: true

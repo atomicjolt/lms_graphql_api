@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class MarkAllAsRead < CanvasBaseMutation
+      class MarkAllAsRead < BaseMutation
 
         field :return_value, Boolean, null: false
         def resolve()

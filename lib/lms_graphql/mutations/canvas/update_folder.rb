@@ -3,7 +3,7 @@ require_relative "../../types/canvas/folder"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class UpdateFolder < CanvasBaseMutation
+      class UpdateFolder < BaseMutation
         argument :id, ID, required: true
         argument :name, String, required: false
         argument :parent_folder_id, ID, required: false

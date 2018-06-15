@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class DeleteGroupCategory < CanvasBaseMutation
+      class DeleteGroupCategory < BaseMutation
         argument :group_category_id, ID, required: true
         field :return_value, Boolean, null: false
         def resolve(group_category_id:)

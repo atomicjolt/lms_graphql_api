@@ -3,7 +3,7 @@ require_relative "../../types/canvas/account"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class CreateNewSubAccount < CanvasBaseMutation
+      class CreateNewSubAccount < BaseMutation
         argument :account_id, ID, required: true
         argument :account_name, String, required: true
         argument :account_sis_account_id, String, required: false

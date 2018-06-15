@@ -3,7 +3,7 @@ require_relative "../../types/canvas/grading_standard"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class CreateNewGradingStandardAccount < CanvasBaseMutation
+      class CreateNewGradingStandardAccount < BaseMutation
         argument :account_id, ID, required: true
         argument :title, String, required: true
         argument :grading_scheme_entry_name, String, required: true

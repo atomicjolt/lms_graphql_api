@@ -3,7 +3,7 @@ require_relative "../../types/canvas/planner_note"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class CreatePlannerNote < CanvasBaseMutation
+      class CreatePlannerNote < BaseMutation
         argument :title, String, required: false
         argument :details, String, required: false
         argument :todo_date, LMSGraphQL::Types::DateTimeType, required: false

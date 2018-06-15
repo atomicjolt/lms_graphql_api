@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class CopyCourseContent < CanvasBaseMutation
+      class CopyCourseContent < BaseMutation
         argument :course_id, ID, required: true
         argument :source_course, String, required: false
         argument :except, String, required: false

@@ -3,7 +3,7 @@ require_relative "../../types/canvas/shared_brand_config"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class UnShareBrandconfigTheme < CanvasBaseMutation
+      class UnShareBrandconfigTheme < BaseMutation
         argument :id, ID, required: true
         field :shared_brand_config, LMSGraphQL::Types::Canvas::CanvasSharedBrandConfig, null: false
         def resolve(id:)

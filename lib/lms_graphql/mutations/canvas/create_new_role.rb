@@ -3,18 +3,18 @@ require_relative "../../types/canvas/role"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class CreateNewRole < CanvasBaseMutation
+      class CreateNewRole < BaseMutation
         argument :account_id, ID, required: true
         argument :label, String, required: true
         argument :role, String, required: false
         argument :base_role_type, String, required: false
-        argument :permissions__x__explicit, Boolean, required: false
-        argument :permissions__x__enabled, Boolean, required: false
-        argument :permissions__x__locked, Boolean, required: false
-        argument :permissions__x__applies_to_self, Boolean, required: false
-        argument :permissions__x__applies_to_descendants, Boolean, required: false
+        argument :permissions__X__explicit, Boolean, required: false
+        argument :permissions__X__enabled, Boolean, required: false
+        argument :permissions__X__locked, Boolean, required: false
+        argument :permissions__X__applies_to_self, Boolean, required: false
+        argument :permissions__X__applies_to_descendants, Boolean, required: false
         field :role, LMSGraphQL::Types::Canvas::CanvasRole, null: false
-        def resolve(account_id:, label:, role: nil, base_role_type: nil, permissions__x__explicit: nil, permissions__x__enabled: nil, permissions__x__locked: nil, permissions__x__applies_to_self: nil, permissions__x__applies_to_descendants: nil)
+        def resolve(account_id:, label:, role: nil, base_role_type: nil, permissions__X__explicit: nil, permissions__X__enabled: nil, permissions__X__locked: nil, permissions__X__applies_to_self: nil, permissions__X__applies_to_descendants: nil)
           context[:canvas_api].call("CREATE_NEW_ROLE").proxy(
             "CREATE_NEW_ROLE",
             {
@@ -22,11 +22,11 @@ module LMSGraphQL
               "label": label,
               "role": role,
               "base_role_type": base_role_type,
-              "permissions[<X>][explicit]": permissions__x__explicit,
-              "permissions[<X>][enabled]": permissions__x__enabled,
-              "permissions[<X>][locked]": permissions__x__locked,
-              "permissions[<X>][applies_to_self]": permissions__x__applies_to_self,
-              "permissions[<X>][applies_to_descendants]": permissions__x__applies_to_descendants            },
+              "permissions[<X>][explicit]": permissions__X__explicit,
+              "permissions[<X>][enabled]": permissions__X__enabled,
+              "permissions[<X>][locked]": permissions__X__locked,
+              "permissions[<X>][applies_to_self]": permissions__X__applies_to_self,
+              "permissions[<X>][applies_to_descendants]": permissions__X__applies_to_descendants            },
             nil,
           ).parsed_response
         end

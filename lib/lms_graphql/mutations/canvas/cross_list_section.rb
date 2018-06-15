@@ -3,7 +3,7 @@ require_relative "../../types/canvas/section"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class CrossListSection < CanvasBaseMutation
+      class CrossListSection < BaseMutation
         argument :id, ID, required: true
         argument :new_course_id, ID, required: true
         field :section, LMSGraphQL::Types::Canvas::CanvasSection, null: false

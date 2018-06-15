@@ -3,7 +3,7 @@ require_relative "../../types/canvas/enrollment"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class ConcludeDeactivateOrDeleteEnrollment < CanvasBaseMutation
+      class ConcludeDeactivateOrDeleteEnrollment < BaseMutation
         argument :course_id, ID, required: true
         argument :id, ID, required: true
         argument :task, String, required: false

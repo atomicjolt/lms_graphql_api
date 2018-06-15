@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class UpdatePreferenceType < CanvasBaseMutation
+      class UpdatePreferenceType < BaseMutation
         argument :type, String, required: true
         argument :address, String, required: true
         argument :notification, String, required: true

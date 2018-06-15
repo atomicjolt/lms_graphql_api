@@ -3,7 +3,7 @@ require_relative "../../types/canvas/report"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class StartReport < CanvasBaseMutation
+      class StartReport < BaseMutation
         argument :account_id, ID, required: true
         argument :report, String, required: true
         argument :parameters, String, required: false

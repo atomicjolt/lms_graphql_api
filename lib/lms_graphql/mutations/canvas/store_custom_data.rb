@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class StoreCustomDatum < CanvasBaseMutation
+      class StoreCustomDatum < BaseMutation
         argument :user_id, ID, required: true
         argument :ns, String, required: true
         argument :data, String, required: true

@@ -3,7 +3,7 @@ require_relative "../../types/canvas/outcome_group"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class ImportOutcomeGroupAccount < CanvasBaseMutation
+      class ImportOutcomeGroupAccount < BaseMutation
         argument :account_id, ID, required: true
         argument :id, ID, required: true
         argument :source_outcome_group_id, ID, required: true

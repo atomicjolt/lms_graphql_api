@@ -3,7 +3,7 @@ require_relative "../../types/canvas/planner_override"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class UpdatePlannerOverride < CanvasBaseMutation
+      class UpdatePlannerOverride < BaseMutation
         argument :id, ID, required: true
         argument :marked_complete, String, required: false
         argument :dismissed, String, required: false

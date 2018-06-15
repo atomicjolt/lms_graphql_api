@@ -3,7 +3,7 @@ require_relative "../../types/canvas/course_nickname"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class SetCourseNickname < CanvasBaseMutation
+      class SetCourseNickname < BaseMutation
         argument :course_id, ID, required: true
         argument :nickname, String, required: true
         field :course_nickname, LMSGraphQL::Types::Canvas::CanvasCourseNickname, null: false

@@ -3,7 +3,7 @@ require_relative "../../types/canvas/user"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class SelectStudentsForModeration < CanvasBaseMutation
+      class SelectStudentsForModeration < BaseMutation
         argument :course_id, ID, required: true
         argument :assignment_id, ID, required: true
         argument :student_ids, [ID], required: false

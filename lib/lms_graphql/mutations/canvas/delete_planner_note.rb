@@ -3,7 +3,7 @@ require_relative "../../types/canvas/planner_note"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class DeletePlannerNote < CanvasBaseMutation
+      class DeletePlannerNote < BaseMutation
         argument :id, ID, required: true
         field :planner_note, LMSGraphQL::Types::Canvas::CanvasPlannerNote, null: false
         def resolve(id:)

@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class DeleteCalendarEvent < CanvasBaseMutation
+      class DeleteCalendarEvent < BaseMutation
         argument :id, ID, required: true
         argument :cancel_reason, String, required: false
         field :return_value, Boolean, null: false

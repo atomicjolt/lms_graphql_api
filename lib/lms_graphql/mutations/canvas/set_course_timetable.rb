@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class SetCourseTimetable < CanvasBaseMutation
+      class SetCourseTimetable < BaseMutation
         argument :course_id, ID, required: true
         argument :timetables_course_section_id, [String], required: false
         argument :timetables_course_section_id_weekdays, String, required: false

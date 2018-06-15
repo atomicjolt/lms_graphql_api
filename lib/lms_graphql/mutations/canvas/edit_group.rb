@@ -3,7 +3,7 @@ require_relative "../../types/canvas/group"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class EditGroup < CanvasBaseMutation
+      class EditGroup < BaseMutation
         argument :group_id, ID, required: true
         argument :name, String, required: false
         argument :description, String, required: false

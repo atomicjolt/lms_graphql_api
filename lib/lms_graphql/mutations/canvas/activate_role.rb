@@ -3,7 +3,7 @@ require_relative "../../types/canvas/role"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class ActivateRole < CanvasBaseMutation
+      class ActivateRole < BaseMutation
         argument :account_id, ID, required: true
         argument :id, ID, required: true
         argument :role_id, ID, required: true

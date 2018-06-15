@@ -1,11 +1,11 @@
 require_relative "../canvas_base_mutation"
-require_relative "../../types/canvas/canvas{success: true}"
+
 module LMSGraphQL
   module Mutations
     module Canvas
-      class DeletePushNotificationEndpoint < CanvasBaseMutation
+      class DeletePushNotificationEndpoint < BaseMutation
 
-        field :canvas{success: true}, LMSGraphQL::Types::Canvas::Canvas{success: true}, null: false
+        field :return_value, String, null: false
         def resolve()
           context[:canvas_api].call("DELETE_PUSH_NOTIFICATION_ENDPOINT").proxy(
             "DELETE_PUSH_NOTIFICATION_ENDPOINT",

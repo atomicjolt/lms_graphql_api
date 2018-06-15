@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class GroupsPreviewProcessedHtml < CanvasBaseMutation
+      class GroupsPreviewProcessedHtml < BaseMutation
         argument :group_id, ID, required: true
         argument :html, String, required: false
         field :return_value, Boolean, null: false

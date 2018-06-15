@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class InviteOthersToGroup < CanvasBaseMutation
+      class InviteOthersToGroup < BaseMutation
         argument :group_id, ID, required: true
         argument :invitees, String, required: true
         field :return_value, Boolean, null: false

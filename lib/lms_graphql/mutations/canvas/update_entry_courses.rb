@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class UpdateEntryCourse < CanvasBaseMutation
+      class UpdateEntryCourse < BaseMutation
         argument :course_id, ID, required: true
         argument :topic_id, ID, required: true
         argument :id, ID, required: true

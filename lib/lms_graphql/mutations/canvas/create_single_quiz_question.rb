@@ -3,7 +3,7 @@ require_relative "../../types/canvas/quiz_question"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class CreateSingleQuizQuestion < CanvasBaseMutation
+      class CreateSingleQuizQuestion < BaseMutation
         argument :course_id, ID, required: true
         argument :quiz_id, ID, required: true
         argument :question_question_name, String, required: false

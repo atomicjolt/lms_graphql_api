@@ -3,7 +3,7 @@ require_relative "../../types/canvas/authentication_provider"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class AddAuthenticationProvider < CanvasBaseMutation
+      class AddAuthenticationProvider < BaseMutation
         argument :account_id, ID, required: true
         field :authentication_provider, LMSGraphQL::Types::Canvas::CanvasAuthenticationProvider, null: false
         def resolve(account_id:)

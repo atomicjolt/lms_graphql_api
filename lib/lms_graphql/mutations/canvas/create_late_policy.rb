@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class CreateLatePolicy < CanvasBaseMutation
+      class CreateLatePolicy < BaseMutation
         argument :id, ID, required: true
         argument :late_policy_missing_submission_deduction_enabled, Boolean, required: false
         argument :late_policy_missing_submission_deduction, Float, required: false

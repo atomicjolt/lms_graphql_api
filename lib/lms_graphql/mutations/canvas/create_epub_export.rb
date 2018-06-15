@@ -3,7 +3,7 @@ require_relative "../../types/canvas/epub_export"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class CreateEpubExport < CanvasBaseMutation
+      class CreateEpubExport < BaseMutation
         argument :course_id, ID, required: true
         field :epub_export, LMSGraphQL::Types::Canvas::CanvasEpubExport, null: false
         def resolve(course_id:)

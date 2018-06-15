@@ -3,7 +3,7 @@ require_relative "../../types/canvas/outcome_link"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class UnlinkOutcomeGlobal < CanvasBaseMutation
+      class UnlinkOutcomeGlobal < BaseMutation
         argument :id, ID, required: true
         argument :outcome_id, ID, required: true
         field :outcome_link, LMSGraphQL::Types::Canvas::CanvasOutcomeLink, null: false

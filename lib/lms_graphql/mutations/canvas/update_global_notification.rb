@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class UpdateGlobalNotification < CanvasBaseMutation
+      class UpdateGlobalNotification < BaseMutation
         argument :account_id, ID, required: true
         argument :id, ID, required: true
         argument :account_notification_subject, String, required: false

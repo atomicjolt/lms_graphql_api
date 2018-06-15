@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class QuizSubmissionFilesUploadFile < CanvasBaseMutation
+      class QuizSubmissionFilesUploadFile < BaseMutation
         argument :course_id, ID, required: true
         argument :quiz_id, ID, required: true
         argument :name, String, required: false

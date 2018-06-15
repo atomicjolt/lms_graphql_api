@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class UpdateCustomColor < CanvasBaseMutation
+      class UpdateCustomColor < BaseMutation
         argument :id, ID, required: true
         argument :asset_string, String, required: true
         argument :hexcode, String, required: false

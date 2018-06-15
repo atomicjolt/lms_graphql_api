@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class DeleteGradingPeriodAccount < CanvasBaseMutation
+      class DeleteGradingPeriodAccount < BaseMutation
         argument :account_id, ID, required: true
         argument :id, ID, required: true
         field :return_value, Boolean, null: false

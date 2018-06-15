@@ -3,7 +3,7 @@ require_relative "../../types/canvas/shared_brand_config"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class ShareBrandconfigTheme < CanvasBaseMutation
+      class ShareBrandconfigTheme < BaseMutation
         argument :account_id, ID, required: true
         argument :shared_brand_config_name, String, required: true
         argument :shared_brand_config_brand_config_md5, String, required: true

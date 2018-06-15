@@ -3,7 +3,7 @@ require_relative "../../types/canvas/communication_channel"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class DeleteCommunicationChannelType < CanvasBaseMutation
+      class DeleteCommunicationChannelType < BaseMutation
         argument :user_id, ID, required: true
         argument :type, String, required: true
         argument :address, String, required: true

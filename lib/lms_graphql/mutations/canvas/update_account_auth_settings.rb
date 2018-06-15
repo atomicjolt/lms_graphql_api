@@ -3,7 +3,7 @@ require_relative "../../types/canvas/sso_setting"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class UpdateAccountAuthSetting < CanvasBaseMutation
+      class UpdateAccountAuthSetting < BaseMutation
         argument :account_id, ID, required: true
         field :sso_setting, LMSGraphQL::Types::Canvas::CanvasSSOSetting, null: false
         def resolve(account_id:)

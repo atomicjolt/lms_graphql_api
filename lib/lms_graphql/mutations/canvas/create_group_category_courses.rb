@@ -3,7 +3,7 @@ require_relative "../../types/canvas/group_category"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class CreateGroupCategoryCourse < CanvasBaseMutation
+      class CreateGroupCategoryCourse < BaseMutation
         argument :course_id, ID, required: true
         argument :name, String, required: true
         argument :self_signup, String, required: false

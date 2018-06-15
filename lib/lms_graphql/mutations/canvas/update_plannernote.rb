@@ -3,7 +3,7 @@ require_relative "../../types/canvas/planner_note"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class UpdatePlannernote < CanvasBaseMutation
+      class UpdatePlannernote < BaseMutation
         argument :id, ID, required: true
         argument :title, String, required: false
         argument :details, String, required: false

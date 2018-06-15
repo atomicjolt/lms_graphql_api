@@ -3,7 +3,7 @@ require_relative "../../types/canvas/group"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class CreateGroupGroup < CanvasBaseMutation
+      class CreateGroupGroup < BaseMutation
         argument :name, String, required: false
         argument :description, String, required: false
         argument :is_public, Boolean, required: false

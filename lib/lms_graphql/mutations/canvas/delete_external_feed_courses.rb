@@ -3,7 +3,7 @@ require_relative "../../types/canvas/external_feed"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class DeleteExternalFeedCourse < CanvasBaseMutation
+      class DeleteExternalFeedCourse < BaseMutation
         argument :course_id, ID, required: true
         argument :external_feed_id, ID, required: true
         field :external_feed, LMSGraphQL::Types::Canvas::CanvasExternalFeed, null: false

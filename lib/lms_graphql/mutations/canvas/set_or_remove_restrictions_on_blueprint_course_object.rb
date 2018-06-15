@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class SetOrRemoveRestrictionsOnBlueprintCourseObject < CanvasBaseMutation
+      class SetOrRemoveRestrictionsOnBlueprintCourseObject < BaseMutation
         argument :course_id, ID, required: true
         argument :template_id, ID, required: true
         argument :content_type, String, required: false

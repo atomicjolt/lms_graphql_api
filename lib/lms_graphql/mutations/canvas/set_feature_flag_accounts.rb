@@ -3,7 +3,7 @@ require_relative "../../types/canvas/feature_flag"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class SetFeatureFlagAccount < CanvasBaseMutation
+      class SetFeatureFlagAccount < BaseMutation
         argument :account_id, ID, required: true
         argument :feature, String, required: true
         argument :state, String, required: false

@@ -3,7 +3,7 @@ require_relative "../../types/canvas/course"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class CreateNewCourse < CanvasBaseMutation
+      class CreateNewCourse < BaseMutation
         argument :account_id, ID, required: true
         argument :course_name, String, required: false
         argument :course_course_code, String, required: false

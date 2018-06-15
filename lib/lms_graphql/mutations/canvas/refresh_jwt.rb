@@ -3,7 +3,7 @@ require_relative "../../types/canvas/jwt"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class RefreshJwt < CanvasBaseMutation
+      class RefreshJwt < BaseMutation
         argument :jwt, String, required: true
         field :jwt, LMSGraphQL::Types::Canvas::CanvasJWT, null: false
         def resolve(jwt:)

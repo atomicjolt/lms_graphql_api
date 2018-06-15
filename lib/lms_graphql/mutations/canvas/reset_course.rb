@@ -3,7 +3,7 @@ require_relative "../../types/canvas/course"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class ResetCourse < CanvasBaseMutation
+      class ResetCourse < BaseMutation
         argument :course_id, ID, required: true
         field :course, LMSGraphQL::Types::Canvas::CanvasCourse, null: false
         def resolve(course_id:)

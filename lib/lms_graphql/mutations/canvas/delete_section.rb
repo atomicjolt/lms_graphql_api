@@ -3,7 +3,7 @@ require_relative "../../types/canvas/section"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class DeleteSection < CanvasBaseMutation
+      class DeleteSection < BaseMutation
         argument :id, ID, required: true
         field :section, LMSGraphQL::Types::Canvas::CanvasSection, null: false
         def resolve(id:)

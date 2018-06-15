@@ -3,7 +3,7 @@ require_relative "../../types/canvas/user"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class SelfRegisterUser < CanvasBaseMutation
+      class SelfRegisterUser < BaseMutation
         argument :account_id, ID, required: true
         argument :user_name, String, required: true
         argument :user_short_name, String, required: false

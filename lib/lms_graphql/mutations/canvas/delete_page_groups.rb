@@ -3,7 +3,7 @@ require_relative "../../types/canvas/page"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class DeletePageGroup < CanvasBaseMutation
+      class DeletePageGroup < BaseMutation
         argument :group_id, ID, required: true
         argument :url, String, required: true
         field :page, LMSGraphQL::Types::Canvas::CanvasPage, null: false

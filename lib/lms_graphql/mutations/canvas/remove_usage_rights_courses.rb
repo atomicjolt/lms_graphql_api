@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class RemoveUsageRightsCourse < CanvasBaseMutation
+      class RemoveUsageRightsCourse < BaseMutation
         argument :course_id, ID, required: true
         argument :file_ids, [ID], required: true
         argument :folder_ids, [ID], required: false

@@ -3,7 +3,7 @@ require_relative "../../types/canvas/bookmark"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class CreateBookmark < CanvasBaseMutation
+      class CreateBookmark < BaseMutation
         argument :name, String, required: false
         argument :url, String, required: false
         argument :position, Int, required: false

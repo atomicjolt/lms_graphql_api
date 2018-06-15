@@ -3,7 +3,7 @@ require_relative "../../types/canvas/file"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class CopyFile < CanvasBaseMutation
+      class CopyFile < BaseMutation
         argument :dest_folder_id, ID, required: true
         argument :source_file_id, ID, required: true
         argument :on_duplicate, String, required: false

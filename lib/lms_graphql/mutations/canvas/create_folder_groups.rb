@@ -3,7 +3,7 @@ require_relative "../../types/canvas/folder"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class CreateFolderGroup < CanvasBaseMutation
+      class CreateFolderGroup < BaseMutation
         argument :group_id, ID, required: true
         argument :name, String, required: true
         argument :parent_folder_id, ID, required: false

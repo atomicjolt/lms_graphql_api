@@ -3,7 +3,7 @@ require_relative "../../types/canvas/page"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class DuplicatePage < CanvasBaseMutation
+      class DuplicatePage < BaseMutation
         argument :course_id, ID, required: true
         argument :url, String, required: true
         field :page, LMSGraphQL::Types::Canvas::CanvasPage, null: false

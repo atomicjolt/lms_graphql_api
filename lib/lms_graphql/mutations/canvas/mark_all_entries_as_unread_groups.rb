@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class MarkAllEntriesAsUnreadGroup < CanvasBaseMutation
+      class MarkAllEntriesAsUnreadGroup < BaseMutation
         argument :group_id, ID, required: true
         argument :topic_id, ID, required: true
         argument :forced_read_state, Boolean, required: false

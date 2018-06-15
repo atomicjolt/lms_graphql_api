@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class DeleteFolder < CanvasBaseMutation
+      class DeleteFolder < BaseMutation
         argument :id, ID, required: true
         argument :force, Boolean, required: false
         field :return_value, Boolean, null: false

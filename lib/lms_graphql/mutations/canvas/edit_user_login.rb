@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class EditUserLogin < CanvasBaseMutation
+      class EditUserLogin < BaseMutation
         argument :account_id, ID, required: true
         argument :id, ID, required: true
         argument :login_unique_id, String, required: false

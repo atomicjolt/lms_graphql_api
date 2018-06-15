@@ -3,7 +3,7 @@ require_relative "../../types/canvas/outcome"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class UpdateOutcome < CanvasBaseMutation
+      class UpdateOutcome < BaseMutation
         argument :id, ID, required: true
         argument :title, String, required: false
         argument :display_name, String, required: false

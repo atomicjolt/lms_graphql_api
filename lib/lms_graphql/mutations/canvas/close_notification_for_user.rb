@@ -3,7 +3,7 @@ require_relative "../../types/canvas/account_notification"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class CloseNotificationForUser < CanvasBaseMutation
+      class CloseNotificationForUser < BaseMutation
         argument :account_id, ID, required: true
         argument :id, ID, required: true
         field :account_notification, LMSGraphQL::Types::Canvas::CanvasAccountNotification, null: false

@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class UsersUploadFile < CanvasBaseMutation
+      class UsersUploadFile < BaseMutation
         argument :user_id, ID, required: true
         field :return_value, Boolean, null: false
         def resolve(user_id:)

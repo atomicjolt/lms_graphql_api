@@ -3,7 +3,7 @@ require_relative "../../types/canvas/assignment_override"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class CreateAssignmentOverride < CanvasBaseMutation
+      class CreateAssignmentOverride < BaseMutation
         argument :course_id, ID, required: true
         argument :assignment_id, ID, required: true
         argument :assignment_override_student_ids, Int, required: false

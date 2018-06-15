@@ -3,7 +3,7 @@ require_relative "../../types/canvas/outcome_import"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class ImportOutcomesCourse < CanvasBaseMutation
+      class ImportOutcomesCourse < BaseMutation
         argument :course_id, ID, required: true
         argument :import_type, String, required: false
         argument :attachment, String, required: false

@@ -3,7 +3,7 @@ require_relative "../../types/canvas/user"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class MergeUserIntoAnotherUserAccount < CanvasBaseMutation
+      class MergeUserIntoAnotherUserAccount < BaseMutation
         argument :id, ID, required: true
         argument :destination_account_id, ID, required: true
         argument :destination_user_id, ID, required: true

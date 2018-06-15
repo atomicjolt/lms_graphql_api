@@ -3,7 +3,7 @@ require_relative "../../types/canvas/group_membership"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class CreateMembership < CanvasBaseMutation
+      class CreateMembership < BaseMutation
         argument :group_id, ID, required: true
         argument :user_id, ID, required: false
         field :group_membership, LMSGraphQL::Types::Canvas::CanvasGroupMembership, null: false

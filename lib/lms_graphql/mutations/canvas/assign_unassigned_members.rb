@@ -3,7 +3,7 @@ require_relative "../../types/canvas/group_membership"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class AssignUnassignedMember < CanvasBaseMutation
+      class AssignUnassignedMember < BaseMutation
         argument :group_category_id, ID, required: true
         argument :sync, Boolean, required: false
         field :group_membership, LMSGraphQL::Types::Canvas::CanvasGroupMembership, null: false

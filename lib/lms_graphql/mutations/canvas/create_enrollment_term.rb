@@ -3,7 +3,7 @@ require_relative "../../types/canvas/enrollment_term"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class CreateEnrollmentTerm < CanvasBaseMutation
+      class CreateEnrollmentTerm < BaseMutation
         argument :account_id, ID, required: true
         argument :enrollment_term_name, String, required: false
         argument :enrollment_term_start_at, LMSGraphQL::Types::DateTimeType, required: false

@@ -3,12 +3,12 @@ require_relative "../../types/canvas/quiz_submission_question"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class AnsweringQuestion < CanvasBaseMutation
+      class AnsweringQuestion < BaseMutation
         argument :quiz_submission_id, ID, required: true
         argument :attempt, Int, required: true
         argument :validation_token, String, required: true
         argument :access_code, String, required: false
-        argument :quiz_questions, [LMSGraphQL::Types::Canvas::CanvasQuizSubmissionQuestion], required: false
+        argument :quiz_questions, [LMSGraphQL::Types::Canvas::CanvasQuizSubmissionQuestionInput], required: false
         field :quiz_submission_question, [LMSGraphQL::Types::Canvas::CanvasQuizSubmissionQuestion], null: false
         def resolve(quiz_submission_id:, attempt:, validation_token:, access_code: nil, quiz_questions: nil)
           context[:canvas_api].call("ANSWERING_QUESTIONS").proxy(

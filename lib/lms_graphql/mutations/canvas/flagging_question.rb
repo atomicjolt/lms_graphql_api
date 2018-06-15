@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class FlaggingQuestion < CanvasBaseMutation
+      class FlaggingQuestion < BaseMutation
         argument :quiz_submission_id, ID, required: true
         argument :id, ID, required: true
         argument :attempt, Int, required: true

@@ -3,7 +3,7 @@ require_relative "../../types/canvas/admin"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class RemoveAccountAdmin < CanvasBaseMutation
+      class RemoveAccountAdmin < BaseMutation
         argument :account_id, ID, required: true
         argument :user_id, ID, required: true
         argument :role, String, required: false

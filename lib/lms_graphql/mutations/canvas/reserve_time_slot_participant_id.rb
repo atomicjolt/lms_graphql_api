@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class ReserveTimeSlotParticipantId < CanvasBaseMutation
+      class ReserveTimeSlotParticipantId < BaseMutation
         argument :id, ID, required: true
         argument :participant_id, ID, required: true
         argument :comments, String, required: false

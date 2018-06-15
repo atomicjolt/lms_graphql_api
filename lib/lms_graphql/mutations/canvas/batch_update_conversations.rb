@@ -3,7 +3,7 @@ require_relative "../../types/canvas/progress"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class BatchUpdateConversation < CanvasBaseMutation
+      class BatchUpdateConversation < BaseMutation
         argument :conversation_ids, [ID], required: true
         argument :event, String, required: true
         field :progress, LMSGraphQL::Types::Canvas::CanvasProgress, null: false

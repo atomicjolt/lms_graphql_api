@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class DeleteMessage < CanvasBaseMutation
+      class DeleteMessage < BaseMutation
         argument :id, ID, required: true
         argument :remove, String, required: true
         field :return_value, Boolean, null: false

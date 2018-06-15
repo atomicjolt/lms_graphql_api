@@ -3,7 +3,7 @@ require_relative "../../types/canvas/module"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class ReLockModuleProgression < CanvasBaseMutation
+      class ReLockModuleProgression < BaseMutation
         argument :course_id, ID, required: true
         argument :id, ID, required: true
         field :module, LMSGraphQL::Types::Canvas::CanvasModule, null: false

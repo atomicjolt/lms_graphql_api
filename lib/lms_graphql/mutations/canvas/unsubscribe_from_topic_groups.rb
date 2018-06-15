@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class UnsubscribeFromTopicGroup < CanvasBaseMutation
+      class UnsubscribeFromTopicGroup < BaseMutation
         argument :group_id, ID, required: true
         argument :topic_id, ID, required: true
         field :return_value, Boolean, null: false

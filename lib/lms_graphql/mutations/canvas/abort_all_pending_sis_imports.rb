@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class AbortAllPendingSisImport < CanvasBaseMutation
+      class AbortAllPendingSisImport < BaseMutation
         argument :account_id, ID, required: true
         field :return_value, Boolean, null: false
         def resolve(account_id:)

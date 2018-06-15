@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class DeleteCustomDatum < CanvasBaseMutation
+      class DeleteCustomDatum < BaseMutation
         argument :user_id, ID, required: true
         argument :ns, String, required: true
         field :return_value, Boolean, null: false

@@ -3,7 +3,7 @@ require_relative "../../types/canvas/outcome_group"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class DeleteOutcomeGroupGlobal < CanvasBaseMutation
+      class DeleteOutcomeGroupGlobal < BaseMutation
         argument :id, ID, required: true
         field :outcome_group, LMSGraphQL::Types::Canvas::CanvasOutcomeGroup, null: false
         def resolve(id:)

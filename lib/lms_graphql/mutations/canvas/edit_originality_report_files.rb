@@ -3,7 +3,7 @@ require_relative "../../types/canvas/originality_report"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class EditOriginalityReportFile < CanvasBaseMutation
+      class EditOriginalityReportFile < BaseMutation
         argument :assignment_id, ID, required: true
         argument :file_id, ID, required: true
         argument :originality_report_originality_score, Float, required: false

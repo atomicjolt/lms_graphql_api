@@ -3,7 +3,7 @@ require_relative "../../types/canvas/assignment_override"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class DeleteAssignmentOverride < CanvasBaseMutation
+      class DeleteAssignmentOverride < BaseMutation
         argument :course_id, ID, required: true
         argument :assignment_id, ID, required: true
         argument :id, ID, required: true

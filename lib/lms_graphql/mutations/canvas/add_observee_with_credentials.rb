@@ -3,7 +3,7 @@ require_relative "../../types/canvas/user"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class AddObserveeWithCredential < CanvasBaseMutation
+      class AddObserveeWithCredential < BaseMutation
         argument :user_id, ID, required: true
         argument :observee_unique_id, String, required: false
         argument :observee_password, String, required: false

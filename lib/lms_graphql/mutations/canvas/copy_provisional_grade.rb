@@ -3,7 +3,7 @@ require_relative "../../types/canvas/provisional_grade"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class CopyProvisionalGrade < CanvasBaseMutation
+      class CopyProvisionalGrade < BaseMutation
         argument :course_id, ID, required: true
         argument :assignment_id, ID, required: true
         argument :provisional_grade_id, ID, required: true

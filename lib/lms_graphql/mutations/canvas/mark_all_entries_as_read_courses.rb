@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class MarkAllEntriesAsReadCourse < CanvasBaseMutation
+      class MarkAllEntriesAsReadCourse < BaseMutation
         argument :course_id, ID, required: true
         argument :topic_id, ID, required: true
         argument :forced_read_state, Boolean, required: false

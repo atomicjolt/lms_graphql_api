@@ -3,7 +3,7 @@ require_relative "../../types/canvas/page"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class UpdateCreatePageGroup < CanvasBaseMutation
+      class UpdateCreatePageGroup < BaseMutation
         argument :group_id, ID, required: true
         argument :url, String, required: true
         argument :wiki_page_title, String, required: false

@@ -3,7 +3,7 @@ require_relative "../../types/canvas/external_feed"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class CreateExternalFeedGroup < CanvasBaseMutation
+      class CreateExternalFeedGroup < BaseMutation
         argument :group_id, ID, required: true
         argument :url, String, required: true
         argument :header_match, Boolean, required: false

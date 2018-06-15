@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class DeleteUserLogin < CanvasBaseMutation
+      class DeleteUserLogin < BaseMutation
         argument :user_id, ID, required: true
         argument :id, ID, required: true
         field :return_value, Boolean, null: false

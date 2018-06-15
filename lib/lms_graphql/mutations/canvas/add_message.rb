@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class AddMessage < CanvasBaseMutation
+      class AddMessage < BaseMutation
         argument :id, ID, required: true
         argument :body, String, required: true
         argument :attachment_ids, [ID], required: false

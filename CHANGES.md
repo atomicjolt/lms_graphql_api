@@ -1,3 +1,6 @@
+#0.5.0
+Adds mutations for Canvas API
+
 #0.4.0
 Adds ability to call canvas api proc method to gain access to the Canvas api
 

@@ -3,7 +3,7 @@ require_relative "../../types/canvas/favorite"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class RemoveGroupFromFavorite < CanvasBaseMutation
+      class RemoveGroupFromFavorite < BaseMutation
         argument :id, ID, required: true
         field :favorite, LMSGraphQL::Types::Canvas::CanvasFavorite, null: false
         def resolve(id:)

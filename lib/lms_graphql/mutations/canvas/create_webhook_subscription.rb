@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class CreateWebhookSubscription < CanvasBaseMutation
+      class CreateWebhookSubscription < BaseMutation
         argument :submission_ContextId, String, required: true
         argument :subscription_ContextType, String, required: true
         argument :subscription_EventTypes, String, required: true

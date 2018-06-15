@@ -3,7 +3,7 @@ require_relative "../../types/canvas/user"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class SplitMergedUsersIntoSeparateUser < CanvasBaseMutation
+      class SplitMergedUsersIntoSeparateUser < BaseMutation
         argument :id, ID, required: true
         field :user, [LMSGraphQL::Types::Canvas::CanvasUser], null: false
         def resolve(id:)

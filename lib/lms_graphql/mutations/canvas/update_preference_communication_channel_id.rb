@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class UpdatePreferenceCommunicationChannelId < CanvasBaseMutation
+      class UpdatePreferenceCommunicationChannelId < BaseMutation
         argument :communication_channel_id, ID, required: true
         argument :notification, String, required: true
         argument :notification_preferences_frequency, String, required: true

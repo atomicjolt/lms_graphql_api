@@ -3,7 +3,7 @@ require_relative "../../types/canvas/content_export"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class ExportContentUser < CanvasBaseMutation
+      class ExportContentUser < BaseMutation
         argument :user_id, ID, required: true
         argument :export_type, String, required: true
         argument :skip_notifications, Boolean, required: false

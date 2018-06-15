@@ -3,7 +3,7 @@ require_relative "../../types/canvas/planner_override"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class DeletePlannerOverride < CanvasBaseMutation
+      class DeletePlannerOverride < BaseMutation
         argument :id, ID, required: true
         field :planner_override, LMSGraphQL::Types::Canvas::CanvasPlannerOverride, null: false
         def resolve(id:)

@@ -3,7 +3,7 @@ require_relative "../../types/canvas/group"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class DeleteGroup < CanvasBaseMutation
+      class DeleteGroup < BaseMutation
         argument :group_id, ID, required: true
         field :group, LMSGraphQL::Types::Canvas::CanvasGroup, null: false
         def resolve(group_id:)

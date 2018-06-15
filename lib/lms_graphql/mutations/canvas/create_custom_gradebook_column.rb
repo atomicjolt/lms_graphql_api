@@ -3,7 +3,7 @@ require_relative "../../types/canvas/custom_column"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class CreateCustomGradebookColumn < CanvasBaseMutation
+      class CreateCustomGradebookColumn < BaseMutation
         argument :course_id, ID, required: true
         argument :column_title, String, required: true
         argument :column_position, Int, required: false

@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class PublishProvisionalGradesForAssignment < CanvasBaseMutation
+      class PublishProvisionalGradesForAssignment < BaseMutation
         argument :course_id, ID, required: true
         argument :assignment_id, ID, required: true
         field :return_value, Boolean, null: false

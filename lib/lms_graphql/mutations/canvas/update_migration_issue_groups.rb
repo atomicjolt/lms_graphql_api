@@ -3,7 +3,7 @@ require_relative "../../types/canvas/migration_issue"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class UpdateMigrationIssueGroup < CanvasBaseMutation
+      class UpdateMigrationIssueGroup < BaseMutation
         argument :group_id, ID, required: true
         argument :content_migration_id, ID, required: true
         argument :id, ID, required: true

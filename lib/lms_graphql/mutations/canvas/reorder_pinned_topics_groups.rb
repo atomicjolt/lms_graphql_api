@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class ReorderPinnedTopicsGroup < CanvasBaseMutation
+      class ReorderPinnedTopicsGroup < BaseMutation
         argument :group_id, ID, required: true
         argument :order, Int, required: true
         field :return_value, Boolean, null: false

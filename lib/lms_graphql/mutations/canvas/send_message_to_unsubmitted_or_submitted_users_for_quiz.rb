@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class SendMessageToUnsubmittedOrSubmittedUsersForQuiz < CanvasBaseMutation
+      class SendMessageToUnsubmittedOrSubmittedUsersForQuiz < BaseMutation
         argument :course_id, ID, required: true
         argument :id, ID, required: true
         argument :conversations, String, required: false

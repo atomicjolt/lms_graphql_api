@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class CreateOrFindLiveAssessment < CanvasBaseMutation
+      class CreateOrFindLiveAssessment < BaseMutation
         argument :course_id, ID, required: true
         field :return_value, Boolean, null: false
         def resolve(course_id:)

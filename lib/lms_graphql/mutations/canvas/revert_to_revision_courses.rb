@@ -3,7 +3,7 @@ require_relative "../../types/canvas/page_revision"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class RevertToRevisionCourse < CanvasBaseMutation
+      class RevertToRevisionCourse < BaseMutation
         argument :course_id, ID, required: true
         argument :url, String, required: true
         argument :revision_id, ID, required: true

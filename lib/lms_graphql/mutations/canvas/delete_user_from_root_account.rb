@@ -3,7 +3,7 @@ require_relative "../../types/canvas/user"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class DeleteUserFromRootAccount < CanvasBaseMutation
+      class DeleteUserFromRootAccount < BaseMutation
         argument :account_id, ID, required: true
         argument :user_id, ID, required: true
         field :user, LMSGraphQL::Types::Canvas::CanvasUser, null: false

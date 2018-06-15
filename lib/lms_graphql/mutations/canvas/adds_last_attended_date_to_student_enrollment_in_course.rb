@@ -3,7 +3,7 @@ require_relative "../../types/canvas/enrollment"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class AddsLastAttendedDateToStudentEnrollmentInCourse < CanvasBaseMutation
+      class AddsLastAttendedDateToStudentEnrollmentInCourse < BaseMutation
         argument :course_id, ID, required: true
         argument :user_id, ID, required: true
         field :enrollment, LMSGraphQL::Types::Canvas::CanvasEnrollment, null: false

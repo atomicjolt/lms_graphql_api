@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class CreateSinglePollSession < CanvasBaseMutation
+      class CreateSinglePollSession < BaseMutation
         argument :poll_id, ID, required: true
         argument :poll_sessions_course_id, Int, required: true
         argument :poll_sessions_course_section_id, Int, required: false

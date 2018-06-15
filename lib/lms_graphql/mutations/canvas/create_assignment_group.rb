@@ -3,7 +3,7 @@ require_relative "../../types/canvas/assignment_group"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class CreateAssignmentGroup < CanvasBaseMutation
+      class CreateAssignmentGroup < BaseMutation
         argument :course_id, ID, required: true
         argument :name, String, required: false
         argument :position, Int, required: false

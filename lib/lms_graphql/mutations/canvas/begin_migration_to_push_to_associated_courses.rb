@@ -3,7 +3,7 @@ require_relative "../../types/canvas/blueprint_migration"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class BeginMigrationToPushToAssociatedCourse < CanvasBaseMutation
+      class BeginMigrationToPushToAssociatedCourse < BaseMutation
         argument :course_id, ID, required: true
         argument :template_id, ID, required: true
         argument :comment, String, required: false

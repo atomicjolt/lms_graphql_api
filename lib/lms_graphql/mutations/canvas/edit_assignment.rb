@@ -3,7 +3,7 @@ require_relative "../../types/canvas/assignment"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class EditAssignment < CanvasBaseMutation
+      class EditAssignment < BaseMutation
         argument :course_id, ID, required: true
         argument :id, ID, required: true
         argument :assignment_name, String, required: false
@@ -29,7 +29,7 @@ module LMSGraphQL
         argument :assignment_description, String, required: false
         argument :assignment_assignment_group_id, Int, required: false
         argument :assignment_muted, Boolean, required: false
-        argument :assignment_assignment_overrides, [LMSGraphQL::Types::Canvas::CanvasAssignmentOverride], required: false
+        argument :assignment_assignment_overrides, [LMSGraphQL::Types::Canvas::CanvasAssignmentOverrideInput], required: false
         argument :assignment_only_visible_to_overrides, Boolean, required: false
         argument :assignment_published, Boolean, required: false
         argument :assignment_grading_standard_id, Int, required: false

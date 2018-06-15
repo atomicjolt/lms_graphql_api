@@ -3,7 +3,7 @@ require_relative "../../types/canvas/sis_import"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class AbortSisImport < CanvasBaseMutation
+      class AbortSisImport < BaseMutation
         argument :account_id, ID, required: true
         argument :id, ID, required: true
         field :sis_import, LMSGraphQL::Types::Canvas::CanvasSisImport, null: false

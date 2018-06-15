@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class CreateErrorReport < CanvasBaseMutation
+      class CreateErrorReport < BaseMutation
         argument :error_subject, String, required: true
         argument :error_url, String, required: false
         argument :error_email, String, required: false

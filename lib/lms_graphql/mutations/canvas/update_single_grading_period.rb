@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class UpdateSingleGradingPeriod < CanvasBaseMutation
+      class UpdateSingleGradingPeriod < BaseMutation
         argument :course_id, ID, required: true
         argument :id, ID, required: true
         argument :grading_periods_start_date, [LMSGraphQL::Types::DateTimeType], required: true

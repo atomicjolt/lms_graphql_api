@@ -3,7 +3,7 @@ require_relative "../../types/canvas/file"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class DeleteFile < CanvasBaseMutation
+      class DeleteFile < BaseMutation
         argument :id, ID, required: true
         argument :replace, Boolean, required: false
         field :file, LMSGraphQL::Types::Canvas::CanvasFile, null: false

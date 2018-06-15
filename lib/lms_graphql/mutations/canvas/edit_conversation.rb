@@ -3,7 +3,7 @@ require_relative "../canvas_base_mutation"
 module LMSGraphQL
   module Mutations
     module Canvas
-      class EditConversation < CanvasBaseMutation
+      class EditConversation < BaseMutation
         argument :id, ID, required: true
         argument :conversation_workflow_state, String, required: false
         argument :conversation_subscribed, Boolean, required: false
