@@ -1,8 +1,6 @@
 require "byebug"
-require "support/http_party"
-require "support/webmocks"
 
-require "lms_api"
+require "lms_graphql_api"
 require "lms/graphql/canvas_schema"
 
 describe LMS::GraphQL::Types::Canvas::Schema do
