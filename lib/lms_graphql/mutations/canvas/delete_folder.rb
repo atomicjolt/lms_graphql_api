@@ -1,0 +1,22 @@
+require_relative "../canvas_base_mutation"
+
+module LMSGraphQL
+  module Mutations
+    module Canvas
+      class DeleteFolder < CanvasBaseMutation
+        argument :id, ID, required: true
+        argument :force, Boolean, required: false
+        field :return_value, Boolean, null: false
+        def resolve(id:, force: nil)
+          ctx[:canvas_api].proxy(
+            "DELETE_FOLDER",
+            {
+              "id": id,
+              "force": force            },
+            nil,
+          ).parsed_response
+        end
+      end
+    end
+  end
+end

@@ -1,0 +1,20 @@
+require_relative "../canvas_base_resolver"
+
+module LMSGraphQL
+  module Resolvers
+    module Canvas
+      class GetDashboardPosition < CanvasBaseResolver
+        type Boolean, null: false
+        argument :id, ID, required: true
+        def resolve(id:)
+          context[:canvas_api].proxy(
+            "GET_DASHBOARD_POSITIONS",
+            {
+              "id": id            },
+            nil,
+          ).parsed_response
+        end
+      end
+    end
+  end
+end

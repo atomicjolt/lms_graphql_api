@@ -1,9 +1,9 @@
 require "byebug"
 
 require "lms_graphql_api"
-require "lms/graphql/canvas_schema"
+require "lms_graphql/canvas_schema"
 
-describe LMS::GraphQL::Types::Canvas::Schema do
+describe LMSGraphQL::Types::Canvas::Schema do
 
   it "executes the list_courses_for_user query" do
     canvas_api = double
@@ -18,7 +18,7 @@ describe LMS::GraphQL::Types::Canvas::Schema do
     context = {
       canvas_api: canvas_api
     }
-    result = LMS::GraphQL::Types::Canvas::Schema.execute(
+    result = LMSGraphQL::Types::Canvas::Schema.execute(
       query,
       variables: variables,
       context: context,
@@ -118,7 +118,7 @@ describe LMS::GraphQL::Types::Canvas::Schema do
         }
       }
     CODE
-    result = LMS::GraphQL::Types::Canvas::Schema.execute(query)
+    result = LMSGraphQL::Types::Canvas::Schema.execute(query)
     root_query = result["data"]["__schema"]["types"].detect{|type| type["name"] == "Query"}
     listCoursesForUser = root_query["fields"].detect{|field| field["name"] == "listCoursesForUser"}
     expect(listCoursesForUser["name"]).to eq "listCoursesForUser"

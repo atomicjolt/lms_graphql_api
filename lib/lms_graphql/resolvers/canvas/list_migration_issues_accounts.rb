@@ -1,0 +1,22 @@
+require_relative "../canvas_base_resolver"
+require_relative "../../types/canvas/migration_issue"
+module LMSGraphQL
+  module Resolvers
+    module Canvas
+      class ListMigrationIssuesAccount < CanvasBaseResolver
+        type [LMSGraphQL::Types::Canvas::MigrationIssue], null: false
+        argument :account_id, ID, required: true
+        argument :content_migration_id, ID, required: true
+        def resolve(account_id:, content_migration_id:)
+          context[:canvas_api].proxy(
+            "LIST_MIGRATION_ISSUES_ACCOUNTS",
+            {
+              "account_id": account_id,
+              "content_migration_id": content_migration_id            },
+            nil,
+          ).parsed_response
+        end
+      end
+    end
+  end
+end

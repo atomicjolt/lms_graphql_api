@@ -1,0 +1,24 @@
+require_relative "../canvas_base_resolver"
+require_relative "../../types/canvas/page_revision"
+module LMSGraphQL
+  module Resolvers
+    module Canvas
+      class ShowRevisionGroupsLatest < CanvasBaseResolver
+        type LMSGraphQL::Types::Canvas::PageRevision, null: false
+        argument :group_id, ID, required: true
+        argument :url, String, required: true
+        argument :summary, Boolean, required: false
+        def resolve(group_id:, url:, summary: nil)
+          context[:canvas_api].proxy(
+            "SHOW_REVISION_GROUPS_LATEST",
+            {
+              "group_id": group_id,
+              "url": url,
+              "summary": summary            },
+            nil,
+          ).parsed_response
+        end
+      end
+    end
+  end
+end

@@ -1,0 +1,20 @@
+require_relative "../canvas_base_resolver"
+
+module LMSGraphQL
+  module Resolvers
+    module Canvas
+      class GetLatePolicy < CanvasBaseResolver
+        type Boolean, null: false
+        argument :id, ID, required: true
+        def resolve(id:)
+          context[:canvas_api].proxy(
+            "GET_LATE_POLICY",
+            {
+              "id": id            },
+            nil,
+          ).parsed_response
+        end
+      end
+    end
+  end
+end

@@ -1,0 +1,20 @@
+require_relative "../canvas_base_resolver"
+require_relative "../../types/canvas/course_nickname"
+module LMSGraphQL
+  module Resolvers
+    module Canvas
+      class GetCourseNickname < CanvasBaseResolver
+        type LMSGraphQL::Types::Canvas::CourseNickname, null: false
+        argument :course_id, ID, required: true
+        def resolve(course_id:)
+          context[:canvas_api].proxy(
+            "GET_COURSE_NICKNAME",
+            {
+              "course_id": course_id            },
+            nil,
+          ).parsed_response
+        end
+      end
+    end
+  end
+end

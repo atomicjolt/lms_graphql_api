@@ -1,4 +1,4 @@
-module LMS
+module LMSGraphQL
 end
 
-require "lms/canvas"
+require "lms_graphql/canvas"
