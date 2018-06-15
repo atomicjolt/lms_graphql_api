@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListMigrationSystemsGroup < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::Migrator], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasMigrator], null: false
         argument :group_id, ID, required: true
         def resolve(group_id:)
           context[:canvas_api].proxy(

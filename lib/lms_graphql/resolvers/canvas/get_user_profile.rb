@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class GetUserProfile < CanvasBaseResolver
-        type LMSGraphQL::Types::Canvas::Profile, null: false
+        type LMSGraphQL::Types::Canvas::CanvasProfile, null: false
         argument :user_id, ID, required: true
         def resolve(user_id:)
           context[:canvas_api].proxy(

@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListAnnouncement < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::DiscussionTopic], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasDiscussionTopic], null: false
         argument :context_codes, String, required: true
         argument :start_date, LMSGraphQL::Types::DateTimeType, required: false
         argument :end_date, LMSGraphQL::Types::DateTimeType, required: false

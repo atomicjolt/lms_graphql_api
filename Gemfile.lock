@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    lms-graphql-api (0.2.1)
+    lms-graphql-api (0.3.0)
       graphql (>= 1.8.2)
       lms-api (>= 1.5.0)
 

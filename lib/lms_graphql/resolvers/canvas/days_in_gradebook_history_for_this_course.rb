@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class DaysInGradebookHistoryForThisCourse < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::Day], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasDay], null: false
         argument :course_id, ID, required: true
         def resolve(course_id:)
           context[:canvas_api].proxy(

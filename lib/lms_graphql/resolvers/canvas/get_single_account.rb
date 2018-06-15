@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class GetSingleAccount < CanvasBaseResolver
-        type LMSGraphQL::Types::Canvas::Account, null: false
+        type LMSGraphQL::Types::Canvas::CanvasAccount, null: false
         argument :id, ID, required: true
         def resolve(id:)
           context[:canvas_api].proxy(

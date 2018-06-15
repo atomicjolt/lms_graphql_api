@@ -5,7 +5,7 @@ module LMSGraphQL
     module Canvas
       class UnShareBrandconfigTheme < CanvasBaseMutation
         argument :id, ID, required: true
-        field :shared_brand_config, LMSGraphQL::Types::Canvas::SharedBrandConfig, null: false
+        field :shared_brand_config, LMSGraphQL::Types::Canvas::CanvasSharedBrandConfig, null: false
         def resolve(id:)
           ctx[:canvas_api].proxy(
             "UN_SHARE_BRANDCONFIG_THEME",

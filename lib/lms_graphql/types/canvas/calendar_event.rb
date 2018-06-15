@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class CalendarEvent < BaseType
+      class CanvasCalendarEvent < BaseType
         description "Calendar Events. API Docs: https://canvas.instructure.com/doc/api/calendar_events.html"
         field :id, ID, "The ID of the calendar event.Example: 234", null: true
         field :title, String, "The title of the calendar event.Example: Paintball Fight!", null: true

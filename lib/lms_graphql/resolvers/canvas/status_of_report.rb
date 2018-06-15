@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class StatusOfReport < CanvasBaseResolver
-        type LMSGraphQL::Types::Canvas::Report, null: false
+        type LMSGraphQL::Types::Canvas::CanvasReport, null: false
         argument :account_id, ID, required: true
         argument :report, String, required: true
         argument :id, ID, required: true

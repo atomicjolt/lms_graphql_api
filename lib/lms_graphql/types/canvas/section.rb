@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class Section < BaseType
+      class CanvasSection < BaseType
         description "Sections. API Docs: https://canvas.instructure.com/doc/api/sections.html"
         field :id, ID, "The unique identifier for the section..Example: 1", null: true
         field :name, String, "The name of the section..Example: Section A", null: true

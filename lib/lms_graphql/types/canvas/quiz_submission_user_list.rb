@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class QuizSubmissionUserList < BaseType
+      class CanvasQuizSubmissionUserList < BaseType
         description "Quiz Submission User List. API Docs: https://canvas.instructure.com/doc/api/quiz_submission_user_list.html"
       
       end

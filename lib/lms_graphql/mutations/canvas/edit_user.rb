@@ -13,7 +13,7 @@ module LMSGraphQL
         argument :user_locale, String, required: false
         argument :user_avatar_token, String, required: false
         argument :user_avatar_url, String, required: false
-        field :user, LMSGraphQL::Types::Canvas::User, null: false
+        field :user, LMSGraphQL::Types::Canvas::CanvasUser, null: false
         def resolve(id:, user_name: nil, user_short_name: nil, user_sortable_name: nil, user_time_zone: nil, user_email: nil, user_locale: nil, user_avatar_token: nil, user_avatar_url: nil)
           ctx[:canvas_api].proxy(
             "EDIT_USER",

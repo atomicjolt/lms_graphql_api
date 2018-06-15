@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ShowModule < CanvasBaseResolver
-        type LMSGraphQL::Types::Canvas::Module, null: false
+        type LMSGraphQL::Types::Canvas::CanvasModule, null: false
         argument :course_id, ID, required: true
         argument :id, ID, required: true
         argument :include, String, required: false

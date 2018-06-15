@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class SharedBrandConfig < BaseType
+      class CanvasSharedBrandConfig < BaseType
         description "Shared Brand Configs. API Docs: https://canvas.instructure.com/doc/api/shared_brand_configs.html"
         field :id, ID, "The shared_brand_config identifier..Example: 987", null: true
         field :account_id, ID, "The id of the account it should be shared within..", null: true

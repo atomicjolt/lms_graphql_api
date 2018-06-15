@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class Tab < BaseType
+      class CanvasTab < BaseType
         description "Tabs. API Docs: https://canvas.instructure.com/doc/api/tabs.html"
         field :html_url, String, "Example: /courses/1/external_tools/4", null: true
         field :id, ID, "Example: context_external_tool_4", null: true

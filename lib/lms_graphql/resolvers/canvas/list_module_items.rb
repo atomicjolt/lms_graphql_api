@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListModuleItem < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::ModuleItem], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasModuleItem], null: false
         argument :course_id, ID, required: true
         argument :module_id, ID, required: true
         argument :include, String, required: false

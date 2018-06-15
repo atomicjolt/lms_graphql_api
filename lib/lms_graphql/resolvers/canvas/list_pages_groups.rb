@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListPagesGroup < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::Page], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasPage], null: false
         argument :group_id, ID, required: true
         argument :sort, String, required: false
         argument :order, String, required: false

@@ -5,7 +5,7 @@ module LMSGraphQL
     module Canvas
       class ResetCourse < CanvasBaseMutation
         argument :course_id, ID, required: true
-        field :course, LMSGraphQL::Types::Canvas::Course, null: false
+        field :course, LMSGraphQL::Types::Canvas::CanvasCourse, null: false
         def resolve(course_id:)
           ctx[:canvas_api].proxy(
             "RESET_COURSE",

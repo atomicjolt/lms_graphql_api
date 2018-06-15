@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListFilesFolder < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::File], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasFile], null: false
         argument :id, ID, required: true
         argument :content_types, String, required: false
         argument :search_term, String, required: false

@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListGradingStandardsAvailableInContextCourse < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::GradingStandard], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasGradingStandard], null: false
         argument :course_id, ID, required: true
         def resolve(course_id:)
           context[:canvas_api].proxy(

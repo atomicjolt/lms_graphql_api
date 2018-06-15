@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class GetSingleAssignmentLti < CanvasBaseResolver
-        type LMSGraphQL::Types::Canvas::LtiAssignment, null: false
+        type LMSGraphQL::Types::Canvas::CanvasLtiAssignment, null: false
         argument :assignment_id, ID, required: true
         argument :user_id, ID, required: false
         def resolve(assignment_id:, user_id: nil)

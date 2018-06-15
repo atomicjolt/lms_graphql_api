@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :import_type, String, required: false
         argument :attachment, String, required: false
         argument :extension, String, required: false
-        field :outcome_import, LMSGraphQL::Types::Canvas::OutcomeImport, null: false
+        field :outcome_import, LMSGraphQL::Types::Canvas::CanvasOutcomeImport, null: false
         def resolve(account_id:, import_type: nil, attachment: nil, extension: nil)
           ctx[:canvas_api].proxy(
             "IMPORT_OUTCOMES_ACCOUNTS",

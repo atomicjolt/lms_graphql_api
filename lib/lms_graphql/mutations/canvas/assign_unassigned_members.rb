@@ -6,7 +6,7 @@ module LMSGraphQL
       class AssignUnassignedMember < CanvasBaseMutation
         argument :group_category_id, ID, required: true
         argument :sync, Boolean, required: false
-        field :group_membership, LMSGraphQL::Types::Canvas::GroupMembership, null: false
+        field :group_membership, LMSGraphQL::Types::Canvas::CanvasGroupMembership, null: false
         def resolve(group_category_id:, sync: nil)
           ctx[:canvas_api].proxy(
             "ASSIGN_UNASSIGNED_MEMBERS",

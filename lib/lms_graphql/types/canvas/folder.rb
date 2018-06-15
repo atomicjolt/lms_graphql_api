@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class Folder < BaseType
+      class CanvasFolder < BaseType
         description "Files. API Docs: https://canvas.instructure.com/doc/api/files.html"
         field :context_type, String, "Example: Course", null: true
         field :context_id, ID, "Example: 1401", null: true

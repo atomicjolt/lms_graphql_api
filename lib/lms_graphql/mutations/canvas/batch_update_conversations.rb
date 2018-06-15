@@ -6,7 +6,7 @@ module LMSGraphQL
       class BatchUpdateConversation < CanvasBaseMutation
         argument :conversation_ids, [ID], required: true
         argument :event, String, required: true
-        field :progress, LMSGraphQL::Types::Canvas::Progress, null: false
+        field :progress, LMSGraphQL::Types::Canvas::CanvasProgress, null: false
         def resolve(conversation_ids:, event:)
           ctx[:canvas_api].proxy(
             "BATCH_UPDATE_CONVERSATIONS",

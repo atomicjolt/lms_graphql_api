@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ShowPlannernote < CanvasBaseResolver
-        type LMSGraphQL::Types::Canvas::PlannerNote, null: false
+        type LMSGraphQL::Types::Canvas::CanvasPlannerNote, null: false
         argument :id, ID, required: true
         def resolve(id:)
           context[:canvas_api].proxy(

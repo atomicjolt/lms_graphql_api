@@ -14,7 +14,7 @@ module LMSGraphQL
         argument :ratings_points, Int, required: false
         argument :calculation_method, String, required: false
         argument :calculation_int, Int, required: false
-        field :outcome, LMSGraphQL::Types::Canvas::Outcome, null: false
+        field :outcome, LMSGraphQL::Types::Canvas::CanvasOutcome, null: false
         def resolve(id:, title: nil, display_name: nil, description: nil, vendor_guid: nil, mastery_points: nil, ratings_description: nil, ratings_points: nil, calculation_method: nil, calculation_int: nil)
           ctx[:canvas_api].proxy(
             "UPDATE_OUTCOME",

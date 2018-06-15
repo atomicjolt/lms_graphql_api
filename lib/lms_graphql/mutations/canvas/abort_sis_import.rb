@@ -6,7 +6,7 @@ module LMSGraphQL
       class AbortSisImport < CanvasBaseMutation
         argument :account_id, ID, required: true
         argument :id, ID, required: true
-        field :sis_import, LMSGraphQL::Types::Canvas::SisImport, null: false
+        field :sis_import, LMSGraphQL::Types::Canvas::CanvasSisImport, null: false
         def resolve(account_id:, id:)
           ctx[:canvas_api].proxy(
             "ABORT_SIS_IMPORT",

@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class DetailsForGivenDateInGradebookHistoryForThisCourse < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::Grader], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasGrader], null: false
         argument :course_id, ID, required: true
         argument :date, String, required: true
         def resolve(course_id:, date:)

@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class GetSingleGroupCategory < CanvasBaseResolver
-        type LMSGraphQL::Types::Canvas::GroupCategory, null: false
+        type LMSGraphQL::Types::Canvas::CanvasGroupCategory, null: false
         argument :group_category_id, ID, required: true
         def resolve(group_category_id:)
           context[:canvas_api].proxy(

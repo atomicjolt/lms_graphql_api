@@ -6,7 +6,7 @@ module LMSGraphQL
       class CopyFolder < CanvasBaseMutation
         argument :dest_folder_id, ID, required: true
         argument :source_folder_id, ID, required: true
-        field :folder, LMSGraphQL::Types::Canvas::Folder, null: false
+        field :folder, LMSGraphQL::Types::Canvas::CanvasFolder, null: false
         def resolve(dest_folder_id:, source_folder_id:)
           ctx[:canvas_api].proxy(
             "COPY_FOLDER",

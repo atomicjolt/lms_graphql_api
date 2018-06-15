@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListLinkedOutcomesAccount < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::OutcomeLink], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasOutcomeLink], null: false
         argument :account_id, ID, required: true
         argument :id, ID, required: true
         argument :outcome_style, String, required: false

@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class LtiAssignment < BaseType
+      class CanvasLtiAssignment < BaseType
         description "Plagiarism Detection Platform Assignments. API Docs: https://canvas.instructure.com/doc/api/plagiarism_detection_platform_assignments.html"
         field :id, ID, "Example: 4", null: true
         field :name, String, "Example: Midterm Review", null: true

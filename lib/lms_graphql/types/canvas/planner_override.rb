@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class PlannerOverride < BaseType
+      class CanvasPlannerOverride < BaseType
         description "Planner override. API Docs: https://canvas.instructure.com/doc/api/planner_override.html"
         field :id, ID, "The ID of the planner override.Example: 234", null: true
         field :plannable_type, String, "The type of the associated object for the planner override.Example: Assignment", null: true

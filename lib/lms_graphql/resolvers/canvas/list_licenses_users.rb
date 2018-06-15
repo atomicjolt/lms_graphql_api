@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListLicensesUser < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::License], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasLicense], null: false
         argument :user_id, ID, required: true
         def resolve(user_id:)
           context[:canvas_api].proxy(

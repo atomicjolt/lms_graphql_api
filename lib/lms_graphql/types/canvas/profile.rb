@@ -4,7 +4,7 @@ require_relative "calendar_link"
 module LMSGraphQL
   module Types
     module Canvas
-      class Profile < BaseType
+      class CanvasProfile < BaseType
         description "Users. API Docs: https://canvas.instructure.com/doc/api/users.html"
         field :id, ID, "The ID of the user..Example: 1234", null: true
         field :name, String, "Sample User.Example: Sample User", null: true
@@ -17,7 +17,7 @@ module LMSGraphQL
         field :sis_user_id, ID, "sis1.Example: sis1", null: true
         field :lti_user_id, ID, "", null: true
         field :avatar_url, String, "The avatar_url can change over time, so we recommend not caching it for more than a few hours.Example: url", null: true
-        field :calendar, LMSGraphQL::Types::Canvas::CalendarLink, "", null: true
+        field :calendar, LMSGraphQL::Types::Canvas::CanvasCalendarLink, "", null: true
         field :time_zone, String, "Optional: This field is only returned in certain API calls, and will return the IANA time zone name of the user's preferred timezone..Example: America/Denver", null: true
         field :locale, String, "The users locale..", null: true
 

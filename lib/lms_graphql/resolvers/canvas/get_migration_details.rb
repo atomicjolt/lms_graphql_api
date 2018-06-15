@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class GetMigrationDetail < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::ChangeRecord], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasChangeRecord], null: false
         argument :course_id, ID, required: true
         argument :template_id, ID, required: true
         argument :id, ID, required: true

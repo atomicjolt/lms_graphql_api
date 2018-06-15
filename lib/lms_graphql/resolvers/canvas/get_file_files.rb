@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class GetFileFile < CanvasBaseResolver
-        type LMSGraphQL::Types::Canvas::File, null: false
+        type LMSGraphQL::Types::Canvas::CanvasFile, null: false
         argument :id, ID, required: true
         argument :include, String, required: false
         def resolve(id:, include: nil)

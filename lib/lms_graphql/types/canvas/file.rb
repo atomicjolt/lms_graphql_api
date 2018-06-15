@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class File < BaseType
+      class CanvasFile < BaseType
         description "Plagiarism Detection Submissions. API Docs: https://canvas.instructure.com/doc/api/plagiarism_detection_submissions.html"
         field :size, Int, "Example: 4", null: true
         field :content_type, String, "Example: text/plain", null: true

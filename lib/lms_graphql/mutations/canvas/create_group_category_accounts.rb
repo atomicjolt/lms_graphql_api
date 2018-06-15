@@ -12,7 +12,7 @@ module LMSGraphQL
         argument :sis_group_category_id, ID, required: false
         argument :create_group_count, Int, required: false
         argument :split_group_count, String, required: false
-        field :group_category, LMSGraphQL::Types::Canvas::GroupCategory, null: false
+        field :group_category, LMSGraphQL::Types::Canvas::CanvasGroupCategory, null: false
         def resolve(account_id:, name:, self_signup: nil, auto_leader: nil, group_limit: nil, sis_group_category_id: nil, create_group_count: nil, split_group_count: nil)
           ctx[:canvas_api].proxy(
             "CREATE_GROUP_CATEGORY_ACCOUNTS",

@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class GetAssociatedCourseInformation < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::Course], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasCourse], null: false
         argument :course_id, ID, required: true
         argument :template_id, ID, required: true
         def resolve(course_id:, template_id:)

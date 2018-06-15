@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class GetSingleQuiz < CanvasBaseResolver
-        type LMSGraphQL::Types::Canvas::Quiz, null: false
+        type LMSGraphQL::Types::Canvas::CanvasQuiz, null: false
         argument :course_id, ID, required: true
         argument :id, ID, required: true
         def resolve(course_id:, id:)

@@ -4,7 +4,7 @@ require_relative "answer"
 module LMSGraphQL
   module Types
     module Canvas
-      class QuizQuestion < BaseType
+      class CanvasQuizQuestion < BaseType
         description "Quiz Questions. API Docs: https://canvas.instructure.com/doc/api/quiz_questions.html"
         field :id, ID, "The ID of the quiz question..Example: 1", null: true
         field :quiz_id, ID, "The ID of the Quiz the question belongs to..Example: 2", null: true
@@ -16,7 +16,7 @@ module LMSGraphQL
         field :correct_comments, String, "The comments to display if the student answers the question correctly..Example: That's correct!", null: true
         field :incorrect_comments, String, "The comments to display if the student answers incorrectly..Example: Unfortunately, that IS a prime number.", null: true
         field :neutral_comments, String, "The comments to display regardless of how the student answered..Example: Goldbach's conjecture proposes that every even integer greater than 2 can be expressed as the sum of two prime numbers.", null: true
-        field :answers, [LMSGraphQL::Types::Canvas::Answer], "An array of available answers to display to the student..", null: true
+        field :answers, [LMSGraphQL::Types::Canvas::CanvasAnswer], "An array of available answers to display to the student..", null: true
 
       end
     end

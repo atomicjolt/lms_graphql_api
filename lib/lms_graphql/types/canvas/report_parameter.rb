@@ -9,7 +9,7 @@ module LMSGraphQL
           value "courses"
           value "outcomes"
         end
-      class ReportParameter < BaseType
+      class CanvasReportParameter < BaseType
         description "Account Reports. API Docs: https://canvas.instructure.com/doc/api/account_reports.html"
         field :enrollment_term_id, ID, "The canvas id of the term to get grades from.Example: 2", null: true
         field :include_deleted, Boolean, "If true, deleted objects will be included. If false, deleted objects will be omitted..", null: true

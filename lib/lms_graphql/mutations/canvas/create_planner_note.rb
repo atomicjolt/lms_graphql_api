@@ -10,7 +10,7 @@ module LMSGraphQL
         argument :course_id, ID, required: false
         argument :linked_object_type, String, required: false
         argument :linked_object_id, ID, required: false
-        field :planner_note, LMSGraphQL::Types::Canvas::PlannerNote, null: false
+        field :planner_note, LMSGraphQL::Types::Canvas::CanvasPlannerNote, null: false
         def resolve(title: nil, details: nil, todo_date: nil, course_id: nil, linked_object_type: nil, linked_object_id: nil)
           ctx[:canvas_api].proxy(
             "CREATE_PLANNER_NOTE",

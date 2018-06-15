@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListFolder < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::Folder], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasFolder], null: false
         argument :id, ID, required: true
         def resolve(id:)
           context[:canvas_api].proxy(

@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class GetBlueprintInformation < CanvasBaseResolver
-        type LMSGraphQL::Types::Canvas::BlueprintTemplate, null: false
+        type LMSGraphQL::Types::Canvas::CanvasBlueprintTemplate, null: false
         argument :course_id, ID, required: true
         argument :template_id, ID, required: true
         def resolve(course_id:, template_id:)

@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class RetrieveAssignmentOverriddenDatesForQuiz < CanvasBaseResolver
-        type LMSGraphQL::Types::Canvas::QuizAssignmentOverrideSetContainer, null: false
+        type LMSGraphQL::Types::Canvas::CanvasQuizAssignmentOverrideSetContainer, null: false
         argument :course_id, ID, required: true
         argument :quiz_assignment_overrides_0_quiz_ids, Int, required: false
         def resolve(course_id:, quiz_assignment_overrides_0_quiz_ids: nil)

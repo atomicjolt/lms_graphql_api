@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class ExternalToolTagAttribute < BaseType
+      class CanvasExternalToolTagAttribute < BaseType
         description "Assignments. API Docs: https://canvas.instructure.com/doc/api/assignments.html"
         field :url, String, "URL to the external tool.Example: http://instructure.com", null: true
         field :new_tab, Boolean, "Whether or not there is a new tab for the external tool.", null: true

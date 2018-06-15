@@ -5,7 +5,7 @@ module LMSGraphQL
     module Canvas
       class RemoveCourseFromFavorite < CanvasBaseMutation
         argument :id, ID, required: true
-        field :favorite, LMSGraphQL::Types::Canvas::Favorite, null: false
+        field :favorite, LMSGraphQL::Types::Canvas::CanvasFavorite, null: false
         def resolve(id:)
           ctx[:canvas_api].proxy(
             "REMOVE_COURSE_FROM_FAVORITES",

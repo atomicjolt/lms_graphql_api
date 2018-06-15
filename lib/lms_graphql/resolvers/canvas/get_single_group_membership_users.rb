@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class GetSingleGroupMembershipUser < CanvasBaseResolver
-        type LMSGraphQL::Types::Canvas::GroupMembership, null: false
+        type LMSGraphQL::Types::Canvas::CanvasGroupMembership, null: false
         argument :group_id, ID, required: true
         argument :user_id, ID, required: true
         def resolve(group_id:, user_id:)

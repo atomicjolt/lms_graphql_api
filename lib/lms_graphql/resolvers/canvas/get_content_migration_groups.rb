@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class GetContentMigrationGroup < CanvasBaseResolver
-        type LMSGraphQL::Types::Canvas::ContentMigration, null: false
+        type LMSGraphQL::Types::Canvas::CanvasContentMigration, null: false
         argument :group_id, ID, required: true
         argument :id, ID, required: true
         def resolve(group_id:, id:)

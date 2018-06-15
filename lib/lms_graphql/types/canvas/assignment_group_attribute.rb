@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class AssignmentGroupAttribute < BaseType
+      class CanvasAssignmentGroupAttribute < BaseType
         description "SIS Integration. API Docs: https://canvas.instructure.com/doc/api/sis_integration.html"
         field :id, ID, "the id of the Assignment Group.Example: 1", null: true
         field :name, String, "the name of the Assignment Group.Example: group2", null: true

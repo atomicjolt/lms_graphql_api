@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListLinkedOutcomesGlobal < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::OutcomeLink], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasOutcomeLink], null: false
         argument :id, ID, required: true
         argument :outcome_style, String, required: false
         def resolve(id:, outcome_style: nil)

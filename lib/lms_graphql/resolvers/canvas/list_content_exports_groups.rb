@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListContentExportsGroup < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::ContentExport], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasContentExport], null: false
         argument :group_id, ID, required: true
         def resolve(group_id:)
           context[:canvas_api].proxy(

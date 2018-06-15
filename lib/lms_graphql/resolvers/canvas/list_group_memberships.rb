@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListGroupMembership < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::GroupMembership], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasGroupMembership], null: false
         argument :group_id, ID, required: true
         argument :filter_states, String, required: false
         def resolve(group_id:, filter_states: nil)

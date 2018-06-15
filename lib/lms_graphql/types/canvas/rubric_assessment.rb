@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class RubricAssessment < BaseType
+      class CanvasRubricAssessment < BaseType
         description "Rubrics. API Docs: https://canvas.instructure.com/doc/api/rubrics.html"
         field :id, ID, "the ID of the rubric.Example: 1", null: true
         field :rubric_id, ID, "the rubric the assessment belongs to.Example: 1", null: true

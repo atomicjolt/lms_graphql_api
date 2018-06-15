@@ -6,7 +6,7 @@ module LMSGraphQL
       class CreateMembership < CanvasBaseMutation
         argument :group_id, ID, required: true
         argument :user_id, ID, required: false
-        field :group_membership, LMSGraphQL::Types::Canvas::GroupMembership, null: false
+        field :group_membership, LMSGraphQL::Types::Canvas::CanvasGroupMembership, null: false
         def resolve(group_id:, user_id: nil)
           ctx[:canvas_api].proxy(
             "CREATE_MEMBERSHIP",

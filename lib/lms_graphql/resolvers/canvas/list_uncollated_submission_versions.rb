@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListUncollatedSubmissionVersion < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::SubmissionVersion], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasSubmissionVersion], null: false
         argument :course_id, ID, required: true
         argument :assignment_id, ID, required: false
         argument :user_id, ID, required: false

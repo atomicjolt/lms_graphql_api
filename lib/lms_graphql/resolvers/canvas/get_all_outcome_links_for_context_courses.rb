@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class GetAllOutcomeLinksForContextCourse < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::OutcomeLink], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasOutcomeLink], null: false
         argument :course_id, ID, required: true
         argument :outcome_style, String, required: false
         argument :outcome_group_style, String, required: false

@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class Collaboration < BaseType
+      class CanvasCollaboration < BaseType
         description "Collaborations. API Docs: https://canvas.instructure.com/doc/api/collaborations.html"
         field :id, ID, "The unique identifier for the collaboration.Example: 43", null: true
         field :collaboration_type, String, "A name for the type of collaboration.Example: Microsoft Office", null: true

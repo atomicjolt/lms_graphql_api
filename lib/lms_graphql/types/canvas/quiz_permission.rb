@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class QuizPermission < BaseType
+      class CanvasQuizPermission < BaseType
         description "Quizzes. API Docs: https://canvas.instructure.com/doc/api/quizzes.html"
         field :read, Boolean, "whether the user can view the quiz.Example: true", null: true
         field :submit, Boolean, "whether the user may submit a submission for the quiz.Example: true", null: true

@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListAccountAdmin < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::Admin], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasAdmin], null: false
         argument :account_id, ID, required: true
         argument :user_id, [Int], required: false
         def resolve(account_id:, user_id: nil)

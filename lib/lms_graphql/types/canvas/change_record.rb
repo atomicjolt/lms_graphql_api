@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class ChangeRecord < BaseType
+      class CanvasChangeRecord < BaseType
         description "Blueprint Courses. API Docs: https://canvas.instructure.com/doc/api/blueprint_courses.html"
         field :asset_id, ID, "The ID of the learning object that was changed in the blueprint course..Example: 2", null: true
         field :asset_type, String, "The type of the learning object that was changed in the blueprint course.  One of 'assignment', 'attachment', 'discussion_topic', 'external_tool', 'quiz', or 'wiki_page'..Example: assignment", null: true

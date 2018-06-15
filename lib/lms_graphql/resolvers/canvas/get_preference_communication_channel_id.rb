@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class GetPreferenceCommunicationChannelId < CanvasBaseResolver
-        type LMSGraphQL::Types::Canvas::NotificationPreference, null: false
+        type LMSGraphQL::Types::Canvas::CanvasNotificationPreference, null: false
         argument :user_id, ID, required: true
         argument :communication_channel_id, ID, required: true
         argument :notification, String, required: true

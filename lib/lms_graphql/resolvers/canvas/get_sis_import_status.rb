@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class GetSisImportStatus < CanvasBaseResolver
-        type LMSGraphQL::Types::Canvas::SisImport, null: false
+        type LMSGraphQL::Types::Canvas::CanvasSisImport, null: false
         argument :account_id, ID, required: true
         argument :id, ID, required: true
         def resolve(account_id:, id:)

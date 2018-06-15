@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :url, String, required: true
         argument :header_match, Boolean, required: false
         argument :verbosity, String, required: false
-        field :external_feed, LMSGraphQL::Types::Canvas::ExternalFeed, null: false
+        field :external_feed, LMSGraphQL::Types::Canvas::CanvasExternalFeed, null: false
         def resolve(course_id:, url:, header_match: nil, verbosity: nil)
           ctx[:canvas_api].proxy(
             "CREATE_EXTERNAL_FEED_COURSES",

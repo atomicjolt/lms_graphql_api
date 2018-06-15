@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class RetrieveAllQuizReport < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::QuizReport], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasQuizReport], null: false
         argument :course_id, ID, required: true
         argument :quiz_id, ID, required: true
         argument :includes_all_versions, Boolean, required: false

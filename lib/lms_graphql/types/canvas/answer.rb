@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class Answer < BaseType
+      class CanvasAnswer < BaseType
         description "Quiz Questions. API Docs: https://canvas.instructure.com/doc/api/quiz_questions.html"
         field :id, ID, "The unique identifier for the answer.  Do not supply if this answer is part of a new question.Example: 6656", null: true
         field :answer_text, String, "The text of the answer..Example: Constantinople", null: true

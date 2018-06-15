@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ResolvePathCoursesFullPath < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::Folder], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasFolder], null: false
         argument :course_id, ID, required: true
         def resolve(course_id:)
           context[:canvas_api].proxy(

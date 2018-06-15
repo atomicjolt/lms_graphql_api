@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class RolePermission < BaseType
+      class CanvasRolePermission < BaseType
         description "Roles. API Docs: https://canvas.instructure.com/doc/api/roles.html"
         field :enabled, Boolean, "Whether the role has the permission.Example: true", null: true
         field :locked, Boolean, "Whether the permission is locked by this role.", null: true

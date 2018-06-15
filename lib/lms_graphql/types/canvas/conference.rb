@@ -4,7 +4,7 @@ require_relative "conference_recording"
 module LMSGraphQL
   module Types
     module Canvas
-      class Conference < BaseType
+      class CanvasConference < BaseType
         description "Conferences. API Docs: https://canvas.instructure.com/doc/api/conferences.html"
         field :id, ID, "The id of the conference.Example: 170", null: true
         field :conference_type, String, "The type of conference.Example: AdobeConnect", null: true
@@ -18,7 +18,7 @@ module LMSGraphQL
         field :has_advanced_settings, Boolean, "True if the conference type has advanced settings..", null: true
         field :long_running, Boolean, "If true the conference is long running and has no expected end time.", null: true
         field :user_settings, String, "A collection of settings specific to the conference type.Example: true", null: true
-        field :recordings, [LMSGraphQL::Types::Canvas::ConferenceRecording], "A List of recordings for the conference.", null: true
+        field :recordings, [LMSGraphQL::Types::Canvas::CanvasConferenceRecording], "A List of recordings for the conference.", null: true
         field :url, String, "URL for the conference, may be null if the conference type doesn't set it.", null: true
         field :join_url, String, "URL to join the conference, may be null if the conference type doesn't set it.", null: true
 

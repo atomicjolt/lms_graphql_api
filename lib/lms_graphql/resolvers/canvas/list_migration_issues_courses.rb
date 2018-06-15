@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListMigrationIssuesCourse < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::MigrationIssue], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasMigrationIssue], null: false
         argument :course_id, ID, required: true
         argument :content_migration_id, ID, required: true
         def resolve(course_id:, content_migration_id:)

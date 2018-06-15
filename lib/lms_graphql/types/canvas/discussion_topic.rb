@@ -21,7 +21,7 @@ module LMSGraphQL
           value "side_comment"
           value "threaded"
         end
-      class DiscussionTopic < BaseType
+      class CanvasDiscussionTopic < BaseType
         description "Discussion Topics. API Docs: https://canvas.instructure.com/doc/api/discussion_topics.html"
         field :id, ID, "The ID of this topic..Example: 1", null: true
         field :title, String, "The topic title..Example: Topic 1", null: true
@@ -43,7 +43,7 @@ module LMSGraphQL
         field :locked, Boolean, "Whether or not the discussion is 'closed for comments'..", null: true
         field :pinned, Boolean, "Whether or not the discussion has been 'pinned' by an instructor.", null: true
         field :locked_for_user, Boolean, "Whether or not this is locked for the user..Example: true", null: true
-        field :lock_info, LMSGraphQL::Types::Canvas::LockInfo, "(Optional) Information for the user about the lock. Present when locked_for_user is true..", null: true
+        field :lock_info, LMSGraphQL::Types::Canvas::CanvasLockInfo, "(Optional) Information for the user about the lock. Present when locked_for_user is true..", null: true
         field :lock_explanation, String, "(Optional) An explanation of why this is locked for the user. Present when locked_for_user is true..Example: This discussion is locked until September 1 at 12:00am", null: true
         field :user_name, String, "The username of the topic creator..Example: User Name", null: true
         field :topic_children, Int, "DEPRECATED An array of topic_ids for the group discussions the user is a part of..Example: 5, 7, 10", null: true
@@ -52,7 +52,7 @@ module LMSGraphQL
         field :podcast_url, String, "If the topic is a podcast topic this is the feed url for the current user..Example: /feeds/topics/1/enrollment_1XAcepje4u228rt4mi7Z1oFbRpn3RAkTzuXIGOPe.rss", null: true
         field :discussion_type, DiscussionTopicDiscussionTypeEnum, "The type of discussion. Values are 'side_comment', for discussions that only allow one level of nested comments, and 'threaded' for fully threaded discussions..Example: side_comment", null: true
         field :group_category_id, ID, "The unique identifier of the group category if the topic is a group discussion, otherwise null..", null: true
-        field :attachments, [LMSGraphQL::Types::Canvas::FileAttachment], "Array of file attachments..", null: true
+        field :attachments, [LMSGraphQL::Types::Canvas::CanvasFileAttachment], "Array of file attachments..", null: true
         field :permissions, String, "The current user's permissions on this topic..Example: true", null: true
         field :allow_rating, Boolean, "Whether or not users can rate entries in this topic..Example: true", null: true
         field :only_graders_can_rate, Boolean, "Whether or not grade permissions are required to rate entries..Example: true", null: true

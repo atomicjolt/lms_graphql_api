@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class BlueprintRestriction < BaseType
+      class CanvasBlueprintRestriction < BaseType
         description "Blueprint Courses. API Docs: https://canvas.instructure.com/doc/api/blueprint_courses.html"
         field :content, Boolean, "Restriction on main content (e.g. title, description)..Example: true", null: true
         field :points, Boolean, "Restriction on points possible for assignments and graded learning objects.Example: true", null: true

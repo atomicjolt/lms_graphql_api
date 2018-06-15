@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :id, ID, required: true
         argument :user_id, ID, required: true
         argument :column_data_content, String, required: true
-        field :column_datum, LMSGraphQL::Types::Canvas::ColumnDatum, null: false
+        field :column_datum, LMSGraphQL::Types::Canvas::CanvasColumnDatum, null: false
         def resolve(course_id:, id:, user_id:, column_data_content:)
           ctx[:canvas_api].proxy(
             "UPDATE_COLUMN_DATA",

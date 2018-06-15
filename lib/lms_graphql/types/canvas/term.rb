@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class Term < BaseType
+      class CanvasTerm < BaseType
         description "Courses. API Docs: https://canvas.instructure.com/doc/api/courses.html"
         field :id, ID, "Example: 1", null: true
         field :name, String, "Example: Default Term", null: true

@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class QuizGroup < BaseType
+      class CanvasQuizGroup < BaseType
         description "Quiz Question Groups. API Docs: https://canvas.instructure.com/doc/api/quiz_question_groups.html"
         field :id, ID, "The ID of the question group..Example: 1", null: true
         field :quiz_id, ID, "The ID of the Quiz the question group belongs to..Example: 2", null: true

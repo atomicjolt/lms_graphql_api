@@ -11,7 +11,7 @@ module LMSGraphQL
           value "error"
           value "calendar"
         end
-      class AccountNotification < BaseType
+      class CanvasAccountNotification < BaseType
         description "Account Notifications. API Docs: https://canvas.instructure.com/doc/api/account_notifications.html"
         field :subject, String, "The subject of the notifications.Example: Attention Students", null: true
         field :message, String, "The message to be sent in the notification..Example: This is a test of the notification system.", null: true

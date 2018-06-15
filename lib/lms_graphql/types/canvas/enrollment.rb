@@ -5,7 +5,7 @@ require_relative "user"
 module LMSGraphQL
   module Types
     module Canvas
-      class Enrollment < BaseType
+      class CanvasEnrollment < BaseType
         description "Enrollments. API Docs: https://canvas.instructure.com/doc/api/enrollments.html"
         field :id, ID, "The ID of the enrollment..Example: 1", null: true
         field :course_id, ID, "The unique id of the course..Example: 1", null: true
@@ -33,8 +33,8 @@ module LMSGraphQL
         field :last_attended_at, LMSGraphQL::Types::DateTimeType, "The last attended date of the user for the enrollment in a course, in ISO8601 format..Example: 2012-04-18T23:08:51Z", null: true
         field :total_activity_time, Int, "The total activity time of the user for the enrollment, in seconds..Example: 260", null: true
         field :html_url, String, "The URL to the Canvas web UI page for this course enrollment..Example: https://.", null: true
-        field :grades, LMSGraphQL::Types::Canvas::Grade, "The URL to the Canvas web UI page containing the grades associated with this enrollment..Example: https://., 35, , 6.67, ", null: true
-        field :user, LMSGraphQL::Types::Canvas::User, "A description of the user..Example: 3, Student 1, 1, Student, Stud 1", null: true
+        field :grades, LMSGraphQL::Types::Canvas::CanvasGrade, "The URL to the Canvas web UI page containing the grades associated with this enrollment..Example: https://., 35, , 6.67, ", null: true
+        field :user, LMSGraphQL::Types::Canvas::CanvasUser, "A description of the user..Example: 3, Student 1, 1, Student, Stud 1", null: true
         field :computed_current_score, Float, "optional: The student's score in the course, ignoring ungraded assignments. (applies only to student enrollments, and only available in course endpoints).Example: 90.25", null: true
         field :computed_final_score, Float, "optional: The student's score in the course including ungraded assignments with a score of 0. (applies only to student enrollments, and only available in course endpoints).Example: 80.67", null: true
         field :computed_current_grade, String, "optional: The letter grade equivalent of computed_current_score, if available. (applies only to student enrollments, and only available in course endpoints).Example: A-", null: true

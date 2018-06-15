@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :parameters, String, required: false
         argument :parameters_course_id, Int, required: false
         argument :parameters_users, Boolean, required: false
-        field :report, LMSGraphQL::Types::Canvas::Report, null: false
+        field :report, LMSGraphQL::Types::Canvas::CanvasReport, null: false
         def resolve(account_id:, report:, parameters: nil, parameters_course_id: nil, parameters_users: nil)
           ctx[:canvas_api].proxy(
             "START_REPORT",

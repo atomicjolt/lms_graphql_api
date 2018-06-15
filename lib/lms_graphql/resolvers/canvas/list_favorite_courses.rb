@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListFavoriteCourse < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::Course], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasCourse], null: false
         argument :exclude_blueprint_courses, Boolean, required: false
         def resolve(exclude_blueprint_courses: nil)
           context[:canvas_api].proxy(

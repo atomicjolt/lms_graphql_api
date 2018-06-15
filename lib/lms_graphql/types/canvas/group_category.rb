@@ -13,7 +13,7 @@ module LMSGraphQL
           value "first"
           value "random"
         end
-      class GroupCategory < BaseType
+      class CanvasGroupCategory < BaseType
         description "Group Categories. API Docs: https://canvas.instructure.com/doc/api/group_categories.html"
         field :id, ID, "The ID of the group category..Example: 17", null: true
         field :name, String, "The display name of the group category..Example: Math Groups", null: true
@@ -25,7 +25,7 @@ module LMSGraphQL
         field :group_limit, Int, "If self-signup is enabled, group_limit can be set to cap the number of users in each group. If null, there is no limit..", null: true
         field :sis_group_category_id, ID, "The SIS identifier for the group category. This field is only included if the user has permission to manage or view SIS information..", null: true
         field :sis_import_id, ID, "The unique identifier for the SIS import. This field is only included if the user has permission to manage SIS information..", null: true
-        field :progress, LMSGraphQL::Types::Canvas::Progress, "If the group category has not yet finished a randomly student assignment request, a progress object will be attached, which will contain information related to the progress of the assignment request. Refer to the Progress API for more information.", null: true
+        field :progress, LMSGraphQL::Types::Canvas::CanvasProgress, "If the group category has not yet finished a randomly student assignment request, a progress object will be attached, which will contain information related to the progress of the assignment request. Refer to the Progress API for more information.", null: true
 
       end
     end

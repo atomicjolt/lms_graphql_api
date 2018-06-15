@@ -6,7 +6,7 @@ module LMSGraphQL
       class CloseNotificationForUser < CanvasBaseMutation
         argument :account_id, ID, required: true
         argument :id, ID, required: true
-        field :account_notification, LMSGraphQL::Types::Canvas::AccountNotification, null: false
+        field :account_notification, LMSGraphQL::Types::Canvas::CanvasAccountNotification, null: false
         def resolve(account_id:, id:)
           ctx[:canvas_api].proxy(
             "CLOSE_NOTIFICATION_FOR_USER",

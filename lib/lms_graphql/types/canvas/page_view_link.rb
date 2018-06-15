@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class PageViewLink < BaseType
+      class CanvasPageViewLink < BaseType
         description "Users. API Docs: https://canvas.instructure.com/doc/api/users.html"
         field :user, Int, "The ID of the user for this page view.Example: 1234", null: true
         field :context, Int, "The ID of the context for the request (course id if context_type is Course, etc).Example: 1234", null: true

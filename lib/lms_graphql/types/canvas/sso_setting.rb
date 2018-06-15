@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class SSOSetting < BaseType
+      class CanvasSSOSetting < BaseType
         description "Authentication Providers. API Docs: https://canvas.instructure.com/doc/api/authentication_providers.html"
         field :login_handle_name, String, "The label used for unique login identifiers..Example: Username", null: true
         field :change_password_url, String, "The url to redirect users to for password resets. Leave blank for default Canvas behavior.Example: https://example.com/reset_password", null: true

@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class CourseAuditLogQueryByCourse < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::CourseEvent], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasCourseEvent], null: false
         argument :course_id, ID, required: true
         argument :start_time, LMSGraphQL::Types::DateTimeType, required: false
         argument :end_time, LMSGraphQL::Types::DateTimeType, required: false

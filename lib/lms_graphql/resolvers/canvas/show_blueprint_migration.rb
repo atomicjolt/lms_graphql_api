@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ShowBlueprintMigration < CanvasBaseResolver
-        type LMSGraphQL::Types::Canvas::BlueprintMigration, null: false
+        type LMSGraphQL::Types::Canvas::CanvasBlueprintMigration, null: false
         argument :course_id, ID, required: true
         argument :template_id, ID, required: true
         argument :id, ID, required: true

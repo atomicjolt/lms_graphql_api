@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class GetModuleItemSequence < CanvasBaseResolver
-        type LMSGraphQL::Types::Canvas::ModuleItemSequence, null: false
+        type LMSGraphQL::Types::Canvas::CanvasModuleItemSequence, null: false
         argument :course_id, ID, required: true
         argument :asset_type, String, required: false
         argument :asset_id, ID, required: false

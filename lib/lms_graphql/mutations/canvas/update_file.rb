@@ -12,7 +12,7 @@ module LMSGraphQL
         argument :unlock_at, LMSGraphQL::Types::DateTimeType, required: false
         argument :locked, Boolean, required: false
         argument :hidden, Boolean, required: false
-        field :file, LMSGraphQL::Types::Canvas::File, null: false
+        field :file, LMSGraphQL::Types::Canvas::CanvasFile, null: false
         def resolve(id:, name: nil, parent_folder_id: nil, on_duplicate: nil, lock_at: nil, unlock_at: nil, locked: nil, hidden: nil)
           ctx[:canvas_api].proxy(
             "UPDATE_FILE",

@@ -6,7 +6,7 @@ module LMSGraphQL
       class DeleteFile < CanvasBaseMutation
         argument :id, ID, required: true
         argument :replace, Boolean, required: false
-        field :file, LMSGraphQL::Types::Canvas::File, null: false
+        field :file, LMSGraphQL::Types::Canvas::CanvasFile, null: false
         def resolve(id:, replace: nil)
           ctx[:canvas_api].proxy(
             "DELETE_FILE",

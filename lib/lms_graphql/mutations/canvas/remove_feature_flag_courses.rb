@@ -6,7 +6,7 @@ module LMSGraphQL
       class RemoveFeatureFlagCourse < CanvasBaseMutation
         argument :course_id, ID, required: true
         argument :feature, String, required: true
-        field :feature_flag, LMSGraphQL::Types::Canvas::FeatureFlag, null: false
+        field :feature_flag, LMSGraphQL::Types::Canvas::CanvasFeatureFlag, null: false
         def resolve(course_id:, feature:)
           ctx[:canvas_api].proxy(
             "REMOVE_FEATURE_FLAG_COURSES",

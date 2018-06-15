@@ -7,7 +7,7 @@ module LMSGraphQL
         argument :course_id, ID, required: true
         argument :assignment_id, ID, required: true
         argument :provisional_grade_id, ID, required: true
-        field :provisional_grade, LMSGraphQL::Types::Canvas::ProvisionalGrade, null: false
+        field :provisional_grade, LMSGraphQL::Types::Canvas::CanvasProvisionalGrade, null: false
         def resolve(course_id:, assignment_id:, provisional_grade_id:)
           ctx[:canvas_api].proxy(
             "COPY_PROVISIONAL_GRADE",

@@ -15,7 +15,7 @@ module LMSGraphQL
           value "student_organized"
           value "imported"
         end
-      class Group < BaseType
+      class CanvasGroup < BaseType
         description "Groups. API Docs: https://canvas.instructure.com/doc/api/groups.html"
         field :id, ID, "The ID of the group..Example: 17", null: true
         field :name, String, "The display name of the group..Example: Math Group 1", null: true

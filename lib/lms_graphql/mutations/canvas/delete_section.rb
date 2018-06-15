@@ -5,7 +5,7 @@ module LMSGraphQL
     module Canvas
       class DeleteSection < CanvasBaseMutation
         argument :id, ID, required: true
-        field :section, LMSGraphQL::Types::Canvas::Section, null: false
+        field :section, LMSGraphQL::Types::Canvas::CanvasSection, null: false
         def resolve(id:)
           ctx[:canvas_api].proxy(
             "DELETE_SECTION",

@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class OutcomePathPart < BaseType
+      class CanvasOutcomePathPart < BaseType
         description "Outcome Results. API Docs: https://canvas.instructure.com/doc/api/outcome_results.html"
         field :name, String, "The title of the outcome or outcome group.Example: Spelling out numbers", null: true
 

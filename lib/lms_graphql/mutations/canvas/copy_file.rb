@@ -7,7 +7,7 @@ module LMSGraphQL
         argument :dest_folder_id, ID, required: true
         argument :source_file_id, ID, required: true
         argument :on_duplicate, String, required: false
-        field :file, LMSGraphQL::Types::Canvas::File, null: false
+        field :file, LMSGraphQL::Types::Canvas::CanvasFile, null: false
         def resolve(dest_folder_id:, source_file_id:, on_duplicate: nil)
           ctx[:canvas_api].proxy(
             "COPY_FILE",

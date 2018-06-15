@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class QuizStatisticsAnswerStatistic < BaseType
+      class CanvasQuizStatisticsAnswerStatistic < BaseType
         description "Quiz Statistics. API Docs: https://canvas.instructure.com/doc/api/quiz_statistics.html"
         field :id, ID, "ID of the answer..Example: 3866", null: true
         field :text, String, "The text attached to the answer..Example: Blue.", null: true

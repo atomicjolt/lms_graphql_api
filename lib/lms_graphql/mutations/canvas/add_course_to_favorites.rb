@@ -5,7 +5,7 @@ module LMSGraphQL
     module Canvas
       class AddCourseToFavorite < CanvasBaseMutation
         argument :id, ID, required: true
-        field :favorite, LMSGraphQL::Types::Canvas::Favorite, null: false
+        field :favorite, LMSGraphQL::Types::Canvas::CanvasFavorite, null: false
         def resolve(id:)
           ctx[:canvas_api].proxy(
             "ADD_COURSE_TO_FAVORITES",

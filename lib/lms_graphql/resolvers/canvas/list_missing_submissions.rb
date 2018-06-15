@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListMissingSubmission < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::Assignment], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasAssignment], null: false
         argument :user_id, ID, required: true
         argument :include, String, required: false
         def resolve(user_id:, include: nil)

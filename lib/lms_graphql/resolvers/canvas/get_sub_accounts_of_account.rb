@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class GetSubAccountsOfAccount < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::Account], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasAccount], null: false
         argument :account_id, ID, required: true
         argument :recursive, Boolean, required: false
         def resolve(account_id:, recursive: nil)

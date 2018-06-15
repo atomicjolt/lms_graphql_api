@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class GetAssignmentGroup < CanvasBaseResolver
-        type LMSGraphQL::Types::Canvas::AssignmentGroup, null: false
+        type LMSGraphQL::Types::Canvas::CanvasAssignmentGroup, null: false
         argument :course_id, ID, required: true
         argument :assignment_group_id, ID, required: true
         argument :include, String, required: false

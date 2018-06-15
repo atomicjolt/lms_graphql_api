@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class ConversationParticipant < BaseType
+      class CanvasConversationParticipant < BaseType
         description "Conversations. API Docs: https://canvas.instructure.com/doc/api/conversations.html"
         field :id, ID, "The user ID for the participant..Example: 2", null: true
         field :name, String, "A short name the user has selected, for use in conversations or other less formal places through the site..Example: Shelly", null: true

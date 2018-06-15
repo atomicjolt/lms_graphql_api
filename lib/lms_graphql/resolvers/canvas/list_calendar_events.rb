@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListCalendarEvent < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::CalendarEvent], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasCalendarEvent], null: false
         argument :type, String, required: false
         argument :start_date, LMSGraphQL::Types::DateTimeType, required: false
         argument :end_date, LMSGraphQL::Types::DateTimeType, required: false

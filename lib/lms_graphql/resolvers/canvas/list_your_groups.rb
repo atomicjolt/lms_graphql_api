@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListYourGroup < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::Group], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasGroup], null: false
         argument :context_type, String, required: false
         argument :include, String, required: false
         def resolve(context_type: nil, include: nil)

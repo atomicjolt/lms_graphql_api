@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class BatchRetrieveOverridesInCourse < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::AssignmentOverride], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasAssignmentOverride], null: false
         argument :course_id, ID, required: true
         argument :assignment_overrides_id, String, required: true
         argument :assignment_overrides_assignment_id, String, required: true

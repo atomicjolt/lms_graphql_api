@@ -4,7 +4,7 @@ require_relative "rubric_rating"
 module LMSGraphQL
   module Types
     module Canvas
-      class RubricCriterium < BaseType
+      class CanvasRubricCriterium < BaseType
         description "Assignments. API Docs: https://canvas.instructure.com/doc/api/assignments.html"
         field :points, Int, "Example: 10", null: true
         field :id, ID, "The id of rubric criteria..Example: crit1", null: true
@@ -13,7 +13,7 @@ module LMSGraphQL
         field :description, String, "Example: Criterion 1", null: true
         field :long_description, String, "Example: Criterion 1 more details", null: true
         field :criterion_use_range, Boolean, "Example: true", null: true
-        field :ratings, [LMSGraphQL::Types::Canvas::RubricRating], "", null: true
+        field :ratings, [LMSGraphQL::Types::Canvas::CanvasRubricRating], "", null: true
 
       end
     end

@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ShowPlannerOverride < CanvasBaseResolver
-        type LMSGraphQL::Types::Canvas::PlannerOverride, null: false
+        type LMSGraphQL::Types::Canvas::CanvasPlannerOverride, null: false
         argument :id, ID, required: true
         def resolve(id:)
           context[:canvas_api].proxy(

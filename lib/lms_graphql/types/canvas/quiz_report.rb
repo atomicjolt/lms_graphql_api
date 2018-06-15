@@ -9,7 +9,7 @@ module LMSGraphQL
           value "student_analysis"
           value "item_analysis"
         end
-      class QuizReport < BaseType
+      class CanvasQuizReport < BaseType
         description "Quiz Reports. API Docs: https://canvas.instructure.com/doc/api/quiz_reports.html"
         field :id, ID, "the ID of the quiz report.Example: 5", null: true
         field :quiz_id, ID, "the ID of the quiz.Example: 4", null: true
@@ -21,9 +21,9 @@ module LMSGraphQL
         field :created_at, LMSGraphQL::Types::DateTimeType, "when the report was created.Example: 2013-05-01T12:34:56-07:00", null: true
         field :updated_at, LMSGraphQL::Types::DateTimeType, "when the report was last updated.Example: 2013-05-01T12:34:56-07:00", null: true
         field :url, String, "the API endpoint for this report.Example: http://canvas.example.com/api/v1/courses/1/quizzes/1/reports/1", null: true
-        field :file, LMSGraphQL::Types::Canvas::File, "if the report has finished generating, a File object that represents it. refer to the Files API for more information about the format.", null: true
+        field :file, LMSGraphQL::Types::Canvas::CanvasFile, "if the report has finished generating, a File object that represents it. refer to the Files API for more information about the format.", null: true
         field :progress_url, String, "if the report has not yet finished generating, a URL where information about its progress can be retrieved. refer to the Progress API for more information (Note: not available in JSON-API format).", null: true
-        field :progress, LMSGraphQL::Types::Canvas::Progress, "if the report is being generated, a Progress object that represents the operation. Refer to the Progress API for more information about the format. (Note: available only in JSON-API format).", null: true
+        field :progress, LMSGraphQL::Types::Canvas::CanvasProgress, "if the report is being generated, a Progress object that represents the operation. Refer to the Progress API for more information about the format. (Note: available only in JSON-API format).", null: true
 
       end
     end

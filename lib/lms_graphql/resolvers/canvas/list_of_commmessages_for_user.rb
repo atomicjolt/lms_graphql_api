@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListOfCommmessagesForUser < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::CommMessage], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasCommMessage], null: false
         argument :user_id, ID, required: true
         argument :start_time, LMSGraphQL::Types::DateTimeType, required: false
         argument :end_time, LMSGraphQL::Types::DateTimeType, required: false

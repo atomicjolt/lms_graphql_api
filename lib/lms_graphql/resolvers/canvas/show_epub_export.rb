@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ShowEpubExport < CanvasBaseResolver
-        type LMSGraphQL::Types::Canvas::EpubExport, null: false
+        type LMSGraphQL::Types::Canvas::CanvasEpubExport, null: false
         argument :course_id, ID, required: true
         argument :id, ID, required: true
         def resolve(course_id:, id:)

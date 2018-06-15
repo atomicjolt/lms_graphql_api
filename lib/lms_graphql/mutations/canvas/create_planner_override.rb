@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :plannable_id, ID, required: false
         argument :marked_complete, Boolean, required: false
         argument :dismissed, Boolean, required: false
-        field :planner_override, LMSGraphQL::Types::Canvas::PlannerOverride, null: false
+        field :planner_override, LMSGraphQL::Types::Canvas::CanvasPlannerOverride, null: false
         def resolve(plannable_type: nil, plannable_id: nil, marked_complete: nil, dismissed: nil)
           ctx[:canvas_api].proxy(
             "CREATE_PLANNER_OVERRIDE",

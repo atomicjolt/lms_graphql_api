@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class GetFileGroup < CanvasBaseResolver
-        type LMSGraphQL::Types::Canvas::File, null: false
+        type LMSGraphQL::Types::Canvas::CanvasFile, null: false
         argument :group_id, ID, required: true
         argument :id, ID, required: true
         argument :include, String, required: false

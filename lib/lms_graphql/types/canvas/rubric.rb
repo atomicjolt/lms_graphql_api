@@ -4,7 +4,7 @@ require_relative "rubric_assessment"
 module LMSGraphQL
   module Types
     module Canvas
-      class Rubric < BaseType
+      class CanvasRubric < BaseType
         description "Rubrics. API Docs: https://canvas.instructure.com/doc/api/rubrics.html"
         field :id, ID, "the ID of the rubric.Example: 1", null: true
         field :title, String, "title of the rubric.Example: some title", null: true
@@ -15,7 +15,7 @@ module LMSGraphQL
         field :read_only, Boolean, "Example: true", null: true
         field :free_form_criterion_comments, Boolean, "whether or not free-form comments are used.Example: true", null: true
         field :hide_score_total, Boolean, "Example: true", null: true
-        field :assessments, [LMSGraphQL::Types::Canvas::RubricAssessment], "If an assessment type is included in the 'include' parameter, includes an array of rubric assessment objects for a given rubric, based on the assessment type requested. If the user does not request an assessment type this key will be absent..", null: true
+        field :assessments, [LMSGraphQL::Types::Canvas::CanvasRubricAssessment], "If an assessment type is included in the 'include' parameter, includes an array of rubric assessment objects for a given rubric, based on the assessment type requested. If the user does not request an assessment type this key will be absent..", null: true
 
       end
     end

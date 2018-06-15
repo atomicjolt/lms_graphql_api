@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListCoursesWithTheirLatestEpubExport < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::CourseEpubExport], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasCourseEpubExport], null: false
 
         def resolve()
           context[:canvas_api].proxy(

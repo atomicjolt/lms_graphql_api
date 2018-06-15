@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class GetSingleCourseAccount < CanvasBaseResolver
-        type LMSGraphQL::Types::Canvas::Course, null: false
+        type LMSGraphQL::Types::Canvas::CanvasCourse, null: false
         argument :account_id, ID, required: true
         argument :id, ID, required: true
         argument :include, String, required: false

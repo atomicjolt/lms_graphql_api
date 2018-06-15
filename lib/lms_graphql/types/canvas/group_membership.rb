@@ -9,7 +9,7 @@ module LMSGraphQL
           value "invited"
           value "requested"
         end
-      class GroupMembership < BaseType
+      class CanvasGroupMembership < BaseType
         description "Groups. API Docs: https://canvas.instructure.com/doc/api/groups.html"
         field :id, ID, "The id of the membership object.Example: 92", null: true
         field :group_id, ID, "The id of the group object to which the membership belongs.Example: 17", null: true

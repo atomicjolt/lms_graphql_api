@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListActiveCoursesInAccount < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::Course], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasCourse], null: false
         argument :account_id, ID, required: true
         argument :with_enrollments, Boolean, required: false
         argument :enrollment_type, String, required: false

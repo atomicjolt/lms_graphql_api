@@ -28,7 +28,7 @@ module LMSGraphQL
         argument :quiz_published, Boolean, required: false
         argument :quiz_one_time_results, Boolean, required: false
         argument :quiz_only_visible_to_overrides, Boolean, required: false
-        field :quiz, LMSGraphQL::Types::Canvas::Quiz, null: false
+        field :quiz, LMSGraphQL::Types::Canvas::CanvasQuiz, null: false
         def resolve(course_id:, quiz_title:, quiz_description: nil, quiz_quiz_type: nil, quiz_assignment_group_id: nil, quiz_time_limit: nil, quiz_shuffle_answers: nil, quiz_hide_results: nil, quiz_show_correct_answers: nil, quiz_show_correct_answers_last_attempt: nil, quiz_show_correct_answers_at: nil, quiz_hide_correct_answers_at: nil, quiz_allowed_attempts: nil, quiz_scoring_policy: nil, quiz_one_question_at_a_time: nil, quiz_cant_go_back: nil, quiz_access_code: nil, quiz_ip_filter: nil, quiz_due_at: nil, quiz_lock_at: nil, quiz_unlock_at: nil, quiz_published: nil, quiz_one_time_results: nil, quiz_only_visible_to_overrides: nil)
           ctx[:canvas_api].proxy(
             "CREATE_QUIZ",

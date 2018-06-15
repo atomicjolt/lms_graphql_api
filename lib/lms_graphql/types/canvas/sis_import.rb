@@ -16,7 +16,7 @@ module LMSGraphQL
           value "failed_with_messages"
           value "failed"
         end
-      class SisImport < BaseType
+      class CanvasSisImport < BaseType
         description "SIS Imports. API Docs: https://canvas.instructure.com/doc/api/sis_imports.html"
         field :id, ID, "The unique identifier for the SIS import..Example: 1", null: true
         field :created_at, LMSGraphQL::Types::DateTimeType, "The date the SIS import was created..Example: 2013-12-01T23:59:00-06:00", null: true
@@ -31,10 +31,10 @@ module LMSGraphQL
  - 'aborted': The SIS import was aborted.
  - 'failed_with_messages': The SIS import failed with errors.
  - 'failed': The SIS import failed..Example: imported", null: true
-        field :data, LMSGraphQL::Types::Canvas::SisImportDatum, "data.", null: true
+        field :data, LMSGraphQL::Types::Canvas::CanvasSisImportDatum, "data.", null: true
         field :progress, String, "The progress of the SIS import. The progress will reset when using batch_mode and have a different progress for the cleanup stage.Example: 100", null: true
-        field :errors_attachment, LMSGraphQL::Types::Canvas::File, "The errors_attachment api object of the SIS import. Only available if there are errors or warning and import has completed..", null: true
-        field :user, LMSGraphQL::Types::Canvas::User, "The user that initiated the sis_batch. See the Users API for details..", null: true
+        field :errors_attachment, LMSGraphQL::Types::Canvas::CanvasFile, "The errors_attachment api object of the SIS import. Only available if there are errors or warning and import has completed..", null: true
+        field :user, LMSGraphQL::Types::Canvas::CanvasUser, "The user that initiated the sis_batch. See the Users API for details..", null: true
         field :processing_warnings, String, "Only imports that are complete will get this data. An array of CSV_file/warning_message pairs..Example: students.csv, user John Doe has already claimed john_doe's requested login information, skipping", null: true
         field :processing_errors, String, "An array of CSV_file/error_message pairs..Example: students.csv, Error while importing CSV. Please contact support.", null: true
         field :batch_mode, Boolean, "Whether the import was run in batch mode..Example: true", null: true

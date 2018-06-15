@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListExternalFeedsGroup < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::ExternalFeed], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasExternalFeed], null: false
         argument :group_id, ID, required: true
         def resolve(group_id:)
           context[:canvas_api].proxy(

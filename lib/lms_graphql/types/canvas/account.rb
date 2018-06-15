@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class Account < BaseType
+      class CanvasAccount < BaseType
         description "Accounts. API Docs: https://canvas.instructure.com/doc/api/accounts.html"
         field :id, ID, "the ID of the Account object.Example: 2", null: true
         field :name, String, "The display name of the account.Example: Canvas Account", null: true

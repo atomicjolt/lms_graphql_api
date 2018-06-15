@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListCollaborationsGroup < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::Collaboration], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasCollaboration], null: false
         argument :group_id, ID, required: true
         def resolve(group_id:)
           context[:canvas_api].proxy(

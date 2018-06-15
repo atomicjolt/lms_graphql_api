@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListAvatarOption < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::Avatar], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasAvatar], null: false
         argument :user_id, ID, required: true
         def resolve(user_id:)
           context[:canvas_api].proxy(

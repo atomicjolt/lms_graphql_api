@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListCourseNickname < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::CourseNickname], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasCourseNickname], null: false
 
         def resolve()
           context[:canvas_api].proxy(

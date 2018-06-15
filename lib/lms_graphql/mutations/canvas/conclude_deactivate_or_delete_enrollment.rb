@@ -7,7 +7,7 @@ module LMSGraphQL
         argument :course_id, ID, required: true
         argument :id, ID, required: true
         argument :task, String, required: false
-        field :enrollment, LMSGraphQL::Types::Canvas::Enrollment, null: false
+        field :enrollment, LMSGraphQL::Types::Canvas::CanvasEnrollment, null: false
         def resolve(course_id:, id:, task: nil)
           ctx[:canvas_api].proxy(
             "CONCLUDE_DEACTIVATE_OR_DELETE_ENROLLMENT",

@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class FederatedAttributesConfig < BaseType
+      class CanvasFederatedAttributesConfig < BaseType
         description "Authentication Providers. API Docs: https://canvas.instructure.com/doc/api/authentication_providers.html"
         field :admin_roles, String, "A comma separated list of role names to grant to the user. Note that these only apply at the root account level, and not sub-accounts. If the attribute is not marked for provisioning only, the user will also be removed from any other roles they currently hold that are not still specified by the IdP..", null: true
         field :display_name, String, "The full display name of the user.", null: true

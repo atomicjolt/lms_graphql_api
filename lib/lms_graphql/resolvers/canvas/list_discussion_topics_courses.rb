@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListDiscussionTopicsCourse < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::DiscussionTopic], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasDiscussionTopic], null: false
         argument :course_id, ID, required: true
         argument :include, String, required: false
         argument :order_by, String, required: false

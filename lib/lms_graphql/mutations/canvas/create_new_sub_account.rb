@@ -10,7 +10,7 @@ module LMSGraphQL
         argument :account_default_storage_quota_mb, Int, required: false
         argument :account_default_user_storage_quota_mb, Int, required: false
         argument :account_default_group_storage_quota_mb, Int, required: false
-        field :account, LMSGraphQL::Types::Canvas::Account, null: false
+        field :account, LMSGraphQL::Types::Canvas::CanvasAccount, null: false
         def resolve(account_id:, account_name:, account_sis_account_id: nil, account_default_storage_quota_mb: nil, account_default_user_storage_quota_mb: nil, account_default_group_storage_quota_mb: nil)
           ctx[:canvas_api].proxy(
             "CREATE_NEW_SUB_ACCOUNT",

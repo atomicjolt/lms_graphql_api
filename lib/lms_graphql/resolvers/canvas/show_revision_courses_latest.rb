@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ShowRevisionCoursesLatest < CanvasBaseResolver
-        type LMSGraphQL::Types::Canvas::PageRevision, null: false
+        type LMSGraphQL::Types::Canvas::CanvasPageRevision, null: false
         argument :course_id, ID, required: true
         argument :url, String, required: true
         argument :summary, Boolean, required: false

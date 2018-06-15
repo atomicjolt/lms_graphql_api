@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListYourCourse < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::Course], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasCourse], null: false
         argument :enrollment_type, String, required: false
         argument :enrollment_role, String, required: false
         argument :enrollment_role_id, ID, required: false

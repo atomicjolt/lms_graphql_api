@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class SisImportError < BaseType
+      class CanvasSisImportError < BaseType
         description "SIS Import Errors. API Docs: https://canvas.instructure.com/doc/api/sis_import_errors.html"
         field :sis_import_id, ID, "The unique identifier for the SIS import..Example: 1", null: true
         field :file, String, "The file where the error message occurred..Example: courses.csv", null: true

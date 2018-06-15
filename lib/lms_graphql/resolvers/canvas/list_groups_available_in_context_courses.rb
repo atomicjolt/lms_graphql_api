@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListGroupsAvailableInContextCourse < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::Group], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasGroup], null: false
         argument :course_id, ID, required: true
         argument :only_own_groups, Boolean, required: false
         argument :include, String, required: false

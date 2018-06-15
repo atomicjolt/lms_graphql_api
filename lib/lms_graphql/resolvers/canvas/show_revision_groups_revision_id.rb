@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ShowRevisionGroupsRevisionId < CanvasBaseResolver
-        type LMSGraphQL::Types::Canvas::PageRevision, null: false
+        type LMSGraphQL::Types::Canvas::CanvasPageRevision, null: false
         argument :group_id, ID, required: true
         argument :url, String, required: true
         argument :revision_id, ID, required: true

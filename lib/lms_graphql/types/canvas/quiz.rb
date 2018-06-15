@@ -22,7 +22,7 @@ module LMSGraphQL
           value "keep_highest"
           value "keep_latest"
         end
-      class Quiz < BaseType
+      class CanvasQuiz < BaseType
         description "Quizzes. API Docs: https://canvas.instructure.com/doc/api/quizzes.html"
         field :id, ID, "the ID of the quiz.Example: 5", null: true
         field :title, String, "the title of the quiz.Example: Hamlet Act 3 Quiz", null: true
@@ -54,12 +54,12 @@ module LMSGraphQL
         field :published, Boolean, "whether the quiz has a published or unpublished draft state..Example: true", null: true
         field :unpublishable, Boolean, "Whether the assignment's 'published' state can be changed to false. Will be false if there are student submissions for the quiz..Example: true", null: true
         field :locked_for_user, Boolean, "Whether or not this is locked for the user..", null: true
-        field :lock_info, LMSGraphQL::Types::Canvas::LockInfo, "(Optional) Information for the user about the lock. Present when locked_for_user is true..", null: true
+        field :lock_info, LMSGraphQL::Types::Canvas::CanvasLockInfo, "(Optional) Information for the user about the lock. Present when locked_for_user is true..", null: true
         field :lock_explanation, String, "(Optional) An explanation of why this is locked for the user. Present when locked_for_user is true..Example: This quiz is locked until September 1 at 12:00am", null: true
         field :speedgrader_url, String, "Link to Speed Grader for this quiz. Will not be present if quiz is unpublished.Example: http://canvas.instructure.com/courses/1/speed_grader?assignment_id=1", null: true
         field :quiz_extensions_url, String, "Link to endpoint to send extensions for this quiz..Example: http://canvas.instructure.com/courses/1/quizzes/2/quiz_extensions", null: true
-        field :permissions, LMSGraphQL::Types::Canvas::QuizPermission, "Permissions the user has for the quiz.", null: true
-        field :all_dates, [LMSGraphQL::Types::Canvas::AssignmentDate], "list of due dates for the quiz.", null: true
+        field :permissions, LMSGraphQL::Types::Canvas::CanvasQuizPermission, "Permissions the user has for the quiz.", null: true
+        field :all_dates, [LMSGraphQL::Types::Canvas::CanvasAssignmentDate], "list of due dates for the quiz.", null: true
         field :version_number, Int, "Current version number of the quiz.Example: 3", null: true
         field :question_types, String, "List of question types in the quiz.Example: multiple_choice, essay", null: true
         field :anonymous_submissions, Boolean, "Whether survey submissions will be kept anonymous (only applicable to 'graded_survey', 'survey' quiz types).", null: true

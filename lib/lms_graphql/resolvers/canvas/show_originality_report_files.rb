@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ShowOriginalityReportFile < CanvasBaseResolver
-        type LMSGraphQL::Types::Canvas::OriginalityReport, null: false
+        type LMSGraphQL::Types::Canvas::CanvasOriginalityReport, null: false
         argument :assignment_id, ID, required: true
         argument :file_id, ID, required: true
         def resolve(assignment_id:, file_id:)

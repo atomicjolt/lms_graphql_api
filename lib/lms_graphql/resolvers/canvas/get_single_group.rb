@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class GetSingleGroup < CanvasBaseResolver
-        type LMSGraphQL::Types::Canvas::Group, null: false
+        type LMSGraphQL::Types::Canvas::CanvasGroup, null: false
         argument :group_id, ID, required: true
         argument :include, String, required: false
         def resolve(group_id:, include: nil)

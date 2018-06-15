@@ -21,7 +21,7 @@ module LMSGraphQL
         argument :date_shift_options_new_end_date, LMSGraphQL::Types::DateTimeType, required: false
         argument :date_shift_options_day_substitutions_X, Int, required: false
         argument :date_shift_options_remove_dates, Boolean, required: false
-        field :content_migration, LMSGraphQL::Types::Canvas::ContentMigration, null: false
+        field :content_migration, LMSGraphQL::Types::Canvas::CanvasContentMigration, null: false
         def resolve(user_id:, migration_type:, pre_attachment_name: nil, pre_attachment_star: nil, settings_file_url: nil, settings_source_course_id: nil, settings_folder_id: nil, settings_overwrite_quizzes: nil, settings_question_bank_id: nil, settings_question_bank_name: nil, date_shift_options_shift_dates: nil, date_shift_options_old_start_date: nil, date_shift_options_old_end_date: nil, date_shift_options_new_start_date: nil, date_shift_options_new_end_date: nil, date_shift_options_day_substitutions_X: nil, date_shift_options_remove_dates: nil)
           ctx[:canvas_api].proxy(
             "CREATE_CONTENT_MIGRATION_USERS",

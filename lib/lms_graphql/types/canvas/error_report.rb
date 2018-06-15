@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class ErrorReport < BaseType
+      class CanvasErrorReport < BaseType
         description "Error Reports. API Docs: https://canvas.instructure.com/doc/api/error_reports.html"
         field :subject, String, "The users problem summary, like an email subject line.Example: File upload breaking", null: true
         field :comments, String, "long form documentation of what was witnessed.Example: When I went to upload a .mov file to my files page, I got an error.  Retrying didn't help, other file types seem ok", null: true

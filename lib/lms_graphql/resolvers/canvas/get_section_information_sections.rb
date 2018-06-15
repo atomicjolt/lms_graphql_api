@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class GetSectionInformationSection < CanvasBaseResolver
-        type LMSGraphQL::Types::Canvas::Section, null: false
+        type LMSGraphQL::Types::Canvas::CanvasSection, null: false
         argument :id, ID, required: true
         argument :include, String, required: false
         def resolve(id:, include: nil)

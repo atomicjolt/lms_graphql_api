@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListAssignmentSubmissionsSection < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::Submission], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasSubmission], null: false
         argument :section_id, ID, required: true
         argument :assignment_id, ID, required: true
         argument :include, String, required: false

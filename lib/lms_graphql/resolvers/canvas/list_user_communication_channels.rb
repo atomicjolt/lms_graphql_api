@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListUserCommunicationChannel < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::CommunicationChannel], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasCommunicationChannel], null: false
         argument :user_id, ID, required: true
         def resolve(user_id:)
           context[:canvas_api].proxy(

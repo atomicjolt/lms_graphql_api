@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class Grade < BaseType
+      class CanvasGrade < BaseType
         description "Enrollments. API Docs: https://canvas.instructure.com/doc/api/enrollments.html"
         field :html_url, String, "The URL to the Canvas web UI page for the user's grades, if this is a student enrollment..", null: true
         field :current_grade, String, "The user's current grade in the class. Only included if user has permissions to view this grade..", null: true

@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListStudentsSelectedForModeration < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::User], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasUser], null: false
         argument :course_id, ID, required: true
         argument :assignment_id, ID, required: true
         def resolve(course_id:, assignment_id:)

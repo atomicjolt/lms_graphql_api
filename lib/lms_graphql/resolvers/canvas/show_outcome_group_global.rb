@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ShowOutcomeGroupGlobal < CanvasBaseResolver
-        type LMSGraphQL::Types::Canvas::OutcomeGroup, null: false
+        type LMSGraphQL::Types::Canvas::CanvasOutcomeGroup, null: false
         argument :id, ID, required: true
         def resolve(id:)
           context[:canvas_api].proxy(

@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class BlueprintMigration < BaseType
+      class CanvasBlueprintMigration < BaseType
         description "Blueprint Courses. API Docs: https://canvas.instructure.com/doc/api/blueprint_courses.html"
         field :id, ID, "The ID of the migration..Example: 1", null: true
         field :template_id, ID, "The ID of the template the migration belongs to. Only present when querying a blueprint course..Example: 2", null: true

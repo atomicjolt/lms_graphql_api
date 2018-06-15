@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class SubmissionVersion < BaseType
+      class CanvasSubmissionVersion < BaseType
         description "Gradebook History. API Docs: https://canvas.instructure.com/doc/api/gradebook_history.html"
         field :assignment_id, ID, "the id of the assignment this submissions is for.Example: 22604", null: true
         field :assignment_name, String, "the name of the assignment this submission is for.Example: some assignment", null: true

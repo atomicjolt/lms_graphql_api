@@ -5,7 +5,7 @@ module LMSGraphQL
     module Canvas
       class SplitMergedUsersIntoSeparateUser < CanvasBaseMutation
         argument :id, ID, required: true
-        field :user, [LMSGraphQL::Types::Canvas::User], null: false
+        field :user, [LMSGraphQL::Types::Canvas::CanvasUser], null: false
         def resolve(id:)
           ctx[:canvas_api].proxy(
             "SPLIT_MERGED_USERS_INTO_SEPARATE_USERS",

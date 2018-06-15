@@ -15,7 +15,7 @@ module LMSGraphQL
           value "unconfirmed"
           value "active"
         end
-      class CommunicationChannel < BaseType
+      class CanvasCommunicationChannel < BaseType
         description "Communication Channels. API Docs: https://canvas.instructure.com/doc/api/communication_channels.html"
         field :id, ID, "The ID of the communication channel..Example: 16", null: true
         field :address, String, "The address, or path, of the communication channel..Example: sheldon@caltech.example.com", null: true

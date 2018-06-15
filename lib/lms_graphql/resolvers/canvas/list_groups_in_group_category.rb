@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListGroupsInGroupCategory < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::Group], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasGroup], null: false
         argument :group_category_id, ID, required: true
         def resolve(group_category_id:)
           context[:canvas_api].proxy(

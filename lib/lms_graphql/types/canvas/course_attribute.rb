@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class CourseAttribute < BaseType
+      class CanvasCourseAttribute < BaseType
         description "SIS Integration. API Docs: https://canvas.instructure.com/doc/api/sis_integration.html"
         field :id, ID, "The unique Canvas identifier for the origin course.Example: 7", null: true
         field :name, String, "The name of the origin course..Example: Section A", null: true

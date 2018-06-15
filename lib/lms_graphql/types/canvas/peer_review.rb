@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class PeerReview < BaseType
+      class CanvasPeerReview < BaseType
         description "Peer Reviews. API Docs: https://canvas.instructure.com/doc/api/peer_reviews.html"
         field :assessor_id, ID, "The assessors user id.Example: 23", null: true
         field :asset_id, ID, "The id for the asset associated with this Peer Review.Example: 13", null: true

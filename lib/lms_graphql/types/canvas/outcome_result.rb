@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class OutcomeResult < BaseType
+      class CanvasOutcomeResult < BaseType
         description "Outcome Results. API Docs: https://canvas.instructure.com/doc/api/outcome_results.html"
         field :id, ID, "A unique identifier for this result.Example: 42", null: true
         field :score, Int, "The student's score.Example: 6", null: true

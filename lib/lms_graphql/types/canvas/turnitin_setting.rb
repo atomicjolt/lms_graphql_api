@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class TurnitinSetting < BaseType
+      class CanvasTurnitinSetting < BaseType
         description "Assignments. API Docs: https://canvas.instructure.com/doc/api/assignments.html"
         field :originality_report_visibility, String, "Example: after_grading", null: true
         field :s_paper_check, Boolean, "", null: true

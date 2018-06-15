@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class GetSingleGradingStandardInContextCourse < CanvasBaseResolver
-        type LMSGraphQL::Types::Canvas::GradingStandard, null: false
+        type LMSGraphQL::Types::Canvas::CanvasGradingStandard, null: false
         argument :course_id, ID, required: true
         argument :grading_standard_id, ID, required: true
         def resolve(course_id:, grading_standard_id:)

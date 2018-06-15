@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListUsersInCourseSearchUser < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::User], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasUser], null: false
         argument :course_id, ID, required: true
         argument :search_term, String, required: false
         argument :enrollment_type, String, required: false

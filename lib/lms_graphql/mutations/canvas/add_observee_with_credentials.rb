@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :observee_password, String, required: false
         argument :access_token, String, required: false
         argument :root_account_id, ID, required: false
-        field :user, LMSGraphQL::Types::Canvas::User, null: false
+        field :user, LMSGraphQL::Types::Canvas::CanvasUser, null: false
         def resolve(user_id:, observee_unique_id: nil, observee_password: nil, access_token: nil, root_account_id: nil)
           ctx[:canvas_api].proxy(
             "ADD_OBSERVEE_WITH_CREDENTIALS",

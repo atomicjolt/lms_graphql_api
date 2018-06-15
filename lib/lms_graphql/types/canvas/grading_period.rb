@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class GradingPeriod < BaseType
+      class CanvasGradingPeriod < BaseType
         description "Grading Periods. API Docs: https://canvas.instructure.com/doc/api/grading_periods.html"
         field :id, ID, "The unique identifier for the grading period..Example: 1023", null: true
         field :title, String, "The title for the grading period..Example: First Block", null: true

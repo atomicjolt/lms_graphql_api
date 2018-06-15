@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class ProvisionalGrade < BaseType
+      class CanvasProvisionalGrade < BaseType
         description "Moderated Grading. API Docs: https://canvas.instructure.com/doc/api/moderated_grading.html"
         field :provisional_grade_id, ID, "The identifier for the provisional grade.Example: 23", null: true
         field :score, Int, "The numeric score.Example: 90", null: true

@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListAssignment < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::Assignment], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasAssignment], null: false
         argument :course_id, ID, required: true
         argument :include, String, required: false
         argument :search_term, String, required: false

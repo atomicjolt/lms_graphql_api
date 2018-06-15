@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :comment, String, required: false
         argument :send_notification, Boolean, required: false
         argument :copy_settings, Boolean, required: false
-        field :blueprint_migration, LMSGraphQL::Types::Canvas::BlueprintMigration, null: false
+        field :blueprint_migration, LMSGraphQL::Types::Canvas::CanvasBlueprintMigration, null: false
         def resolve(course_id:, template_id:, comment: nil, send_notification: nil, copy_settings: nil)
           ctx[:canvas_api].proxy(
             "BEGIN_MIGRATION_TO_PUSH_TO_ASSOCIATED_COURSES",

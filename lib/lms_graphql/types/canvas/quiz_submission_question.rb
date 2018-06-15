@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class QuizSubmissionQuestion < BaseType
+      class CanvasQuizSubmissionQuestion < BaseType
         description "Quiz Submission Questions. API Docs: https://canvas.instructure.com/doc/api/quiz_submission_questions.html"
         field :id, ID, "The ID of the QuizQuestion this answer is for..Example: 1", null: true
         field :flagged, Boolean, "Whether this question is flagged..Example: true", null: true

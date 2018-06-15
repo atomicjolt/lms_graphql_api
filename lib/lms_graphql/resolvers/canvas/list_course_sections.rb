@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListCourseSection < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::Section], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasSection], null: false
         argument :course_id, ID, required: true
         argument :include, String, required: false
         def resolve(course_id:, include: nil)

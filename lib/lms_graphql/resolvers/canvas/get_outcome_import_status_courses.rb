@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class GetOutcomeImportStatusCourse < CanvasBaseResolver
-        type LMSGraphQL::Types::Canvas::OutcomeImport, null: false
+        type LMSGraphQL::Types::Canvas::CanvasOutcomeImport, null: false
         argument :course_id, ID, required: true
         argument :id, ID, required: true
         def resolve(course_id:, id:)

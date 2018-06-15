@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListScope < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::Scope], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasScope], null: false
         argument :account_id, ID, required: true
         argument :group_by, String, required: false
         def resolve(account_id:, group_by: nil)

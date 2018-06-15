@@ -14,7 +14,7 @@ module LMSGraphQL
           value "warning"
           value "error"
         end
-      class MigrationIssue < BaseType
+      class CanvasMigrationIssue < BaseType
         description "Content Migrations. API Docs: https://canvas.instructure.com/doc/api/content_migrations.html"
         field :id, ID, "the unique identifier for the issue.Example: 370663", null: true
         field :content_migration_url, String, "API url to the content migration.Example: https://example.com/api/v1/courses/1/content_migrations/1", null: true

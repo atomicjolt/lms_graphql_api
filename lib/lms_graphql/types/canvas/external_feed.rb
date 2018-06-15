@@ -9,7 +9,7 @@ module LMSGraphQL
           value "truncate"
           value "full"
         end
-      class ExternalFeed < BaseType
+      class CanvasExternalFeed < BaseType
         description "Announcement External Feeds. API Docs: https://canvas.instructure.com/doc/api/announcement_external_feeds.html"
         field :id, ID, "The ID of the feed.Example: 5", null: true
         field :display_name, String, "The title of the feed, pulled from the feed itself. If the feed hasn't yet been pulled, a temporary name will be synthesized based on the URL.Example: My Blog", null: true

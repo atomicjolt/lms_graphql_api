@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListAccountsForCourseAdmin < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::Account], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasAccount], null: false
 
         def resolve()
           context[:canvas_api].proxy(

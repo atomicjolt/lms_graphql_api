@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class CourseQuizExtension < BaseType
+      class CanvasCourseQuizExtension < BaseType
         description "Course Quiz Extensions. API Docs: https://canvas.instructure.com/doc/api/course_quiz_extensions.html"
         field :user_id, ID, "The ID of the Student that needs the quiz extension..Example: 3", null: true
         field :extra_attempts, Int, "Number of times the student is allowed to re-take the quiz over the multiple-attempt limit..Example: 1", null: true

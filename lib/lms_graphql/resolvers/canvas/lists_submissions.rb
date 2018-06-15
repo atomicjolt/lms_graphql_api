@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListsSubmission < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::SubmissionHistory], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasSubmissionHistory], null: false
         argument :course_id, ID, required: true
         argument :date, String, required: true
         argument :grader_id, ID, required: true

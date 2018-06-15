@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListFavoriteGroup < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::Group], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasGroup], null: false
 
         def resolve()
           context[:canvas_api].proxy(

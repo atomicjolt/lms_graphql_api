@@ -15,7 +15,7 @@ module LMSGraphQL
         argument :grade_data_<student_id>_media_comment_type, String, required: false
         argument :grade_data_<student_id>_file_ids, Int, required: false
         argument :grade_data_<student_id>_assignment_id, Int, required: false
-        field :progress, LMSGraphQL::Types::Canvas::Progress, null: false
+        field :progress, LMSGraphQL::Types::Canvas::CanvasProgress, null: false
         def resolve(course_id:, assignment_id:, grade_data_<student_id>_posted_grade: nil, grade_data_<student_id>_excuse: nil, grade_data_<student_id>_rubric_assessment: nil, grade_data_<student_id>_text_comment: nil, grade_data_<student_id>_group_comment: nil, grade_data_<student_id>_media_comment_id: nil, grade_data_<student_id>_media_comment_type: nil, grade_data_<student_id>_file_ids: nil, grade_data_<student_id>_assignment_id: nil)
           ctx[:canvas_api].proxy(
             "GRADE_OR_COMMENT_ON_MULTIPLE_SUBMISSIONS_COURSES_ASSIGNMENTS",

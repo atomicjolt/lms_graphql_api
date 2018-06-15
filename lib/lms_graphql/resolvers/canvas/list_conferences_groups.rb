@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListConferencesGroup < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::Conference], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasConference], null: false
         argument :group_id, ID, required: true
         def resolve(group_id:)
           context[:canvas_api].proxy(

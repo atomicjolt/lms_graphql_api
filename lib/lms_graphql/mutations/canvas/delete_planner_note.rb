@@ -5,7 +5,7 @@ module LMSGraphQL
     module Canvas
       class DeletePlannerNote < CanvasBaseMutation
         argument :id, ID, required: true
-        field :planner_note, LMSGraphQL::Types::Canvas::PlannerNote, null: false
+        field :planner_note, LMSGraphQL::Types::Canvas::CanvasPlannerNote, null: false
         def resolve(id:)
           ctx[:canvas_api].proxy(
             "DELETE_PLANNER_NOTE",

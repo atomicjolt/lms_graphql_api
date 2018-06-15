@@ -7,7 +7,7 @@ module LMSGraphQL
         argument :course_id, ID, required: true
         argument :module_id, ID, required: true
         argument :id, ID, required: true
-        field :module_item, LMSGraphQL::Types::Canvas::ModuleItem, null: false
+        field :module_item, LMSGraphQL::Types::Canvas::CanvasModuleItem, null: false
         def resolve(course_id:, module_id:, id:)
           ctx[:canvas_api].proxy(
             "DELETE_MODULE_ITEM",

@@ -4,7 +4,7 @@ require_relative "federated_attributes_config"
 module LMSGraphQL
   module Types
     module Canvas
-      class AuthenticationProvider < BaseType
+      class CanvasAuthenticationProvider < BaseType
         description "Authentication Providers. API Docs: https://canvas.instructure.com/doc/api/authentication_providers.html"
         field :identifier_format, String, "Valid for SAML providers..Example: urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress", null: true
         field :auth_type, String, "Valid for all providers..Example: saml", null: true
@@ -24,7 +24,7 @@ module LMSGraphQL
         field :login_attribute, String, "Valid for SAML providers..Example: nameid", null: true
         field :sig_alg, String, "Valid for SAML providers..Example: http://www.w3.org/2001/04/xmldsig-more#rsa-sha256", null: true
         field :jit_provisioning, Boolean, "Just In Time provisioning. Valid for all providers except Canvas (which has the similar in concept self_registration setting)..", null: true
-        field :federated_attributes, LMSGraphQL::Types::Canvas::FederatedAttributesConfig, "", null: true
+        field :federated_attributes, LMSGraphQL::Types::Canvas::CanvasFederatedAttributesConfig, "", null: true
 
       end
     end

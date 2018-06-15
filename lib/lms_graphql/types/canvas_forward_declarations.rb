@@ -5,9 +5,9 @@ require_relative "canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class Enrollment < BaseType
+      class CanvasEnrollment < BaseType
       end
-      class User < BaseType
+      class CanvasUser < BaseType
       end
     end
   end

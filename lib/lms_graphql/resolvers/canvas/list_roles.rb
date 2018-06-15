@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListRole < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::Role], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasRole], null: false
         argument :account_id, ID, required: true
         argument :state, String, required: false
         argument :show_inherited, Boolean, required: false

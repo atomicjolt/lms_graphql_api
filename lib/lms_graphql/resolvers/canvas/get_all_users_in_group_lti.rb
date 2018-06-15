@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class GetAllUsersInGroupLti < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::User], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasUser], null: false
         argument :group_id, ID, required: true
         def resolve(group_id:)
           context[:canvas_api].proxy(

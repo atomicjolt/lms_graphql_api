@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class LatePolicy < BaseType
+      class CanvasLatePolicy < BaseType
         description "Late Policy. API Docs: https://canvas.instructure.com/doc/api/late_policy.html"
         field :id, ID, "the unique identifier for the late policy.Example: 123", null: true
         field :course_id, ID, "the unique identifier for the course.Example: 123", null: true

@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class Avatar < BaseType
+      class CanvasAvatar < BaseType
         description "Users. API Docs: https://canvas.instructure.com/doc/api/users.html"
         field :type, String, "['gravatar'|'attachment'|'no_pic'] The type of avatar record, for categorization purposes..Example: gravatar", null: true
         field :url, String, "The url of the avatar.Example: https://secure.gravatar.com/avatar/2284.", null: true

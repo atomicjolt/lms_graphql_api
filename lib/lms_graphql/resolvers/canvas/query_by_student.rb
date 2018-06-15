@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class QueryByStudent < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::GradeChangeEvent], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasGradeChangeEvent], null: false
         argument :student_id, ID, required: true
         argument :start_time, LMSGraphQL::Types::DateTimeType, required: false
         argument :end_time, LMSGraphQL::Types::DateTimeType, required: false

@@ -10,7 +10,7 @@ module LMSGraphQL
           value "completed"
           value "failed"
         end
-      class Progress < BaseType
+      class CanvasProgress < BaseType
         description "Progress. API Docs: https://canvas.instructure.com/doc/api/progress.html"
         field :id, ID, "the ID of the Progress object.Example: 1", null: true
         field :context_id, ID, "the context owning the job..Example: 1", null: true

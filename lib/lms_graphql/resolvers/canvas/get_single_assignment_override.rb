@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class GetSingleAssignmentOverride < CanvasBaseResolver
-        type LMSGraphQL::Types::Canvas::AssignmentOverride, null: false
+        type LMSGraphQL::Types::Canvas::CanvasAssignmentOverride, null: false
         argument :course_id, ID, required: true
         argument :assignment_id, ID, required: true
         argument :id, ID, required: true

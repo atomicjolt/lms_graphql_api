@@ -15,7 +15,7 @@ module LMSGraphQL
           value "ExternalUrl"
           value "ExternalTool"
         end
-      class ModuleItem < BaseType
+      class CanvasModuleItem < BaseType
         description "Modules. API Docs: https://canvas.instructure.com/doc/api/modules.html"
         field :id, ID, "the unique identifier for the module item.Example: 768", null: true
         field :module_id, ID, "the id of the Module this item appears in.Example: 123", null: true
@@ -29,8 +29,8 @@ module LMSGraphQL
         field :page_url, String, "(only for 'Page' type) unique locator for the linked wiki page.Example: my-page-title", null: true
         field :external_url, String, "(only for 'ExternalUrl' and 'ExternalTool' types) external url that the item points to.Example: https://www.example.com/externalurl", null: true
         field :new_tab, Boolean, "(only for 'ExternalTool' type) whether the external tool opens in a new tab.", null: true
-        field :completion_requirement, LMSGraphQL::Types::Canvas::CompletionRequirement, "Completion requirement for this module item.Example: min_score, 10, true", null: true
-        field :content_details, LMSGraphQL::Types::Canvas::ContentDetail, "(Present only if requested through include[]=content_details) If applicable, returns additional details specific to the associated object.Example: 20, 2012-12-31T06:00:00-06:00, 2012-12-31T06:00:00-06:00, 2012-12-31T06:00:00-06:00", null: true
+        field :completion_requirement, LMSGraphQL::Types::Canvas::CanvasCompletionRequirement, "Completion requirement for this module item.Example: min_score, 10, true", null: true
+        field :content_details, LMSGraphQL::Types::Canvas::CanvasContentDetail, "(Present only if requested through include[]=content_details) If applicable, returns additional details specific to the associated object.Example: 20, 2012-12-31T06:00:00-06:00, 2012-12-31T06:00:00-06:00, 2012-12-31T06:00:00-06:00", null: true
         field :published, Boolean, "(Optional) Whether this module item is published. This field is present only if the caller has permission to view unpublished items..Example: true", null: true
 
       end

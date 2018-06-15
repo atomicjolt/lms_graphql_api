@@ -6,7 +6,7 @@ module LMSGraphQL
       class DeleteAssignment < CanvasBaseMutation
         argument :course_id, ID, required: true
         argument :id, ID, required: true
-        field :assignment, LMSGraphQL::Types::Canvas::Assignment, null: false
+        field :assignment, LMSGraphQL::Types::Canvas::CanvasAssignment, null: false
         def resolve(course_id:, id:)
           ctx[:canvas_api].proxy(
             "DELETE_ASSIGNMENT",

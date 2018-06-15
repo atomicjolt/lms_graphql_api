@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ShowObservee < CanvasBaseResolver
-        type LMSGraphQL::Types::Canvas::User, null: false
+        type LMSGraphQL::Types::Canvas::CanvasUser, null: false
         argument :user_id, ID, required: true
         argument :observee_id, ID, required: true
         def resolve(user_id:, observee_id:)

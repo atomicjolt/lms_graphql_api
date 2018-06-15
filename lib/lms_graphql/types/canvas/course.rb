@@ -21,7 +21,7 @@ module LMSGraphQL
           value "syllabus"
           value "assignments"
         end
-      class Course < BaseType
+      class CanvasCourse < BaseType
         description "Courses. API Docs: https://canvas.instructure.com/doc/api/courses.html"
         field :id, ID, "the unique identifier for the course.Example: 370663", null: true
         field :sis_course_id, ID, "the SIS identifier for the course, if defined. This field is only included if the user has permission to view SIS information..", null: true
@@ -38,14 +38,14 @@ module LMSGraphQL
         field :start_at, LMSGraphQL::Types::DateTimeType, "the start date for the course, if applicable.Example: 2012-06-01T00:00:00-06:00", null: true
         field :end_at, LMSGraphQL::Types::DateTimeType, "the end date for the course, if applicable.Example: 2012-09-01T00:00:00-06:00", null: true
         field :locale, String, "the course-set locale, if applicable.Example: en", null: true
-        field :enrollments, [LMSGraphQL::Types::Canvas::Enrollment], "A list of enrollments linking the current user to the course. for student enrollments, grading information may be included if include[]=total_scores.", null: true
+        field :enrollments, [LMSGraphQL::Types::Canvas::CanvasEnrollment], "A list of enrollments linking the current user to the course. for student enrollments, grading information may be included if include[]=total_scores.", null: true
         field :total_students, Int, "optional: the total number of active and invited students in the course.Example: 32", null: true
-        field :calendar, LMSGraphQL::Types::Canvas::CalendarLink, "course calendar.", null: true
+        field :calendar, LMSGraphQL::Types::Canvas::CanvasCalendarLink, "course calendar.", null: true
         field :default_view, CourseDefaultViewEnum, "the type of page that users will see when they first visit the course - 'feed': Recent Activity Dashboard - 'wiki': Wiki Front Page - 'modules': Course Modules/Sections Page - 'assignments': Course Assignments List - 'syllabus': Course Syllabus Page other types may be added in the future.Example: feed", null: true
         field :syllabus_body, String, "optional: user-generated HTML for the course syllabus.Example: <p>syllabus html goes here</p>", null: true
         field :needs_grading_count, Int, "optional: the number of submissions needing grading returned only if the current user has grading rights and include[]=needs_grading_count.Example: 17", null: true
-        field :term, LMSGraphQL::Types::Canvas::Term, "optional: the enrollment term object for the course returned only if include[]=term.", null: true
-        field :course_progress, LMSGraphQL::Types::Canvas::CourseProgress, "optional (beta): information on progress through the course returned only if include[]=course_progress.", null: true
+        field :term, LMSGraphQL::Types::Canvas::CanvasTerm, "optional: the enrollment term object for the course returned only if include[]=term.", null: true
+        field :course_progress, LMSGraphQL::Types::Canvas::CanvasCourseProgress, "optional (beta): information on progress through the course returned only if include[]=course_progress.", null: true
         field :apply_assignment_group_weights, Boolean, "weight final grade based on assignment group percentages.Example: true", null: true
         field :permissions, String, "optional: the permissions the user has for the course. returned only for a single course and include[]=permissions.Example: true, true", null: true
         field :is_public, Boolean, "Example: true", null: true

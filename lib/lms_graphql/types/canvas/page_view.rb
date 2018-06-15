@@ -4,7 +4,7 @@ require_relative "page_view_link"
 module LMSGraphQL
   module Types
     module Canvas
-      class PageView < BaseType
+      class CanvasPageView < BaseType
         description "Users. API Docs: https://canvas.instructure.com/doc/api/users.html"
         field :id, ID, "A UUID representing the page view.  This is also the unique request id.Example: 3e246700-e305-0130-51de-02e33aa501ef", null: true
         field :app_name, String, "If the request is from an API request, the app that generated the access token.Example: Canvas for iOS", null: true
@@ -22,7 +22,7 @@ module LMSGraphQL
         field :participated, Boolean, "True if the request counted as participating, such as submitting homework.Example: false", null: true
         field :http_method, String, "The HTTP method such as GET or POST.Example: GET", null: true
         field :remote_ip, String, "The origin IP address of the request.Example: 173.194.46.71", null: true
-        field :links, LMSGraphQL::Types::Canvas::PageViewLink, "The page view links to define the relationships.Example: 1234, 1234", null: true
+        field :links, LMSGraphQL::Types::Canvas::CanvasPageViewLink, "The page view links to define the relationships.Example: 1234, 1234", null: true
 
       end
     end

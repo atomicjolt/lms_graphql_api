@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class License < BaseType
+      class CanvasLicense < BaseType
         description "Files. API Docs: https://canvas.instructure.com/doc/api/files.html"
         field :id, ID, "a short string identifying the license.Example: cc_by_sa", null: true
         field :name, String, "the name of the license.Example: CC Attribution ShareAlike", null: true

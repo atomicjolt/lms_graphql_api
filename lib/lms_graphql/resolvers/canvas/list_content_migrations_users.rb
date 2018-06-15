@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListContentMigrationsUser < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::ContentMigration], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasContentMigration], null: false
         argument :user_id, ID, required: true
         def resolve(user_id:)
           context[:canvas_api].proxy(

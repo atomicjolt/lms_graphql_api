@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class Poll < BaseType
+      class CanvasPoll < BaseType
         description "Polls. API Docs: https://canvas.instructure.com/doc/api/polls.html"
         field :id, ID, "The unique identifier for the poll..Example: 1023", null: true
         field :question, String, "The question/title of the poll..Example: What do you consider most important to your learning in this course?", null: true

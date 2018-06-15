@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListUsersInGroupCategory < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::User], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasUser], null: false
         argument :group_category_id, ID, required: true
         argument :search_term, String, required: false
         argument :unassigned, Boolean, required: false

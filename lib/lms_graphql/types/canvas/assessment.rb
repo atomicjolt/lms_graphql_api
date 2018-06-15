@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class Assessment < BaseType
+      class CanvasAssessment < BaseType
         description "LiveAssessments. API Docs: https://canvas.instructure.com/doc/api/live_assessments.html"
         field :id, ID, "A unique identifier for this live assessment.Example: 42", null: true
         field :key, String, "A client specified unique identifier for the assessment.Example: 2014-05-27,outcome_52", null: true

@@ -14,7 +14,7 @@ module LMSGraphQL
           value "cancelled"
           value "closed"
         end
-      class CommMessage < BaseType
+      class CanvasCommMessage < BaseType
         description "CommMessages. API Docs: https://canvas.instructure.com/doc/api/comm_messages.html"
         field :id, ID, "The ID of the CommMessage..Example: 42", null: true
         field :created_at, LMSGraphQL::Types::DateTimeType, "The date and time this message was created.Example: 2013-03-19T21:00:00Z", null: true

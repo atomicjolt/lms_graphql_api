@@ -8,8 +8,8 @@ module LMSGraphQL
         argument :attempt, Int, required: true
         argument :validation_token, String, required: true
         argument :access_code, String, required: false
-        argument :quiz_questions, [LMSGraphQL::Types::Canvas::QuizSubmissionQuestion], required: false
-        field :quiz_submission_question, [LMSGraphQL::Types::Canvas::QuizSubmissionQuestion], null: false
+        argument :quiz_questions, [LMSGraphQL::Types::Canvas::CanvasQuizSubmissionQuestion], required: false
+        field :quiz_submission_question, [LMSGraphQL::Types::Canvas::CanvasQuizSubmissionQuestion], null: false
         def resolve(quiz_submission_id:, attempt:, validation_token:, access_code: nil, quiz_questions: nil)
           ctx[:canvas_api].proxy(
             "ANSWERING_QUESTIONS",

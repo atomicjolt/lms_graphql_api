@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListFeaturesCourse < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::Feature], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasFeature], null: false
         argument :course_id, ID, required: true
         def resolve(course_id:)
           context[:canvas_api].proxy(

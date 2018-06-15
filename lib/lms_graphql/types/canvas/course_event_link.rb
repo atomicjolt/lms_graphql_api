@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class CourseEventLink < BaseType
+      class CanvasCourseEventLink < BaseType
         description "Course Audit log. API Docs: https://canvas.instructure.com/doc/api/course_audit_log.html"
         field :course, Int, "ID of the course for the event..Example: 12345", null: true
         field :user, Int, "ID of the user for the event (who made the change)..Example: 12345", null: true

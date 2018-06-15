@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class GetPreferenceType < CanvasBaseResolver
-        type LMSGraphQL::Types::Canvas::NotificationPreference, null: false
+        type LMSGraphQL::Types::Canvas::CanvasNotificationPreference, null: false
         argument :user_id, ID, required: true
         argument :type, String, required: true
         argument :address, String, required: true

@@ -17,7 +17,7 @@ module LMSGraphQL
           value "unsubmitted"
           value "pending_review"
         end
-      class Submission < BaseType
+      class CanvasSubmission < BaseType
         description "Submissions. API Docs: https://canvas.instructure.com/doc/api/submissions.html"
         field :assignment_id, ID, "The submission's assignment id.Example: 23", null: true
         field :assignment, String, "The submission's assignment (see the assignments API) (optional).Example: Assignment", null: true
@@ -29,7 +29,7 @@ module LMSGraphQL
         field :html_url, String, "URL to the submission. This will require the user to log in..Example: http://example.com/courses/255/assignments/543/submissions/134", null: true
         field :preview_url, String, "URL to the submission preview. This will require the user to log in..Example: http://example.com/courses/255/assignments/543/submissions/134?preview=1", null: true
         field :score, Float, "The raw score.Example: 13.5", null: true
-        field :submission_comments, [LMSGraphQL::Types::Canvas::SubmissionComment], "Associated comments for a submission (optional).", null: true
+        field :submission_comments, [LMSGraphQL::Types::Canvas::CanvasSubmissionComment], "Associated comments for a submission (optional).", null: true
         field :submission_type, SubmissionSubmissionTypeEnum, "The types of submission ex: ('online_text_entry'|'online_url'|'online_upload'|'media_recording').Example: online_text_entry", null: true
         field :submitted_at, LMSGraphQL::Types::DateTimeType, "The timestamp when the assignment was submitted.Example: 2012-01-01T01:00:00Z", null: true
         field :url, String, "The URL of the submission (for 'online_url' submissions)..", null: true

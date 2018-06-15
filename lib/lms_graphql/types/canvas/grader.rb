@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class Grader < BaseType
+      class CanvasGrader < BaseType
         description "Gradebook History. API Docs: https://canvas.instructure.com/doc/api/gradebook_history.html"
         field :id, ID, "the user_id of the user who graded the contained submissions.Example: 27", null: true
         field :name, String, "the name of the user who graded the contained submissions.Example: Some User", null: true

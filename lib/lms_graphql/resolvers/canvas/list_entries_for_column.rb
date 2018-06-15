@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListEntriesForColumn < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::ColumnDatum], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasColumnDatum], null: false
         argument :course_id, ID, required: true
         argument :id, ID, required: true
         argument :include_hidden, Boolean, required: false

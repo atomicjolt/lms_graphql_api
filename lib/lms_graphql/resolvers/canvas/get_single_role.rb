@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class GetSingleRole < CanvasBaseResolver
-        type LMSGraphQL::Types::Canvas::Role, null: false
+        type LMSGraphQL::Types::Canvas::CanvasRole, null: false
         argument :id, ID, required: true
         argument :account_id, ID, required: true
         argument :role_id, ID, required: true

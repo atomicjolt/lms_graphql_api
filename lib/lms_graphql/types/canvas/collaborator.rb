@@ -8,7 +8,7 @@ module LMSGraphQL
           value "user"
           value "group"
         end
-      class Collaborator < BaseType
+      class CanvasCollaborator < BaseType
         description "Collaborations. API Docs: https://canvas.instructure.com/doc/api/collaborations.html"
         field :id, ID, "The unique user or group identifier for the collaborator..Example: 12345", null: true
         field :type, CollaboratorTypeEnum, "The type of collaborator (e.g. 'user' or 'group')..Example: user", null: true

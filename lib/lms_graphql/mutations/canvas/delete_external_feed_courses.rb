@@ -6,7 +6,7 @@ module LMSGraphQL
       class DeleteExternalFeedCourse < CanvasBaseMutation
         argument :course_id, ID, required: true
         argument :external_feed_id, ID, required: true
-        field :external_feed, LMSGraphQL::Types::Canvas::ExternalFeed, null: false
+        field :external_feed, LMSGraphQL::Types::Canvas::CanvasExternalFeed, null: false
         def resolve(course_id:, external_feed_id:)
           ctx[:canvas_api].proxy(
             "DELETE_EXTERNAL_FEED_COURSES",

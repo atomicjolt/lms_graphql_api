@@ -18,7 +18,7 @@ module LMSGraphQL
           value "online_upload"
           value "media_recording"
         end
-      class SisAssignment < BaseType
+      class CanvasSisAssignment < BaseType
         description "SIS Integration. API Docs: https://canvas.instructure.com/doc/api/sis_integration.html"
         field :id, ID, "The unique identifier for the assignment..Example: 4", null: true
         field :course_id, ID, "The unique identifier for the course..Example: 6", null: true
@@ -32,9 +32,9 @@ module LMSGraphQL
         field :integration_id, ID, "Third Party integration id for assignment.Example: 12341234", null: true
         field :integration_data, String, "(optional, Third Party integration data for assignment).Example: other_data", null: true
         field :include_in_final_grade, Boolean, "If false, the assignment will be omitted from the student's final grade.Example: true", null: true
-        field :assignment_group, [LMSGraphQL::Types::Canvas::AssignmentGroupAttribute], "Includes attributes of a assignment_group for convenience. For more details see Assignments API..", null: true
-        field :sections, [LMSGraphQL::Types::Canvas::SectionAttribute], "Includes attributes of a section for convenience. For more details see Sections API..", null: true
-        field :user_overrides, [LMSGraphQL::Types::Canvas::UserAssignmentOverrideAttribute], "Includes attributes of a user assignment overrides. For more details see Assignments API..", null: true
+        field :assignment_group, [LMSGraphQL::Types::Canvas::CanvasAssignmentGroupAttribute], "Includes attributes of a assignment_group for convenience. For more details see Assignments API..", null: true
+        field :sections, [LMSGraphQL::Types::Canvas::CanvasSectionAttribute], "Includes attributes of a section for convenience. For more details see Sections API..", null: true
+        field :user_overrides, [LMSGraphQL::Types::Canvas::CanvasUserAssignmentOverrideAttribute], "Includes attributes of a user assignment overrides. For more details see Assignments API..", null: true
 
       end
     end

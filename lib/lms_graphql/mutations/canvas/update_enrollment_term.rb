@@ -12,7 +12,7 @@ module LMSGraphQL
         argument :enrollment_term_sis_term_id, String, required: false
         argument :enrollment_term_overrides_enrollment_type_start_at, LMSGraphQL::Types::DateTimeType, required: false
         argument :enrollment_term_overrides_enrollment_type_end_at, LMSGraphQL::Types::DateTimeType, required: false
-        field :enrollment_term, LMSGraphQL::Types::Canvas::EnrollmentTerm, null: false
+        field :enrollment_term, LMSGraphQL::Types::Canvas::CanvasEnrollmentTerm, null: false
         def resolve(account_id:, id:, enrollment_term_name: nil, enrollment_term_start_at: nil, enrollment_term_end_at: nil, enrollment_term_sis_term_id: nil, enrollment_term_overrides_enrollment_type_start_at: nil, enrollment_term_overrides_enrollment_type_end_at: nil)
           ctx[:canvas_api].proxy(
             "UPDATE_ENROLLMENT_TERM",

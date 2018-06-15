@@ -4,7 +4,7 @@ require_relative "tool_setting"
 module LMSGraphQL
   module Types
     module Canvas
-      class OriginalityReport < BaseType
+      class CanvasOriginalityReport < BaseType
         description "Originality Reports. API Docs: https://canvas.instructure.com/doc/api/originality_reports.html"
         field :id, ID, "The id of the OriginalityReport.Example: 4", null: true
         field :file_id, ID, "The id of the file receiving the originality score.Example: 8", null: true

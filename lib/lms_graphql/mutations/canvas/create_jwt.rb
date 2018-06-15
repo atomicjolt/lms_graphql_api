@@ -5,7 +5,7 @@ module LMSGraphQL
     module Canvas
       class CreateJwt < CanvasBaseMutation
 
-        field :jwt, LMSGraphQL::Types::Canvas::JWT, null: false
+        field :jwt, LMSGraphQL::Types::Canvas::CanvasJWT, null: false
         def resolve()
           ctx[:canvas_api].proxy(
             "CREATE_JWT",

@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class ConferenceRecording < BaseType
+      class CanvasConferenceRecording < BaseType
         description "Conferences. API Docs: https://canvas.instructure.com/doc/api/conferences.html"
         field :duration_minutes, Int, "Example: 0", null: true
         field :title, String, "Example: course2: Test conference 3 [170]_0", null: true

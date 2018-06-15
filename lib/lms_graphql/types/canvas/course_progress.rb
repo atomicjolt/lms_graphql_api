@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class CourseProgress < BaseType
+      class CanvasCourseProgress < BaseType
         description "Courses. API Docs: https://canvas.instructure.com/doc/api/courses.html"
         field :requirement_count, Int, "total number of requirements from all modules.Example: 10", null: true
         field :requirement_completed_count, Int, "total number of requirements the user has completed from all modules.Example: 1", null: true

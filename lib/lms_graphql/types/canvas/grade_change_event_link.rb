@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class GradeChangeEventLink < BaseType
+      class CanvasGradeChangeEventLink < BaseType
         description "Grade Change Log. API Docs: https://canvas.instructure.com/doc/api/grade_change_log.html"
         field :assignment, Int, "ID of the assignment associated with the event.Example: 2319", null: true
         field :course, Int, "ID of the course associated with the event. will match the context_id in the associated assignment if the context type for the assignment is a course.Example: 2319", null: true

@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class AssignmentOverride < BaseType
+      class CanvasAssignmentOverride < BaseType
         description "Assignments. API Docs: https://canvas.instructure.com/doc/api/assignments.html"
         field :id, ID, "the ID of the assignment override.Example: 4", null: true
         field :assignment_id, ID, "the ID of the assignment the override applies to.Example: 123", null: true

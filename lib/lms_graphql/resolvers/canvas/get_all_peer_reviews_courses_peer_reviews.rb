@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class GetAllPeerReviewsCoursesPeerReview < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::PeerReview], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasPeerReview], null: false
         argument :course_id, ID, required: true
         argument :assignment_id, ID, required: true
         argument :include, String, required: false

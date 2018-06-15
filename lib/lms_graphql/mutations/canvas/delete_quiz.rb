@@ -6,7 +6,7 @@ module LMSGraphQL
       class DeleteQuiz < CanvasBaseMutation
         argument :course_id, ID, required: true
         argument :id, ID, required: true
-        field :quiz, LMSGraphQL::Types::Canvas::Quiz, null: false
+        field :quiz, LMSGraphQL::Types::Canvas::CanvasQuiz, null: false
         def resolve(course_id:, id:)
           ctx[:canvas_api].proxy(
             "DELETE_QUIZ",

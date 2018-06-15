@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class GetBookmark < CanvasBaseResolver
-        type LMSGraphQL::Types::Canvas::Bookmark, null: false
+        type LMSGraphQL::Types::Canvas::CanvasBookmark, null: false
         argument :id, ID, required: true
         def resolve(id:)
           context[:canvas_api].proxy(

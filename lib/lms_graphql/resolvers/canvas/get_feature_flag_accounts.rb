@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class GetFeatureFlagAccount < CanvasBaseResolver
-        type LMSGraphQL::Types::Canvas::FeatureFlag, null: false
+        type LMSGraphQL::Types::Canvas::CanvasFeatureFlag, null: false
         argument :account_id, ID, required: true
         argument :feature, String, required: true
         def resolve(account_id:, feature:)

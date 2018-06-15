@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class GetUnsyncedChange < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::ChangeRecord], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasChangeRecord], null: false
         argument :course_id, ID, required: true
         argument :template_id, ID, required: true
         def resolve(course_id:, template_id:)

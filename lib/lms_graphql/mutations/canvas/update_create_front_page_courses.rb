@@ -10,7 +10,7 @@ module LMSGraphQL
         argument :wiki_page_editing_roles, String, required: false
         argument :wiki_page_notify_of_update, Boolean, required: false
         argument :wiki_page_published, Boolean, required: false
-        field :page, LMSGraphQL::Types::Canvas::Page, null: false
+        field :page, LMSGraphQL::Types::Canvas::CanvasPage, null: false
         def resolve(course_id:, wiki_page_title: nil, wiki_page_body: nil, wiki_page_editing_roles: nil, wiki_page_notify_of_update: nil, wiki_page_published: nil)
           ctx[:canvas_api].proxy(
             "UPDATE_CREATE_FRONT_PAGE_COURSES",

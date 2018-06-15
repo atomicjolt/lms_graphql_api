@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ShowAccountAuthSetting < CanvasBaseResolver
-        type LMSGraphQL::Types::Canvas::SSOSetting, null: false
+        type LMSGraphQL::Types::Canvas::CanvasSSOSetting, null: false
         argument :account_id, ID, required: true
         def resolve(account_id:)
           context[:canvas_api].proxy(

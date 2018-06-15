@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListEnrollmentTerm < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::EnrollmentTerm], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasEnrollmentTerm], null: false
         argument :account_id, ID, required: true
         argument :workflow_state, String, required: false
         argument :include, String, required: false

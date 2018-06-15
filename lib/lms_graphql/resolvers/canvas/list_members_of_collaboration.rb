@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListMembersOfCollaboration < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::Collaborator], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasCollaborator], null: false
         argument :id, ID, required: true
         argument :include, String, required: false
         def resolve(id:, include: nil)

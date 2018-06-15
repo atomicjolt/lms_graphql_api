@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class PlannerNote < BaseType
+      class CanvasPlannerNote < BaseType
         description "Planner Note. API Docs: https://canvas.instructure.com/doc/api/planner_note.html"
         field :id, ID, "The ID of the planner note.Example: 234", null: true
         field :title, String, "The title for a planner note.Example: Bring books tomorrow", null: true

@@ -12,7 +12,7 @@ module LMSGraphQL
           value "completed"
           value "failed"
         end
-      class ContentMigration < BaseType
+      class CanvasContentMigration < BaseType
         description "Content Migrations. API Docs: https://canvas.instructure.com/doc/api/content_migrations.html"
         field :id, ID, "the unique identifier for the migration.Example: 370663", null: true
         field :migration_type, String, "the type of content migration.Example: common_cartridge_importer", null: true

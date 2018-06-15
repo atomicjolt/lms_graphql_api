@@ -7,7 +7,7 @@ module LMSGraphQL
         argument :account_id, ID, required: true
         argument :id, ID, required: true
         argument :source_outcome_group_id, ID, required: true
-        field :outcome_group, LMSGraphQL::Types::Canvas::OutcomeGroup, null: false
+        field :outcome_group, LMSGraphQL::Types::Canvas::CanvasOutcomeGroup, null: false
         def resolve(account_id:, id:, source_outcome_group_id:)
           ctx[:canvas_api].proxy(
             "IMPORT_OUTCOME_GROUP_ACCOUNTS",

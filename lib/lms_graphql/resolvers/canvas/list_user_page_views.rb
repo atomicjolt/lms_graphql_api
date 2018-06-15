@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListUserPageView < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::PageView], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasPageView], null: false
         argument :user_id, ID, required: true
         argument :start_time, LMSGraphQL::Types::DateTimeType, required: false
         argument :end_time, LMSGraphQL::Types::DateTimeType, required: false

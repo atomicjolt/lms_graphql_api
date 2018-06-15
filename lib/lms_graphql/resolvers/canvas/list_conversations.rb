@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListConversation < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::Conversation], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasConversation], null: false
         argument :scope, String, required: false
         argument :filter, String, required: false
         argument :filter_mode, String, required: false

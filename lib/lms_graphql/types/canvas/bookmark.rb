@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class Bookmark < BaseType
+      class CanvasBookmark < BaseType
         description "Bookmarks. API Docs: https://canvas.instructure.com/doc/api/bookmarks.html"
         field :id, ID, "Example: 1", null: true
         field :name, String, "Example: Biology 101", null: true

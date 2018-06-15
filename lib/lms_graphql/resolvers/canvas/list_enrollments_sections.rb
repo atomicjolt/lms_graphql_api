@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListEnrollmentsSection < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::Enrollment], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasEnrollment], null: false
         argument :section_id, ID, required: true
         argument :type, String, required: false
         argument :role, String, required: false

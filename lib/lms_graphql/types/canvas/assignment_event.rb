@@ -9,7 +9,7 @@ module LMSGraphQL
           value "published"
           value "deleted"
         end
-      class AssignmentEvent < BaseType
+      class CanvasAssignmentEvent < BaseType
         description "Calendar Events. API Docs: https://canvas.instructure.com/doc/api/calendar_events.html"
         field :id, ID, "A synthetic ID for the assignment.Example: assignment_987", null: true
         field :title, String, "The title of the assignment.Example: Essay", null: true
@@ -24,8 +24,8 @@ module LMSGraphQL
         field :all_day, Boolean, "Boolean indicating whether this is an all-day event (e.g. assignment due at midnight).Example: true", null: true
         field :created_at, LMSGraphQL::Types::DateTimeType, "When the assignment was created.Example: 2012-07-12T10:55:20-06:00", null: true
         field :updated_at, LMSGraphQL::Types::DateTimeType, "When the assignment was last updated.Example: 2012-07-12T10:55:20-06:00", null: true
-        field :assignment, LMSGraphQL::Types::Canvas::Assignment, "The full assignment JSON data (See the Assignments API).", null: true
-        field :assignment_overrides, LMSGraphQL::Types::Canvas::AssignmentOverride, "The list of AssignmentOverrides that apply to this event (See the Assignments API). This information is useful for determining which students or sections this assignment-due event applies to..", null: true
+        field :assignment, LMSGraphQL::Types::Canvas::CanvasAssignment, "The full assignment JSON data (See the Assignments API).", null: true
+        field :assignment_overrides, LMSGraphQL::Types::Canvas::CanvasAssignmentOverride, "The list of AssignmentOverrides that apply to this event (See the Assignments API). This information is useful for determining which students or sections this assignment-due event applies to..", null: true
 
       end
     end

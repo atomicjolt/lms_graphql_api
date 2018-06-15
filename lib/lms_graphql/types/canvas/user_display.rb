@@ -4,7 +4,7 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class UserDisplay < BaseType
+      class CanvasUserDisplay < BaseType
         description "Users. API Docs: https://canvas.instructure.com/doc/api/users.html"
         field :id, ID, "The ID of the user..Example: 2", null: true
         field :short_name, String, "A short name the user has selected, for use in conversations or other less formal places through the site..Example: Shelly", null: true
