@@ -1,12 +1,12 @@
 $:.push File.expand_path("../lib", __FILE__)
 
 # Maintain your gem's version:
-require "lms/version"
+require "lms_graphql/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
   s.name        = "lms-graphql-api"
-  s.version     = LMS::VERSION
+  s.version     = LMSGraphQL::VERSION
   s.authors     = ["Atomic Jolt", "Justin Ball"]
   s.email       = ["justin.ball@atomicjolt.com"]
   s.homepage    = "https://github.com/atomicjolt/lms_graphql_api"

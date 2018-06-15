@@ -1,3 +1,6 @@
+#0.2.1
+Fixes versioning bug
+
 #0.2.0
 Fixed namespacing so we don't collide with lms-api gem
 
