@@ -1,7 +1,5 @@
 require "byebug"
-
 require "lms_graphql_api"
-require "lms_graphql/canvas_schema"
 
 describe LMSGraphQL::Types::Canvas::Schema do
 
