@@ -7,7 +7,7 @@ module LMSGraphQL
         type LMSGraphQL::Types::Canvas::CanvasProgress, null: false
         argument :id, ID, required: true
         def resolve(id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("QUERY_PROGRESS").proxy(
             "QUERY_PROGRESS",
             {
               "id": id            },

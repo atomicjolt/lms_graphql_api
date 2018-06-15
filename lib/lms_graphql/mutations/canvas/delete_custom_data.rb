@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :ns, String, required: true
         field :return_value, Boolean, null: false
         def resolve(user_id:, ns:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("DELETE_CUSTOM_DATA").proxy(
             "DELETE_CUSTOM_DATA",
             {
               "user_id": user_id,

@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :cancel_reason, String, required: false
         field :return_value, Boolean, null: false
         def resolve(id:, cancel_reason: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("DELETE_APPOINTMENT_GROUP").proxy(
             "DELETE_APPOINTMENT_GROUP",
             {
               "id": id,

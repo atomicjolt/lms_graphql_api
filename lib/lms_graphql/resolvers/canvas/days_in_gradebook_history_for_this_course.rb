@@ -7,7 +7,7 @@ module LMSGraphQL
         type [LMSGraphQL::Types::Canvas::CanvasDay], null: false
         argument :course_id, ID, required: true
         def resolve(course_id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("DAYS_IN_GRADEBOOK_HISTORY_FOR_THIS_COURSE").proxy(
             "DAYS_IN_GRADEBOOK_HISTORY_FOR_THIS_COURSE",
             {
               "course_id": course_id            },

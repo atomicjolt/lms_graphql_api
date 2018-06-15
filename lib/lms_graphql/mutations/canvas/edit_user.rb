@@ -15,7 +15,7 @@ module LMSGraphQL
         argument :user_avatar_url, String, required: false
         field :user, LMSGraphQL::Types::Canvas::CanvasUser, null: false
         def resolve(id:, user_name: nil, user_short_name: nil, user_sortable_name: nil, user_time_zone: nil, user_email: nil, user_locale: nil, user_avatar_token: nil, user_avatar_url: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("EDIT_USER").proxy(
             "EDIT_USER",
             {
               "id": id,

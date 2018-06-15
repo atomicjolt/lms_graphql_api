@@ -7,7 +7,7 @@ module LMSGraphQL
 
         field :return_value, Boolean, null: false
         def resolve()
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("RESET_GROUP_FAVORITES").proxy(
             "RESET_GROUP_FAVORITES",
             {
             },

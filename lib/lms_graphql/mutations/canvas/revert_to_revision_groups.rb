@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :revision_id, ID, required: true
         field :page_revision, LMSGraphQL::Types::Canvas::CanvasPageRevision, null: false
         def resolve(group_id:, url:, revision_id:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("REVERT_TO_REVISION_GROUPS").proxy(
             "REVERT_TO_REVISION_GROUPS",
             {
               "group_id": group_id,

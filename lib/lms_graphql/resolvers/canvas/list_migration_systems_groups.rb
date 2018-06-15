@@ -7,7 +7,7 @@ module LMSGraphQL
         type [LMSGraphQL::Types::Canvas::CanvasMigrator], null: false
         argument :group_id, ID, required: true
         def resolve(group_id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_MIGRATION_SYSTEMS_GROUPS").proxy(
             "LIST_MIGRATION_SYSTEMS_GROUPS",
             {
               "group_id": group_id            },

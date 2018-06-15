@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :order, Int, required: true
         field :return_value, Boolean, null: false
         def resolve(group_id:, order:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("REORDER_PINNED_TOPICS_GROUPS").proxy(
             "REORDER_PINNED_TOPICS_GROUPS",
             {
               "group_id": group_id,

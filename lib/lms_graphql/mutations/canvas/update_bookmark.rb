@@ -11,7 +11,7 @@ module LMSGraphQL
         argument :data, String, required: false
         field :folder, LMSGraphQL::Types::Canvas::CanvasFolder, null: false
         def resolve(id:, name: nil, url: nil, position: nil, data: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("UPDATE_BOOKMARK").proxy(
             "UPDATE_BOOKMARK",
             {
               "id": id,

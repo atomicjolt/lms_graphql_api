@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :start_time, LMSGraphQL::Types::DateTimeType, required: false
         argument :end_time, LMSGraphQL::Types::DateTimeType, required: false
         def resolve(assignment_id:, start_time: nil, end_time: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("QUERY_BY_ASSIGNMENT").proxy(
             "QUERY_BY_ASSIGNMENT",
             {
               "assignment_id": assignment_id,

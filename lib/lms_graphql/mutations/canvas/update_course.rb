@@ -44,7 +44,7 @@ module LMSGraphQL
         argument :course_blueprint_restrictions_by_object_type, String, required: false
         field :return_value, Boolean, null: false
         def resolve(id:, course_account_id: nil, course_name: nil, course_course_code: nil, course_start_at: nil, course_end_at: nil, course_license: nil, course_is_public: nil, course_is_public_to_auth_users: nil, course_public_syllabus: nil, course_public_syllabus_to_auth: nil, course_public_description: nil, course_allow_student_wiki_edits: nil, course_allow_wiki_comments: nil, course_allow_student_forum_attachments: nil, course_open_enrollment: nil, course_self_enrollment: nil, course_restrict_enrollments_to_course_dates: nil, course_term_id: nil, course_sis_course_id: nil, course_integration_id: nil, course_hide_final_grades: nil, course_time_zone: nil, course_apply_assignment_group_weights: nil, course_storage_quota_mb: nil, offer: nil, course_event: nil, course_default_view: nil, course_syllabus_body: nil, course_grading_standard_id: nil, course_course_format: nil, course_image_id: nil, course_image_url: nil, course_remove_image: nil, course_blueprint: nil, course_blueprint_restrictions: nil, course_use_blueprint_restrictions_by_object_type: nil, course_blueprint_restrictions_by_object_type: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("UPDATE_COURSE").proxy(
             "UPDATE_COURSE",
             {
               "id": id,

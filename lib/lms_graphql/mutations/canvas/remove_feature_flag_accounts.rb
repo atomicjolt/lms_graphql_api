@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :feature, String, required: true
         field :feature_flag, LMSGraphQL::Types::Canvas::CanvasFeatureFlag, null: false
         def resolve(account_id:, feature:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("REMOVE_FEATURE_FLAG_ACCOUNTS").proxy(
             "REMOVE_FEATURE_FLAG_ACCOUNTS",
             {
               "account_id": account_id,

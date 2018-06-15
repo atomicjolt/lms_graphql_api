@@ -10,7 +10,7 @@ module LMSGraphQL
         argument :order_type, String, required: false
         field :return_value, Boolean, null: false
         def resolve(course_id:, id:, order_id:, order_type: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("REORDER_QUIZ_ITEMS").proxy(
             "REORDER_QUIZ_ITEMS",
             {
               "course_id": course_id,

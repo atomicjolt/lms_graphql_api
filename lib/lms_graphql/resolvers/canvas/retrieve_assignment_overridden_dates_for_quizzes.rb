@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :course_id, ID, required: true
         argument :quiz_assignment_overrides_0_quiz_ids, Int, required: false
         def resolve(course_id:, quiz_assignment_overrides_0_quiz_ids: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("RETRIEVE_ASSIGNMENT_OVERRIDDEN_DATES_FOR_QUIZZES").proxy(
             "RETRIEVE_ASSIGNMENT_OVERRIDDEN_DATES_FOR_QUIZZES",
             {
               "course_id": course_id,

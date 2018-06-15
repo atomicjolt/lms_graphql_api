@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :group_id, ID, required: true
         argument :content_migration_id, ID, required: true
         def resolve(group_id:, content_migration_id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_MIGRATION_ISSUES_GROUPS").proxy(
             "LIST_MIGRATION_ISSUES_GROUPS",
             {
               "group_id": group_id,

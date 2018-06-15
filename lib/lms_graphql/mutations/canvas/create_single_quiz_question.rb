@@ -19,7 +19,7 @@ module LMSGraphQL
         argument :question_answers, String, required: false
         field :quiz_question, LMSGraphQL::Types::Canvas::CanvasQuizQuestion, null: false
         def resolve(course_id:, quiz_id:, question_question_name: nil, question_question_text: nil, question_quiz_group_id: nil, question_question_type: nil, question_position: nil, question_points_possible: nil, question_correct_comments: nil, question_incorrect_comments: nil, question_neutral_comments: nil, question_text_after_answers: nil, question_answers: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("CREATE_SINGLE_QUIZ_QUESTION").proxy(
             "CREATE_SINGLE_QUIZ_QUESTION",
             {
               "course_id": course_id,

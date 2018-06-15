@@ -11,7 +11,7 @@ module LMSGraphQL
         argument :skip_confirmation, Boolean, required: false
         field :communication_channel, LMSGraphQL::Types::Canvas::CanvasCommunicationChannel, null: false
         def resolve(user_id:, communication_channel_address:, communication_channel_type:, communication_channel_token: nil, skip_confirmation: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("CREATE_COMMUNICATION_CHANNEL").proxy(
             "CREATE_COMMUNICATION_CHANNEL",
             {
               "user_id": user_id,

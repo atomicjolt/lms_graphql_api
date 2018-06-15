@@ -7,7 +7,7 @@ module LMSGraphQL
         type [LMSGraphQL::Types::Canvas::CanvasOutcomeGroup], null: false
         argument :id, ID, required: true
         def resolve(id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_SUBGROUPS_GLOBAL").proxy(
             "LIST_SUBGROUPS_GLOBAL",
             {
               "id": id            },

@@ -10,7 +10,7 @@ module LMSGraphQL
         argument :notification_preferences_frequency, String, required: true
         field :return_value, Boolean, null: false
         def resolve(type:, address:, notification:, notification_preferences_frequency:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("UPDATE_PREFERENCE_TYPE").proxy(
             "UPDATE_PREFERENCE_TYPE",
             {
               "type": type,

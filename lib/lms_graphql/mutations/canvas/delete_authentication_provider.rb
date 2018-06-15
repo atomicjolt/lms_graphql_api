@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :id, ID, required: true
         field :return_value, Boolean, null: false
         def resolve(account_id:, id:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("DELETE_AUTHENTICATION_PROVIDER").proxy(
             "DELETE_AUTHENTICATION_PROVIDER",
             {
               "account_id": account_id,

@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :id, ID, required: true
         field :outcome_group, LMSGraphQL::Types::Canvas::CanvasOutcomeGroup, null: false
         def resolve(account_id:, id:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("DELETE_OUTCOME_GROUP_ACCOUNTS").proxy(
             "DELETE_OUTCOME_GROUP_ACCOUNTS",
             {
               "account_id": account_id,

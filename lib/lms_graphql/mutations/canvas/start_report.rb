@@ -11,7 +11,7 @@ module LMSGraphQL
         argument :parameters_users, Boolean, required: false
         field :report, LMSGraphQL::Types::Canvas::CanvasReport, null: false
         def resolve(account_id:, report:, parameters: nil, parameters_course_id: nil, parameters_users: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("START_REPORT").proxy(
             "START_REPORT",
             {
               "account_id": account_id,

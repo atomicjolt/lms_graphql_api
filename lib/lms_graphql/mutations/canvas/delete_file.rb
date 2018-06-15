@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :replace, Boolean, required: false
         field :file, LMSGraphQL::Types::Canvas::CanvasFile, null: false
         def resolve(id:, replace: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("DELETE_FILE").proxy(
             "DELETE_FILE",
             {
               "id": id,

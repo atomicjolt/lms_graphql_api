@@ -13,7 +13,7 @@ module LMSGraphQL
         argument :rules, String, required: false
         field :assignment_group, LMSGraphQL::Types::Canvas::CanvasAssignmentGroup, null: false
         def resolve(course_id:, name: nil, position: nil, group_weight: nil, sis_source_id: nil, integration_data: nil, rules: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("CREATE_ASSIGNMENT_GROUP").proxy(
             "CREATE_ASSIGNMENT_GROUP",
             {
               "course_id": course_id,

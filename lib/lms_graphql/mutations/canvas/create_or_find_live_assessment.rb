@@ -7,7 +7,7 @@ module LMSGraphQL
         argument :course_id, ID, required: true
         field :return_value, Boolean, null: false
         def resolve(course_id:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("CREATE_OR_FIND_LIVE_ASSESSMENT").proxy(
             "CREATE_OR_FIND_LIVE_ASSESSMENT",
             {
               "course_id": course_id            },

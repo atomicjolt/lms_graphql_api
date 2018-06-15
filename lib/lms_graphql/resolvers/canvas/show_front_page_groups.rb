@@ -7,7 +7,7 @@ module LMSGraphQL
         type LMSGraphQL::Types::Canvas::CanvasPage, null: false
         argument :group_id, ID, required: true
         def resolve(group_id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("SHOW_FRONT_PAGE_GROUPS").proxy(
             "SHOW_FRONT_PAGE_GROUPS",
             {
               "group_id": group_id            },

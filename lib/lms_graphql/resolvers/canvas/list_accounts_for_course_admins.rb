@@ -7,7 +7,7 @@ module LMSGraphQL
         type [LMSGraphQL::Types::Canvas::CanvasAccount], null: false
 
         def resolve()
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_ACCOUNTS_FOR_COURSE_ADMINS").proxy(
             "LIST_ACCOUNTS_FOR_COURSE_ADMINS",
             {
             },

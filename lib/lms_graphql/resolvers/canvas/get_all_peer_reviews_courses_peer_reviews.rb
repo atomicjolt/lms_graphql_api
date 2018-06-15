@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :assignment_id, ID, required: true
         argument :include, String, required: false
         def resolve(course_id:, assignment_id:, include: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("GET_ALL_PEER_REVIEWS_COURSES_PEER_REVIEWS").proxy(
             "GET_ALL_PEER_REVIEWS_COURSES_PEER_REVIEWS",
             {
               "course_id": course_id,

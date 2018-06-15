@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :id, ID, required: true
         field :content_migration, LMSGraphQL::Types::Canvas::CanvasContentMigration, null: false
         def resolve(course_id:, id:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("UPDATE_CONTENT_MIGRATION_COURSES").proxy(
             "UPDATE_CONTENT_MIGRATION_COURSES",
             {
               "course_id": course_id,

@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :remove, String, required: true
         field :return_value, Boolean, null: false
         def resolve(id:, remove:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("DELETE_MESSAGE").proxy(
             "DELETE_MESSAGE",
             {
               "id": id,

@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :url, String, required: true
         field :page, LMSGraphQL::Types::Canvas::CanvasPage, null: false
         def resolve(course_id:, url:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("DUPLICATE_PAGE").proxy(
             "DUPLICATE_PAGE",
             {
               "course_id": course_id,

@@ -7,7 +7,7 @@ module LMSGraphQL
         type LMSGraphQL::Types::Canvas::CanvasPlannerOverride, null: false
         argument :id, ID, required: true
         def resolve(id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("SHOW_PLANNER_OVERRIDE").proxy(
             "SHOW_PLANNER_OVERRIDE",
             {
               "id": id            },

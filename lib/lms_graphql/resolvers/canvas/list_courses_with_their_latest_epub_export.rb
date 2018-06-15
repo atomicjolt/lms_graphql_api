@@ -7,7 +7,7 @@ module LMSGraphQL
         type [LMSGraphQL::Types::Canvas::CanvasCourseEpubExport], null: false
 
         def resolve()
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_COURSES_WITH_THEIR_LATEST_EPUB_EXPORT").proxy(
             "LIST_COURSES_WITH_THEIR_LATEST_EPUB_EXPORT",
             {
             },

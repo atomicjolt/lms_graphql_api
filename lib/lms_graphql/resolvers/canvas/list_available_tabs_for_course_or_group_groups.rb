@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :group_id, ID, required: true
         argument :include, String, required: false
         def resolve(group_id:, include: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_AVAILABLE_TABS_FOR_COURSE_OR_GROUP_GROUPS").proxy(
             "LIST_AVAILABLE_TABS_FOR_COURSE_OR_GROUP_GROUPS",
             {
               "group_id": group_id,

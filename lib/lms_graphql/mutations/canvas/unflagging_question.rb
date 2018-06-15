@@ -11,7 +11,7 @@ module LMSGraphQL
         argument :access_code, String, required: false
         field :return_value, Boolean, null: false
         def resolve(quiz_submission_id:, id:, attempt:, validation_token:, access_code: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("UNFLAGGING_QUESTION").proxy(
             "UNFLAGGING_QUESTION",
             {
               "quiz_submission_id": quiz_submission_id,

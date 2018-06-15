@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :assignment_id, ID, required: true
         argument :submission_id, ID, required: true
         def resolve(assignment_id:, submission_id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("GET_SINGLE_SUBMISSION").proxy(
             "GET_SINGLE_SUBMISSION",
             {
               "assignment_id": assignment_id,

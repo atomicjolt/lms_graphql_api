@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :topic_id, ID, required: true
         field :return_value, Boolean, null: false
         def resolve(group_id:, topic_id:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("MARK_TOPIC_AS_READ_GROUPS").proxy(
             "MARK_TOPIC_AS_READ_GROUPS",
             {
               "group_id": group_id,

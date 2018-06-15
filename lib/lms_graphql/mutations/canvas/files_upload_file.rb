@@ -7,7 +7,7 @@ module LMSGraphQL
         argument :folder_id, ID, required: true
         field :return_value, Boolean, null: false
         def resolve(folder_id:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("FILES_UPLOAD_FILE").proxy(
             "FILES_UPLOAD_FILE",
             {
               "folder_id": folder_id            },

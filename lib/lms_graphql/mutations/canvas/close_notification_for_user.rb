@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :id, ID, required: true
         field :account_notification, LMSGraphQL::Types::Canvas::CanvasAccountNotification, null: false
         def resolve(account_id:, id:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("CLOSE_NOTIFICATION_FOR_USER").proxy(
             "CLOSE_NOTIFICATION_FOR_USER",
             {
               "account_id": account_id,

@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :content_migration_id, ID, required: true
         argument :id, ID, required: true
         def resolve(account_id:, content_migration_id:, id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("GET_MIGRATION_ISSUE_ACCOUNTS").proxy(
             "GET_MIGRATION_ISSUE_ACCOUNTS",
             {
               "account_id": account_id,

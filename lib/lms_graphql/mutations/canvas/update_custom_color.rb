@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :hexcode, String, required: false
         field :return_value, Boolean, null: false
         def resolve(id:, asset_string:, hexcode: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("UPDATE_CUSTOM_COLOR").proxy(
             "UPDATE_CUSTOM_COLOR",
             {
               "id": id,

@@ -10,7 +10,7 @@ module LMSGraphQL
         argument :revision_id, ID, required: true
         argument :summary, Boolean, required: false
         def resolve(group_id:, url:, revision_id:, summary: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("SHOW_REVISION_GROUPS_REVISION_ID").proxy(
             "SHOW_REVISION_GROUPS_REVISION_ID",
             {
               "group_id": group_id,

@@ -37,7 +37,7 @@ module LMSGraphQL
         argument :assignment_moderated_grading, Boolean, required: false
         field :assignment, LMSGraphQL::Types::Canvas::CanvasAssignment, null: false
         def resolve(course_id:, assignment_name:, assignment_position: nil, assignment_submission_types: nil, assignment_allowed_extensions: nil, assignment_turnitin_enabled: nil, assignment_vericite_enabled: nil, assignment_turnitin_settings: nil, assignment_integration_data: nil, assignment_integration_id: nil, assignment_peer_reviews: nil, assignment_automatic_peer_reviews: nil, assignment_notify_of_update: nil, assignment_group_category_id: nil, assignment_grade_group_students_individually: nil, assignment_external_tool_tag_attributes: nil, assignment_points_possible: nil, assignment_grading_type: nil, assignment_due_at: nil, assignment_lock_at: nil, assignment_unlock_at: nil, assignment_description: nil, assignment_assignment_group_id: nil, assignment_muted: nil, assignment_assignment_overrides: nil, assignment_only_visible_to_overrides: nil, assignment_published: nil, assignment_grading_standard_id: nil, assignment_omit_from_final_grade: nil, assignment_quiz_lti: nil, assignment_moderated_grading: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("CREATE_ASSIGNMENT").proxy(
             "CREATE_ASSIGNMENT",
             {
               "course_id": course_id,

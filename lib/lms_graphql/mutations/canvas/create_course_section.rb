@@ -14,7 +14,7 @@ module LMSGraphQL
         argument :enable_sis_reactivation, Boolean, required: false
         field :section, LMSGraphQL::Types::Canvas::CanvasSection, null: false
         def resolve(course_id:, course_section_name: nil, course_section_sis_section_id: nil, course_section_integration_id: nil, course_section_start_at: nil, course_section_end_at: nil, course_section_restrict_enrollments_to_section_dates: nil, enable_sis_reactivation: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("CREATE_COURSE_SECTION").proxy(
             "CREATE_COURSE_SECTION",
             {
               "course_id": course_id,

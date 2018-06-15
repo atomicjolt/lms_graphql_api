@@ -7,7 +7,7 @@ module LMSGraphQL
         type Boolean, null: false
 
         def resolve()
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_ALL_WEBHOOK_SUBSCRIPTION_FOR_TOOL_PROXY").proxy(
             "LIST_ALL_WEBHOOK_SUBSCRIPTION_FOR_TOOL_PROXY",
             {
             },

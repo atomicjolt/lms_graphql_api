@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :poll_id, ID, required: true
         argument :id, ID, required: true
         def resolve(poll_id:, id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("OPEN_POLL_SESSION").proxy(
             "OPEN_POLL_SESSION",
             {
               "poll_id": poll_id,

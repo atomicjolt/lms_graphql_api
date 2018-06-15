@@ -7,7 +7,7 @@ module LMSGraphQL
         type [LMSGraphQL::Types::Canvas::CanvasLicense], null: false
         argument :group_id, ID, required: true
         def resolve(group_id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_LICENSES_GROUPS").proxy(
             "LIST_LICENSES_GROUPS",
             {
               "group_id": group_id            },

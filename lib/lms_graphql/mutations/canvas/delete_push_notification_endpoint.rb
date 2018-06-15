@@ -7,7 +7,7 @@ module LMSGraphQL
 
         field :canvas{success: true}, LMSGraphQL::Types::Canvas::Canvas{success: true}, null: false
         def resolve()
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("DELETE_PUSH_NOTIFICATION_ENDPOINT").proxy(
             "DELETE_PUSH_NOTIFICATION_ENDPOINT",
             {
             },

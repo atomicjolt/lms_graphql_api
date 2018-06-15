@@ -7,7 +7,7 @@ module LMSGraphQL
         argument :course_id, ID, required: true
         field :return_value, Boolean, null: false
         def resolve(course_id:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("COURSES_UPLOAD_FILE").proxy(
             "COURSES_UPLOAD_FILE",
             {
               "course_id": course_id            },

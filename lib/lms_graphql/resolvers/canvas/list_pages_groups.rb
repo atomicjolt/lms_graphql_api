@@ -11,7 +11,7 @@ module LMSGraphQL
         argument :search_term, String, required: false
         argument :published, Boolean, required: false
         def resolve(group_id:, sort: nil, order: nil, search_term: nil, published: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_PAGES_GROUPS").proxy(
             "LIST_PAGES_GROUPS",
             {
               "group_id": group_id,

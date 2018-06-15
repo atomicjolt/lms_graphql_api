@@ -7,7 +7,7 @@ module LMSGraphQL
         type Boolean, null: false
         argument :course_id, ID, required: true
         def resolve(course_id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("REDIRECT_TO_ROOT_OUTCOME_GROUP_FOR_CONTEXT_COURSES").proxy(
             "REDIRECT_TO_ROOT_OUTCOME_GROUP_FOR_CONTEXT_COURSES",
             {
               "course_id": course_id            },

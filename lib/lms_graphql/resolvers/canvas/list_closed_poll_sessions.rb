@@ -7,7 +7,7 @@ module LMSGraphQL
         type Boolean, null: false
 
         def resolve()
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_CLOSED_POLL_SESSIONS").proxy(
             "LIST_CLOSED_POLL_SESSIONS",
             {
             },

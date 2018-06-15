@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :course_id, ID, required: true
         argument :student_id, ID, required: true
         def resolve(course_id:, student_id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("GET_USER_IN_A_COURSE_LEVEL_MESSAGING_DATA").proxy(
             "GET_USER_IN_A_COURSE_LEVEL_MESSAGING_DATA",
             {
               "course_id": course_id,

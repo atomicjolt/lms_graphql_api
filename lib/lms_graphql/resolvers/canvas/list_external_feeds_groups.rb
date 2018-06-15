@@ -7,7 +7,7 @@ module LMSGraphQL
         type [LMSGraphQL::Types::Canvas::CanvasExternalFeed], null: false
         argument :group_id, ID, required: true
         def resolve(group_id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_EXTERNAL_FEEDS_GROUPS").proxy(
             "LIST_EXTERNAL_FEEDS_GROUPS",
             {
               "group_id": group_id            },

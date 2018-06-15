@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :outcome_id, ID, required: true
         field :outcome_link, LMSGraphQL::Types::Canvas::CanvasOutcomeLink, null: false
         def resolve(course_id:, id:, outcome_id:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("UNLINK_OUTCOME_COURSES").proxy(
             "UNLINK_OUTCOME_COURSES",
             {
               "course_id": course_id,

@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :assignment_id, ID, required: true
         argument :grouped, Boolean, required: false
         def resolve(course_id:, assignment_id:, grouped: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("SUBMISSION_SUMMARY_COURSES").proxy(
             "SUBMISSION_SUMMARY_COURSES",
             {
               "course_id": course_id,

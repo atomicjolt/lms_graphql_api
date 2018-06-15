@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :workflow_state, String, required: false
         argument :include, String, required: false
         def resolve(account_id:, workflow_state: nil, include: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_ENROLLMENT_TERMS").proxy(
             "LIST_ENROLLMENT_TERMS",
             {
               "account_id": account_id,

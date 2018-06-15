@@ -11,7 +11,7 @@ module LMSGraphQL
         argument :root_account_id, ID, required: false
         field :user, LMSGraphQL::Types::Canvas::CanvasUser, null: false
         def resolve(user_id:, observee_unique_id: nil, observee_password: nil, access_token: nil, root_account_id: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("ADD_OBSERVEE_WITH_CREDENTIALS").proxy(
             "ADD_OBSERVEE_WITH_CREDENTIALS",
             {
               "user_id": user_id,

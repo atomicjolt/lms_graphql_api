@@ -10,7 +10,7 @@ module LMSGraphQL
         argument :message, String, required: false
         field :return_value, Boolean, null: false
         def resolve(course_id:, topic_id:, id:, message: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("UPDATE_ENTRY_COURSES").proxy(
             "UPDATE_ENTRY_COURSES",
             {
               "course_id": course_id,

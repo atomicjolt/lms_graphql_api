@@ -10,7 +10,7 @@ module LMSGraphQL
         argument :poll_choices_position, Int, required: false
         field :return_value, Boolean, null: false
         def resolve(poll_id:, poll_choices_text:, poll_choices_is_correct: nil, poll_choices_position: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("CREATE_SINGLE_POLL_CHOICE").proxy(
             "CREATE_SINGLE_POLL_CHOICE",
             {
               "poll_id": poll_id,

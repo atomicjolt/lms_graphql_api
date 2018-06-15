@@ -20,7 +20,7 @@ module LMSGraphQL
         argument :order_direction, String, required: false
         argument :include, String, required: false
         def resolve(section_id:, student_ids: nil, assignment_ids: nil, grouped: nil, post_to_sis: nil, submitted_since: nil, graded_since: nil, grading_period_id: nil, workflow_state: nil, enrollment_state: nil, state_based_on_date: nil, order: nil, order_direction: nil, include: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_SUBMISSIONS_FOR_MULTIPLE_ASSIGNMENTS_SECTIONS").proxy(
             "LIST_SUBMISSIONS_FOR_MULTIPLE_ASSIGNMENTS_SECTIONS",
             {
               "section_id": section_id,

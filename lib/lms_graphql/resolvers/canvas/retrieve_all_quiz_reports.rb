@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :quiz_id, ID, required: true
         argument :includes_all_versions, Boolean, required: false
         def resolve(course_id:, quiz_id:, includes_all_versions: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("RETRIEVE_ALL_QUIZ_REPORTS").proxy(
             "RETRIEVE_ALL_QUIZ_REPORTS",
             {
               "course_id": course_id,

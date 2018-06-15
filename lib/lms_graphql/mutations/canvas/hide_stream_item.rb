@@ -7,7 +7,7 @@ module LMSGraphQL
         argument :id, ID, required: true
         field :return_value, Boolean, null: false
         def resolve(id:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("HIDE_STREAM_ITEM").proxy(
             "HIDE_STREAM_ITEM",
             {
               "id": id            },

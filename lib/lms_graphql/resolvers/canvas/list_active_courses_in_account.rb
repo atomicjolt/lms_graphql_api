@@ -23,7 +23,7 @@ module LMSGraphQL
         argument :order, String, required: false
         argument :search_by, String, required: false
         def resolve(account_id:, with_enrollments: nil, enrollment_type: nil, published: nil, completed: nil, blueprint: nil, blueprint_associated: nil, by_teachers: nil, by_subaccounts: nil, hide_enrollmentless_courses: nil, state: nil, enrollment_term_id: nil, search_term: nil, include: nil, sort: nil, order: nil, search_by: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_ACTIVE_COURSES_IN_ACCOUNT").proxy(
             "LIST_ACTIVE_COURSES_IN_ACCOUNT",
             {
               "account_id": account_id,

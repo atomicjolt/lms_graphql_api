@@ -13,7 +13,7 @@ module LMSGraphQL
         argument :usage_rights_license, String, required: false
         field :usage_right, LMSGraphQL::Types::Canvas::CanvasUsageRight, null: false
         def resolve(user_id:, file_ids:, folder_ids: nil, publish: nil, usage_rights_use_justification:, usage_rights_legal_copyright: nil, usage_rights_license: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("SET_USAGE_RIGHTS_USERS").proxy(
             "SET_USAGE_RIGHTS_USERS",
             {
               "user_id": user_id,

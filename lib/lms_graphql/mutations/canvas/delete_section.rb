@@ -7,7 +7,7 @@ module LMSGraphQL
         argument :id, ID, required: true
         field :section, LMSGraphQL::Types::Canvas::CanvasSection, null: false
         def resolve(id:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("DELETE_SECTION").proxy(
             "DELETE_SECTION",
             {
               "id": id            },

@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :provisional_grade_id, ID, required: true
         field :return_value, Boolean, null: false
         def resolve(course_id:, assignment_id:, provisional_grade_id:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("SELECT_PROVISIONAL_GRADE").proxy(
             "SELECT_PROVISIONAL_GRADE",
             {
               "course_id": course_id,

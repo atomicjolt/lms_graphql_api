@@ -7,7 +7,7 @@ module LMSGraphQL
         type [LMSGraphQL::Types::Canvas::CanvasCourseNickname], null: false
 
         def resolve()
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_COURSE_NICKNAMES").proxy(
             "LIST_COURSE_NICKNAMES",
             {
             },

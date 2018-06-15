@@ -7,7 +7,7 @@ module LMSGraphQL
         type Boolean, null: false
 
         def resolve()
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("REDIRECT_TO_ROOT_OUTCOME_GROUP_FOR_CONTEXT_GLOBAL").proxy(
             "REDIRECT_TO_ROOT_OUTCOME_GROUP_FOR_CONTEXT_GLOBAL",
             {
             },

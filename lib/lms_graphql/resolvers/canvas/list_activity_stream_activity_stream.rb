@@ -7,7 +7,7 @@ module LMSGraphQL
         type Boolean, null: false
 
         def resolve()
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_ACTIVITY_STREAM_ACTIVITY_STREAM").proxy(
             "LIST_ACTIVITY_STREAM_ACTIVITY_STREAM",
             {
             },

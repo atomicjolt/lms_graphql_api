@@ -22,7 +22,7 @@ module LMSGraphQL
         argument :calendar_event_duplicate_append_iterator, Boolean, required: false
         field :return_value, Boolean, null: false
         def resolve(calendar_event_context_code:, calendar_event_title: nil, calendar_event_description: nil, calendar_event_start_at: nil, calendar_event_end_at: nil, calendar_event_location_name: nil, calendar_event_location_address: nil, calendar_event_time_zone_edited: nil, calendar_event_all_day: nil, calendar_event_child_event_data_X_start_at: nil, calendar_event_child_event_data_X_end_at: nil, calendar_event_child_event_data_X_context_code: nil, calendar_event_duplicate_count: nil, calendar_event_duplicate_interval: nil, calendar_event_duplicate_frequency: nil, calendar_event_duplicate_append_iterator: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("CREATE_CALENDAR_EVENT").proxy(
             "CREATE_CALENDAR_EVENT",
             {
               "calendar_event[context_code]": calendar_event_context_code,

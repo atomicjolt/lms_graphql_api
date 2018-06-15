@@ -10,7 +10,7 @@ module LMSGraphQL
         argument :user_id, ID, required: true
         field :peer_review, LMSGraphQL::Types::Canvas::CanvasPeerReview, null: false
         def resolve(course_id:, assignment_id:, submission_id:, user_id:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("DELETE_PEER_REVIEW_COURSES").proxy(
             "DELETE_PEER_REVIEW_COURSES",
             {
               "course_id": course_id,

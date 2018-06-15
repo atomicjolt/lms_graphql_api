@@ -7,7 +7,7 @@ module LMSGraphQL
         type [LMSGraphQL::Types::Canvas::CanvasCommunicationChannel], null: false
         argument :user_id, ID, required: true
         def resolve(user_id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_USER_COMMUNICATION_CHANNELS").proxy(
             "LIST_USER_COMMUNICATION_CHANNELS",
             {
               "user_id": user_id            },

@@ -18,7 +18,7 @@ module LMSGraphQL
         argument :module_item_completion_requirement_min_score, Int, required: false
         field :module_item, LMSGraphQL::Types::Canvas::CanvasModuleItem, null: false
         def resolve(course_id:, module_id:, module_item_title: nil, module_item_type:, module_item_content_id:, module_item_position: nil, module_item_indent: nil, module_item_page_url: nil, module_item_external_url: nil, module_item_new_tab: nil, module_item_completion_requirement_type: nil, module_item_completion_requirement_min_score: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("CREATE_MODULE_ITEM").proxy(
             "CREATE_MODULE_ITEM",
             {
               "course_id": course_id,

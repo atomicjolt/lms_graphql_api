@@ -12,7 +12,7 @@ module LMSGraphQL
         argument :quiz_groups_assessment_question_bank_id, Int, required: false
         field :return_value, Boolean, null: false
         def resolve(course_id:, quiz_id:, quiz_groups_name: nil, quiz_groups_pick_count: nil, quiz_groups_question_points: nil, quiz_groups_assessment_question_bank_id: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("CREATE_QUESTION_GROUP").proxy(
             "CREATE_QUESTION_GROUP",
             {
               "course_id": course_id,

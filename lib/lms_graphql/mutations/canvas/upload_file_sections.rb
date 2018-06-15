@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :user_id, ID, required: true
         field :return_value, Boolean, null: false
         def resolve(section_id:, assignment_id:, user_id:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("UPLOAD_FILE_SECTIONS").proxy(
             "UPLOAD_FILE_SECTIONS",
             {
               "section_id": section_id,

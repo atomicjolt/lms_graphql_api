@@ -14,7 +14,7 @@ module LMSGraphQL
         argument :search_term, String, required: false
         argument :exclude_context_module_locked_topics, Boolean, required: false
         def resolve(course_id:, include: nil, order_by: nil, scope: nil, only_announcements: nil, filter_by: nil, search_term: nil, exclude_context_module_locked_topics: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_DISCUSSION_TOPICS_COURSES").proxy(
             "LIST_DISCUSSION_TOPICS_COURSES",
             {
               "course_id": course_id,

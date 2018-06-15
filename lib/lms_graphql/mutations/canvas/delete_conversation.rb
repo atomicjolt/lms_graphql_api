@@ -7,7 +7,7 @@ module LMSGraphQL
         argument :id, ID, required: true
         field :return_value, Boolean, null: false
         def resolve(id:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("DELETE_CONVERSATION").proxy(
             "DELETE_CONVERSATION",
             {
               "id": id            },

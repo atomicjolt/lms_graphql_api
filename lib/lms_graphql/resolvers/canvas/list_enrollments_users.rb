@@ -17,7 +17,7 @@ module LMSGraphQL
         argument :sis_section_id, ID, required: false
         argument :sis_user_id, ID, required: false
         def resolve(type: nil, role: nil, state: nil, include: nil, user_id:, grading_period_id: nil, enrollment_term_id: nil, sis_account_id: nil, sis_course_id: nil, sis_section_id: nil, sis_user_id: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_ENROLLMENTS_USERS").proxy(
             "LIST_ENROLLMENTS_USERS",
             {
               "type": type,

@@ -18,7 +18,7 @@ module LMSGraphQL
         argument :home_page_announcement_limit, Int, required: false
         field :return_value, Boolean, null: false
         def resolve(course_id:, allow_student_discussion_topics: nil, allow_student_forum_attachments: nil, allow_student_discussion_editing: nil, allow_student_organized_groups: nil, hide_final_grades: nil, hide_distribution_graphs: nil, lock_all_announcements: nil, restrict_student_past_view: nil, restrict_student_future_view: nil, show_announcements_on_home_page: nil, home_page_announcement_limit: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("UPDATE_COURSE_SETTINGS").proxy(
             "UPDATE_COURSE_SETTINGS",
             {
               "course_id": course_id,

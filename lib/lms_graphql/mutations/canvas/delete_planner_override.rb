@@ -7,7 +7,7 @@ module LMSGraphQL
         argument :id, ID, required: true
         field :planner_override, LMSGraphQL::Types::Canvas::CanvasPlannerOverride, null: false
         def resolve(id:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("DELETE_PLANNER_OVERRIDE").proxy(
             "DELETE_PLANNER_OVERRIDE",
             {
               "id": id            },

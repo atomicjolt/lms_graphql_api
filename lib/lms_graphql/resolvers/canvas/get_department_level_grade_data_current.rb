@@ -7,7 +7,7 @@ module LMSGraphQL
         type Boolean, null: false
         argument :account_id, ID, required: true
         def resolve(account_id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("GET_DEPARTMENT_LEVEL_GRADE_DATA_CURRENT").proxy(
             "GET_DEPARTMENT_LEVEL_GRADE_DATA_CURRENT",
             {
               "account_id": account_id            },

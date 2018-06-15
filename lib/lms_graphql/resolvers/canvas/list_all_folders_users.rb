@@ -7,7 +7,7 @@ module LMSGraphQL
         type [LMSGraphQL::Types::Canvas::CanvasFolder], null: false
         argument :user_id, ID, required: true
         def resolve(user_id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_ALL_FOLDERS_USERS").proxy(
             "LIST_ALL_FOLDERS_USERS",
             {
               "user_id": user_id            },

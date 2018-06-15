@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :id, ID, required: true
         field :enrollment_term, LMSGraphQL::Types::Canvas::CanvasEnrollmentTerm, null: false
         def resolve(account_id:, id:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("DELETE_ENROLLMENT_TERM").proxy(
             "DELETE_ENROLLMENT_TERM",
             {
               "account_id": account_id,

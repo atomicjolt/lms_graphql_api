@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :sort_column, String, required: false
         argument :student_id, ID, required: false
         def resolve(course_id:, sort_column: nil, student_id: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("GET_COURSE_LEVEL_STUDENT_SUMMARY_DATA").proxy(
             "GET_COURSE_LEVEL_STUDENT_SUMMARY_DATA",
             {
               "course_id": course_id,

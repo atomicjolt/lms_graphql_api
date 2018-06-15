@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :grading_period_id, ID, required: false
         field :return_value, Boolean, null: false
         def resolve(course_id:, grading_period_id: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("DISABLE_ASSIGNMENTS_CURRENTLY_ENABLED_FOR_GRADE_EXPORT_TO_SIS").proxy(
             "DISABLE_ASSIGNMENTS_CURRENTLY_ENABLED_FOR_GRADE_EXPORT_TO_SIS",
             {
               "course_id": course_id,

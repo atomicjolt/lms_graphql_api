@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :url, String, required: true
         field :page, LMSGraphQL::Types::Canvas::CanvasPage, null: false
         def resolve(group_id:, url:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("DELETE_PAGE_GROUPS").proxy(
             "DELETE_PAGE_GROUPS",
             {
               "group_id": group_id,

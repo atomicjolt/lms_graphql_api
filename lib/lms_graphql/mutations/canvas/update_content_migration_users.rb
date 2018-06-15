@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :id, ID, required: true
         field :content_migration, LMSGraphQL::Types::Canvas::CanvasContentMigration, null: false
         def resolve(user_id:, id:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("UPDATE_CONTENT_MIGRATION_USERS").proxy(
             "UPDATE_CONTENT_MIGRATION_USERS",
             {
               "user_id": user_id,

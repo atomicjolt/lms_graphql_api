@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :id, ID, required: true
         field :module, LMSGraphQL::Types::Canvas::CanvasModule, null: false
         def resolve(course_id:, id:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("RE_LOCK_MODULE_PROGRESSIONS").proxy(
             "RE_LOCK_MODULE_PROGRESSIONS",
             {
               "course_id": course_id,

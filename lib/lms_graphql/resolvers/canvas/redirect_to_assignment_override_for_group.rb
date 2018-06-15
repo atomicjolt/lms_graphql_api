@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :group_id, ID, required: true
         argument :assignment_id, ID, required: true
         def resolve(group_id:, assignment_id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("REDIRECT_TO_ASSIGNMENT_OVERRIDE_FOR_GROUP").proxy(
             "REDIRECT_TO_ASSIGNMENT_OVERRIDE_FOR_GROUP",
             {
               "group_id": group_id,

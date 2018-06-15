@@ -12,7 +12,7 @@ module LMSGraphQL
         argument :parent_outcome_group_id, ID, required: false
         field :outcome_group, LMSGraphQL::Types::Canvas::CanvasOutcomeGroup, null: false
         def resolve(course_id:, id:, title: nil, description: nil, vendor_guid: nil, parent_outcome_group_id: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("UPDATE_OUTCOME_GROUP_COURSES").proxy(
             "UPDATE_OUTCOME_GROUP_COURSES",
             {
               "course_id": course_id,

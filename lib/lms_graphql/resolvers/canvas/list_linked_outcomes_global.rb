@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :id, ID, required: true
         argument :outcome_style, String, required: false
         def resolve(id:, outcome_style: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_LINKED_OUTCOMES_GLOBAL").proxy(
             "LIST_LINKED_OUTCOMES_GLOBAL",
             {
               "id": id,

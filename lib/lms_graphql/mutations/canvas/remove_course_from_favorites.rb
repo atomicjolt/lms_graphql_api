@@ -7,7 +7,7 @@ module LMSGraphQL
         argument :id, ID, required: true
         field :favorite, LMSGraphQL::Types::Canvas::CanvasFavorite, null: false
         def resolve(id:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("REMOVE_COURSE_FROM_FAVORITES").proxy(
             "REMOVE_COURSE_FROM_FAVORITES",
             {
               "id": id            },

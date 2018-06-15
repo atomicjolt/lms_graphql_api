@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :provisional_grade_id, ID, required: true
         field :provisional_grade, LMSGraphQL::Types::Canvas::CanvasProvisionalGrade, null: false
         def resolve(course_id:, assignment_id:, provisional_grade_id:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("COPY_PROVISIONAL_GRADE").proxy(
             "COPY_PROVISIONAL_GRADE",
             {
               "course_id": course_id,

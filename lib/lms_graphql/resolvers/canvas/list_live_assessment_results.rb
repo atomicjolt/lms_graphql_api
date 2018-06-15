@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :assessment_id, ID, required: true
         argument :user_id, ID, required: false
         def resolve(course_id:, assessment_id:, user_id: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_LIVE_ASSESSMENT_RESULTS").proxy(
             "LIST_LIVE_ASSESSMENT_RESULTS",
             {
               "course_id": course_id,

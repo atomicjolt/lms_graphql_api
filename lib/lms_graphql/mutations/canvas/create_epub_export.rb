@@ -7,7 +7,7 @@ module LMSGraphQL
         argument :course_id, ID, required: true
         field :epub_export, LMSGraphQL::Types::Canvas::CanvasEpubExport, null: false
         def resolve(course_id:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("CREATE_EPUB_EXPORT").proxy(
             "CREATE_EPUB_EXPORT",
             {
               "course_id": course_id            },

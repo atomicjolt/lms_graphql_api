@@ -10,7 +10,7 @@ module LMSGraphQL
         argument :moderator, String, required: false
         field :group_membership, LMSGraphQL::Types::Canvas::CanvasGroupMembership, null: false
         def resolve(group_id:, membership_id:, workflow_state: nil, moderator: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("UPDATE_MEMBERSHIP_MEMBERSHIPS").proxy(
             "UPDATE_MEMBERSHIP_MEMBERSHIPS",
             {
               "group_id": group_id,

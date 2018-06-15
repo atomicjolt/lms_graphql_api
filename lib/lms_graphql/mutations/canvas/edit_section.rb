@@ -13,7 +13,7 @@ module LMSGraphQL
         argument :course_section_restrict_enrollments_to_section_dates, Boolean, required: false
         field :section, LMSGraphQL::Types::Canvas::CanvasSection, null: false
         def resolve(id:, course_section_name: nil, course_section_sis_section_id: nil, course_section_integration_id: nil, course_section_start_at: nil, course_section_end_at: nil, course_section_restrict_enrollments_to_section_dates: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("EDIT_SECTION").proxy(
             "EDIT_SECTION",
             {
               "id": id,

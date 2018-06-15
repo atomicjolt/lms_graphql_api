@@ -7,7 +7,7 @@ module LMSGraphQL
 
         field :return_value, Boolean, null: false
         def resolve()
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("CLEAR_COURSE_NICKNAMES").proxy(
             "CLEAR_COURSE_NICKNAMES",
             {
             },

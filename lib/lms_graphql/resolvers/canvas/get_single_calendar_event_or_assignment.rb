@@ -7,7 +7,7 @@ module LMSGraphQL
         type LMSGraphQL::Types::Canvas::CanvasCalendarEvent, null: false
         argument :id, ID, required: true
         def resolve(id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("GET_SINGLE_CALENDAR_EVENT_OR_ASSIGNMENT").proxy(
             "GET_SINGLE_CALENDAR_EVENT_OR_ASSIGNMENT",
             {
               "id": id            },

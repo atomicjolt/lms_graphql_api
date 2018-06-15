@@ -14,7 +14,7 @@ module LMSGraphQL
         argument :split_group_count, String, required: false
         field :group_category, LMSGraphQL::Types::Canvas::CanvasGroupCategory, null: false
         def resolve(course_id:, name:, self_signup: nil, auto_leader: nil, group_limit: nil, sis_group_category_id: nil, create_group_count: nil, split_group_count: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("CREATE_GROUP_CATEGORY_COURSES").proxy(
             "CREATE_GROUP_CATEGORY_COURSES",
             {
               "course_id": course_id,

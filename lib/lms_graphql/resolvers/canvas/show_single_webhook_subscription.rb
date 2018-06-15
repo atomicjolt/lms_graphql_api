@@ -7,7 +7,7 @@ module LMSGraphQL
         type Boolean, null: false
         argument :id, ID, required: true
         def resolve(id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("SHOW_SINGLE_WEBHOOK_SUBSCRIPTION").proxy(
             "SHOW_SINGLE_WEBHOOK_SUBSCRIPTION",
             {
               "id": id            },

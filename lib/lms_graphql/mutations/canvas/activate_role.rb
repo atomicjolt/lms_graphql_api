@@ -10,7 +10,7 @@ module LMSGraphQL
         argument :role, String, required: false
         field :role, LMSGraphQL::Types::Canvas::CanvasRole, null: false
         def resolve(account_id:, id:, role_id:, role: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("ACTIVATE_ROLE").proxy(
             "ACTIVATE_ROLE",
             {
               "account_id": account_id,

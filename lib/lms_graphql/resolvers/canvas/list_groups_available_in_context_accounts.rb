@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :only_own_groups, Boolean, required: false
         argument :include, String, required: false
         def resolve(account_id:, only_own_groups: nil, include: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_GROUPS_AVAILABLE_IN_CONTEXT_ACCOUNTS").proxy(
             "LIST_GROUPS_AVAILABLE_IN_CONTEXT_ACCOUNTS",
             {
               "account_id": account_id,

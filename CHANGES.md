@@ -1,3 +1,6 @@
+#0.4.0
+Adds ability to call canvas api proc method to gain access to the Canvas api
+
 #0.3.0
 Changes names of all types to include Canvas to avoid name collisions
 

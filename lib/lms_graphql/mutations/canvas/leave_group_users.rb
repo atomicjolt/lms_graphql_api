@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :user_id, ID, required: true
         field :return_value, Boolean, null: false
         def resolve(group_id:, user_id:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("LEAVE_GROUP_USERS").proxy(
             "LEAVE_GROUP_USERS",
             {
               "group_id": group_id,

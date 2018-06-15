@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :assignment_overrides, [LMSGraphQL::Types::Canvas::CanvasAssignmentOverride], required: true
         field :assignment_override, [LMSGraphQL::Types::Canvas::CanvasAssignmentOverride], null: false
         def resolve(course_id:, assignment_overrides:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("BATCH_CREATE_OVERRIDES_IN_COURSE").proxy(
             "BATCH_CREATE_OVERRIDES_IN_COURSE",
             {
               "course_id": course_id,

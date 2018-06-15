@@ -13,7 +13,7 @@ module LMSGraphQL
         argument :context_codes, String, required: false
         argument :excludes, [String], required: false
         def resolve(type: nil, start_date: nil, end_date: nil, undated: nil, all_events: nil, context_codes: nil, excludes: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_CALENDAR_EVENTS").proxy(
             "LIST_CALENDAR_EVENTS",
             {
               "type": type,

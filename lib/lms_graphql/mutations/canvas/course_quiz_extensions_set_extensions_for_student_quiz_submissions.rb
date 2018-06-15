@@ -13,7 +13,7 @@ module LMSGraphQL
         argument :extend_from_end_at, Int, required: false
         field :return_value, Boolean, null: false
         def resolve(course_id:, user_id:, extra_attempts: nil, extra_time: nil, manually_unlocked: nil, extend_from_now: nil, extend_from_end_at: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("COURSE_QUIZ_EXTENSIONS_SET_EXTENSIONS_FOR_STUDENT_QUIZ_SUBMISSIONS").proxy(
             "COURSE_QUIZ_EXTENSIONS_SET_EXTENSIONS_FOR_STUDENT_QUIZ_SUBMISSIONS",
             {
               "course_id": course_id,

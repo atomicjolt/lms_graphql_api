@@ -10,7 +10,7 @@ module LMSGraphQL
         argument :preview, Boolean, required: false
         field :return_value, Boolean, null: false
         def resolve(course_id:, quiz_id:, access_code: nil, preview: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("CREATE_QUIZ_SUBMISSION_START_QUIZ_TAKING_SESSION").proxy(
             "CREATE_QUIZ_SUBMISSION_START_QUIZ_TAKING_SESSION",
             {
               "course_id": course_id,

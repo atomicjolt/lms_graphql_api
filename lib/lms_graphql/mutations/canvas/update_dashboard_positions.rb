@@ -7,7 +7,7 @@ module LMSGraphQL
         argument :id, ID, required: true
         field :return_value, Boolean, null: false
         def resolve(id:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("UPDATE_DASHBOARD_POSITIONS").proxy(
             "UPDATE_DASHBOARD_POSITIONS",
             {
               "id": id            },

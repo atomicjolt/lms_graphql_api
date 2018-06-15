@@ -7,7 +7,7 @@ module LMSGraphQL
         type [LMSGraphQL::Types::Canvas::CanvasConference], null: false
         argument :course_id, ID, required: true
         def resolve(course_id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_CONFERENCES_COURSES").proxy(
             "LIST_CONFERENCES_COURSES",
             {
               "course_id": course_id            },

@@ -7,7 +7,7 @@ module LMSGraphQL
         type LMSGraphQL::Types::Canvas::CanvasAccount, null: false
         argument :id, ID, required: true
         def resolve(id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("GET_SINGLE_ACCOUNT").proxy(
             "GET_SINGLE_ACCOUNT",
             {
               "id": id            },

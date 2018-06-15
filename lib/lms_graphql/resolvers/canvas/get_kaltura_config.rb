@@ -7,7 +7,7 @@ module LMSGraphQL
         type Boolean, null: false
 
         def resolve()
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("GET_KALTURA_CONFIG").proxy(
             "GET_KALTURA_CONFIG",
             {
             },

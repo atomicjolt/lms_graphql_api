@@ -13,7 +13,7 @@ module LMSGraphQL
         argument :include, String, required: false
         argument :state, String, required: false
         def resolve(enrollment_type: nil, enrollment_role: nil, enrollment_role_id: nil, enrollment_state: nil, exclude_blueprint_courses: nil, include: nil, state: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_YOUR_COURSES").proxy(
             "LIST_YOUR_COURSES",
             {
               "enrollment_type": enrollment_type,

@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :notification_preferences__x__frequency, String, required: true
         field :return_value, Boolean, null: false
         def resolve(communication_channel_id:, notification_preferences__x__frequency:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("UPDATE_MULTIPLE_PREFERENCES_COMMUNICATION_CHANNEL_ID").proxy(
             "UPDATE_MULTIPLE_PREFERENCES_COMMUNICATION_CHANNEL_ID",
             {
               "communication_channel_id": communication_channel_id,

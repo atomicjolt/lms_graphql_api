@@ -7,7 +7,7 @@ module LMSGraphQL
         type [LMSGraphQL::Types::Canvas::CanvasAvatar], null: false
         argument :user_id, ID, required: true
         def resolve(user_id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_AVATAR_OPTIONS").proxy(
             "LIST_AVATAR_OPTIONS",
             {
               "user_id": user_id            },

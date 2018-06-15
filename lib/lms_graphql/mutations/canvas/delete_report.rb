@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :id, ID, required: true
         field :report, LMSGraphQL::Types::Canvas::CanvasReport, null: false
         def resolve(account_id:, report:, id:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("DELETE_REPORT").proxy(
             "DELETE_REPORT",
             {
               "account_id": account_id,

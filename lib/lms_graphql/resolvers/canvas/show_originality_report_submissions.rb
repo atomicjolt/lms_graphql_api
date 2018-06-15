@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :submission_id, ID, required: true
         argument :id, ID, required: true
         def resolve(assignment_id:, submission_id:, id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("SHOW_ORIGINALITY_REPORT_SUBMISSIONS").proxy(
             "SHOW_ORIGINALITY_REPORT_SUBMISSIONS",
             {
               "assignment_id": assignment_id,

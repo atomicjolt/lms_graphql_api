@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :address, String, required: true
         field :communication_channel, LMSGraphQL::Types::Canvas::CanvasCommunicationChannel, null: false
         def resolve(user_id:, type:, address:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("DELETE_COMMUNICATION_CHANNEL_TYPE").proxy(
             "DELETE_COMMUNICATION_CHANNEL_TYPE",
             {
               "user_id": user_id,

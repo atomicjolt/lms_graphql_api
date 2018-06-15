@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :user_id, ID, required: true
         argument :id, ID, required: true
         def resolve(user_id:, id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("SHOW_CONTENT_EXPORT_USERS").proxy(
             "SHOW_CONTENT_EXPORT_USERS",
             {
               "user_id": user_id,

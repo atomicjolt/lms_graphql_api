@@ -12,7 +12,7 @@ module LMSGraphQL
         argument :questions, String, required: false
         field :return_value, Boolean, null: false
         def resolve(course_id:, quiz_id:, id:, attempt:, fudge_points: nil, questions: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("UPDATE_STUDENT_QUESTION_SCORES_AND_COMMENTS").proxy(
             "UPDATE_STUDENT_QUESTION_SCORES_AND_COMMENTS",
             {
               "course_id": course_id,

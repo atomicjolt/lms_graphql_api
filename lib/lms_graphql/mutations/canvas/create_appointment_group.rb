@@ -18,7 +18,7 @@ module LMSGraphQL
         argument :appointment_group_participant_visibility, String, required: false
         field :return_value, Boolean, null: false
         def resolve(appointment_group_context_codes:, appointment_group_sub_context_codes: nil, appointment_group_title:, appointment_group_description: nil, appointment_group_location_name: nil, appointment_group_location_address: nil, appointment_group_publish: nil, appointment_group_participants_per_appointment: nil, appointment_group_min_appointments_per_participant: nil, appointment_group_max_appointments_per_participant: nil, appointment_group_new_appointments_X: nil, appointment_group_participant_visibility: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("CREATE_APPOINTMENT_GROUP").proxy(
             "CREATE_APPOINTMENT_GROUP",
             {
               "appointment_group[context_codes]": appointment_group_context_codes,

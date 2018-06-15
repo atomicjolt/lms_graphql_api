@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :id, ID, required: true
         argument :include, String, required: false
         def resolve(user_id:, id:, include: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("GET_FILE_USERS").proxy(
             "GET_FILE_USERS",
             {
               "user_id": user_id,

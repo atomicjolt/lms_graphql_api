@@ -12,7 +12,7 @@ module LMSGraphQL
         argument :needs_grading_count_by_section, Boolean, required: false
         argument :all_dates, Boolean, required: false
         def resolve(course_id:, id:, include: nil, override_assignment_dates: nil, needs_grading_count_by_section: nil, all_dates: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("GET_SINGLE_ASSIGNMENT").proxy(
             "GET_SINGLE_ASSIGNMENT",
             {
               "course_id": course_id,

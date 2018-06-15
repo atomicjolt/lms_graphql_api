@@ -12,7 +12,7 @@ module LMSGraphQL
         argument :grading_period_id, ID, required: false
         argument :scope_assignments_to_student, Boolean, required: false
         def resolve(course_id:, include: nil, exclude_assignment_submission_types: nil, override_assignment_dates: nil, grading_period_id: nil, scope_assignments_to_student: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_ASSIGNMENT_GROUPS").proxy(
             "LIST_ASSIGNMENT_GROUPS",
             {
               "course_id": course_id,

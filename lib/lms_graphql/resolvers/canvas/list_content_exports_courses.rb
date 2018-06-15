@@ -7,7 +7,7 @@ module LMSGraphQL
         type [LMSGraphQL::Types::Canvas::CanvasContentExport], null: false
         argument :course_id, ID, required: true
         def resolve(course_id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_CONTENT_EXPORTS_COURSES").proxy(
             "LIST_CONTENT_EXPORTS_COURSES",
             {
               "course_id": course_id            },

@@ -10,7 +10,7 @@ module LMSGraphQL
         argument :grading_scheme_entry_value, Int, required: true
         field :grading_standard, LMSGraphQL::Types::Canvas::CanvasGradingStandard, null: false
         def resolve(course_id:, title:, grading_scheme_entry_name:, grading_scheme_entry_value:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("CREATE_NEW_GRADING_STANDARD_COURSES").proxy(
             "CREATE_NEW_GRADING_STANDARD_COURSES",
             {
               "course_id": course_id,

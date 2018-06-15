@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :recipients, String, required: true
         field :return_value, Boolean, null: false
         def resolve(id:, recipients:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("ADD_RECIPIENTS").proxy(
             "ADD_RECIPIENTS",
             {
               "id": id,

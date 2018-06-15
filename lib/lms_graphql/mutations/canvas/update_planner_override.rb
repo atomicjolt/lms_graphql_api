@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :dismissed, String, required: false
         field :planner_override, LMSGraphQL::Types::Canvas::CanvasPlannerOverride, null: false
         def resolve(id:, marked_complete: nil, dismissed: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("UPDATE_PLANNER_OVERRIDE").proxy(
             "UPDATE_PLANNER_OVERRIDE",
             {
               "id": id,

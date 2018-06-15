@@ -17,7 +17,7 @@ module LMSGraphQL
         argument :communication_channel_address, String, required: false
         field :user, LMSGraphQL::Types::Canvas::CanvasUser, null: false
         def resolve(account_id:, user_name:, user_short_name: nil, user_sortable_name: nil, user_time_zone: nil, user_locale: nil, user_birthdate: nil, user_terms_of_use:, pseudonym_unique_id:, communication_channel_type: nil, communication_channel_address: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("SELF_REGISTER_USER").proxy(
             "SELF_REGISTER_USER",
             {
               "account_id": account_id,

@@ -10,7 +10,7 @@ module LMSGraphQL
         argument :vendor_guid, String, required: false
         field :outcome_group, LMSGraphQL::Types::Canvas::CanvasOutcomeGroup, null: false
         def resolve(id:, title:, description: nil, vendor_guid: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("CREATE_SUBGROUP_GLOBAL").proxy(
             "CREATE_SUBGROUP_GLOBAL",
             {
               "id": id,

@@ -7,7 +7,7 @@ module LMSGraphQL
         type Boolean, null: false
         argument :group_id, ID, required: true
         def resolve(group_id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("GROUP_ACTIVITY_STREAM").proxy(
             "GROUP_ACTIVITY_STREAM",
             {
               "group_id": group_id            },

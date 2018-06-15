@@ -10,7 +10,7 @@ module LMSGraphQL
         argument :only, String, required: false
         field :return_value, Boolean, null: false
         def resolve(course_id:, source_course: nil, except: nil, only: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("COPY_COURSE_CONTENT").proxy(
             "COPY_COURSE_CONTENT",
             {
               "course_id": course_id,

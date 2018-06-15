@@ -10,7 +10,7 @@ module LMSGraphQL
         argument :quiz_submission_id, ID, required: false
         argument :quiz_submission_attempt, Int, required: false
         def resolve(course_id:, quiz_id:, quiz_submission_id: nil, quiz_submission_attempt: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_QUESTIONS_IN_QUIZ_OR_SUBMISSION").proxy(
             "LIST_QUESTIONS_IN_QUIZ_OR_SUBMISSION",
             {
               "course_id": course_id,

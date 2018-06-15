@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :group_id, ID, required: true
         argument :include, String, required: false
         def resolve(group_id:, include: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("GET_SINGLE_GROUP").proxy(
             "GET_SINGLE_GROUP",
             {
               "group_id": group_id,

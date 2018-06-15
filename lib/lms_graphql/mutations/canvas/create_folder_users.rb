@@ -15,7 +15,7 @@ module LMSGraphQL
         argument :position, Int, required: false
         field :folder, LMSGraphQL::Types::Canvas::CanvasFolder, null: false
         def resolve(user_id:, name:, parent_folder_id: nil, parent_folder_path: nil, lock_at: nil, unlock_at: nil, locked: nil, hidden: nil, position: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("CREATE_FOLDER_USERS").proxy(
             "CREATE_FOLDER_USERS",
             {
               "user_id": user_id,

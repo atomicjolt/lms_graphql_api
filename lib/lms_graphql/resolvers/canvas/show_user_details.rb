@@ -7,7 +7,7 @@ module LMSGraphQL
         type LMSGraphQL::Types::Canvas::CanvasUser, null: false
         argument :id, ID, required: true
         def resolve(id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("SHOW_USER_DETAILS").proxy(
             "SHOW_USER_DETAILS",
             {
               "id": id            },

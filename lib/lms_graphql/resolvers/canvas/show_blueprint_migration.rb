@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :template_id, ID, required: true
         argument :id, ID, required: true
         def resolve(course_id:, template_id:, id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("SHOW_BLUEPRINT_MIGRATION").proxy(
             "SHOW_BLUEPRINT_MIGRATION",
             {
               "course_id": course_id,

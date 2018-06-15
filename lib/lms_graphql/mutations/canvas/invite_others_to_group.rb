@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :invitees, String, required: true
         field :return_value, Boolean, null: false
         def resolve(group_id:, invitees:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("INVITE_OTHERS_TO_GROUP").proxy(
             "INVITE_OTHERS_TO_GROUP",
             {
               "group_id": group_id,

@@ -22,7 +22,7 @@ module LMSGraphQL
         argument :account_services, String, required: false
         field :account, LMSGraphQL::Types::Canvas::CanvasAccount, null: false
         def resolve(id:, account_name: nil, account_sis_account_id: nil, account_default_time_zone: nil, account_default_storage_quota_mb: nil, account_default_user_storage_quota_mb: nil, account_default_group_storage_quota_mb: nil, account_settings_restrict_student_past_view_value: nil, account_settings_restrict_student_past_view_locked: nil, account_settings_restrict_student_future_view_value: nil, account_settings_restrict_student_future_view_locked: nil, account_settings_lock_all_announcements_value: nil, account_settings_lock_all_announcements_locked: nil, account_settings_restrict_student_future_listing_value: nil, account_settings_restrict_student_future_listing_locked: nil, account_services: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("UPDATE_ACCOUNT").proxy(
             "UPDATE_ACCOUNT",
             {
               "id": id,

@@ -14,7 +14,7 @@ module LMSGraphQL
         argument :user_note, Boolean, required: false
         field :return_value, Boolean, null: false
         def resolve(id:, body:, attachment_ids: nil, media_comment_id: nil, media_comment_type: nil, recipients: nil, included_messages: nil, user_note: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("ADD_MESSAGE").proxy(
             "ADD_MESSAGE",
             {
               "id": id,

@@ -7,7 +7,7 @@ module LMSGraphQL
         argument :account_id, ID, required: true
         field :return_value, Boolean, null: false
         def resolve(account_id:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("ABORT_ALL_PENDING_SIS_IMPORTS").proxy(
             "ABORT_ALL_PENDING_SIS_IMPORTS",
             {
               "account_id": account_id            },

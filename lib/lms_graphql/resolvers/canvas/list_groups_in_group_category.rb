@@ -7,7 +7,7 @@ module LMSGraphQL
         type [LMSGraphQL::Types::Canvas::CanvasGroup], null: false
         argument :group_category_id, ID, required: true
         def resolve(group_category_id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_GROUPS_IN_GROUP_CATEGORY").proxy(
             "LIST_GROUPS_IN_GROUP_CATEGORY",
             {
               "group_category_id": group_category_id            },

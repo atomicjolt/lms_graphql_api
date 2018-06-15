@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :id, ID, required: true
         field :return_value, Boolean, null: false
         def resolve(group_id:, topic_id:, id:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("DELETE_ENTRY_GROUPS").proxy(
             "DELETE_ENTRY_GROUPS",
             {
               "group_id": group_id,

@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :outcome_style, String, required: false
         argument :outcome_group_style, String, required: false
         def resolve(course_id:, outcome_style: nil, outcome_group_style: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("GET_ALL_OUTCOME_LINKS_FOR_CONTEXT_COURSES").proxy(
             "GET_ALL_OUTCOME_LINKS_FOR_CONTEXT_COURSES",
             {
               "course_id": course_id,

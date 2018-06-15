@@ -10,7 +10,7 @@ module LMSGraphQL
         argument :forced_read_state, Boolean, required: false
         field :return_value, Boolean, null: false
         def resolve(group_id:, topic_id:, entry_id:, forced_read_state: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("MARK_ENTRY_AS_UNREAD_GROUPS").proxy(
             "MARK_ENTRY_AS_UNREAD_GROUPS",
             {
               "group_id": group_id,

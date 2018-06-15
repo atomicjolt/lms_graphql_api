@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :type, String, required: true
         argument :address, String, required: true
         def resolve(user_id:, type:, address:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_PREFERENCES_TYPE").proxy(
             "LIST_PREFERENCES_TYPE",
             {
               "user_id": user_id,

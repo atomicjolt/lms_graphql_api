@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :event, String, required: true
         field :progress, LMSGraphQL::Types::Canvas::CanvasProgress, null: false
         def resolve(conversation_ids:, event:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("BATCH_UPDATE_CONVERSATIONS").proxy(
             "BATCH_UPDATE_CONVERSATIONS",
             {
               "conversation_ids": conversation_ids,

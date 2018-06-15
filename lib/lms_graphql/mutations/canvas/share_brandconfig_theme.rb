@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :shared_brand_config_brand_config_md5, String, required: true
         field :shared_brand_config, LMSGraphQL::Types::Canvas::CanvasSharedBrandConfig, null: false
         def resolve(account_id:, shared_brand_config_name:, shared_brand_config_brand_config_md5:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("SHARE_BRANDCONFIG_THEME").proxy(
             "SHARE_BRANDCONFIG_THEME",
             {
               "account_id": account_id,

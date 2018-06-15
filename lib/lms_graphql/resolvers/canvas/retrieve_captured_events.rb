@@ -10,7 +10,7 @@ module LMSGraphQL
         argument :id, ID, required: true
         argument :attempt, Int, required: false
         def resolve(course_id:, quiz_id:, id:, attempt: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("RETRIEVE_CAPTURED_EVENTS").proxy(
             "RETRIEVE_CAPTURED_EVENTS",
             {
               "course_id": course_id,

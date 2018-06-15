@@ -7,7 +7,7 @@ module LMSGraphQL
         type Boolean, null: false
         argument :include, String, required: false
         def resolve(include: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_TODO_ITEMS").proxy(
             "LIST_TODO_ITEMS",
             {
               "include": include            },

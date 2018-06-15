@@ -10,7 +10,7 @@ module LMSGraphQL
         argument :selectable, Boolean, required: false
         argument :include_parents, Boolean, required: false
         def resolve(course_id:, search_term: nil, selectable: nil, include_parents: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_EXTERNAL_TOOLS_COURSES").proxy(
             "LIST_EXTERNAL_TOOLS_COURSES",
             {
               "course_id": course_id,

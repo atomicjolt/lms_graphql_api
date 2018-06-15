@@ -11,7 +11,7 @@ module LMSGraphQL
         argument :poll_sessions_has_public_results, Boolean, required: false
         field :return_value, Boolean, null: false
         def resolve(poll_id:, id:, poll_sessions_course_id: nil, poll_sessions_course_section_id: nil, poll_sessions_has_public_results: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("UPDATE_SINGLE_POLL_SESSION").proxy(
             "UPDATE_SINGLE_POLL_SESSION",
             {
               "poll_id": poll_id,

@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :order, Int, required: true
         field :return_value, Boolean, null: false
         def resolve(course_id:, order:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("REORDER_CUSTOM_COLUMNS").proxy(
             "REORDER_CUSTOM_COLUMNS",
             {
               "course_id": course_id,

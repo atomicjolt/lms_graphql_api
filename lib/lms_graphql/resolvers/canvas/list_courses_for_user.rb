@@ -10,7 +10,7 @@ module LMSGraphQL
         argument :state, String, required: false
         argument :enrollment_state, String, required: false
         def resolve(user_id:, include: nil, state: nil, enrollment_state: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_COURSES_FOR_USER").proxy(
             "LIST_COURSES_FOR_USER",
             {
               "user_id": user_id,

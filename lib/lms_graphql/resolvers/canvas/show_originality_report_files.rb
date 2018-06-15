@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :assignment_id, ID, required: true
         argument :file_id, ID, required: true
         def resolve(assignment_id:, file_id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("SHOW_ORIGINALITY_REPORT_FILES").proxy(
             "SHOW_ORIGINALITY_REPORT_FILES",
             {
               "assignment_id": assignment_id,

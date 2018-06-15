@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :id, ID, required: true
         field :return_value, Boolean, null: false
         def resolve(course_id:, quiz_id:, id:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("ABORT_GENERATION_OF_REPORT_OR_REMOVE_PREVIOUSLY_GENERATED_ONE").proxy(
             "ABORT_GENERATION_OF_REPORT_OR_REMOVE_PREVIOUSLY_GENERATED_ONE",
             {
               "course_id": course_id,

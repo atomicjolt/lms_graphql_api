@@ -7,7 +7,7 @@ module LMSGraphQL
         type Boolean, null: false
         argument :id, ID, required: true
         def resolve(id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("GET_LATE_POLICY").proxy(
             "GET_LATE_POLICY",
             {
               "id": id            },

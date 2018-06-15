@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :data, String, required: true
         field :return_value, Boolean, null: false
         def resolve(user_id:, ns:, data:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("STORE_CUSTOM_DATA").proxy(
             "STORE_CUSTOM_DATA",
             {
               "user_id": user_id,

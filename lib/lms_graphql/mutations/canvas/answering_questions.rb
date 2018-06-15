@@ -11,7 +11,7 @@ module LMSGraphQL
         argument :quiz_questions, [LMSGraphQL::Types::Canvas::CanvasQuizSubmissionQuestion], required: false
         field :quiz_submission_question, [LMSGraphQL::Types::Canvas::CanvasQuizSubmissionQuestion], null: false
         def resolve(quiz_submission_id:, attempt:, validation_token:, access_code: nil, quiz_questions: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("ANSWERING_QUESTIONS").proxy(
             "ANSWERING_QUESTIONS",
             {
               "quiz_submission_id": quiz_submission_id,

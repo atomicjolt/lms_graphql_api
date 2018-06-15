@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :assignment_id, ID, required: true
         argument :id, ID, required: true
         def resolve(course_id:, assignment_id:, id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("GET_SINGLE_ASSIGNMENT_OVERRIDE").proxy(
             "GET_SINGLE_ASSIGNMENT_OVERRIDE",
             {
               "course_id": course_id,

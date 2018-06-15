@@ -15,7 +15,7 @@ module LMSGraphQL
         argument :submission_media_comment_type, String, required: false
         field :return_value, Boolean, null: false
         def resolve(section_id:, assignment_id:, comment_text_comment: nil, submission_submission_type:, submission_body: nil, submission_url: nil, submission_file_ids: nil, submission_media_comment_id: nil, submission_media_comment_type: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("SUBMIT_ASSIGNMENT_SECTIONS").proxy(
             "SUBMIT_ASSIGNMENT_SECTIONS",
             {
               "section_id": section_id,

@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :assignment_id, ID, required: true
         argument :student_id, ID, required: false
         def resolve(course_id:, assignment_id:, student_id: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("SHOW_PROVISIONAL_GRADE_STATUS_FOR_STUDENT").proxy(
             "SHOW_PROVISIONAL_GRADE_STATUS_FOR_STUDENT",
             {
               "course_id": course_id,

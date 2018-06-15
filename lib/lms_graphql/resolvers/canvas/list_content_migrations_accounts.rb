@@ -7,7 +7,7 @@ module LMSGraphQL
         type [LMSGraphQL::Types::Canvas::CanvasContentMigration], null: false
         argument :account_id, ID, required: true
         def resolve(account_id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_CONTENT_MIGRATIONS_ACCOUNTS").proxy(
             "LIST_CONTENT_MIGRATIONS_ACCOUNTS",
             {
               "account_id": account_id            },

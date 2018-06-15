@@ -7,7 +7,7 @@ module LMSGraphQL
         argument :group_category_id, ID, required: true
         field :return_value, Boolean, null: false
         def resolve(group_category_id:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("DELETE_GROUP_CATEGORY").proxy(
             "DELETE_GROUP_CATEGORY",
             {
               "group_category_id": group_category_id            },

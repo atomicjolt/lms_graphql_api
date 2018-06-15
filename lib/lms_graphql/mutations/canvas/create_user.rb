@@ -29,7 +29,7 @@ module LMSGraphQL
         argument :destination, String, required: false
         field :user, LMSGraphQL::Types::Canvas::CanvasUser, null: false
         def resolve(account_id:, user_name: nil, user_short_name: nil, user_sortable_name: nil, user_time_zone: nil, user_locale: nil, user_birthdate: nil, user_terms_of_use: nil, user_skip_registration: nil, pseudonym_unique_id:, pseudonym_password: nil, pseudonym_sis_user_id: nil, pseudonym_integration_id: nil, pseudonym_send_confirmation: nil, pseudonym_force_self_registration: nil, pseudonym_authentication_provider_id: nil, communication_channel_type: nil, communication_channel_address: nil, communication_channel_confirmation_url: nil, communication_channel_skip_confirmation: nil, force_validations: nil, enable_sis_reactivation: nil, destination: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("CREATE_USER").proxy(
             "CREATE_USER",
             {
               "account_id": account_id,

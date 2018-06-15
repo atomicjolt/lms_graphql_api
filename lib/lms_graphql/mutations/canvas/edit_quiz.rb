@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :quiz_notify_of_update, Boolean, required: false
         field :quiz, LMSGraphQL::Types::Canvas::CanvasQuiz, null: false
         def resolve(course_id:, id:, quiz_notify_of_update: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("EDIT_QUIZ").proxy(
             "EDIT_QUIZ",
             {
               "course_id": course_id,

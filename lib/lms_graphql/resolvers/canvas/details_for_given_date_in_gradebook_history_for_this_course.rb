@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :course_id, ID, required: true
         argument :date, String, required: true
         def resolve(course_id:, date:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("DETAILS_FOR_GIVEN_DATE_IN_GRADEBOOK_HISTORY_FOR_THIS_COURSE").proxy(
             "DETAILS_FOR_GIVEN_DATE_IN_GRADEBOOK_HISTORY_FOR_THIS_COURSE",
             {
               "course_id": course_id,

@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :app_key, String, required: false
         field :return_value, Boolean, null: false
         def resolve(id:, app_key: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("GET_PANDATA_JWT_TOKEN_AND_ITS_EXPIRATION_DATE").proxy(
             "GET_PANDATA_JWT_TOKEN_AND_ITS_EXPIRATION_DATE",
             {
               "id": id,

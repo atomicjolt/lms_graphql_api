@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :html, String, required: false
         field :return_value, Boolean, null: false
         def resolve(course_id:, html: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("COURSES_PREVIEW_PROCESSED_HTML").proxy(
             "COURSES_PREVIEW_PROCESSED_HTML",
             {
               "course_id": course_id,

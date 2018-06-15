@@ -12,7 +12,7 @@ module LMSGraphQL
         argument :quiz_groups_question_points, Int, required: false
         field :return_value, Boolean, null: false
         def resolve(course_id:, quiz_id:, id:, quiz_groups_name: nil, quiz_groups_pick_count: nil, quiz_groups_question_points: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("UPDATE_QUESTION_GROUP").proxy(
             "UPDATE_QUESTION_GROUP",
             {
               "course_id": course_id,

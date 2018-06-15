@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :start_time, LMSGraphQL::Types::DateTimeType, required: false
         argument :end_time, LMSGraphQL::Types::DateTimeType, required: false
         def resolve(user_id:, start_time: nil, end_time: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_USER_PAGE_VIEWS").proxy(
             "LIST_USER_PAGE_VIEWS",
             {
               "user_id": user_id,

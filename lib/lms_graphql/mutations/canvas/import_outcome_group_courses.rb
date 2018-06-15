@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :source_outcome_group_id, ID, required: true
         field :outcome_group, LMSGraphQL::Types::Canvas::CanvasOutcomeGroup, null: false
         def resolve(course_id:, id:, source_outcome_group_id:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("IMPORT_OUTCOME_GROUP_COURSES").proxy(
             "IMPORT_OUTCOME_GROUP_COURSES",
             {
               "course_id": course_id,

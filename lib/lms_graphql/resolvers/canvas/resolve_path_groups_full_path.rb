@@ -7,7 +7,7 @@ module LMSGraphQL
         type [LMSGraphQL::Types::Canvas::CanvasFolder], null: false
         argument :group_id, ID, required: true
         def resolve(group_id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("RESOLVE_PATH_GROUPS_FULL_PATH").proxy(
             "RESOLVE_PATH_GROUPS_FULL_PATH",
             {
               "group_id": group_id            },

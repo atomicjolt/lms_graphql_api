@@ -11,7 +11,7 @@ module LMSGraphQL
         argument :include, String, required: false
         field :quiz_report, LMSGraphQL::Types::Canvas::CanvasQuizReport, null: false
         def resolve(course_id:, quiz_id:, quiz_report_report_type:, quiz_report_includes_all_versions: nil, include: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("CREATE_QUIZ_REPORT").proxy(
             "CREATE_QUIZ_REPORT",
             {
               "course_id": course_id,

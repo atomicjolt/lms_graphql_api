@@ -10,7 +10,7 @@ module LMSGraphQL
         argument :select, String, required: false
         field :content_export, LMSGraphQL::Types::Canvas::CanvasContentExport, null: false
         def resolve(user_id:, export_type:, skip_notifications: nil, select: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("EXPORT_CONTENT_USERS").proxy(
             "EXPORT_CONTENT_USERS",
             {
               "user_id": user_id,

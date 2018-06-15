@@ -7,7 +7,7 @@ module LMSGraphQL
         type Boolean, null: false
         argument :id, ID, required: true
         def resolve(id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("GET_DASHBOARD_POSITIONS").proxy(
             "GET_DASHBOARD_POSITIONS",
             {
               "id": id            },

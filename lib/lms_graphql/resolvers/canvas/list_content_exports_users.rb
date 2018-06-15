@@ -7,7 +7,7 @@ module LMSGraphQL
         type [LMSGraphQL::Types::Canvas::CanvasContentExport], null: false
         argument :user_id, ID, required: true
         def resolve(user_id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_CONTENT_EXPORTS_USERS").proxy(
             "LIST_CONTENT_EXPORTS_USERS",
             {
               "user_id": user_id            },

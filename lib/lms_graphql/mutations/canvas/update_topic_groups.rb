@@ -26,7 +26,7 @@ module LMSGraphQL
         argument :specific_sections, String, required: false
         field :return_value, Boolean, null: false
         def resolve(group_id:, topic_id:, title: nil, message: nil, discussion_type: nil, published: nil, delayed_post_at: nil, lock_at: nil, podcast_enabled: nil, podcast_has_student_posts: nil, require_initial_post: nil, assignment: nil, is_announcement: nil, pinned: nil, position_after: nil, group_category_id: nil, allow_rating: nil, only_graders_can_rate: nil, sort_by_rating: nil, specific_sections: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("UPDATE_TOPIC_GROUPS").proxy(
             "UPDATE_TOPIC_GROUPS",
             {
               "group_id": group_id,

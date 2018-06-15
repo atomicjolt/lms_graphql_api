@@ -12,7 +12,7 @@ module LMSGraphQL
         argument :subscription_TransportType, String, required: true
         field :return_value, Boolean, null: false
         def resolve(submission_ContextId:, subscription_ContextType:, subscription_EventTypes:, subscription_Format:, subscription_TransportMetadata:, subscription_TransportType:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("CREATE_WEBHOOK_SUBSCRIPTION").proxy(
             "CREATE_WEBHOOK_SUBSCRIPTION",
             {
               "submission[ContextId]": submission_ContextId,

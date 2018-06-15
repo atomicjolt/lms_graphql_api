@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :user_id, ID, required: true
         field :enrollment, LMSGraphQL::Types::Canvas::CanvasEnrollment, null: false
         def resolve(course_id:, user_id:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("ADDS_LAST_ATTENDED_DATE_TO_STUDENT_ENROLLMENT_IN_COURSE").proxy(
             "ADDS_LAST_ATTENDED_DATE_TO_STUDENT_ENROLLMENT_IN_COURSE",
             {
               "course_id": course_id,

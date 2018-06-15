@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :public_only, Boolean, required: false
         argument :open_enrollment_only, Boolean, required: false
         def resolve(search: nil, public_only: nil, open_enrollment_only: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_ALL_COURSES").proxy(
             "LIST_ALL_COURSES",
             {
               "search": search,

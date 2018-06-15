@@ -10,7 +10,7 @@ module LMSGraphQL
         argument :quiz_submission_events, [String], required: true
         field :return_value, Boolean, null: false
         def resolve(course_id:, quiz_id:, id:, quiz_submission_events:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("SUBMIT_CAPTURED_EVENTS").proxy(
             "SUBMIT_CAPTURED_EVENTS",
             {
               "course_id": course_id,

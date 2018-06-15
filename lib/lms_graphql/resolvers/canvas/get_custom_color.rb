@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :id, ID, required: true
         argument :asset_string, String, required: true
         def resolve(id:, asset_string:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("GET_CUSTOM_COLOR").proxy(
             "GET_CUSTOM_COLOR",
             {
               "id": id,

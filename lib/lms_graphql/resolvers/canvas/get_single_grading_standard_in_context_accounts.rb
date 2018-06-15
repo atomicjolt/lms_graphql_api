@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :account_id, ID, required: true
         argument :grading_standard_id, ID, required: true
         def resolve(account_id:, grading_standard_id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("GET_SINGLE_GRADING_STANDARD_IN_CONTEXT_ACCOUNTS").proxy(
             "GET_SINGLE_GRADING_STANDARD_IN_CONTEXT_ACCOUNTS",
             {
               "account_id": account_id,

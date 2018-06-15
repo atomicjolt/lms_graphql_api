@@ -11,7 +11,7 @@ module LMSGraphQL
         argument :error_http_env, String, required: false
         field :return_value, Boolean, null: false
         def resolve(error_subject:, error_url: nil, error_email: nil, error_comments: nil, error_http_env: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("CREATE_ERROR_REPORT").proxy(
             "CREATE_ERROR_REPORT",
             {
               "error[subject]": error_subject,

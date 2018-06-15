@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :state, String, required: false
         argument :show_inherited, Boolean, required: false
         def resolve(account_id:, state: nil, show_inherited: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_ROLES").proxy(
             "LIST_ROLES",
             {
               "account_id": account_id,

@@ -19,7 +19,7 @@ module LMSGraphQL
         argument :context_code, String, required: false
         field :return_value, Boolean, null: false
         def resolve(recipients:, subject: nil, body:, group_conversation: nil, attachment_ids: nil, media_comment_id: nil, media_comment_type: nil, user_note: nil, mode: nil, scope: nil, filter: nil, filter_mode: nil, context_code: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("CREATE_CONVERSATION").proxy(
             "CREATE_CONVERSATION",
             {
               "recipients": recipients,

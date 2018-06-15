@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :course_id, ID, required: true
         argument :template_id, ID, required: true
         def resolve(course_id:, template_id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("GET_UNSYNCED_CHANGES").proxy(
             "GET_UNSYNCED_CHANGES",
             {
               "course_id": course_id,

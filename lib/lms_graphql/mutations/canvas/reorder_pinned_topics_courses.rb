@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :order, Int, required: true
         field :return_value, Boolean, null: false
         def resolve(course_id:, order:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("REORDER_PINNED_TOPICS_COURSES").proxy(
             "REORDER_PINNED_TOPICS_COURSES",
             {
               "course_id": course_id,

@@ -7,7 +7,7 @@ module LMSGraphQL
         argument :id, ID, required: true
         field :user, [LMSGraphQL::Types::Canvas::CanvasUser], null: false
         def resolve(id:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("SPLIT_MERGED_USERS_INTO_SEPARATE_USERS").proxy(
             "SPLIT_MERGED_USERS_INTO_SEPARATE_USERS",
             {
               "id": id            },

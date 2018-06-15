@@ -13,7 +13,7 @@ module LMSGraphQL
         argument :sort, String, required: false
         argument :order, String, required: false
         def resolve(user_id:, content_types: nil, search_term: nil, include: nil, only: nil, sort: nil, order: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_FILES_USERS").proxy(
             "LIST_FILES_USERS",
             {
               "user_id": user_id,

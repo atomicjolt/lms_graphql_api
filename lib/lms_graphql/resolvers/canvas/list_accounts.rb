@@ -7,7 +7,7 @@ module LMSGraphQL
         type [LMSGraphQL::Types::Canvas::CanvasAccount], null: false
         argument :include, String, required: false
         def resolve(include: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_ACCOUNTS").proxy(
             "LIST_ACCOUNTS",
             {
               "include": include            },

@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :end_date, LMSGraphQL::Types::DateTimeType, required: false
         argument :context_codes, String, required: false
         def resolve(start_date: nil, end_date: nil, context_codes: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_PLANNER_NOTES").proxy(
             "LIST_PLANNER_NOTES",
             {
               "start_date": start_date,

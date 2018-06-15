@@ -12,7 +12,7 @@ module LMSGraphQL
         argument :restrictions, String, required: false
         field :return_value, Boolean, null: false
         def resolve(course_id:, template_id:, content_type: nil, content_id: nil, restricted: nil, restrictions: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("SET_OR_REMOVE_RESTRICTIONS_ON_BLUEPRINT_COURSE_OBJECT").proxy(
             "SET_OR_REMOVE_RESTRICTIONS_ON_BLUEPRINT_COURSE_OBJECT",
             {
               "course_id": course_id,

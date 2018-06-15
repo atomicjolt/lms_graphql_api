@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :id, ID, required: true
         argument :include, String, required: false
         def resolve(id:, include: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("GET_SINGLE_COURSE_COURSES").proxy(
             "GET_SINGLE_COURSE_COURSES",
             {
               "id": id,

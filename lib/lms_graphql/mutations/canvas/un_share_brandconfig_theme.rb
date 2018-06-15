@@ -7,7 +7,7 @@ module LMSGraphQL
         argument :id, ID, required: true
         field :shared_brand_config, LMSGraphQL::Types::Canvas::CanvasSharedBrandConfig, null: false
         def resolve(id:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("UN_SHARE_BRANDCONFIG_THEME").proxy(
             "UN_SHARE_BRANDCONFIG_THEME",
             {
               "id": id            },

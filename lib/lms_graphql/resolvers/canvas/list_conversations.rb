@@ -12,7 +12,7 @@ module LMSGraphQL
         argument :include_all_conversation_ids, [ID], required: false
         argument :include, String, required: false
         def resolve(scope: nil, filter: nil, filter_mode: nil, interleave_submissions: nil, include_all_conversation_ids: nil, include: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_CONVERSATIONS").proxy(
             "LIST_CONVERSATIONS",
             {
               "scope": scope,

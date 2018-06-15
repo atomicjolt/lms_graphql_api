@@ -11,7 +11,7 @@ module LMSGraphQL
         argument :search_term, String, required: false
         argument :student_id, ID, required: false
         def resolve(course_id:, module_id:, include: nil, search_term: nil, student_id: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_MODULE_ITEMS").proxy(
             "LIST_MODULE_ITEMS",
             {
               "course_id": course_id,

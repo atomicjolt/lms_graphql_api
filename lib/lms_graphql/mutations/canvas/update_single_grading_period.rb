@@ -11,7 +11,7 @@ module LMSGraphQL
         argument :grading_periods_weight, Float, required: false
         field :return_value, Boolean, null: false
         def resolve(course_id:, id:, grading_periods_start_date:, grading_periods_end_date:, grading_periods_weight: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("UPDATE_SINGLE_GRADING_PERIOD").proxy(
             "UPDATE_SINGLE_GRADING_PERIOD",
             {
               "course_id": course_id,

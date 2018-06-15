@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :id, ID, required: true
         field :quiz, LMSGraphQL::Types::Canvas::CanvasQuiz, null: false
         def resolve(course_id:, id:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("DELETE_QUIZ").proxy(
             "DELETE_QUIZ",
             {
               "course_id": course_id,

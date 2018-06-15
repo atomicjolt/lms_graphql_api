@@ -7,7 +7,7 @@ module LMSGraphQL
         type Boolean, null: false
         argument :account_id, ID, required: true
         def resolve(account_id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_USER_LOGINS_ACCOUNTS").proxy(
             "LIST_USER_LOGINS_ACCOUNTS",
             {
               "account_id": account_id            },

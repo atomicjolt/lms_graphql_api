@@ -7,7 +7,7 @@ module LMSGraphQL
         type LMSGraphQL::Types::Canvas::CanvasFolder, null: false
         argument :id, ID, required: true
         def resolve(id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("GET_FOLDER_FOLDERS").proxy(
             "GET_FOLDER_FOLDERS",
             {
               "id": id            },

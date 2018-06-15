@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :event, String, required: true
         field :return_value, Boolean, null: false
         def resolve(id:, event:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("DELETE_CONCLUDE_COURSE").proxy(
             "DELETE_CONCLUDE_COURSE",
             {
               "id": id,

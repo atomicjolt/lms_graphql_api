@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :id, ID, required: true
         argument :include_hidden, Boolean, required: false
         def resolve(course_id:, id:, include_hidden: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_ENTRIES_FOR_COLUMN").proxy(
             "LIST_ENTRIES_FOR_COLUMN",
             {
               "course_id": course_id,

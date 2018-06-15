@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :external_feed_id, ID, required: true
         field :external_feed, LMSGraphQL::Types::Canvas::CanvasExternalFeed, null: false
         def resolve(group_id:, external_feed_id:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("DELETE_EXTERNAL_FEED_GROUPS").proxy(
             "DELETE_EXTERNAL_FEED_GROUPS",
             {
               "group_id": group_id,

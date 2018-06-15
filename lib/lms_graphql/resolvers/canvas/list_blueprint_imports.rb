@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :course_id, ID, required: true
         argument :subscription_id, ID, required: true
         def resolve(course_id:, subscription_id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_BLUEPRINT_IMPORTS").proxy(
             "LIST_BLUEPRINT_IMPORTS",
             {
               "course_id": course_id,

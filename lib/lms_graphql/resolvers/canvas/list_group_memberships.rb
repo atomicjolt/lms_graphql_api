@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :group_id, ID, required: true
         argument :filter_states, String, required: false
         def resolve(group_id:, filter_states: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_GROUP_MEMBERSHIPS").proxy(
             "LIST_GROUP_MEMBERSHIPS",
             {
               "group_id": group_id,

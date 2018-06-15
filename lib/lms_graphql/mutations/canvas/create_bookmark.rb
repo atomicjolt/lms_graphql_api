@@ -10,7 +10,7 @@ module LMSGraphQL
         argument :data, String, required: false
         field :bookmark, LMSGraphQL::Types::Canvas::CanvasBookmark, null: false
         def resolve(name: nil, url: nil, position: nil, data: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("CREATE_BOOKMARK").proxy(
             "CREATE_BOOKMARK",
             {
               "name": name,

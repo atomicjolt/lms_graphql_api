@@ -7,7 +7,7 @@ module LMSGraphQL
 
         field :jwt, LMSGraphQL::Types::Canvas::CanvasJWT, null: false
         def resolve()
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("CREATE_JWT").proxy(
             "CREATE_JWT",
             {
             },

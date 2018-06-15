@@ -13,7 +13,7 @@ module LMSGraphQL
         argument :from_conversation_id, ID, required: false
         argument :permissions, String, required: false
         def resolve(search: nil, context: nil, exclude: nil, type: nil, user_id: nil, from_conversation_id: nil, permissions: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("FIND_RECIPIENTS_SEARCH").proxy(
             "FIND_RECIPIENTS_SEARCH",
             {
               "search": search,

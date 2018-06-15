@@ -7,7 +7,7 @@ module LMSGraphQL
         argument :group_id, ID, required: true
         field :group, LMSGraphQL::Types::Canvas::CanvasGroup, null: false
         def resolve(group_id:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("DELETE_GROUP").proxy(
             "DELETE_GROUP",
             {
               "group_id": group_id            },

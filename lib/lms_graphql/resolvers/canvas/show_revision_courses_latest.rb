@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :url, String, required: true
         argument :summary, Boolean, required: false
         def resolve(course_id:, url:, summary: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("SHOW_REVISION_COURSES_LATEST").proxy(
             "SHOW_REVISION_COURSES_LATEST",
             {
               "course_id": course_id,

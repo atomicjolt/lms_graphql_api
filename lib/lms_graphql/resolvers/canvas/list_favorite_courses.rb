@@ -7,7 +7,7 @@ module LMSGraphQL
         type [LMSGraphQL::Types::Canvas::CanvasCourse], null: false
         argument :exclude_blueprint_courses, Boolean, required: false
         def resolve(exclude_blueprint_courses: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_FAVORITE_COURSES").proxy(
             "LIST_FAVORITE_COURSES",
             {
               "exclude_blueprint_courses": exclude_blueprint_courses            },

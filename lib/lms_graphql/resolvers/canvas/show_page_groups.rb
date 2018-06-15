@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :group_id, ID, required: true
         argument :url, String, required: true
         def resolve(group_id:, url:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("SHOW_PAGE_GROUPS").proxy(
             "SHOW_PAGE_GROUPS",
             {
               "group_id": group_id,

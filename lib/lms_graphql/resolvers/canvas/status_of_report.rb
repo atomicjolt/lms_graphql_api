@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :report, String, required: true
         argument :id, ID, required: true
         def resolve(account_id:, report:, id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("STATUS_OF_REPORT").proxy(
             "STATUS_OF_REPORT",
             {
               "account_id": account_id,

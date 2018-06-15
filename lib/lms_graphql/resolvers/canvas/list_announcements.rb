@@ -11,7 +11,7 @@ module LMSGraphQL
         argument :active_only, Boolean, required: false
         argument :include, String, required: false
         def resolve(context_codes:, start_date: nil, end_date: nil, active_only: nil, include: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_ANNOUNCEMENTS").proxy(
             "LIST_ANNOUNCEMENTS",
             {
               "context_codes": context_codes,

@@ -7,7 +7,7 @@ module LMSGraphQL
         argument :course_id, ID, required: true
         field :course, LMSGraphQL::Types::Canvas::CanvasCourse, null: false
         def resolve(course_id:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("RESET_COURSE").proxy(
             "RESET_COURSE",
             {
               "course_id": course_id            },

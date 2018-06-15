@@ -14,7 +14,7 @@ module LMSGraphQL
         argument :hidden, Boolean, required: false
         field :file, LMSGraphQL::Types::Canvas::CanvasFile, null: false
         def resolve(id:, name: nil, parent_folder_id: nil, on_duplicate: nil, lock_at: nil, unlock_at: nil, locked: nil, hidden: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("UPDATE_FILE").proxy(
             "UPDATE_FILE",
             {
               "id": id,

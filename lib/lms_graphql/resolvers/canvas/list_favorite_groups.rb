@@ -7,7 +7,7 @@ module LMSGraphQL
         type [LMSGraphQL::Types::Canvas::CanvasGroup], null: false
 
         def resolve()
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_FAVORITE_GROUPS").proxy(
             "LIST_FAVORITE_GROUPS",
             {
             },

@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :communication_channel_id, ID, required: true
         argument :notification, String, required: true
         def resolve(user_id:, communication_channel_id:, notification:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("GET_PREFERENCE_COMMUNICATION_CHANNEL_ID").proxy(
             "GET_PREFERENCE_COMMUNICATION_CHANNEL_ID",
             {
               "user_id": user_id,

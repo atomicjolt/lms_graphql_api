@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :user_id, ID, required: true
         argument :ns, String, required: true
         def resolve(user_id:, ns:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LOAD_CUSTOM_DATA").proxy(
             "LOAD_CUSTOM_DATA",
             {
               "user_id": user_id,

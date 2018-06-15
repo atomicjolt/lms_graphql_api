@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :force, Boolean, required: false
         field :return_value, Boolean, null: false
         def resolve(id:, force: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("DELETE_FOLDER").proxy(
             "DELETE_FOLDER",
             {
               "id": id,

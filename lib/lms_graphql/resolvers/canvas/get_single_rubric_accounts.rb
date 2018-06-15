@@ -10,7 +10,7 @@ module LMSGraphQL
         argument :include, String, required: false
         argument :style, String, required: false
         def resolve(account_id:, id:, include: nil, style: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("GET_SINGLE_RUBRIC_ACCOUNTS").proxy(
             "GET_SINGLE_RUBRIC_ACCOUNTS",
             {
               "account_id": account_id,

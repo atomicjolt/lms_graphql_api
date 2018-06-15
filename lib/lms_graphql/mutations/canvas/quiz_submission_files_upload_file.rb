@@ -10,7 +10,7 @@ module LMSGraphQL
         argument :on_duplicate, String, required: false
         field :return_value, Boolean, null: false
         def resolve(course_id:, quiz_id:, name: nil, on_duplicate: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("QUIZ_SUBMISSION_FILES_UPLOAD_FILE").proxy(
             "QUIZ_SUBMISSION_FILES_UPLOAD_FILE",
             {
               "course_id": course_id,

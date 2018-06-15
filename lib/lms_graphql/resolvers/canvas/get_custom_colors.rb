@@ -7,7 +7,7 @@ module LMSGraphQL
         type Boolean, null: false
         argument :id, ID, required: true
         def resolve(id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("GET_CUSTOM_COLORS").proxy(
             "GET_CUSTOM_COLORS",
             {
               "id": id            },

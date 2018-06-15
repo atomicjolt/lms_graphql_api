@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :access_code, String, required: true
         field :return_value, Boolean, null: false
         def resolve(course_id:, id:, access_code:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("VALIDATE_QUIZ_ACCESS_CODE").proxy(
             "VALIDATE_QUIZ_ACCESS_CODE",
             {
               "course_id": course_id,

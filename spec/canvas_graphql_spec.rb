@@ -4,17 +4,21 @@ require "lms_graphql_api"
 describe LMSGraphQL::Types::Canvas::Schema do
 
   it "executes the list_courses_for_user query" do
+    canvas_api_proc = double
     canvas_api = double
     canvas_api_response = double
+
     expect(canvas_api_response).to receive(:parsed_response).and_return({})
     expect(canvas_api).to receive(:proxy).and_return(canvas_api_response)
+    expect(canvas_api_proc).to receive(:call).with("LIST_COURSES_FOR_USER").and_return(canvas_api)
+
     variables = {
       "userId"=>"1234"
     }
     query = "query listCoursesForUser($userId: ID!) {\n  listCoursesForUser(userId: $userId) { id } \n}"
     operation_name = "listCoursesForUser"
     context = {
-      canvas_api: canvas_api
+      canvas_api: canvas_api_proc
     }
     result = LMSGraphQL::Types::Canvas::Schema.execute(
       query,

@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :new_course_id, ID, required: true
         field :section, LMSGraphQL::Types::Canvas::CanvasSection, null: false
         def resolve(id:, new_course_id:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("CROSS_LIST_SECTION").proxy(
             "CROSS_LIST_SECTION",
             {
               "id": id,

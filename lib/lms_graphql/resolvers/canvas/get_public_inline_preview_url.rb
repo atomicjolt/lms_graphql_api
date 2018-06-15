@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :id, ID, required: true
         argument :submission_id, ID, required: false
         def resolve(id:, submission_id: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("GET_PUBLIC_INLINE_PREVIEW_URL").proxy(
             "GET_PUBLIC_INLINE_PREVIEW_URL",
             {
               "id": id,

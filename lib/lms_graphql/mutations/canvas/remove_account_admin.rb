@@ -10,7 +10,7 @@ module LMSGraphQL
         argument :role_id, ID, required: false
         field :admin, LMSGraphQL::Types::Canvas::CanvasAdmin, null: false
         def resolve(account_id:, user_id:, role: nil, role_id: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("REMOVE_ACCOUNT_ADMIN").proxy(
             "REMOVE_ACCOUNT_ADMIN",
             {
               "account_id": account_id,

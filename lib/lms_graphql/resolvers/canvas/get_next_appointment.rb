@@ -7,7 +7,7 @@ module LMSGraphQL
         type [LMSGraphQL::Types::Canvas::CanvasCalendarEvent], null: false
         argument :appointment_group_ids, [ID], required: false
         def resolve(appointment_group_ids: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("GET_NEXT_APPOINTMENT").proxy(
             "GET_NEXT_APPOINTMENT",
             {
               "appointment_group_ids": appointment_group_ids            },

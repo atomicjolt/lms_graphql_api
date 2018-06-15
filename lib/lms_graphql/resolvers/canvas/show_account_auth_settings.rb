@@ -7,7 +7,7 @@ module LMSGraphQL
         type LMSGraphQL::Types::Canvas::CanvasSSOSetting, null: false
         argument :account_id, ID, required: true
         def resolve(account_id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("SHOW_ACCOUNT_AUTH_SETTINGS").proxy(
             "SHOW_ACCOUNT_AUTH_SETTINGS",
             {
               "account_id": account_id            },

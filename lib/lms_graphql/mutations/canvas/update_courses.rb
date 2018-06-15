@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :event, String, required: true
         field :progress, LMSGraphQL::Types::Canvas::CanvasProgress, null: false
         def resolve(account_id:, course_ids:, event:)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("UPDATE_COURSES").proxy(
             "UPDATE_COURSES",
             {
               "account_id": account_id,

@@ -10,7 +10,7 @@ module LMSGraphQL
         argument :role_id, ID, required: true
         argument :role, String, required: false
         def resolve(id:, account_id:, role_id:, role: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("GET_SINGLE_ROLE").proxy(
             "GET_SINGLE_ROLE",
             {
               "id": id,

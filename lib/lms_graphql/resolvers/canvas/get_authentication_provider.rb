@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :account_id, ID, required: true
         argument :id, ID, required: true
         def resolve(account_id:, id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("GET_AUTHENTICATION_PROVIDER").proxy(
             "GET_AUTHENTICATION_PROVIDER",
             {
               "account_id": account_id,

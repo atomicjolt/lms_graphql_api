@@ -10,7 +10,7 @@ module LMSGraphQL
         argument :rating, Int, required: false
         field :return_value, Boolean, null: false
         def resolve(group_id:, topic_id:, entry_id:, rating: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("RATE_ENTRY_GROUPS").proxy(
             "RATE_ENTRY_GROUPS",
             {
               "group_id": group_id,

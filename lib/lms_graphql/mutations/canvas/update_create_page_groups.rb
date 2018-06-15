@@ -14,7 +14,7 @@ module LMSGraphQL
         argument :wiki_page_front_page, Boolean, required: false
         field :page, LMSGraphQL::Types::Canvas::CanvasPage, null: false
         def resolve(group_id:, url:, wiki_page_title: nil, wiki_page_body: nil, wiki_page_editing_roles: nil, wiki_page_notify_of_update: nil, wiki_page_published: nil, wiki_page_front_page: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("UPDATE_CREATE_PAGE_GROUPS").proxy(
             "UPDATE_CREATE_PAGE_GROUPS",
             {
               "group_id": group_id,

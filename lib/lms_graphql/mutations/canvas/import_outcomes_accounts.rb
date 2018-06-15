@@ -10,7 +10,7 @@ module LMSGraphQL
         argument :extension, String, required: false
         field :outcome_import, LMSGraphQL::Types::Canvas::CanvasOutcomeImport, null: false
         def resolve(account_id:, import_type: nil, attachment: nil, extension: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("IMPORT_OUTCOMES_ACCOUNTS").proxy(
             "IMPORT_OUTCOMES_ACCOUNTS",
             {
               "account_id": account_id,

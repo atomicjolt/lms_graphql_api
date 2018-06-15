@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :search_term, String, required: false
         argument :include, String, required: false
         def resolve(group_id:, search_term: nil, include: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_GROUP_S_USERS").proxy(
             "LIST_GROUP_S_USERS",
             {
               "group_id": group_id,

@@ -10,7 +10,7 @@ module LMSGraphQL
         argument :latitude, Float, required: false
         argument :longitude, Float, required: false
         def resolve(name: nil, domain: nil, latitude: nil, longitude: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("SEARCH_ACCOUNT_DOMAINS").proxy(
             "SEARCH_ACCOUNT_DOMAINS",
             {
               "name": name,

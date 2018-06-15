@@ -14,7 +14,7 @@ module LMSGraphQL
         argument :assignment_ids, [ID], required: false
         argument :order_by, String, required: false
         def resolve(course_id:, include: nil, search_term: nil, override_assignment_dates: nil, needs_grading_count_by_section: nil, bucket: nil, assignment_ids: nil, order_by: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("LIST_ASSIGNMENTS").proxy(
             "LIST_ASSIGNMENTS",
             {
               "course_id": course_id,

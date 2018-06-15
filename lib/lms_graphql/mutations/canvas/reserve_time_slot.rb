@@ -10,7 +10,7 @@ module LMSGraphQL
         argument :cancel_existing, Boolean, required: false
         field :return_value, Boolean, null: false
         def resolve(id:, participant_id: nil, comments: nil, cancel_existing: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("RESERVE_TIME_SLOT").proxy(
             "RESERVE_TIME_SLOT",
             {
               "id": id,

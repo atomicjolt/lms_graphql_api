@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :html, String, required: false
         field :return_value, Boolean, null: false
         def resolve(group_id:, html: nil)
-          ctx[:canvas_api].proxy(
+          context[:canvas_api].call("GROUPS_PREVIEW_PROCESSED_HTML").proxy(
             "GROUPS_PREVIEW_PROCESSED_HTML",
             {
               "group_id": group_id,

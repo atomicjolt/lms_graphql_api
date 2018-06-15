@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :asset_type, String, required: false
         argument :asset_id, ID, required: false
         def resolve(course_id:, asset_type: nil, asset_id: nil)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("GET_MODULE_ITEM_SEQUENCE").proxy(
             "GET_MODULE_ITEM_SEQUENCE",
             {
               "course_id": course_id,

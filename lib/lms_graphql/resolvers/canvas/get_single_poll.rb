@@ -7,7 +7,7 @@ module LMSGraphQL
         type Boolean, null: false
         argument :id, ID, required: true
         def resolve(id:)
-          context[:canvas_api].proxy(
+          context[:canvas_api].call("GET_SINGLE_POLL").proxy(
             "GET_SINGLE_POLL",
             {
               "id": id            },
