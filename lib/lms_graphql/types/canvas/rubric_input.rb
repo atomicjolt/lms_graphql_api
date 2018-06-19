@@ -1,5 +1,5 @@
 require_relative "../canvas_base_input_type"
-require_relative "rubric_assessment"
+require_relative "rubric_assessment_input"
 
 module LMSGraphQL
   module Types

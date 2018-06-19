@@ -1,5 +1,5 @@
 require_relative "../canvas_base_input_type"
-require_relative "conference_recording"
+require_relative "conference_recording_input"
 
 module LMSGraphQL
   module Types

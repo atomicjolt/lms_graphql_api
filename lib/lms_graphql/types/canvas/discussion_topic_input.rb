@@ -1,6 +1,6 @@
 require_relative "../canvas_base_input_type"
-require_relative "lock_info"
-require_relative "file_attachment"
+require_relative "lock_info_input"
+require_relative "file_attachment_input"
 
 module LMSGraphQL
   module Types

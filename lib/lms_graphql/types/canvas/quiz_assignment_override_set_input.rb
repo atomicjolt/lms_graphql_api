@@ -1,6 +1,6 @@
 require_relative "../canvas_base_input_type"
-require_relative "quiz_assignment_override"
-require_relative "quiz_assignment_override"
+require_relative "quiz_assignment_override_input"
+require_relative "quiz_assignment_override_input"
 
 module LMSGraphQL
   module Types

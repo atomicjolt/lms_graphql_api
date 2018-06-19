@@ -1,6 +1,6 @@
 require_relative "../canvas_base_input_type"
-require_relative "module_item_sequence_node"
-require_relative "module"
+require_relative "module_item_sequence_node_input"
+require_relative "module_input"
 
 module LMSGraphQL
   module Types

@@ -1,13 +1,13 @@
 require_relative "../canvas_base_input_type"
-require_relative "assignment_date"
-require_relative "turnitin_setting"
-require_relative "external_tool_tag_attribute"
-require_relative "needs_grading_count"
-require_relative "lock_info"
-require_relative "discussion_topic"
-require_relative "submission"
-require_relative "rubric_criterium"
-require_relative "assignment_override"
+require_relative "assignment_date_input"
+require_relative "turnitin_setting_input"
+require_relative "external_tool_tag_attribute_input"
+require_relative "needs_grading_count_input"
+require_relative "lock_info_input"
+require_relative "discussion_topic_input"
+require_relative "submission_input"
+require_relative "rubric_criterium_input"
+require_relative "assignment_override_input"
 
 module LMSGraphQL
   module Types

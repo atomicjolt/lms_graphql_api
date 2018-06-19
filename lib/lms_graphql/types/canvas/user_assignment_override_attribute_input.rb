@@ -1,5 +1,5 @@
 require_relative "../canvas_base_input_type"
-require_relative "student_attribute"
+require_relative "student_attribute_input"
 
 module LMSGraphQL
   module Types

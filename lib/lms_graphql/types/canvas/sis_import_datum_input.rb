@@ -1,5 +1,5 @@
 require_relative "../canvas_base_input_type"
-require_relative "sis_import_count"
+require_relative "sis_import_count_input"
 
 module LMSGraphQL
   module Types

@@ -1,7 +1,7 @@
 require_relative "../canvas_base_input_type"
-require_relative "appointment"
-require_relative "calendar_event"
-require_relative "calendar_event"
+require_relative "appointment_input"
+require_relative "calendar_event_input"
+require_relative "calendar_event_input"
 
 module LMSGraphQL
   module Types

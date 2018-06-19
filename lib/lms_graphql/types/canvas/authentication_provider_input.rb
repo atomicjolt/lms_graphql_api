@@ -1,5 +1,5 @@
 require_relative "../canvas_base_input_type"
-require_relative "federated_attributes_config"
+require_relative "federated_attributes_config_input"
 
 module LMSGraphQL
   module Types

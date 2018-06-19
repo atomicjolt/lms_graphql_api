@@ -1,6 +1,6 @@
 require_relative "../canvas_base_input_type"
-require_relative "completion_requirement"
-require_relative "content_detail"
+require_relative "completion_requirement_input"
+require_relative "content_detail_input"
 
 module LMSGraphQL
   module Types

@@ -1,5 +1,5 @@
 require_relative "../canvas_base_input_type"
-require_relative "grade_change_event_link"
+require_relative "grade_change_event_link_input"
 
 module LMSGraphQL
   module Types

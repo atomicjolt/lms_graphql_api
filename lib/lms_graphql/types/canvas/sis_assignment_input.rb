@@ -1,7 +1,7 @@
 require_relative "../canvas_base_input_type"
-require_relative "assignment_group_attribute"
-require_relative "section_attribute"
-require_relative "user_assignment_override_attribute"
+require_relative "assignment_group_attribute_input"
+require_relative "section_attribute_input"
+require_relative "user_assignment_override_attribute_input"
 
 module LMSGraphQL
   module Types

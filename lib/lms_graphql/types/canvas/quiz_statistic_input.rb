@@ -1,7 +1,7 @@
 require_relative "../canvas_base_input_type"
-require_relative "quiz_statistics_question_statistic"
-require_relative "quiz_statistics_submission_statistic"
-require_relative "quiz_statistics_link"
+require_relative "quiz_statistics_question_statistic_input"
+require_relative "quiz_statistics_submission_statistic_input"
+require_relative "quiz_statistics_link_input"
 
 module LMSGraphQL
   module Types

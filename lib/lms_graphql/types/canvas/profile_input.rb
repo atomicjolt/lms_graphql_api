@@ -1,5 +1,5 @@
 require_relative "../canvas_base_input_type"
-require_relative "calendar_link"
+require_relative "calendar_link_input"
 
 module LMSGraphQL
   module Types

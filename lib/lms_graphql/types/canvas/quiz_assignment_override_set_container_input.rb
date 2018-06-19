@@ -1,5 +1,5 @@
 require_relative "../canvas_base_input_type"
-require_relative "quiz_assignment_override_set"
+require_relative "quiz_assignment_override_set_input"
 
 module LMSGraphQL
   module Types

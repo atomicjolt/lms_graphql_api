@@ -1,7 +1,7 @@
 require_relative "../canvas_base_input_type"
-require_relative "lock_info"
-require_relative "quiz_permission"
-require_relative "assignment_date"
+require_relative "lock_info_input"
+require_relative "quiz_permission_input"
+require_relative "assignment_date_input"
 
 module LMSGraphQL
   module Types

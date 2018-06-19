@@ -1,5 +1,5 @@
 require_relative "../canvas_base_input_type"
-require_relative "tool_setting"
+require_relative "tool_setting_input"
 
 module LMSGraphQL
   module Types

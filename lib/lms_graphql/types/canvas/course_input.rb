@@ -1,8 +1,8 @@
 require_relative "../canvas_base_input_type"
-require_relative "enrollment"
-require_relative "calendar_link"
-require_relative "term"
-require_relative "course_progress"
+require_relative "enrollment_input"
+require_relative "calendar_link_input"
+require_relative "term_input"
+require_relative "course_progress_input"
 
 module LMSGraphQL
   module Types

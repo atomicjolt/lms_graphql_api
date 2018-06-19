@@ -1,3 +1,6 @@
+#0.5.2
+Fixes input require paths
+
 #0.5.1
 Fixes bug in Canvas input types
 

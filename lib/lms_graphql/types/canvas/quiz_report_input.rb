@@ -1,6 +1,6 @@
 require_relative "../canvas_base_input_type"
-require_relative "file"
-require_relative "progress"
+require_relative "file_input"
+require_relative "progress_input"
 
 module LMSGraphQL
   module Types

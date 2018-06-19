@@ -1,5 +1,5 @@
 require_relative "../canvas_base_input_type"
-require_relative "poll_submission"
+require_relative "poll_submission_input"
 
 module LMSGraphQL
   module Types

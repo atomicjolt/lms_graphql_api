@@ -1,5 +1,5 @@
 require_relative "../canvas_base_input_type"
-require_relative "media_comment"
+require_relative "media_comment_input"
 
 module LMSGraphQL
   module Types

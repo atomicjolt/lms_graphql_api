@@ -1,5 +1,5 @@
 require_relative "../canvas_base_input_type"
-require_relative "outcome_rollup_score_link"
+require_relative "outcome_rollup_score_link_input"
 
 module LMSGraphQL
   module Types

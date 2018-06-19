@@ -1,6 +1,6 @@
 require_relative "../canvas_base_input_type"
-require_relative "outcome_import_datum"
-require_relative "user"
+require_relative "outcome_import_datum_input"
+require_relative "user_input"
 
 module LMSGraphQL
   module Types

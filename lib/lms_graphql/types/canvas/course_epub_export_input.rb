@@ -1,5 +1,5 @@
 require_relative "../canvas_base_input_type"
-require_relative "epub_export"
+require_relative "epub_export_input"
 
 module LMSGraphQL
   module Types

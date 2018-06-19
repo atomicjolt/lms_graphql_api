@@ -1,5 +1,5 @@
 require_relative "../canvas_base_input_type"
-require_relative "feature_flag"
+require_relative "feature_flag_input"
 
 module LMSGraphQL
   module Types
