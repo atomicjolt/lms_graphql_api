@@ -1,3 +1,6 @@
+#0.5.1
+Fixes bug in Canvas input types
+
 #0.5.0
 Adds mutations for Canvas API
 
