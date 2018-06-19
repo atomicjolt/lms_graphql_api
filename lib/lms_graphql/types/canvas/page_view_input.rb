@@ -22,7 +22,7 @@ module LMSGraphQL
         argument :participated, Boolean, "True if the request counted as participating, such as submitting homework.Example: false", required: false
         argument :http_method, String, "The HTTP method such as GET or POST.Example: GET", required: false
         argument :remote_ip, String, "The origin IP address of the request.Example: 173.194.46.71", required: false
-        argument :links, LMSGraphQL::Types::Canvas::CanvasPageViewLink, "The page view links to define the relationships.Example: 1234, 1234", required: false
+        argument :links, LMSGraphQL::Types::Canvas::CanvasPageViewLinkInput, "The page view links to define the relationships.Example: 1234, 1234", required: false
 
       end
     end

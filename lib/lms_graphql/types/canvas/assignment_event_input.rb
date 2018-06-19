@@ -24,8 +24,8 @@ module LMSGraphQL
         argument :all_day, Boolean, "Boolean indicating whether this is an all-day event (e.g. assignment due at midnight).Example: true", required: false
         argument :created_at, LMSGraphQL::Types::DateTimeType, "When the assignment was created.Example: 2012-07-12T10:55:20-06:00", required: false
         argument :updated_at, LMSGraphQL::Types::DateTimeType, "When the assignment was last updated.Example: 2012-07-12T10:55:20-06:00", required: false
-        argument :assignment, LMSGraphQL::Types::Canvas::CanvasAssignment, "The full assignment JSON data (See the Assignments API).", required: false
-        argument :assignment_overrides, LMSGraphQL::Types::Canvas::CanvasAssignmentOverride, "The list of AssignmentOverrides that apply to this event (See the Assignments API). This information is useful for determining which students or sections this assignment-due event applies to..", required: false
+        argument :assignment, LMSGraphQL::Types::Canvas::CanvasAssignmentInput, "The full assignment JSON data (See the Assignments API).", required: false
+        argument :assignment_overrides, LMSGraphQL::Types::Canvas::CanvasAssignmentOverrideInput, "The list of AssignmentOverrides that apply to this event (See the Assignments API). This information is useful for determining which students or sections this assignment-due event applies to..", required: false
 
       end
     end
