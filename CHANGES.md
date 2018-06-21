@@ -1,3 +1,6 @@
+#0.5.3
+Add support for output dates that come from strings.
+
 #0.5.2
 Fixes input require paths
 
