@@ -7,12 +7,14 @@ module LMSGraphQL
         type [LMSGraphQL::Types::Canvas::CanvasAssignment], null: false
         argument :user_id, ID, required: true
         argument :include, String, required: false
-        def resolve(user_id:, include: nil)
+        argument :filter, String, required: false
+        def resolve(user_id:, include: nil, filter: nil)
           context[:canvas_api].call("LIST_MISSING_SUBMISSIONS").proxy(
             "LIST_MISSING_SUBMISSIONS",
             {
               "user_id": user_id,
-              "include": include            },
+              "include": include,
+              "filter": filter            },
             nil,
           ).parsed_response
         end

@@ -284,6 +284,7 @@ module LMSGraphQL
         field :create_single_poll, mutation: LMSGraphQL::Mutations::Canvas::CreateSinglePoll
         field :update_single_poll, mutation: LMSGraphQL::Mutations::Canvas::UpdateSinglePoll
         field :delete_poll, mutation: LMSGraphQL::Mutations::Canvas::DeletePoll
+        field :create_update_proficiency_ratings, mutation: LMSGraphQL::Mutations::Canvas::CreateUpdateProficiencyRating
         field :quiz_extensions_set_extensions_for_student_quiz_submissions, mutation: LMSGraphQL::Mutations::Canvas::QuizExtensionsSetExtensionsForStudentQuizSubmission
         field :create_question_group, mutation: LMSGraphQL::Mutations::Canvas::CreateQuestionGroup
         field :update_question_group, mutation: LMSGraphQL::Mutations::Canvas::UpdateQuestionGroup
@@ -313,6 +314,7 @@ module LMSGraphQL
         field :activate_role, mutation: LMSGraphQL::Mutations::Canvas::ActivateRole
         field :update_role, mutation: LMSGraphQL::Mutations::Canvas::UpdateRole
         field :import_sis_data, mutation: LMSGraphQL::Mutations::Canvas::ImportSisDatum
+        field :restore_workflow_states_of_sis_imported_items, mutation: LMSGraphQL::Mutations::Canvas::RestoreWorkflowStatesOfSisImportedItem
         field :abort_sis_import, mutation: LMSGraphQL::Mutations::Canvas::AbortSisImport
         field :abort_all_pending_sis_imports, mutation: LMSGraphQL::Mutations::Canvas::AbortAllPendingSisImport
         field :disable_assignments_currently_enabled_for_grade_export_to_sis, mutation: LMSGraphQL::Mutations::Canvas::DisableAssignmentsCurrentlyEnabledForGradeExportToSi
@@ -355,7 +357,7 @@ module LMSGraphQL
         field :merge_user_into_another_user_destination_user_id, mutation: LMSGraphQL::Mutations::Canvas::MergeUserIntoAnotherUserDestinationUserId
         field :merge_user_into_another_user_accounts, mutation: LMSGraphQL::Mutations::Canvas::MergeUserIntoAnotherUserAccount
         field :split_merged_users_into_separate_users, mutation: LMSGraphQL::Mutations::Canvas::SplitMergedUsersIntoSeparateUser
-        field :get_pandata_jwt_token_and_its_expiration_date, mutation: LMSGraphQL::Mutations::Canvas::GetPandataJwtTokenAndItsExpirationDate
+        field :get_pandata_events_jwt_token_and_its_expiration_date, mutation: LMSGraphQL::Mutations::Canvas::GetPandataEventsJwtTokenAndItsExpirationDate
         field :store_custom_data, mutation: LMSGraphQL::Mutations::Canvas::StoreCustomDatum
         field :delete_custom_data, mutation: LMSGraphQL::Mutations::Canvas::DeleteCustomDatum
         field :set_course_nickname, mutation: LMSGraphQL::Mutations::Canvas::SetCourseNickname

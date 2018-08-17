@@ -1,7 +1,7 @@
 require_relative "../canvas_base_input_type"
-require_relative "lock_info_input"
-require_relative "quiz_permission_input"
-require_relative "assignment_date_input"
+require_relative "lock_info"
+require_relative "quiz_permission"
+require_relative "assignment_date"
 
 module LMSGraphQL
   module Types
@@ -54,12 +54,12 @@ module LMSGraphQL
         argument :published, Boolean, "whether the quiz has a published or unpublished draft state..Example: true", required: false
         argument :unpublishable, Boolean, "Whether the assignment's 'published' state can be changed to false. Will be false if there are student submissions for the quiz..Example: true", required: false
         argument :locked_for_user, Boolean, "Whether or not this is locked for the user..", required: false
-        argument :lock_info, LMSGraphQL::Types::Canvas::CanvasLockInfoInput, "(Optional) Information for the user about the lock. Present when locked_for_user is true..", required: false
+        argument :lock_info, LMSGraphQL::Types::Canvas::CanvasLockInfo, "(Optional) Information for the user about the lock. Present when locked_for_user is true..", required: false
         argument :lock_explanation, String, "(Optional) An explanation of why this is locked for the user. Present when locked_for_user is true..Example: This quiz is locked until September 1 at 12:00am", required: false
         argument :speedgrader_url, String, "Link to Speed Grader for this quiz. Will not be present if quiz is unpublished.Example: http://canvas.instructure.com/courses/1/speed_grader?assignment_id=1", required: false
         argument :quiz_extensions_url, String, "Link to endpoint to send extensions for this quiz..Example: http://canvas.instructure.com/courses/1/quizzes/2/quiz_extensions", required: false
-        argument :permissions, LMSGraphQL::Types::Canvas::CanvasQuizPermissionInput, "Permissions the user has for the quiz.", required: false
-        argument :all_dates, [LMSGraphQL::Types::Canvas::CanvasAssignmentDateInput], "list of due dates for the quiz.", required: false
+        argument :permissions, LMSGraphQL::Types::Canvas::CanvasQuizPermission, "Permissions the user has for the quiz.", required: false
+        argument :all_dates, [LMSGraphQL::Types::Canvas::CanvasAssignmentDate], "list of due dates for the quiz.", required: false
         argument :version_number, Int, "Current version number of the quiz.Example: 3", required: false
         argument :question_types, String, "List of question types in the quiz.Example: multiple_choice, essay", required: false
         argument :anonymous_submissions, Boolean, "Whether survey submissions will be kept anonymous (only applicable to 'graded_survey', 'survey' quiz types).", required: false

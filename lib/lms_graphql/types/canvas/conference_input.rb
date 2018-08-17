@@ -1,5 +1,5 @@
 require_relative "../canvas_base_input_type"
-require_relative "conference_recording_input"
+require_relative "conference_recording"
 
 module LMSGraphQL
   module Types
@@ -18,7 +18,7 @@ module LMSGraphQL
         argument :has_advanced_settings, Boolean, "True if the conference type has advanced settings..", required: false
         argument :long_running, Boolean, "If true the conference is long running and has no expected end time.", required: false
         argument :user_settings, String, "A collection of settings specific to the conference type.Example: true", required: false
-        argument :recordings, [LMSGraphQL::Types::Canvas::CanvasConferenceRecordingInput], "A List of recordings for the conference.", required: false
+        argument :recordings, [LMSGraphQL::Types::Canvas::CanvasConferenceRecording], "A List of recordings for the conference.", required: false
         argument :url, String, "URL for the conference, may be null if the conference type doesn't set it.", required: false
         argument :join_url, String, "URL to join the conference, may be null if the conference type doesn't set it.", required: false
 

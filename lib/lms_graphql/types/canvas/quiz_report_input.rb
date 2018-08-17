@@ -1,6 +1,6 @@
 require_relative "../canvas_base_input_type"
-require_relative "file_input"
-require_relative "progress_input"
+require_relative "file"
+require_relative "progress"
 
 module LMSGraphQL
   module Types
@@ -21,9 +21,9 @@ module LMSGraphQL
         argument :created_at, LMSGraphQL::Types::DateTimeType, "when the report was created.Example: 2013-05-01T12:34:56-07:00", required: false
         argument :updated_at, LMSGraphQL::Types::DateTimeType, "when the report was last updated.Example: 2013-05-01T12:34:56-07:00", required: false
         argument :url, String, "the API endpoint for this report.Example: http://canvas.example.com/api/v1/courses/1/quizzes/1/reports/1", required: false
-        argument :file, LMSGraphQL::Types::Canvas::CanvasFileInput, "if the report has finished generating, a File object that represents it. refer to the Files API for more information about the format.", required: false
+        argument :file, LMSGraphQL::Types::Canvas::CanvasFile, "if the report has finished generating, a File object that represents it. refer to the Files API for more information about the format.", required: false
         argument :progress_url, String, "if the report has not yet finished generating, a URL where information about its progress can be retrieved. refer to the Progress API for more information (Note: not available in JSON-API format).", required: false
-        argument :progress, LMSGraphQL::Types::Canvas::CanvasProgressInput, "if the report is being generated, a Progress object that represents the operation. Refer to the Progress API for more information about the format. (Note: available only in JSON-API format).", required: false
+        argument :progress, LMSGraphQL::Types::Canvas::CanvasProgress, "if the report is being generated, a Progress object that represents the operation. Refer to the Progress API for more information about the format. (Note: available only in JSON-API format).", required: false
 
       end
     end

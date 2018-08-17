@@ -1,3 +1,6 @@
+#0.6.0
+Updates Canvas API definitions
+
 #0.5.3
 Add support for output dates that come from strings.
 

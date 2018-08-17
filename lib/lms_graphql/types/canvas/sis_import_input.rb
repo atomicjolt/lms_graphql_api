@@ -1,7 +1,7 @@
 require_relative "../canvas_base_input_type"
-require_relative "sis_import_datum_input"
-require_relative "file_input"
-require_relative "user_input"
+require_relative "sis_import_datum"
+require_relative "file"
+require_relative "user"
 
 module LMSGraphQL
   module Types
@@ -31,10 +31,10 @@ module LMSGraphQL
  - 'aborted': The SIS import was aborted.
  - 'failed_with_messages': The SIS import failed with errors.
  - 'failed': The SIS import failed..Example: imported", required: false
-        argument :data, LMSGraphQL::Types::Canvas::CanvasSisImportDatumInput, "data.", required: false
+        argument :data, LMSGraphQL::Types::Canvas::CanvasSisImportDatum, "data.", required: false
         argument :progress, String, "The progress of the SIS import. The progress will reset when using batch_mode and have a different progress for the cleanup stage.Example: 100", required: false
-        argument :errors_attachment, LMSGraphQL::Types::Canvas::CanvasFileInput, "The errors_attachment api object of the SIS import. Only available if there are errors or warning and import has completed..", required: false
-        argument :user, LMSGraphQL::Types::Canvas::CanvasUserInput, "The user that initiated the sis_batch. See the Users API for details..", required: false
+        argument :errors_attachment, LMSGraphQL::Types::Canvas::CanvasFile, "The errors_attachment api object of the SIS import. Only available if there are errors or warning and import has completed..", required: false
+        argument :user, LMSGraphQL::Types::Canvas::CanvasUser, "The user that initiated the sis_batch. See the Users API for details..", required: false
         argument :processing_warnings, String, "Only imports that are complete will get this data. An array of CSV_file/warning_message pairs..Example: students.csv, user John Doe has already claimed john_doe's requested login information, skipping", required: false
         argument :processing_errors, String, "An array of CSV_file/error_message pairs..Example: students.csv, Error while importing CSV. Please contact support.", required: false
         argument :batch_mode, Boolean, "Whether the import was run in batch mode..Example: true", required: false

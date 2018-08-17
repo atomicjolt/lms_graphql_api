@@ -1,6 +1,6 @@
 require_relative "../canvas_base_input_type"
-require_relative "grade_input"
-require_relative "user_input"
+require_relative "grade"
+require_relative "user"
 
 module LMSGraphQL
   module Types
@@ -33,8 +33,8 @@ module LMSGraphQL
         argument :last_attended_at, LMSGraphQL::Types::DateTimeType, "The last attended date of the user for the enrollment in a course, in ISO8601 format..Example: 2012-04-18T23:08:51Z", required: false
         argument :total_activity_time, Int, "The total activity time of the user for the enrollment, in seconds..Example: 260", required: false
         argument :html_url, String, "The URL to the Canvas web UI page for this course enrollment..Example: https://.", required: false
-        argument :grades, LMSGraphQL::Types::Canvas::CanvasGradeInput, "The URL to the Canvas web UI page containing the grades associated with this enrollment..Example: https://., 35, , 6.67, ", required: false
-        argument :user, LMSGraphQL::Types::Canvas::CanvasUserInput, "A description of the user..Example: 3, Student 1, 1, Student, Stud 1", required: false
+        argument :grades, LMSGraphQL::Types::Canvas::CanvasGrade, "The URL to the Canvas web UI page containing the grades associated with this enrollment..Example: https://., 35, , 6.67, ", required: false
+        argument :user, LMSGraphQL::Types::Canvas::CanvasUser, "A description of the user..Example: 3, Student 1, 1, Student, Stud 1", required: false
         argument :computed_current_score, Float, "optional: The student's score in the course, ignoring ungraded assignments. (applies only to student enrollments, and only available in course endpoints).Example: 90.25", required: false
         argument :computed_final_score, Float, "optional: The student's score in the course including ungraded assignments with a score of 0. (applies only to student enrollments, and only available in course endpoints).Example: 80.67", required: false
         argument :computed_current_grade, String, "optional: The letter grade equivalent of computed_current_score, if available. (applies only to student enrollments, and only available in course endpoints).Example: A-", required: false

@@ -1,5 +1,5 @@
 require_relative "../canvas_base_input_type"
-require_relative "rubric_assessment_input"
+require_relative "rubric_assessment"
 
 module LMSGraphQL
   module Types
@@ -15,7 +15,7 @@ module LMSGraphQL
         argument :read_only, Boolean, "Example: true", required: false
         argument :free_form_criterion_comments, Boolean, "whether or not free-form comments are used.Example: true", required: false
         argument :hide_score_total, Boolean, "Example: true", required: false
-        argument :assessments, [LMSGraphQL::Types::Canvas::CanvasRubricAssessmentInput], "If an assessment type is included in the 'include' parameter, includes an array of rubric assessment objects for a given rubric, based on the assessment type requested. If the user does not request an assessment type this key will be absent..", required: false
+        argument :assessments, [LMSGraphQL::Types::Canvas::CanvasRubricAssessment], "If an assessment type is included in the 'include' parameter, includes an array of rubric assessment objects for a given rubric, based on the assessment type requested. If the user does not request an assessment type this key will be absent..", required: false
 
       end
     end

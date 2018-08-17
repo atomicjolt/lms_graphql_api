@@ -1,5 +1,5 @@
 require_relative "../canvas_base_input_type"
-require_relative "media_comment_input"
+require_relative "media_comment"
 
 module LMSGraphQL
   module Types
@@ -13,7 +13,7 @@ module LMSGraphQL
         argument :comment, String, "Example: Well here's the thing.", required: false
         argument :created_at, LMSGraphQL::Types::DateTimeType, "Example: 2012-01-01T01:00:00Z", required: false
         argument :edited_at, LMSGraphQL::Types::DateTimeType, "Example: 2012-01-02T01:00:00Z", required: false
-        argument :media_comment, LMSGraphQL::Types::Canvas::CanvasMediaCommentInput, "", required: false
+        argument :media_comment, LMSGraphQL::Types::Canvas::CanvasMediaComment, "", required: false
 
       end
     end

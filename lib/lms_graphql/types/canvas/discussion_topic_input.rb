@@ -1,6 +1,6 @@
 require_relative "../canvas_base_input_type"
-require_relative "lock_info_input"
-require_relative "file_attachment_input"
+require_relative "lock_info"
+require_relative "file_attachment"
 
 module LMSGraphQL
   module Types
@@ -43,7 +43,7 @@ module LMSGraphQL
         argument :locked, Boolean, "Whether or not the discussion is 'closed for comments'..", required: false
         argument :pinned, Boolean, "Whether or not the discussion has been 'pinned' by an instructor.", required: false
         argument :locked_for_user, Boolean, "Whether or not this is locked for the user..Example: true", required: false
-        argument :lock_info, LMSGraphQL::Types::Canvas::CanvasLockInfoInput, "(Optional) Information for the user about the lock. Present when locked_for_user is true..", required: false
+        argument :lock_info, LMSGraphQL::Types::Canvas::CanvasLockInfo, "(Optional) Information for the user about the lock. Present when locked_for_user is true..", required: false
         argument :lock_explanation, String, "(Optional) An explanation of why this is locked for the user. Present when locked_for_user is true..Example: This discussion is locked until September 1 at 12:00am", required: false
         argument :user_name, String, "The username of the topic creator..Example: User Name", required: false
         argument :topic_children, Int, "DEPRECATED An array of topic_ids for the group discussions the user is a part of..Example: 5, 7, 10", required: false
@@ -52,7 +52,7 @@ module LMSGraphQL
         argument :podcast_url, String, "If the topic is a podcast topic this is the feed url for the current user..Example: /feeds/topics/1/enrollment_1XAcepje4u228rt4mi7Z1oFbRpn3RAkTzuXIGOPe.rss", required: false
         argument :discussion_type, DiscussionTopicDiscussionTypeEnum, "The type of discussion. Values are 'side_comment', for discussions that only allow one level of nested comments, and 'threaded' for fully threaded discussions..Example: side_comment", required: false
         argument :group_category_id, ID, "The unique identifier of the group category if the topic is a group discussion, otherwise null..", required: false
-        argument :attachments, [LMSGraphQL::Types::Canvas::CanvasFileAttachmentInput], "Array of file attachments..", required: false
+        argument :attachments, [LMSGraphQL::Types::Canvas::CanvasFileAttachment], "Array of file attachments..", required: false
         argument :permissions, String, "The current user's permissions on this topic..Example: true", required: false
         argument :allow_rating, Boolean, "Whether or not users can rate entries in this topic..Example: true", required: false
         argument :only_graders_can_rate, Boolean, "Whether or not grade permissions are required to rate entries..Example: true", required: false

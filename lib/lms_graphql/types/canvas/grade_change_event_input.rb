@@ -1,5 +1,5 @@
 require_relative "../canvas_base_input_type"
-require_relative "grade_change_event_link_input"
+require_relative "grade_change_event_link"
 
 module LMSGraphQL
   module Types
@@ -16,7 +16,7 @@ module LMSGraphQL
         argument :graded_anonymously, Boolean, "Boolean indicating whether the student name was visible when the grade was given. Could be null if the grade change record was created before this feature existed..Example: true", required: false
         argument :version_number, String, "Version Number of the grade change submission..Example: 1", required: false
         argument :request_id, ID, "The unique request id of the request during the grade change..Example: e2b76430-27a5-0131-3ca1-48e0eb13f29b", required: false
-        argument :links, LMSGraphQL::Types::Canvas::CanvasGradeChangeEventLinkInput, "", required: false
+        argument :links, LMSGraphQL::Types::Canvas::CanvasGradeChangeEventLink, "", required: false
 
       end
     end

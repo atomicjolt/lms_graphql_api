@@ -7,6 +7,10 @@ module LMSGraphQL
     module Canvas
       class QueryType < BaseType
         description "The root query of Canvas schema"
+        field :list_scopes,
+          resolver: LMSGraphQL::Resolvers::Canvas::ListScope,
+          description: "List scopes. A list of scopes that can be applied to developer keys and access tokens."
+
         field :search_account_domains,
           resolver: LMSGraphQL::Resolvers::Canvas::SearchAccountDomain,
           description: "Search account domains. Returns a list of up to 5 matching account domains      Partial match on name / domain are supported"
@@ -173,7 +177,7 @@ module LMSGraphQL
 
         field :get_single_assignment,
           resolver: LMSGraphQL::Resolvers::Canvas::GetSingleAssignment,
-          description: "Get a single assignment. Returns the assignment with the given id.    'observed_users' is passed, submissions for observed users will also be included."
+          description: "Get a single assignment. Returns the assignment with the given id."
 
         field :list_assignment_overrides,
           resolver: LMSGraphQL::Resolvers::Canvas::ListAssignmentOverride,
@@ -923,6 +927,10 @@ module LMSGraphQL
           resolver: LMSGraphQL::Resolvers::Canvas::ShowProvisionalGradeStatusForStudent,
           description: "Show provisional grade status for a student. Tell whether the student's submission needs one or more provisional grades."
 
+        field :show_provisional_grade_status_for_student,
+          resolver: LMSGraphQL::Resolvers::Canvas::ShowProvisionalGradeStatusForStudent,
+          description: "Show provisional grade status for a student. Determine whether or not the student's submission needs one or more provisional grades."
+
         field :list_modules,
           resolver: LMSGraphQL::Resolvers::Canvas::ListModule,
           description: "List modules. A paginated list of the modules in a course"
@@ -1203,6 +1211,10 @@ module LMSGraphQL
           resolver: LMSGraphQL::Resolvers::Canvas::GetSinglePoll,
           description: "Get a single poll. Returns the poll with the given id"
 
+        field :get_proficiency_ratings,
+          resolver: LMSGraphQL::Resolvers::Canvas::GetProficiencyRating,
+          description: "Get proficiency ratings. Get account-level proficiency ratings. If not defined for this account,   it will return proficiency ratings for the nearest super-account with ratings defined.   Will return 404 if none found.        Examples:       curl https: <canvas>/api/v1/accounts/<account_id>/outcome_proficiency \           -H 'Authorization: Bearer <token>'"
+
         field :query_progress,
           resolver: LMSGraphQL::Resolvers::Canvas::QueryProgress,
           description: "Query progress. Return completion and status information about an asynchronous job"
@@ -1305,11 +1317,11 @@ module LMSGraphQL
 
         field :get_sis_import_list,
           resolver: LMSGraphQL::Resolvers::Canvas::GetSisImportList,
-          description: "Get SIS import list. Returns the list of SIS imports for an account      Example:     curl 'https: <canvas>/api/v1/accounts/<account_id>/sis_imports' \       -H 'Authorization: Bearer <token>'"
+          description: "Get SIS import list. Returns the list of SIS imports for an account      Example:     curl https: <canvas>/api/v1/accounts/<account_id>/sis_imports \       -H 'Authorization: Bearer <token>'"
 
         field :get_sis_import_status,
           resolver: LMSGraphQL::Resolvers::Canvas::GetSisImportStatus,
-          description: "Get SIS import status. Get the status of an already created SIS import.        Examples:       curl 'https: <canvas>/api/v1/accounts/<account_id>/sis_imports/<sis_import_id>' \           -H 'Authorization: Bearer <token>'"
+          description: "Get SIS import status. Get the status of an already created SIS import.        Examples:       curl https: <canvas>/api/v1/accounts/<account_id>/sis_imports/<sis_import_id> \           -H 'Authorization: Bearer <token>'"
 
         field :retrieve_assignments_enabled_for_grade_export_to_sis_accounts,
           resolver: LMSGraphQL::Resolvers::Canvas::RetrieveAssignmentsEnabledForGradeExportToSisAccount,
@@ -1318,10 +1330,6 @@ module LMSGraphQL
         field :retrieve_assignments_enabled_for_grade_export_to_sis_courses,
           resolver: LMSGraphQL::Resolvers::Canvas::RetrieveAssignmentsEnabledForGradeExportToSisCourse,
           description: "Retrieve assignments enabled for grade export to SIS. Retrieve a list of published assignments flagged as 'post_to_sis'.   See the Assignments API for more details on assignments.   Assignment group and section information are included for convenience.      Each section includes course information for the origin course and the   cross-listed course, if applicable. The `origin_course` is the course to   which the section belongs or the course from which the section was   cross-listed. Generally, the `origin_course` should be preferred when   performing integration work. The `xlist_course` is provided for consistency   and is only present when the section has been cross-listed.   See Sections API and Courses Api for me details.      The `override` is only provided if the Differentiated Assignments course   feature is turned on and the assignment has an override for that section.   When there is an override for the assignment the override object's   keys/values can be merged with the top level assignment object to create a   view of the assignment object specific to that section.   See Assignments api for more information on assignment overrides.      restricts to courses that start before this date (if they have a start date)   restricts to courses that end after this date (if they have an end date)   information to include.        'student_overrides':: returns individual student override information"
-
-        field :list_scopes,
-          resolver: LMSGraphQL::Resolvers::Canvas::ListScope,
-          description: "List scopes. A list of scopes that can be applied to developer keys and access tokens."
 
         field :find_recipients_conversations,
           resolver: LMSGraphQL::Resolvers::Canvas::FindRecipientsConversation,
@@ -1437,7 +1445,7 @@ module LMSGraphQL
 
         field :list_missing_submissions,
           resolver: LMSGraphQL::Resolvers::Canvas::ListMissingSubmission,
-          description: "List Missing Submissions. A paginated list of past-due assignments for which the student does not have a submission.   The user sending the request must either be an admin or a parent observer using the parent app"
+          description: "List Missing Submissions. A paginated list of past-due assignments for which the student does not have a submission.   The user sending the request must either be the student, an admin or a parent observer using the parent app"
 
         field :show_user_details,
           resolver: LMSGraphQL::Resolvers::Canvas::ShowUserDetail,

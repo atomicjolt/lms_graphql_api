@@ -1,7 +1,7 @@
 require_relative "../canvas_base_input_type"
-require_relative "assignment_group_attribute_input"
-require_relative "section_attribute_input"
-require_relative "user_assignment_override_attribute_input"
+require_relative "assignment_group_attribute"
+require_relative "section_attribute"
+require_relative "user_assignment_override_attribute"
 
 module LMSGraphQL
   module Types
@@ -32,9 +32,9 @@ module LMSGraphQL
         argument :integration_id, ID, "Third Party integration id for assignment.Example: 12341234", required: false
         argument :integration_data, String, "(optional, Third Party integration data for assignment).Example: other_data", required: false
         argument :include_in_final_grade, Boolean, "If false, the assignment will be omitted from the student's final grade.Example: true", required: false
-        argument :assignment_group, [LMSGraphQL::Types::Canvas::CanvasAssignmentGroupAttributeInput], "Includes attributes of a assignment_group for convenience. For more details see Assignments API..", required: false
-        argument :sections, [LMSGraphQL::Types::Canvas::CanvasSectionAttributeInput], "Includes attributes of a section for convenience. For more details see Sections API..", required: false
-        argument :user_overrides, [LMSGraphQL::Types::Canvas::CanvasUserAssignmentOverrideAttributeInput], "Includes attributes of a user assignment overrides. For more details see Assignments API..", required: false
+        argument :assignment_group, [LMSGraphQL::Types::Canvas::CanvasAssignmentGroupAttribute], "Includes attributes of a assignment_group for convenience. For more details see Assignments API..", required: false
+        argument :sections, [LMSGraphQL::Types::Canvas::CanvasSectionAttribute], "Includes attributes of a section for convenience. For more details see Sections API..", required: false
+        argument :user_overrides, [LMSGraphQL::Types::Canvas::CanvasUserAssignmentOverrideAttribute], "Includes attributes of a user assignment overrides. For more details see Assignments API..", required: false
 
       end
     end

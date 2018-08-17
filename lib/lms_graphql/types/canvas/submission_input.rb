@@ -1,5 +1,5 @@
 require_relative "../canvas_base_input_type"
-require_relative "submission_comment_input"
+require_relative "submission_comment"
 
 module LMSGraphQL
   module Types
@@ -29,7 +29,7 @@ module LMSGraphQL
         argument :html_url, String, "URL to the submission. This will require the user to log in..Example: http://example.com/courses/255/assignments/543/submissions/134", required: false
         argument :preview_url, String, "URL to the submission preview. This will require the user to log in..Example: http://example.com/courses/255/assignments/543/submissions/134?preview=1", required: false
         argument :score, Float, "The raw score.Example: 13.5", required: false
-        argument :submission_comments, [LMSGraphQL::Types::Canvas::CanvasSubmissionCommentInput], "Associated comments for a submission (optional).", required: false
+        argument :submission_comments, [LMSGraphQL::Types::Canvas::CanvasSubmissionComment], "Associated comments for a submission (optional).", required: false
         argument :submission_type, SubmissionSubmissionTypeEnum, "The types of submission ex: ('online_text_entry'|'online_url'|'online_upload'|'media_recording').Example: online_text_entry", required: false
         argument :submitted_at, LMSGraphQL::Types::DateTimeType, "The timestamp when the assignment was submitted.Example: 2012-01-01T01:00:00Z", required: false
         argument :url, String, "The URL of the submission (for 'online_url' submissions)..", required: false

@@ -1,5 +1,5 @@
 require_relative "../canvas_base_input_type"
-require_relative "blueprint_migration_input"
+require_relative "blueprint_migration"
 
 module LMSGraphQL
   module Types

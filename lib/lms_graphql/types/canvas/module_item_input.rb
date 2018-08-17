@@ -1,6 +1,6 @@
 require_relative "../canvas_base_input_type"
-require_relative "completion_requirement_input"
-require_relative "content_detail_input"
+require_relative "completion_requirement"
+require_relative "content_detail"
 
 module LMSGraphQL
   module Types
@@ -29,8 +29,8 @@ module LMSGraphQL
         argument :page_url, String, "(only for 'Page' type) unique locator for the linked wiki page.Example: my-page-title", required: false
         argument :external_url, String, "(only for 'ExternalUrl' and 'ExternalTool' types) external url that the item points to.Example: https://www.example.com/externalurl", required: false
         argument :new_tab, Boolean, "(only for 'ExternalTool' type) whether the external tool opens in a new tab.", required: false
-        argument :completion_requirement, LMSGraphQL::Types::Canvas::CanvasCompletionRequirementInput, "Completion requirement for this module item.Example: min_score, 10, true", required: false
-        argument :content_details, LMSGraphQL::Types::Canvas::CanvasContentDetailInput, "(Present only if requested through include[]=content_details) If applicable, returns additional details specific to the associated object.Example: 20, 2012-12-31T06:00:00-06:00, 2012-12-31T06:00:00-06:00, 2012-12-31T06:00:00-06:00", required: false
+        argument :completion_requirement, LMSGraphQL::Types::Canvas::CanvasCompletionRequirement, "Completion requirement for this module item.Example: min_score, 10, true", required: false
+        argument :content_details, LMSGraphQL::Types::Canvas::CanvasContentDetail, "(Present only if requested through include[]=content_details) If applicable, returns additional details specific to the associated object.Example: 20, 2012-12-31T06:00:00-06:00, 2012-12-31T06:00:00-06:00, 2012-12-31T06:00:00-06:00", required: false
         argument :published, Boolean, "(Optional) Whether this module item is published. This field is present only if the caller has permission to view unpublished items..Example: true", required: false
 
       end
