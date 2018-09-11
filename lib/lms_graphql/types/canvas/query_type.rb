@@ -55,9 +55,9 @@ module LMSGraphQL
           resolver: LMSGraphQL::Resolvers::Canvas::GetSubAccountsOfAccount,
           description: "Get the sub-accounts of an account. List accounts that are sub-accounts of the given account."
 
-        field :returns_terms_of_service_for_that_account,
-          resolver: LMSGraphQL::Resolvers::Canvas::ReturnsTermsOfServiceForThatAccount,
-          description: "Returns the terms of service for that account. "
+        field :get_terms_of_service,
+          resolver: LMSGraphQL::Resolvers::Canvas::GetTermsOfService,
+          description: "Get the Terms of Service. Returns the terms of service for that account"
 
         field :list_active_courses_in_account,
           resolver: LMSGraphQL::Resolvers::Canvas::ListActiveCoursesInAccount,
