@@ -96,6 +96,7 @@ module LMSGraphQL
         field :delete_custom_gradebook_column, mutation: LMSGraphQL::Mutations::Canvas::DeleteCustomGradebookColumn
         field :reorder_custom_columns, mutation: LMSGraphQL::Mutations::Canvas::ReorderCustomColumn
         field :update_column_data, mutation: LMSGraphQL::Mutations::Canvas::UpdateColumnDatum
+        field :bulk_update_column_data, mutation: LMSGraphQL::Mutations::Canvas::BulkUpdateColumnDatum
         field :create_new_discussion_topic_courses, mutation: LMSGraphQL::Mutations::Canvas::CreateNewDiscussionTopicCourse
         field :create_new_discussion_topic_groups, mutation: LMSGraphQL::Mutations::Canvas::CreateNewDiscussionTopicGroup
         field :update_topic_courses, mutation: LMSGraphQL::Mutations::Canvas::UpdateTopicCourse
@@ -208,6 +209,7 @@ module LMSGraphQL
         field :edit_user_login, mutation: LMSGraphQL::Mutations::Canvas::EditUserLogin
         field :delete_user_login, mutation: LMSGraphQL::Mutations::Canvas::DeleteUserLogin
         field :select_students_for_moderation, mutation: LMSGraphQL::Mutations::Canvas::SelectStudentsForModeration
+        field :bulk_select_provisional_grades, mutation: LMSGraphQL::Mutations::Canvas::BulkSelectProvisionalGrade
         field :select_provisional_grade, mutation: LMSGraphQL::Mutations::Canvas::SelectProvisionalGrade
         field :copy_provisional_grade, mutation: LMSGraphQL::Mutations::Canvas::CopyProvisionalGrade
         field :publish_provisional_grades_for_assignment, mutation: LMSGraphQL::Mutations::Canvas::PublishProvisionalGradesForAssignment
@@ -313,6 +315,8 @@ module LMSGraphQL
         field :deactivate_role, mutation: LMSGraphQL::Mutations::Canvas::DeactivateRole
         field :activate_role, mutation: LMSGraphQL::Mutations::Canvas::ActivateRole
         field :update_role, mutation: LMSGraphQL::Mutations::Canvas::UpdateRole
+        field :create_single_rubric, mutation: LMSGraphQL::Mutations::Canvas::CreateSingleRubric
+        field :update_single_rubric, mutation: LMSGraphQL::Mutations::Canvas::UpdateSingleRubric
         field :import_sis_data, mutation: LMSGraphQL::Mutations::Canvas::ImportSisDatum
         field :restore_workflow_states_of_sis_imported_items, mutation: LMSGraphQL::Mutations::Canvas::RestoreWorkflowStatesOfSisImportedItem
         field :abort_sis_import, mutation: LMSGraphQL::Mutations::Canvas::AbortSisImport

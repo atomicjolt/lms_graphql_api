@@ -5,10 +5,12 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasOutcomeAlignmentInput < BaseInputObject
-        description "Outcome Results. API Docs: https://canvas.instructure.com/doc/api/outcome_results.html"
-        argument :id, ID, "A unique identifier for this alignment.Example: quiz_3", required: false
-        argument :name, String, "The name of this alignment.Example: Big mid-term test", required: false
-        argument :html_url, String, "(Optional) A URL for details about this alignment.", required: false
+        description "Outcomes. API Docs: https://canvas.instructure.com/doc/api/outcomes.html"
+        argument :id, ID, "the id of the aligned learning outcome..Example: 1", required: false
+        argument :assignment_id, ID, "the id of the aligned assignment..Example: 2", required: false
+        argument :submission_types, String, "a string representing the different submission types of an aligned assignment..Example: online_text_entry,online_url", required: false
+        argument :url, String, "the URL for the aligned assignment..Example: /courses/1/assignments/5", required: false
+        argument :title, String, "the title of the aligned assignment..Example: Unit 1 test", required: false
 
       end
     end

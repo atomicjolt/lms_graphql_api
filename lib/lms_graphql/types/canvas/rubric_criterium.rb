@@ -14,6 +14,7 @@ module LMSGraphQL
         field :long_description, String, "Example: Criterion 1 more details", null: true
         field :criterion_use_range, Boolean, "Example: true", null: true
         field :ratings, [LMSGraphQL::Types::Canvas::CanvasRubricRating], "", null: true
+        field :ignore_for_scoring, Boolean, "Example: true", null: true
 
       end
     end

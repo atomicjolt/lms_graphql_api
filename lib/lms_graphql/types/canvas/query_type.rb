@@ -49,7 +49,7 @@ module LMSGraphQL
 
         field :permissions,
           resolver: LMSGraphQL::Resolvers::Canvas::Permission,
-          description: "Permissions. Returns permission information for the calling user and the given account.   You may use `self` as the account id to check permissions against the domain root account.   The caller must have an account role or admin (teacher/TA/designer) enrollment in a course   in the account. See also {api:CoursesController#permissions the Course counterpart}."
+          description: "Permissions. Returns permission information for the calling user and the given account.   You may use `self` as the account id to check permissions against the domain root account.   The caller must have an account role or admin (teacher/TA/designer) enrollment in a course   in the account.      See also the {api:CoursesController#permissions Course} and {api:GroupsController#permissions Group}   counterparts."
 
         field :get_sub_accounts_of_account,
           resolver: LMSGraphQL::Resolvers::Canvas::GetSubAccountsOfAccount,
@@ -58,6 +58,10 @@ module LMSGraphQL
         field :get_terms_of_service,
           resolver: LMSGraphQL::Resolvers::Canvas::GetTermsOfService,
           description: "Get the Terms of Service. Returns the terms of service for that account"
+
+        field :get_help_links,
+          resolver: LMSGraphQL::Resolvers::Canvas::GetHelpLink,
+          description: "Get help links. Returns the help links for that account"
 
         field :list_active_courses_in_account,
           resolver: LMSGraphQL::Resolvers::Canvas::ListActiveCoursesInAccount,
@@ -167,9 +171,13 @@ module LMSGraphQL
           resolver: LMSGraphQL::Resolvers::Canvas::GetAssignmentGroup,
           description: "Get an Assignment Group. Returns the assignment group with the given id."
 
-        field :list_assignments,
-          resolver: LMSGraphQL::Resolvers::Canvas::ListAssignment,
-          description: "List assignments. Returns the paginated list of assignments for the current context."
+        field :list_assignments_assignments,
+          resolver: LMSGraphQL::Resolvers::Canvas::ListAssignmentsAssignment,
+          description: "List assignments. Returns the paginated list of assignments for the current course or assignment group."
+
+        field :list_assignments_assignment_groups,
+          resolver: LMSGraphQL::Resolvers::Canvas::ListAssignmentsAssignmentGroup,
+          description: "List assignments. Returns the paginated list of assignments for the current course or assignment group."
 
         field :list_assignments_for_user,
           resolver: LMSGraphQL::Resolvers::Canvas::ListAssignmentsForUser,
@@ -246,6 +254,10 @@ module LMSGraphQL
         field :get_migration_details,
           resolver: LMSGraphQL::Resolvers::Canvas::GetMigrationDetail,
           description: "Get migration details. Show the changes that were propagated in a blueprint migration. This endpoint can be called on a   blueprint course. See also {api:MasterCourses::MasterTemplatesController#import_details the associated course side}."
+
+        field :list_blueprint_subscriptions,
+          resolver: LMSGraphQL::Resolvers::Canvas::ListBlueprintSubscription,
+          description: "List blueprint subscriptions. Returns a list of blueprint subscriptions for the given course. (Currently a course may have no more than one.)"
 
         field :list_blueprint_imports,
           resolver: LMSGraphQL::Resolvers::Canvas::ListBlueprintImport,
@@ -509,7 +521,7 @@ module LMSGraphQL
 
         field :permissions,
           resolver: LMSGraphQL::Resolvers::Canvas::Permission,
-          description: "Permissions. Returns permission information for the calling user in the given course.   See also {api:AccountsController#permissions the Account counterpart}."
+          description: "Permissions. Returns permission information for the calling user in the given course.   See also the {api:AccountsController#permissions Account} and   {api:GroupsController#permissions Group} counterparts."
 
         field :get_course_copy_status,
           resolver: LMSGraphQL::Resolvers::Canvas::GetCourseCopyStatus,
@@ -887,6 +899,10 @@ module LMSGraphQL
           resolver: LMSGraphQL::Resolvers::Canvas::GroupActivityStreamSummary,
           description: "Group activity stream summary. Returns a summary of the current user's group-specific activity stream.      For full documentation, see the API documentation for the user activity   stream summary, in the user api."
 
+        field :permissions,
+          resolver: LMSGraphQL::Resolvers::Canvas::Permission,
+          description: "Permissions. Returns permission information for the calling user in the given group.   See also the {api:AccountsController#permissions Account} and   {api:CoursesController#permissions Course} counterparts."
+
         field :list_group_memberships,
           resolver: LMSGraphQL::Resolvers::Canvas::ListGroupMembership,
           description: "List group memberships. A paginated list of the members of a group."
@@ -1062,6 +1078,10 @@ module LMSGraphQL
         field :show_outcome,
           resolver: LMSGraphQL::Resolvers::Canvas::ShowOutcome,
           description: "Show an outcome. Returns the details of the outcome with the given id."
+
+        field :get_aligned_assignments_for_outcome_in_course_for_particular_student,
+          resolver: LMSGraphQL::Resolvers::Canvas::GetAlignedAssignmentsForOutcomeInCourseForParticularStudent,
+          description: "Get aligned assignments for an outcome in a course for a particular student. "
 
         field :show_front_page_courses,
           resolver: LMSGraphQL::Resolvers::Canvas::ShowFrontPageCourse,
@@ -1319,6 +1339,10 @@ module LMSGraphQL
           resolver: LMSGraphQL::Resolvers::Canvas::GetSisImportList,
           description: "Get SIS import list. Returns the list of SIS imports for an account      Example:     curl https: <canvas>/api/v1/accounts/<account_id>/sis_imports \       -H 'Authorization: Bearer <token>'"
 
+        field :get_current_importing_sis_import,
+          resolver: LMSGraphQL::Resolvers::Canvas::GetCurrentImportingSisImport,
+          description: "Get the current importing SIS import. Returns the SIS imports that are currently processing for an account. If no   imports are running, will return an empty array.      Example:     curl https: <canvas>/api/v1/accounts/<account_id>/sis_imports/importing \       -H 'Authorization: Bearer <token>'"
+
         field :get_sis_import_status,
           resolver: LMSGraphQL::Resolvers::Canvas::GetSisImportStatus,
           description: "Get SIS import status. Get the status of an already created SIS import.        Examples:       curl https: <canvas>/api/v1/accounts/<account_id>/sis_imports/<sis_import_id> \           -H 'Authorization: Bearer <token>'"
@@ -1441,7 +1465,7 @@ module LMSGraphQL
 
         field :list_upcoming_assignments_calendar_events,
           resolver: LMSGraphQL::Resolvers::Canvas::ListUpcomingAssignmentsCalendarEvent,
-          description: "List upcoming assignments, calendar events. A paginated list of the current user's upcoming events, i.e. the same things shown   in the dashboard 'Coming Up' sidebar."
+          description: "List upcoming assignments, calendar events. A paginated list of the current user's upcoming events."
 
         field :list_missing_submissions,
           resolver: LMSGraphQL::Resolvers::Canvas::ListMissingSubmission,

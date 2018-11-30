@@ -46,6 +46,7 @@ module LMSGraphQL
         argument :clear_sis_stickiness, Boolean, "Whether stickiness was cleared..Example: false", required: false
         argument :diffing_data_set_identifier, String, "The identifier of the data set that this SIS batch diffs against.Example: account-5-enrollments", required: false
         argument :diffed_against_import_id, ID, "The ID of the SIS Import that this import was diffed against.Example: 1", required: false
+        argument :csv_attachments, String, "An array of CSV files for processing.", required: false
 
       end
     end

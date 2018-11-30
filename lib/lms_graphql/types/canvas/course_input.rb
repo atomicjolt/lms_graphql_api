@@ -35,6 +35,7 @@ module LMSGraphQL
         argument :root_account_id, ID, "the root account associated with the course.Example: 81259", required: false
         argument :enrollment_term_id, ID, "the enrollment term associated with the course.Example: 34", required: false
         argument :grading_standard_id, ID, "the grading standard associated with the course.Example: 25", required: false
+        argument :created_at, LMSGraphQL::Types::DateTimeType, "the date the course was created..Example: 2012-05-01T00:00:00-06:00", required: false
         argument :start_at, LMSGraphQL::Types::DateTimeType, "the start date for the course, if applicable.Example: 2012-06-01T00:00:00-06:00", required: false
         argument :end_at, LMSGraphQL::Types::DateTimeType, "the end date for the course, if applicable.Example: 2012-09-01T00:00:00-06:00", required: false
         argument :locale, String, "the course-set locale, if applicable.Example: en", required: false

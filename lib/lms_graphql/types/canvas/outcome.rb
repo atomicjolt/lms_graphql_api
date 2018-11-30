@@ -23,7 +23,7 @@ module LMSGraphQL
         field :points_possible, Int, "maximum points possible. included only if the outcome embeds a rubric criterion. omitted in the abbreviated form..Example: 5", null: true
         field :mastery_points, Int, "points necessary to demonstrate mastery outcomes. included only if the outcome embeds a rubric criterion. omitted in the abbreviated form..Example: 3", null: true
         field :calculation_method, OutcomeCalculationMethodEnum, "the method used to calculate a students score.Example: decaying_average", null: true
-        field :calculation_int, Int, "this defines the variable value used by the calculation_method. included only if calculation_method uses it.Example: 75", null: true
+        field :calculation_int, Int, "this defines the variable value used by the calculation_method. included only if calculation_method uses it.Example: 65", null: true
         field :ratings, [LMSGraphQL::Types::Canvas::CanvasRubricRating], "possible ratings for this outcome. included only if the outcome embeds a rubric criterion. omitted in the abbreviated form..", null: true
         field :can_edit, Boolean, "whether the current user can update the outcome.Example: true", null: true
         field :can_unlink, Boolean, "whether the outcome can be unlinked.Example: true", null: true

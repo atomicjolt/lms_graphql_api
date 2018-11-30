@@ -6,25 +6,25 @@ module LMSGraphQL
       class QuizExtensionsSetExtensionsForStudentQuizSubmission < BaseMutation
         argument :course_id, ID, required: true
         argument :quiz_id, ID, required: true
-        argument :user_id, ID, required: true
-        argument :extra_attempts, Int, required: false
-        argument :extra_time, Int, required: false
-        argument :manually_unlocked, Boolean, required: false
-        argument :extend_from_now, Int, required: false
-        argument :extend_from_end_at, Int, required: false
+        argument :quiz_extensions_user_id, Int, required: true
+        argument :quiz_extensions_extra_attempts, Int, required: false
+        argument :quiz_extensions_extra_time, Int, required: false
+        argument :quiz_extensions_manually_unlocked, Boolean, required: false
+        argument :quiz_extensions_extend_from_now, Int, required: false
+        argument :quiz_extensions_extend_from_end_at, Int, required: false
         field :return_value, Boolean, null: false
-        def resolve(course_id:, quiz_id:, user_id:, extra_attempts: nil, extra_time: nil, manually_unlocked: nil, extend_from_now: nil, extend_from_end_at: nil)
+        def resolve(course_id:, quiz_id:, quiz_extensions_user_id:, quiz_extensions_extra_attempts: nil, quiz_extensions_extra_time: nil, quiz_extensions_manually_unlocked: nil, quiz_extensions_extend_from_now: nil, quiz_extensions_extend_from_end_at: nil)
           context[:canvas_api].call("QUIZ_EXTENSIONS_SET_EXTENSIONS_FOR_STUDENT_QUIZ_SUBMISSIONS").proxy(
             "QUIZ_EXTENSIONS_SET_EXTENSIONS_FOR_STUDENT_QUIZ_SUBMISSIONS",
             {
               "course_id": course_id,
               "quiz_id": quiz_id,
-              "user_id": user_id,
-              "extra_attempts": extra_attempts,
-              "extra_time": extra_time,
-              "manually_unlocked": manually_unlocked,
-              "extend_from_now": extend_from_now,
-              "extend_from_end_at": extend_from_end_at            },
+              "quiz_extensions[user_id]": quiz_extensions_user_id,
+              "quiz_extensions[extra_attempts]": quiz_extensions_extra_attempts,
+              "quiz_extensions[extra_time]": quiz_extensions_extra_time,
+              "quiz_extensions[manually_unlocked]": quiz_extensions_manually_unlocked,
+              "quiz_extensions[extend_from_now]": quiz_extensions_extend_from_now,
+              "quiz_extensions[extend_from_end_at]": quiz_extensions_extend_from_end_at            },
             nil,
           ).parsed_response
         end

@@ -12,7 +12,10 @@ module LMSGraphQL
         argument :outcome_ids, [ID], required: false
         argument :include, String, required: false
         argument :exclude, String, required: false
-        def resolve(course_id:, aggregate: nil, aggregate_stat: nil, user_ids: nil, outcome_ids: nil, include: nil, exclude: nil)
+        argument :sort_by, String, required: false
+        argument :sort_outcome_id, ID, required: false
+        argument :sort_order, String, required: false
+        def resolve(course_id:, aggregate: nil, aggregate_stat: nil, user_ids: nil, outcome_ids: nil, include: nil, exclude: nil, sort_by: nil, sort_outcome_id: nil, sort_order: nil)
           context[:canvas_api].call("GET_OUTCOME_RESULT_ROLLUPS").proxy(
             "GET_OUTCOME_RESULT_ROLLUPS",
             {
@@ -22,7 +25,10 @@ module LMSGraphQL
               "user_ids": user_ids,
               "outcome_ids": outcome_ids,
               "include": include,
-              "exclude": exclude            },
+              "exclude": exclude,
+              "sort_by": sort_by,
+              "sort_outcome_id": sort_outcome_id,
+              "sort_order": sort_order            },
             nil,
           ).parsed_response
         end

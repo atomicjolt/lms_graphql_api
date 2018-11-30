@@ -5,13 +5,13 @@ module LMSGraphQL
     module Canvas
       class Permission < CanvasBaseResolver
         type Boolean, null: false
-        argument :course_id, ID, required: true
+        argument :group_id, ID, required: true
         argument :permissions, String, required: false
-        def resolve(course_id:, permissions: nil)
+        def resolve(group_id:, permissions: nil)
           context[:canvas_api].call("PERMISSIONS").proxy(
             "PERMISSIONS",
             {
-              "course_id": course_id,
+              "group_id": group_id,
               "permissions": permissions            },
             nil,
           ).parsed_response
