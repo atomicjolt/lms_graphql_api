@@ -519,8 +519,8 @@ module LMSGraphQL
           resolver: LMSGraphQL::Resolvers::Canvas::GetEffectiveDueDate,
           description: "Get effective due dates. For each assignment in the course, returns each assigned student's ID   and their corresponding due date along with some grading period data.   Returns a collection with keys representing assignment IDs and values as a   collection containing keys representing student IDs and values representing   the student's effective due_at, the grading_period_id of which the due_at falls   in, and whether or not the grading period is closed (in_closed_grading_period)      The list of assignment IDs for which effective student due dates are   requested. If not provided, all assignments in the course will be used."
 
-        field :permissions,
-          resolver: LMSGraphQL::Resolvers::Canvas::Permission,
+        field :courses_permissions,
+          resolver: LMSGraphQL::Resolvers::Canvas::CoursesPermission,
           description: "Permissions. Returns permission information for the calling user in the given course.   See also the {api:AccountsController#permissions Account} and   {api:GroupsController#permissions Group} counterparts."
 
         field :get_course_copy_status,
@@ -899,8 +899,8 @@ module LMSGraphQL
           resolver: LMSGraphQL::Resolvers::Canvas::GroupActivityStreamSummary,
           description: "Group activity stream summary. Returns a summary of the current user's group-specific activity stream.      For full documentation, see the API documentation for the user activity   stream summary, in the user api."
 
-        field :permissions,
-          resolver: LMSGraphQL::Resolvers::Canvas::Permission,
+        field :groups_permissions,
+          resolver: LMSGraphQL::Resolvers::Canvas::GroupsPermission,
           description: "Permissions. Returns permission information for the calling user in the given group.   See also the {api:AccountsController#permissions Account} and   {api:CoursesController#permissions Course} counterparts."
 
         field :list_group_memberships,
@@ -943,8 +943,8 @@ module LMSGraphQL
           resolver: LMSGraphQL::Resolvers::Canvas::ShowProvisionalGradeStatusForStudent,
           description: "Show provisional grade status for a student. Tell whether the student's submission needs one or more provisional grades."
 
-        field :show_provisional_grade_status_for_student,
-          resolver: LMSGraphQL::Resolvers::Canvas::ShowProvisionalGradeStatusForStudent,
+        field :moderated_grading_show_provisional_grade_status_for_student,
+          resolver: LMSGraphQL::Resolvers::Canvas::ModeratedGradingShowProvisionalGradeStatusForStudent,
           description: "Show provisional grade status for a student. Determine whether or not the student's submission needs one or more provisional grades."
 
         field :list_modules,

@@ -14,6 +14,11 @@ module LMSGraphQL
       end
       class CanvasUserInput < BaseInputObject
       end
+
+      # HACK. UpdateStudentQuestionScoresAndComment requires CanvasHashInput which is not currently defined
+      # If we want to use that endpoint we'll have to manually defined the object here.
+      class CanvasHashInput < BaseInputObject
+      end
     end
   end
 end
