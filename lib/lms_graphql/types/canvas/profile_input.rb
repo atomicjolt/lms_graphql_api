@@ -17,7 +17,7 @@ module LMSGraphQL
         argument :sis_user_id, ID, "sis1.Example: sis1", required: false
         argument :lti_user_id, ID, "", required: false
         argument :avatar_url, String, "The avatar_url can change over time, so we recommend not caching it for more than a few hours.Example: url", required: false
-        argument :calendar, LMSGraphQL::Types::Canvas::CanvasCalendarLink, "", required: false
+        argument :calendar, LMSGraphQL::Types::Canvas::CanvasCalendarLinkInput, "", required: false
         argument :time_zone, String, "Optional: This field is only returned in certain API calls, and will return the IANA time zone name of the user's preferred timezone..Example: America/Denver", required: false
         argument :locale, String, "The users locale..", required: false
 

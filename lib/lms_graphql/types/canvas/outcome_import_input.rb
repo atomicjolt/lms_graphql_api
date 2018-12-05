@@ -22,9 +22,9 @@ module LMSGraphQL
  - 'importing': The outcome import is currently processing.
  - 'succeeded': The outcome import has completed successfully.
  - 'failed': The outcome import failed..Example: imported", required: false
-        argument :data, LMSGraphQL::Types::Canvas::CanvasOutcomeImportDatum, "See the OutcomeImportData specification above..", required: false
+        argument :data, LMSGraphQL::Types::Canvas::CanvasOutcomeImportDatumInput, "See the OutcomeImportData specification above..", required: false
         argument :progress, String, "The progress of the outcome import..Example: 100", required: false
-        argument :user, LMSGraphQL::Types::Canvas::CanvasUser, "The user that initiated the outcome_import. See the Users API for details..", required: false
+        argument :user, LMSGraphQL::Types::Canvas::CanvasUserInput, "The user that initiated the outcome_import. See the Users API for details..", required: false
         argument :processing_errors, String, "An array of row number / error message pairs. Returns the first 25 errors..Example: 1, Missing required fields: title", required: false
 
       end

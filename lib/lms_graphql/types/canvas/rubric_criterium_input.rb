@@ -13,7 +13,7 @@ module LMSGraphQL
         argument :description, String, "Example: Criterion 1", required: false
         argument :long_description, String, "Example: Criterion 1 more details", required: false
         argument :criterion_use_range, Boolean, "Example: true", required: false
-        argument :ratings, [LMSGraphQL::Types::Canvas::CanvasRubricRating], "", required: false
+        argument :ratings, [LMSGraphQL::Types::Canvas::CanvasRubricRatingInput], "", required: false
         argument :ignore_for_scoring, Boolean, "Example: true", required: false
 
       end

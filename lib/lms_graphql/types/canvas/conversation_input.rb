@@ -19,7 +19,7 @@ module LMSGraphQL
         argument :audience, Int, "Array of user ids who are involved in the conversation, ordered by participation level, then alphabetical. Excludes current user, unless this is a monologue..", required: false
         argument :audience_contexts, String, "Most relevant shared contexts (courses and groups) between current user and other participants. If there is only one participant, it will also include that user's enrollment(s)/ membership type(s) in each course/group..", required: false
         argument :avatar_url, String, "URL to appropriate icon for this conversation (custom, individual or group avatar, depending on audience)..Example: https://canvas.instructure.com/images/messages/avatar-group-50.png", required: false
-        argument :participants, [LMSGraphQL::Types::Canvas::CanvasConversationParticipant], "Array of users participating in the conversation. Includes current user..", required: false
+        argument :participants, [LMSGraphQL::Types::Canvas::CanvasConversationParticipantInput], "Array of users participating in the conversation. Includes current user..", required: false
         argument :visible, Boolean, "indicates whether the conversation is visible under the current scope and filter. This attribute is always true in the index API response, and is primarily useful in create/update responses so that you can know if the record should be displayed in the UI. The default scope is assumed, unless a scope or filter is passed to the create/update API call..Example: true", required: false
         argument :context_name, String, "Name of the course or group in which the conversation is occurring..Example: Canvas 101", required: false
 

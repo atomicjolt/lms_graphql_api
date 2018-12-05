@@ -13,7 +13,7 @@ module LMSGraphQL
         argument :comment, String, "Example: Well here's the thing.", required: false
         argument :created_at, LMSGraphQL::Types::DateTimeType, "Example: 2012-01-01T01:00:00Z", required: false
         argument :edited_at, LMSGraphQL::Types::DateTimeType, "Example: 2012-01-02T01:00:00Z", required: false
-        argument :media_comment, LMSGraphQL::Types::Canvas::CanvasMediaComment, "", required: false
+        argument :media_comment, LMSGraphQL::Types::Canvas::CanvasMediaCommentInput, "", required: false
 
       end
     end

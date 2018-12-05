@@ -10,7 +10,7 @@ module LMSGraphQL
         argument :id, ID, "the id of the grading standard.Example: 1", required: false
         argument :context_type, String, "the context this standard is associated with, either 'Account' or 'Course'.Example: Account", required: false
         argument :context_id, ID, "the id for the context either the Account or Course id.Example: 1", required: false
-        argument :grading_scheme, [LMSGraphQL::Types::Canvas::CanvasGradingSchemeEntry], "A list of GradingSchemeEntry that make up the Grading Standard as an array of values with the scheme name and value.Example: {'name'=>'A', 'value'=>0.9}, {'name'=>'B', 'value'=>0.8}, {'name'=>'C', 'value'=>0.7}, {'name'=>'D', 'value'=>0.6}", required: false
+        argument :grading_scheme, [LMSGraphQL::Types::Canvas::CanvasGradingSchemeEntryInput], "A list of GradingSchemeEntry that make up the Grading Standard as an array of values with the scheme name and value.Example: {'name'=>'A', 'value'=>0.9}, {'name'=>'B', 'value'=>0.8}, {'name'=>'C', 'value'=>0.7}, {'name'=>'D', 'value'=>0.6}", required: false
 
       end
     end

@@ -25,7 +25,7 @@ module LMSGraphQL
         argument :group_limit, Int, "If self-signup is enabled, group_limit can be set to cap the number of users in each group. If null, there is no limit..", required: false
         argument :sis_group_category_id, ID, "The SIS identifier for the group category. This field is only included if the user has permission to manage or view SIS information..", required: false
         argument :sis_import_id, ID, "The unique identifier for the SIS import. This field is only included if the user has permission to manage SIS information..", required: false
-        argument :progress, LMSGraphQL::Types::Canvas::CanvasProgress, "If the group category has not yet finished a randomly student assignment request, a progress object will be attached, which will contain information related to the progress of the assignment request. Refer to the Progress API for more information.", required: false
+        argument :progress, LMSGraphQL::Types::Canvas::CanvasProgressInput, "If the group category has not yet finished a randomly student assignment request, a progress object will be attached, which will contain information related to the progress of the assignment request. Refer to the Progress API for more information.", required: false
 
       end
     end
