@@ -8,7 +8,7 @@ module LMSGraphQL
         description "Outcome Groups. API Docs: https://canvas.instructure.com/doc/api/outcome_groups.html"
         argument :id, ID, "the ID of the outcome group.Example: 1", required: false
         argument :url, String, "the URL for fetching/updating the outcome group. should be treated as opaque.Example: /api/v1/accounts/1/outcome_groups/1", required: false
-        argument :parent_outcome_group, LMSGraphQL::Types::Canvas::CanvasOutcomeGroup, "an abbreviated OutcomeGroup object representing the parent group of this outcome group, if any. omitted in the abbreviated form..", required: false
+        argument :parent_outcome_group, LMSGraphQL::Types::Canvas::CanvasOutcomeGroupInput, "an abbreviated OutcomeGroup object representing the parent group of this outcome group, if any. omitted in the abbreviated form..", required: false
         argument :context_id, ID, "the context owning the outcome group. may be null for global outcome groups. omitted in the abbreviated form..Example: 1", required: false
         argument :context_type, String, "Example: Account", required: false
         argument :title, String, "title of the outcome group.Example: Outcome group title", required: false

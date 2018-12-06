@@ -12,7 +12,7 @@ module LMSGraphQL
         argument :lock_at, LMSGraphQL::Types::DateTimeType, "Example: 2012-12-31T06:00:00-06:00", required: false
         argument :locked_for_user, Boolean, "Example: true", required: false
         argument :lock_explanation, String, "Example: This quiz is part of an unpublished module and is not available yet.", required: false
-        argument :lock_info, LMSGraphQL::Types::Canvas::CanvasLockInfo, "Example: assignment_4, 2012-12-31T06:00:00-06:00, 2012-12-31T06:00:00-06:00, {}", required: false
+        argument :lock_info, LMSGraphQL::Types::Canvas::CanvasLockInfoInput, "Example: assignment_4, 2012-12-31T06:00:00-06:00, 2012-12-31T06:00:00-06:00, {}", required: false
 
       end
     end

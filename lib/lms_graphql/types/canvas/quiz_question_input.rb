@@ -16,7 +16,7 @@ module LMSGraphQL
         argument :correct_comments, String, "The comments to display if the student answers the question correctly..Example: That's correct!", required: false
         argument :incorrect_comments, String, "The comments to display if the student answers incorrectly..Example: Unfortunately, that IS a prime number.", required: false
         argument :neutral_comments, String, "The comments to display regardless of how the student answered..Example: Goldbach's conjecture proposes that every even integer greater than 2 can be expressed as the sum of two prime numbers.", required: false
-        argument :answers, [LMSGraphQL::Types::Canvas::CanvasAnswer], "An array of available answers to display to the student..", required: false
+        argument :answers, [LMSGraphQL::Types::Canvas::CanvasAnswerInput], "An array of available answers to display to the student..", required: false
 
       end
     end

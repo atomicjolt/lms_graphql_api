@@ -13,7 +13,7 @@ module LMSGraphQL
         argument :sis_source_id, ID, "the sis source id of the Assignment Group.Example: 1234", required: false
         argument :integration_data, String, "the integration data of the Assignment Group.Example: 0954", required: false
         argument :assignments, Int, "the assignments in this Assignment Group (see the Assignment API for a detailed list of fields).", required: false
-        argument :rules, LMSGraphQL::Types::Canvas::CanvasGradingRule, "the grading rules that this Assignment Group has.", required: false
+        argument :rules, LMSGraphQL::Types::Canvas::CanvasGradingRuleInput, "the grading rules that this Assignment Group has.", required: false
 
       end
     end

@@ -24,7 +24,7 @@ module LMSGraphQL
         argument :login_attribute, String, "Valid for SAML providers..Example: nameid", required: false
         argument :sig_alg, String, "Valid for SAML providers..Example: http://www.w3.org/2001/04/xmldsig-more#rsa-sha256", required: false
         argument :jit_provisioning, Boolean, "Just In Time provisioning. Valid for all providers except Canvas (which has the similar in concept self_registration setting)..", required: false
-        argument :federated_attributes, LMSGraphQL::Types::Canvas::CanvasFederatedAttributesConfig, "", required: false
+        argument :federated_attributes, LMSGraphQL::Types::Canvas::CanvasFederatedAttributesConfigInput, "", required: false
 
       end
     end

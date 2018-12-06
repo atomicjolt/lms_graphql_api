@@ -20,7 +20,7 @@ module LMSGraphQL
  * Course features may be controlled by flags on courses and their parent accounts.
  * User features may be controlled by flags on users and site admin only..Example: Course", required: false
         argument :enable_at, LMSGraphQL::Types::DateTimeType, "The date this feature will be globally enabled, or null if this is not planned. (This information is subject to change.).Example: 2014-01-01T00:00:00Z", required: false
-        argument :feature_flag, LMSGraphQL::Types::Canvas::CanvasFeatureFlag, "The FeatureFlag that applies to the caller.Example: fancy_wickets, allowed", required: false
+        argument :feature_flag, LMSGraphQL::Types::Canvas::CanvasFeatureFlagInput, "The FeatureFlag that applies to the caller.Example: fancy_wickets, allowed", required: false
         argument :root_opt_in, Boolean, "If true, a feature that is 'allowed' globally will be 'off' by default in root accounts. Otherwise, root accounts inherit the global 'allowed' setting, which allows sub-accounts and courses to turn features on with no root account action..Example: true", required: false
         argument :beta, Boolean, "Whether the feature is a beta feature. If true, the feature may not be fully polished and may be subject to change in the future..Example: true", required: false
         argument :autoexpand, Boolean, "Whether the details of the feature are autoexpanded on page load vs. the user clicking to expand..Example: true", required: false
