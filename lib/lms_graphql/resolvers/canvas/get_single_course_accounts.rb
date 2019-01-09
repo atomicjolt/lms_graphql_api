@@ -8,13 +8,15 @@ module LMSGraphQL
         argument :account_id, ID, required: true
         argument :id, ID, required: true
         argument :include, String, required: false
-        def resolve(account_id:, id:, include: nil)
+        argument :teacher_limit, Int, required: false
+        def resolve(account_id:, id:, include: nil, teacher_limit: nil)
           context[:canvas_api].call("GET_SINGLE_COURSE_ACCOUNTS").proxy(
             "GET_SINGLE_COURSE_ACCOUNTS",
             {
               "account_id": account_id,
               "id": id,
-              "include": include            },
+              "include": include,
+              "teacher_limit": teacher_limit            },
             nil,
           ).parsed_response
         end

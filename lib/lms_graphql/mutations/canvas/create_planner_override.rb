@@ -4,12 +4,12 @@ module LMSGraphQL
   module Mutations
     module Canvas
       class CreatePlannerOverride < BaseMutation
-        argument :plannable_type, String, required: false
-        argument :plannable_id, ID, required: false
+        argument :plannable_type, String, required: true
+        argument :plannable_id, ID, required: true
         argument :marked_complete, Boolean, required: false
         argument :dismissed, Boolean, required: false
         field :planner_override, LMSGraphQL::Types::Canvas::CanvasPlannerOverride, null: false
-        def resolve(plannable_type: nil, plannable_id: nil, marked_complete: nil, dismissed: nil)
+        def resolve(plannable_type:, plannable_id:, marked_complete: nil, dismissed: nil)
           context[:canvas_api].call("CREATE_PLANNER_OVERRIDE").proxy(
             "CREATE_PLANNER_OVERRIDE",
             {

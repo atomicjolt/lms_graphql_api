@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    lms-graphql-api (0.7.0)
+    lms-graphql-api (0.8.0)
       graphql (>= 1.8.2)
       lms-api (>= 1.5.0)
 
@@ -21,7 +21,7 @@ GEM
       multi_xml (>= 0.5.2)
     i18n (1.1.0)
       concurrent-ruby (~> 1.0)
-    lms-api (1.7.0)
+    lms-api (1.9.0)
       activesupport (>= 3.0)
       httparty
     minitest (5.11.3)

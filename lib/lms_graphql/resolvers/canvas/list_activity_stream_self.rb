@@ -5,12 +5,12 @@ module LMSGraphQL
     module Canvas
       class ListActivityStreamSelf < CanvasBaseResolver
         type Boolean, null: false
-
-        def resolve()
+        argument :only_active_courses, Boolean, required: false
+        def resolve(only_active_courses: nil)
           context[:canvas_api].call("LIST_ACTIVITY_STREAM_SELF").proxy(
             "LIST_ACTIVITY_STREAM_SELF",
             {
-            },
+              "only_active_courses": only_active_courses            },
             nil,
           ).parsed_response
         end

@@ -94,6 +94,7 @@ module LMSGraphQL
         argument :overrides, [LMSGraphQL::Types::Canvas::CanvasAssignmentOverrideInput], "(Optional) If 'overrides' is included in the 'include' parameter, includes an array of assignment override objects..", required: false
         argument :omit_from_final_grade, Boolean, "(Optional) If true, the assignment will be omitted from the student's final grade.Example: true", required: false
         argument :moderated_grading, Boolean, "Boolean indicating if the assignment is moderated..Example: true", required: false
+        argument :allowed_attempts, Int, "The number of submission attempts a student can make for this assignment. -1 is considered unlimited..Example: 2", required: false
 
       end
     end

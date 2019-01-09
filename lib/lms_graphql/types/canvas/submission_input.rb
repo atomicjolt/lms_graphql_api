@@ -45,6 +45,7 @@ module LMSGraphQL
         argument :points_deducted, Float, "The amount of points automatically deducted from the score by the missing/late policy for a late or missing assignment..Example: 12.3", required: false
         argument :seconds_late, Float, "The amount of time, in seconds, that an submission is late by..Example: 300", required: false
         argument :workflow_state, SubmissionWorkflowStateEnum, "The current state of the submission.Example: submitted", required: false
+        argument :extra_attempts, Float, "Extra submission attempts allowed for the given user and assignment..Example: 10", required: false
 
       end
     end

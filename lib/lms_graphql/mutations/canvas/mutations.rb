@@ -26,6 +26,7 @@ module LMSGraphQL
         field :create_appointment_group, mutation: LMSGraphQL::Mutations::Canvas::CreateAppointmentGroup
         field :update_appointment_group, mutation: LMSGraphQL::Mutations::Canvas::UpdateAppointmentGroup
         field :delete_appointment_group, mutation: LMSGraphQL::Mutations::Canvas::DeleteAppointmentGroup
+        field :set_extensions_for_student_assignment_submissions, mutation: LMSGraphQL::Mutations::Canvas::SetExtensionsForStudentAssignmentSubmission
         field :create_assignment_group, mutation: LMSGraphQL::Mutations::Canvas::CreateAssignmentGroup
         field :edit_assignment_group, mutation: LMSGraphQL::Mutations::Canvas::EditAssignmentGroup
         field :destroy_assignment_group, mutation: LMSGraphQL::Mutations::Canvas::DestroyAssignmentGroup
@@ -73,6 +74,10 @@ module LMSGraphQL
         field :update_content_migration_courses, mutation: LMSGraphQL::Mutations::Canvas::UpdateContentMigrationCourse
         field :update_content_migration_groups, mutation: LMSGraphQL::Mutations::Canvas::UpdateContentMigrationGroup
         field :update_content_migration_users, mutation: LMSGraphQL::Mutations::Canvas::UpdateContentMigrationUser
+        field :enable_disable_or_clear_explicit_csp_setting_courses, mutation: LMSGraphQL::Mutations::Canvas::EnableDisableOrClearExplicitCspSettingCourse
+        field :enable_disable_or_clear_explicit_csp_setting_accounts, mutation: LMSGraphQL::Mutations::Canvas::EnableDisableOrClearExplicitCspSettingAccount
+        field :add_domain_to_account_whitelist, mutation: LMSGraphQL::Mutations::Canvas::AddDomainToAccountWhitelist
+        field :remove_domain_from_account_whitelist, mutation: LMSGraphQL::Mutations::Canvas::RemoveDomainFromAccountWhitelist
         field :create_conversation, mutation: LMSGraphQL::Mutations::Canvas::CreateConversation
         field :edit_conversation, mutation: LMSGraphQL::Mutations::Canvas::EditConversation
         field :mark_all_as_read, mutation: LMSGraphQL::Mutations::Canvas::MarkAllAsRead
@@ -270,7 +275,7 @@ module LMSGraphQL
         field :peer_reviews_create_peer_review_sections, mutation: LMSGraphQL::Mutations::Canvas::PeerReviewsCreatePeerReviewSection
         field :delete_peer_review_courses, mutation: LMSGraphQL::Mutations::Canvas::DeletePeerReviewCourse
         field :delete_peer_review_sections, mutation: LMSGraphQL::Mutations::Canvas::DeletePeerReviewSection
-        field :update_plannernote, mutation: LMSGraphQL::Mutations::Canvas::UpdatePlannernote
+        field :update_planner_note, mutation: LMSGraphQL::Mutations::Canvas::UpdatePlannerNote
         field :create_planner_note, mutation: LMSGraphQL::Mutations::Canvas::CreatePlannerNote
         field :delete_planner_note, mutation: LMSGraphQL::Mutations::Canvas::DeletePlannerNote
         field :update_planner_override, mutation: LMSGraphQL::Mutations::Canvas::UpdatePlannerOverride
