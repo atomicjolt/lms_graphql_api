@@ -4,7 +4,7 @@ module LMSGraphQL
   module Resolvers
     module Canvas
       class ListGradeableStudent < CanvasBaseResolver
-        type [UserDisplay], null: false
+        type [LMSGraphQL::Types::Canvas::CanvasUserDisplay], null: false
         argument :get_all, Boolean, required: false
         argument :course_id, ID, required: true
         argument :assignment_id, ID, required: true
