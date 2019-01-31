@@ -7,14 +7,16 @@ module LMSGraphQL
         type Boolean, null: false
         argument :user_id, ID, required: true
         argument :ns, String, required: true
-        def resolve(user_id:, ns:)
-          context[:canvas_api].call("LOAD_CUSTOM_DATA").proxy(
+        def resolve(user_id:, ns:, get_all: false)
+          result = context[:canvas_api].call("LOAD_CUSTOM_DATA").proxy(
             "LOAD_CUSTOM_DATA",
             {
               "user_id": user_id,
               "ns": ns            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

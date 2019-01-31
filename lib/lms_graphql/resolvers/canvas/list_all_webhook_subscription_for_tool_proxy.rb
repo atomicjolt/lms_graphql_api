@@ -6,13 +6,15 @@ module LMSGraphQL
       class ListAllWebhookSubscriptionForToolProxy < CanvasBaseResolver
         type Boolean, null: false
 
-        def resolve()
-          context[:canvas_api].call("LIST_ALL_WEBHOOK_SUBSCRIPTION_FOR_TOOL_PROXY").proxy(
+        def resolve(get_all: false)
+          result = context[:canvas_api].call("LIST_ALL_WEBHOOK_SUBSCRIPTION_FOR_TOOL_PROXY").proxy(
             "LIST_ALL_WEBHOOK_SUBSCRIPTION_FOR_TOOL_PROXY",
             {
             },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

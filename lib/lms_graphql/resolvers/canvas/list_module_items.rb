@@ -5,13 +5,14 @@ module LMSGraphQL
     module Canvas
       class ListModuleItem < CanvasBaseResolver
         type [LMSGraphQL::Types::Canvas::CanvasModuleItem], null: false
+        argument :get_all, Boolean, required: false
         argument :course_id, ID, required: true
         argument :module_id, ID, required: true
         argument :include, String, required: false
         argument :search_term, String, required: false
         argument :student_id, ID, required: false
-        def resolve(course_id:, module_id:, include: nil, search_term: nil, student_id: nil)
-          context[:canvas_api].call("LIST_MODULE_ITEMS").proxy(
+        def resolve(course_id:, module_id:, include: nil, search_term: nil, student_id: nil, get_all: false)
+          result = context[:canvas_api].call("LIST_MODULE_ITEMS").proxy(
             "LIST_MODULE_ITEMS",
             {
               "course_id": course_id,
@@ -20,7 +21,9 @@ module LMSGraphQL
               "search_term": search_term,
               "student_id": student_id            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

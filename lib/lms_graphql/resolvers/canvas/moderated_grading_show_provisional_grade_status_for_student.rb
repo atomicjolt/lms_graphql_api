@@ -8,15 +8,17 @@ module LMSGraphQL
         argument :course_id, ID, required: true
         argument :assignment_id, ID, required: true
         argument :anonymous_id, ID, required: false
-        def resolve(course_id:, assignment_id:, anonymous_id: nil)
-          context[:canvas_api].call("MODERATED_GRADING_SHOW_PROVISIONAL_GRADE_STATUS_FOR_STUDENT").proxy(
+        def resolve(course_id:, assignment_id:, anonymous_id: nil, get_all: false)
+          result = context[:canvas_api].call("MODERATED_GRADING_SHOW_PROVISIONAL_GRADE_STATUS_FOR_STUDENT").proxy(
             "MODERATED_GRADING_SHOW_PROVISIONAL_GRADE_STATUS_FOR_STUDENT",
             {
               "course_id": course_id,
               "assignment_id": assignment_id,
               "anonymous_id": anonymous_id            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

@@ -7,14 +7,16 @@ module LMSGraphQL
         type LMSGraphQL::Types::Canvas::CanvasLtiAssignment, null: false
         argument :assignment_id, ID, required: true
         argument :user_id, ID, required: false
-        def resolve(assignment_id:, user_id: nil)
-          context[:canvas_api].call("GET_SINGLE_ASSIGNMENT_LTI").proxy(
+        def resolve(assignment_id:, user_id: nil, get_all: false)
+          result = context[:canvas_api].call("GET_SINGLE_ASSIGNMENT_LTI").proxy(
             "GET_SINGLE_ASSIGNMENT_LTI",
             {
               "assignment_id": assignment_id,
               "user_id": user_id            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

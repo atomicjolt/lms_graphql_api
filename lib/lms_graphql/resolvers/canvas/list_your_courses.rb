@@ -5,6 +5,7 @@ module LMSGraphQL
     module Canvas
       class ListYourCourse < CanvasBaseResolver
         type [LMSGraphQL::Types::Canvas::CanvasCourse], null: false
+        argument :get_all, Boolean, required: false
         argument :enrollment_type, String, required: false
         argument :enrollment_role, String, required: false
         argument :enrollment_role_id, ID, required: false
@@ -12,8 +13,8 @@ module LMSGraphQL
         argument :exclude_blueprint_courses, Boolean, required: false
         argument :include, String, required: false
         argument :state, String, required: false
-        def resolve(enrollment_type: nil, enrollment_role: nil, enrollment_role_id: nil, enrollment_state: nil, exclude_blueprint_courses: nil, include: nil, state: nil)
-          context[:canvas_api].call("LIST_YOUR_COURSES").proxy(
+        def resolve(enrollment_type: nil, enrollment_role: nil, enrollment_role_id: nil, enrollment_state: nil, exclude_blueprint_courses: nil, include: nil, state: nil, get_all: false)
+          result = context[:canvas_api].call("LIST_YOUR_COURSES").proxy(
             "LIST_YOUR_COURSES",
             {
               "enrollment_type": enrollment_type,
@@ -24,7 +25,9 @@ module LMSGraphQL
               "include": include,
               "state": state            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

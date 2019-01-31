@@ -5,16 +5,19 @@ module LMSGraphQL
     module Canvas
       class DetailsForGivenDateInGradebookHistoryForThisCourse < CanvasBaseResolver
         type [LMSGraphQL::Types::Canvas::CanvasGrader], null: false
+        argument :get_all, Boolean, required: false
         argument :course_id, ID, required: true
         argument :date, String, required: true
-        def resolve(course_id:, date:)
-          context[:canvas_api].call("DETAILS_FOR_GIVEN_DATE_IN_GRADEBOOK_HISTORY_FOR_THIS_COURSE").proxy(
+        def resolve(course_id:, date:, get_all: false)
+          result = context[:canvas_api].call("DETAILS_FOR_GIVEN_DATE_IN_GRADEBOOK_HISTORY_FOR_THIS_COURSE").proxy(
             "DETAILS_FOR_GIVEN_DATE_IN_GRADEBOOK_HISTORY_FOR_THIS_COURSE",
             {
               "course_id": course_id,
               "date": date            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

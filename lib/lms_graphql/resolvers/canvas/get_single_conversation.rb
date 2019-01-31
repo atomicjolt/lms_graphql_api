@@ -11,8 +11,8 @@ module LMSGraphQL
         argument :filter, String, required: false
         argument :filter_mode, String, required: false
         argument :auto_mark_as_read, Boolean, required: false
-        def resolve(id:, interleave_submissions: nil, scope: nil, filter: nil, filter_mode: nil, auto_mark_as_read: nil)
-          context[:canvas_api].call("GET_SINGLE_CONVERSATION").proxy(
+        def resolve(id:, interleave_submissions: nil, scope: nil, filter: nil, filter_mode: nil, auto_mark_as_read: nil, get_all: false)
+          result = context[:canvas_api].call("GET_SINGLE_CONVERSATION").proxy(
             "GET_SINGLE_CONVERSATION",
             {
               "id": id,
@@ -22,7 +22,9 @@ module LMSGraphQL
               "filter_mode": filter_mode,
               "auto_mark_as_read": auto_mark_as_read            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

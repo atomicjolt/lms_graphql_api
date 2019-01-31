@@ -7,14 +7,16 @@ module LMSGraphQL
         type Boolean, null: false
         argument :user_id, ID, required: true
         argument :course_id, ID, required: true
-        def resolve(user_id:, course_id:)
-          context[:canvas_api].call("LIST_ASSIGNMENTS_FOR_USER").proxy(
+        def resolve(user_id:, course_id:, get_all: false)
+          result = context[:canvas_api].call("LIST_ASSIGNMENTS_FOR_USER").proxy(
             "LIST_ASSIGNMENTS_FOR_USER",
             {
               "user_id": user_id,
               "course_id": course_id            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

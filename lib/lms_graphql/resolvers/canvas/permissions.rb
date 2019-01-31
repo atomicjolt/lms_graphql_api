@@ -7,14 +7,16 @@ module LMSGraphQL
         type Boolean, null: false
         argument :account_id, ID, required: true
         argument :permissions, String, required: false
-        def resolve(account_id:, permissions: nil)
-          context[:canvas_api].call("PERMISSIONS").proxy(
+        def resolve(account_id:, permissions: nil, get_all: false)
+          result = context[:canvas_api].call("PERMISSIONS").proxy(
             "PERMISSIONS",
             {
               "account_id": account_id,
               "permissions": permissions            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

@@ -5,6 +5,7 @@ module LMSGraphQL
     module Canvas
       class ListAssignmentsAssignmentGroup < CanvasBaseResolver
         type [LMSGraphQL::Types::Canvas::CanvasAssignment], null: false
+        argument :get_all, Boolean, required: false
         argument :course_id, ID, required: true
         argument :assignment_group_id, ID, required: true
         argument :include, String, required: false
@@ -14,8 +15,8 @@ module LMSGraphQL
         argument :bucket, String, required: false
         argument :assignment_ids, [ID], required: false
         argument :order_by, String, required: false
-        def resolve(course_id:, assignment_group_id:, include: nil, search_term: nil, override_assignment_dates: nil, needs_grading_count_by_section: nil, bucket: nil, assignment_ids: nil, order_by: nil)
-          context[:canvas_api].call("LIST_ASSIGNMENTS_ASSIGNMENT_GROUPS").proxy(
+        def resolve(course_id:, assignment_group_id:, include: nil, search_term: nil, override_assignment_dates: nil, needs_grading_count_by_section: nil, bucket: nil, assignment_ids: nil, order_by: nil, get_all: false)
+          result = context[:canvas_api].call("LIST_ASSIGNMENTS_ASSIGNMENT_GROUPS").proxy(
             "LIST_ASSIGNMENTS_ASSIGNMENT_GROUPS",
             {
               "course_id": course_id,
@@ -28,7 +29,9 @@ module LMSGraphQL
               "assignment_ids": assignment_ids,
               "order_by": order_by            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

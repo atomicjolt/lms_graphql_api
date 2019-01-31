@@ -5,14 +5,17 @@ module LMSGraphQL
     module Canvas
       class ListCoursesWithTheirLatestEpubExport < CanvasBaseResolver
         type [LMSGraphQL::Types::Canvas::CanvasCourseEpubExport], null: false
+        argument :get_all, Boolean, required: false
 
-        def resolve()
-          context[:canvas_api].call("LIST_COURSES_WITH_THEIR_LATEST_EPUB_EXPORT").proxy(
+        def resolve(get_all: false)
+          result = context[:canvas_api].call("LIST_COURSES_WITH_THEIR_LATEST_EPUB_EXPORT").proxy(
             "LIST_COURSES_WITH_THEIR_LATEST_EPUB_EXPORT",
             {
             },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

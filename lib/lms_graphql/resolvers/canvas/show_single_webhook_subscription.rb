@@ -6,13 +6,15 @@ module LMSGraphQL
       class ShowSingleWebhookSubscription < CanvasBaseResolver
         type Boolean, null: false
         argument :id, ID, required: true
-        def resolve(id:)
-          context[:canvas_api].call("SHOW_SINGLE_WEBHOOK_SUBSCRIPTION").proxy(
+        def resolve(id:, get_all: false)
+          result = context[:canvas_api].call("SHOW_SINGLE_WEBHOOK_SUBSCRIPTION").proxy(
             "SHOW_SINGLE_WEBHOOK_SUBSCRIPTION",
             {
               "id": id            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

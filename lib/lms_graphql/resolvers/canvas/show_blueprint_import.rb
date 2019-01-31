@@ -8,15 +8,17 @@ module LMSGraphQL
         argument :course_id, ID, required: true
         argument :subscription_id, ID, required: true
         argument :id, ID, required: true
-        def resolve(course_id:, subscription_id:, id:)
-          context[:canvas_api].call("SHOW_BLUEPRINT_IMPORT").proxy(
+        def resolve(course_id:, subscription_id:, id:, get_all: false)
+          result = context[:canvas_api].call("SHOW_BLUEPRINT_IMPORT").proxy(
             "SHOW_BLUEPRINT_IMPORT",
             {
               "course_id": course_id,
               "subscription_id": subscription_id,
               "id": id            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

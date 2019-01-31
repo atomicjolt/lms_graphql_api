@@ -7,14 +7,16 @@ module LMSGraphQL
         type Boolean, null: false
         argument :user_id, ID, required: true
         argument :communication_channel_id, ID, required: true
-        def resolve(user_id:, communication_channel_id:)
-          context[:canvas_api].call("LIST_OF_PREFERENCE_CATEGORIES").proxy(
+        def resolve(user_id:, communication_channel_id:, get_all: false)
+          result = context[:canvas_api].call("LIST_OF_PREFERENCE_CATEGORIES").proxy(
             "LIST_OF_PREFERENCE_CATEGORIES",
             {
               "user_id": user_id,
               "communication_channel_id": communication_channel_id            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

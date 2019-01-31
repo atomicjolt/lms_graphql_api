@@ -5,13 +5,14 @@ module LMSGraphQL
     module Canvas
       class ListAnnouncement < CanvasBaseResolver
         type [LMSGraphQL::Types::Canvas::CanvasDiscussionTopic], null: false
+        argument :get_all, Boolean, required: false
         argument :context_codes, String, required: true
         argument :start_date, LMSGraphQL::Types::DateTimeType, required: false
         argument :end_date, LMSGraphQL::Types::DateTimeType, required: false
         argument :active_only, Boolean, required: false
         argument :include, String, required: false
-        def resolve(context_codes:, start_date: nil, end_date: nil, active_only: nil, include: nil)
-          context[:canvas_api].call("LIST_ANNOUNCEMENTS").proxy(
+        def resolve(context_codes:, start_date: nil, end_date: nil, active_only: nil, include: nil, get_all: false)
+          result = context[:canvas_api].call("LIST_ANNOUNCEMENTS").proxy(
             "LIST_ANNOUNCEMENTS",
             {
               "context_codes": context_codes,
@@ -20,7 +21,9 @@ module LMSGraphQL
               "active_only": active_only,
               "include": include            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

@@ -5,14 +5,17 @@ module LMSGraphQL
     module Canvas
       class ListConferencesGroup < CanvasBaseResolver
         type [LMSGraphQL::Types::Canvas::CanvasConference], null: false
+        argument :get_all, Boolean, required: false
         argument :group_id, ID, required: true
-        def resolve(group_id:)
-          context[:canvas_api].call("LIST_CONFERENCES_GROUPS").proxy(
+        def resolve(group_id:, get_all: false)
+          result = context[:canvas_api].call("LIST_CONFERENCES_GROUPS").proxy(
             "LIST_CONFERENCES_GROUPS",
             {
               "group_id": group_id            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

@@ -7,14 +7,16 @@ module LMSGraphQL
         type Boolean, null: false
         argument :id, ID, required: true
         argument :registration_status, String, required: false
-        def resolve(id:, registration_status: nil)
-          context[:canvas_api].call("LIST_USER_PARTICIPANTS").proxy(
+        def resolve(id:, registration_status: nil, get_all: false)
+          result = context[:canvas_api].call("LIST_USER_PARTICIPANTS").proxy(
             "LIST_USER_PARTICIPANTS",
             {
               "id": id,
               "registration_status": registration_status            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

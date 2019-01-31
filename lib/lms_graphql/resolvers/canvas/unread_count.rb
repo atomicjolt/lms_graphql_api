@@ -6,13 +6,15 @@ module LMSGraphQL
       class UnreadCount < CanvasBaseResolver
         type Boolean, null: false
 
-        def resolve()
-          context[:canvas_api].call("UNREAD_COUNT").proxy(
+        def resolve(get_all: false)
+          result = context[:canvas_api].call("UNREAD_COUNT").proxy(
             "UNREAD_COUNT",
             {
             },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

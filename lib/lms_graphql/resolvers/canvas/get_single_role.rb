@@ -9,8 +9,8 @@ module LMSGraphQL
         argument :account_id, ID, required: true
         argument :role_id, ID, required: true
         argument :role, String, required: false
-        def resolve(id:, account_id:, role_id:, role: nil)
-          context[:canvas_api].call("GET_SINGLE_ROLE").proxy(
+        def resolve(id:, account_id:, role_id:, role: nil, get_all: false)
+          result = context[:canvas_api].call("GET_SINGLE_ROLE").proxy(
             "GET_SINGLE_ROLE",
             {
               "id": id,
@@ -18,7 +18,9 @@ module LMSGraphQL
               "role_id": role_id,
               "role": role            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

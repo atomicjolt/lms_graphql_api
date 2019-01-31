@@ -9,8 +9,8 @@ module LMSGraphQL
         argument :search_term, String, required: false
         argument :selectable, Boolean, required: false
         argument :include_parents, Boolean, required: false
-        def resolve(account_id:, search_term: nil, selectable: nil, include_parents: nil)
-          context[:canvas_api].call("LIST_EXTERNAL_TOOLS_ACCOUNTS").proxy(
+        def resolve(account_id:, search_term: nil, selectable: nil, include_parents: nil, get_all: false)
+          result = context[:canvas_api].call("LIST_EXTERNAL_TOOLS_ACCOUNTS").proxy(
             "LIST_EXTERNAL_TOOLS_ACCOUNTS",
             {
               "account_id": account_id,
@@ -18,7 +18,9 @@ module LMSGraphQL
               "selectable": selectable,
               "include_parents": include_parents            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

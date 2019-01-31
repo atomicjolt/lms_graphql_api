@@ -6,13 +6,15 @@ module LMSGraphQL
       class GetQuotaInformationUser < CanvasBaseResolver
         type Boolean, null: false
         argument :user_id, ID, required: true
-        def resolve(user_id:)
-          context[:canvas_api].call("GET_QUOTA_INFORMATION_USERS").proxy(
+        def resolve(user_id:, get_all: false)
+          result = context[:canvas_api].call("GET_QUOTA_INFORMATION_USERS").proxy(
             "GET_QUOTA_INFORMATION_USERS",
             {
               "user_id": user_id            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

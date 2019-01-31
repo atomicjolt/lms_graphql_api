@@ -6,13 +6,15 @@ module LMSGraphQL
       class ListTodoItem < CanvasBaseResolver
         type Boolean, null: false
         argument :include, String, required: false
-        def resolve(include: nil)
-          context[:canvas_api].call("LIST_TODO_ITEMS").proxy(
+        def resolve(include: nil, get_all: false)
+          result = context[:canvas_api].call("LIST_TODO_ITEMS").proxy(
             "LIST_TODO_ITEMS",
             {
               "include": include            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

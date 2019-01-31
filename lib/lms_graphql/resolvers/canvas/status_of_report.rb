@@ -8,15 +8,17 @@ module LMSGraphQL
         argument :account_id, ID, required: true
         argument :report, String, required: true
         argument :id, ID, required: true
-        def resolve(account_id:, report:, id:)
-          context[:canvas_api].call("STATUS_OF_REPORT").proxy(
+        def resolve(account_id:, report:, id:, get_all: false)
+          result = context[:canvas_api].call("STATUS_OF_REPORT").proxy(
             "STATUS_OF_REPORT",
             {
               "account_id": account_id,
               "report": report,
               "id": id            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

@@ -5,14 +5,17 @@ module LMSGraphQL
     module Canvas
       class ListCourseNickname < CanvasBaseResolver
         type [LMSGraphQL::Types::Canvas::CanvasCourseNickname], null: false
+        argument :get_all, Boolean, required: false
 
-        def resolve()
-          context[:canvas_api].call("LIST_COURSE_NICKNAMES").proxy(
+        def resolve(get_all: false)
+          result = context[:canvas_api].call("LIST_COURSE_NICKNAMES").proxy(
             "LIST_COURSE_NICKNAMES",
             {
             },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

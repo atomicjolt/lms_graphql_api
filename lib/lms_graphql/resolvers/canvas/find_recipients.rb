@@ -6,13 +6,15 @@ module LMSGraphQL
       class FindRecipient < CanvasBaseResolver
         type Boolean, null: false
 
-        def resolve()
-          context[:canvas_api].call("FIND_RECIPIENTS").proxy(
+        def resolve(get_all: false)
+          result = context[:canvas_api].call("FIND_RECIPIENTS").proxy(
             "FIND_RECIPIENTS",
             {
             },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

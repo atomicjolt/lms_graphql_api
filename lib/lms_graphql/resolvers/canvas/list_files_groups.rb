@@ -5,6 +5,7 @@ module LMSGraphQL
     module Canvas
       class ListFilesGroup < CanvasBaseResolver
         type [LMSGraphQL::Types::Canvas::CanvasFile], null: false
+        argument :get_all, Boolean, required: false
         argument :group_id, ID, required: true
         argument :content_types, String, required: false
         argument :search_term, String, required: false
@@ -12,8 +13,8 @@ module LMSGraphQL
         argument :only, [String], required: false
         argument :sort, String, required: false
         argument :order, String, required: false
-        def resolve(group_id:, content_types: nil, search_term: nil, include: nil, only: nil, sort: nil, order: nil)
-          context[:canvas_api].call("LIST_FILES_GROUPS").proxy(
+        def resolve(group_id:, content_types: nil, search_term: nil, include: nil, only: nil, sort: nil, order: nil, get_all: false)
+          result = context[:canvas_api].call("LIST_FILES_GROUPS").proxy(
             "LIST_FILES_GROUPS",
             {
               "group_id": group_id,
@@ -24,7 +25,9 @@ module LMSGraphQL
               "sort": sort,
               "order": order            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

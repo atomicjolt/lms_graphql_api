@@ -5,6 +5,7 @@ module LMSGraphQL
     module Canvas
       class ListDiscussionTopicsGroup < CanvasBaseResolver
         type [LMSGraphQL::Types::Canvas::CanvasDiscussionTopic], null: false
+        argument :get_all, Boolean, required: false
         argument :group_id, ID, required: true
         argument :include, String, required: false
         argument :order_by, String, required: false
@@ -13,8 +14,8 @@ module LMSGraphQL
         argument :filter_by, String, required: false
         argument :search_term, String, required: false
         argument :exclude_context_module_locked_topics, Boolean, required: false
-        def resolve(group_id:, include: nil, order_by: nil, scope: nil, only_announcements: nil, filter_by: nil, search_term: nil, exclude_context_module_locked_topics: nil)
-          context[:canvas_api].call("LIST_DISCUSSION_TOPICS_GROUPS").proxy(
+        def resolve(group_id:, include: nil, order_by: nil, scope: nil, only_announcements: nil, filter_by: nil, search_term: nil, exclude_context_module_locked_topics: nil, get_all: false)
+          result = context[:canvas_api].call("LIST_DISCUSSION_TOPICS_GROUPS").proxy(
             "LIST_DISCUSSION_TOPICS_GROUPS",
             {
               "group_id": group_id,
@@ -26,7 +27,9 @@ module LMSGraphQL
               "search_term": search_term,
               "exclude_context_module_locked_topics": exclude_context_module_locked_topics            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

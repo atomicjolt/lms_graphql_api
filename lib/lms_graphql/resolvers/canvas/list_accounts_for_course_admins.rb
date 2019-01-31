@@ -5,14 +5,17 @@ module LMSGraphQL
     module Canvas
       class ListAccountsForCourseAdmin < CanvasBaseResolver
         type [LMSGraphQL::Types::Canvas::CanvasAccount], null: false
+        argument :get_all, Boolean, required: false
 
-        def resolve()
-          context[:canvas_api].call("LIST_ACCOUNTS_FOR_COURSE_ADMINS").proxy(
+        def resolve(get_all: false)
+          result = context[:canvas_api].call("LIST_ACCOUNTS_FOR_COURSE_ADMINS").proxy(
             "LIST_ACCOUNTS_FOR_COURSE_ADMINS",
             {
             },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

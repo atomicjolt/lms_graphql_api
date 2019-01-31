@@ -8,15 +8,17 @@ module LMSGraphQL
         argument :poll_id, ID, required: true
         argument :poll_session_id, ID, required: true
         argument :id, ID, required: true
-        def resolve(poll_id:, poll_session_id:, id:)
-          context[:canvas_api].call("GET_SINGLE_POLL_SUBMISSION").proxy(
+        def resolve(poll_id:, poll_session_id:, id:, get_all: false)
+          result = context[:canvas_api].call("GET_SINGLE_POLL_SUBMISSION").proxy(
             "GET_SINGLE_POLL_SUBMISSION",
             {
               "poll_id": poll_id,
               "poll_session_id": poll_session_id,
               "id": id            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

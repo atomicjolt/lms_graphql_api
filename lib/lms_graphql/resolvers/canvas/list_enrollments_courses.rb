@@ -5,6 +5,7 @@ module LMSGraphQL
     module Canvas
       class ListEnrollmentsCourse < CanvasBaseResolver
         type [LMSGraphQL::Types::Canvas::CanvasEnrollment], null: false
+        argument :get_all, Boolean, required: false
         argument :course_id, ID, required: true
         argument :type, String, required: false
         argument :role, String, required: false
@@ -17,8 +18,8 @@ module LMSGraphQL
         argument :sis_course_id, ID, required: false
         argument :sis_section_id, ID, required: false
         argument :sis_user_id, ID, required: false
-        def resolve(course_id:, type: nil, role: nil, state: nil, include: nil, user_id: nil, grading_period_id: nil, enrollment_term_id: nil, sis_account_id: nil, sis_course_id: nil, sis_section_id: nil, sis_user_id: nil)
-          context[:canvas_api].call("LIST_ENROLLMENTS_COURSES").proxy(
+        def resolve(course_id:, type: nil, role: nil, state: nil, include: nil, user_id: nil, grading_period_id: nil, enrollment_term_id: nil, sis_account_id: nil, sis_course_id: nil, sis_section_id: nil, sis_user_id: nil, get_all: false)
+          result = context[:canvas_api].call("LIST_ENROLLMENTS_COURSES").proxy(
             "LIST_ENROLLMENTS_COURSES",
             {
               "course_id": course_id,
@@ -34,7 +35,9 @@ module LMSGraphQL
               "sis_section_id": sis_section_id,
               "sis_user_id": sis_user_id            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

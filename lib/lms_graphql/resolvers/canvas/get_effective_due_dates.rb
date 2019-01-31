@@ -7,14 +7,16 @@ module LMSGraphQL
         type Boolean, null: false
         argument :course_id, ID, required: true
         argument :assignment_ids, [ID], required: false
-        def resolve(course_id:, assignment_ids: nil)
-          context[:canvas_api].call("GET_EFFECTIVE_DUE_DATES").proxy(
+        def resolve(course_id:, assignment_ids: nil, get_all: false)
+          result = context[:canvas_api].call("GET_EFFECTIVE_DUE_DATES").proxy(
             "GET_EFFECTIVE_DUE_DATES",
             {
               "course_id": course_id,
               "assignment_ids": assignment_ids            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

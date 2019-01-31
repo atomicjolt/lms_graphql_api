@@ -8,15 +8,17 @@ module LMSGraphQL
         argument :user_id, ID, required: true
         argument :id, ID, required: true
         argument :include, String, required: false
-        def resolve(user_id:, id:, include: nil)
-          context[:canvas_api].call("GET_FILE_USERS").proxy(
+        def resolve(user_id:, id:, include: nil, get_all: false)
+          result = context[:canvas_api].call("GET_FILE_USERS").proxy(
             "GET_FILE_USERS",
             {
               "user_id": user_id,
               "id": id,
               "include": include            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

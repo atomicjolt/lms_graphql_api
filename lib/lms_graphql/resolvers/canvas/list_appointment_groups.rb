@@ -9,8 +9,8 @@ module LMSGraphQL
         argument :context_codes, String, required: false
         argument :include_past_appointments, Boolean, required: false
         argument :include, String, required: false
-        def resolve(scope: nil, context_codes: nil, include_past_appointments: nil, include: nil)
-          context[:canvas_api].call("LIST_APPOINTMENT_GROUPS").proxy(
+        def resolve(scope: nil, context_codes: nil, include_past_appointments: nil, include: nil, get_all: false)
+          result = context[:canvas_api].call("LIST_APPOINTMENT_GROUPS").proxy(
             "LIST_APPOINTMENT_GROUPS",
             {
               "scope": scope,
@@ -18,7 +18,9 @@ module LMSGraphQL
               "include_past_appointments": include_past_appointments,
               "include": include            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

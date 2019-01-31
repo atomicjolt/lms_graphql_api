@@ -6,13 +6,15 @@ module LMSGraphQL
       class GetBookmark < CanvasBaseResolver
         type LMSGraphQL::Types::Canvas::CanvasBookmark, null: false
         argument :id, ID, required: true
-        def resolve(id:)
-          context[:canvas_api].call("GET_BOOKMARK").proxy(
+        def resolve(id:, get_all: false)
+          result = context[:canvas_api].call("GET_BOOKMARK").proxy(
             "GET_BOOKMARK",
             {
               "id": id            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end
