@@ -5,14 +5,17 @@ module LMSGraphQL
     module Canvas
       class ListAccount < CanvasBaseResolver
         type [LMSGraphQL::Types::Canvas::CanvasAccount], null: false
+        argument :get_all, Boolean, required: false
         argument :include, String, required: false
-        def resolve(include: nil)
-          context[:canvas_api].call("LIST_ACCOUNTS").proxy(
+        def resolve(include: nil, get_all: false)
+          result = context[:canvas_api].call("LIST_ACCOUNTS").proxy(
             "LIST_ACCOUNTS",
             {
               "include": include            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

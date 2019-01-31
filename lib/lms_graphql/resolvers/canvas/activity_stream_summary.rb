@@ -6,13 +6,15 @@ module LMSGraphQL
       class ActivityStreamSummary < CanvasBaseResolver
         type Boolean, null: false
 
-        def resolve()
-          context[:canvas_api].call("ACTIVITY_STREAM_SUMMARY").proxy(
+        def resolve(get_all: false)
+          result = context[:canvas_api].call("ACTIVITY_STREAM_SUMMARY").proxy(
             "ACTIVITY_STREAM_SUMMARY",
             {
             },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

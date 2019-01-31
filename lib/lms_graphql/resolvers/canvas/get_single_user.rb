@@ -7,14 +7,16 @@ module LMSGraphQL
         type LMSGraphQL::Types::Canvas::CanvasUser, null: false
         argument :course_id, ID, required: true
         argument :id, ID, required: true
-        def resolve(course_id:, id:)
-          context[:canvas_api].call("GET_SINGLE_USER").proxy(
+        def resolve(course_id:, id:, get_all: false)
+          result = context[:canvas_api].call("GET_SINGLE_USER").proxy(
             "GET_SINGLE_USER",
             {
               "course_id": course_id,
               "id": id            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

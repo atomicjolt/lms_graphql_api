@@ -7,14 +7,16 @@ module LMSGraphQL
         type Boolean, null: false
         argument :id, ID, required: true
         argument :asset_string, String, required: true
-        def resolve(id:, asset_string:)
-          context[:canvas_api].call("GET_CUSTOM_COLOR").proxy(
+        def resolve(id:, asset_string:, get_all: false)
+          result = context[:canvas_api].call("GET_CUSTOM_COLOR").proxy(
             "GET_CUSTOM_COLOR",
             {
               "id": id,
               "asset_string": asset_string            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

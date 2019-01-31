@@ -6,13 +6,15 @@ module LMSGraphQL
       class ListClosedPollSession < CanvasBaseResolver
         type Boolean, null: false
 
-        def resolve()
-          context[:canvas_api].call("LIST_CLOSED_POLL_SESSIONS").proxy(
+        def resolve(get_all: false)
+          result = context[:canvas_api].call("LIST_CLOSED_POLL_SESSIONS").proxy(
             "LIST_CLOSED_POLL_SESSIONS",
             {
             },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

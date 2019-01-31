@@ -7,14 +7,16 @@ module LMSGraphQL
         type Boolean, null: false
         argument :group_id, ID, required: true
         argument :permissions, String, required: false
-        def resolve(group_id:, permissions: nil)
-          context[:canvas_api].call("GROUPS_PERMISSIONS").proxy(
+        def resolve(group_id:, permissions: nil, get_all: false)
+          result = context[:canvas_api].call("GROUPS_PERMISSIONS").proxy(
             "GROUPS_PERMISSIONS",
             {
               "group_id": group_id,
               "permissions": permissions            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

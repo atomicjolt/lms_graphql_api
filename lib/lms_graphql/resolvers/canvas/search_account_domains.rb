@@ -9,8 +9,8 @@ module LMSGraphQL
         argument :domain, String, required: false
         argument :latitude, Float, required: false
         argument :longitude, Float, required: false
-        def resolve(name: nil, domain: nil, latitude: nil, longitude: nil)
-          context[:canvas_api].call("SEARCH_ACCOUNT_DOMAINS").proxy(
+        def resolve(name: nil, domain: nil, latitude: nil, longitude: nil, get_all: false)
+          result = context[:canvas_api].call("SEARCH_ACCOUNT_DOMAINS").proxy(
             "SEARCH_ACCOUNT_DOMAINS",
             {
               "name": name,
@@ -18,7 +18,9 @@ module LMSGraphQL
               "latitude": latitude,
               "longitude": longitude            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

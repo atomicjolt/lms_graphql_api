@@ -6,13 +6,15 @@ module LMSGraphQL
       class ListAvailableReport < CanvasBaseResolver
         type Boolean, null: false
         argument :account_id, ID, required: true
-        def resolve(account_id:)
-          context[:canvas_api].call("LIST_AVAILABLE_REPORTS").proxy(
+        def resolve(account_id:, get_all: false)
+          result = context[:canvas_api].call("LIST_AVAILABLE_REPORTS").proxy(
             "LIST_AVAILABLE_REPORTS",
             {
               "account_id": account_id            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

@@ -7,14 +7,16 @@ module LMSGraphQL
         type LMSGraphQL::Types::Canvas::CanvasFeatureFlag, null: false
         argument :account_id, ID, required: true
         argument :feature, String, required: true
-        def resolve(account_id:, feature:)
-          context[:canvas_api].call("GET_FEATURE_FLAG_ACCOUNTS").proxy(
+        def resolve(account_id:, feature:, get_all: false)
+          result = context[:canvas_api].call("GET_FEATURE_FLAG_ACCOUNTS").proxy(
             "GET_FEATURE_FLAG_ACCOUNTS",
             {
               "account_id": account_id,
               "feature": feature            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

@@ -6,13 +6,15 @@ module LMSGraphQL
       class GetCourseLevelParticipationDatum < CanvasBaseResolver
         type Boolean, null: false
         argument :course_id, ID, required: true
-        def resolve(course_id:)
-          context[:canvas_api].call("GET_COURSE_LEVEL_PARTICIPATION_DATA").proxy(
+        def resolve(course_id:, get_all: false)
+          result = context[:canvas_api].call("GET_COURSE_LEVEL_PARTICIPATION_DATA").proxy(
             "GET_COURSE_LEVEL_PARTICIPATION_DATA",
             {
               "course_id": course_id            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

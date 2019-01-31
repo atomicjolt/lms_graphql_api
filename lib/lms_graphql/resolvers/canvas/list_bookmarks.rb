@@ -5,14 +5,17 @@ module LMSGraphQL
     module Canvas
       class ListBookmark < CanvasBaseResolver
         type [LMSGraphQL::Types::Canvas::CanvasBookmark], null: false
+        argument :get_all, Boolean, required: false
 
-        def resolve()
-          context[:canvas_api].call("LIST_BOOKMARKS").proxy(
+        def resolve(get_all: false)
+          result = context[:canvas_api].call("LIST_BOOKMARKS").proxy(
             "LIST_BOOKMARKS",
             {
             },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

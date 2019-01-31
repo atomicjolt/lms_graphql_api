@@ -9,8 +9,8 @@ module LMSGraphQL
         argument :id, ID, required: true
         argument :include, String, required: false
         argument :student_id, ID, required: false
-        def resolve(course_id:, id:, include: nil, student_id: nil)
-          context[:canvas_api].call("SHOW_MODULE").proxy(
+        def resolve(course_id:, id:, include: nil, student_id: nil, get_all: false)
+          result = context[:canvas_api].call("SHOW_MODULE").proxy(
             "SHOW_MODULE",
             {
               "course_id": course_id,
@@ -18,7 +18,9 @@ module LMSGraphQL
               "include": include,
               "student_id": student_id            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

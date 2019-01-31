@@ -5,16 +5,19 @@ module LMSGraphQL
     module Canvas
       class ListMigrationIssuesUser < CanvasBaseResolver
         type [LMSGraphQL::Types::Canvas::CanvasMigrationIssue], null: false
+        argument :get_all, Boolean, required: false
         argument :user_id, ID, required: true
         argument :content_migration_id, ID, required: true
-        def resolve(user_id:, content_migration_id:)
-          context[:canvas_api].call("LIST_MIGRATION_ISSUES_USERS").proxy(
+        def resolve(user_id:, content_migration_id:, get_all: false)
+          result = context[:canvas_api].call("LIST_MIGRATION_ISSUES_USERS").proxy(
             "LIST_MIGRATION_ISSUES_USERS",
             {
               "user_id": user_id,
               "content_migration_id": content_migration_id            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

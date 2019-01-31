@@ -5,6 +5,7 @@ module LMSGraphQL
     module Canvas
       class ListCalendarEventsForUser < CanvasBaseResolver
         type [LMSGraphQL::Types::Canvas::CanvasCalendarEvent], null: false
+        argument :get_all, Boolean, required: false
         argument :user_id, ID, required: true
         argument :type, String, required: false
         argument :start_date, LMSGraphQL::Types::DateTimeType, required: false
@@ -13,8 +14,8 @@ module LMSGraphQL
         argument :all_events, Boolean, required: false
         argument :context_codes, String, required: false
         argument :excludes, [String], required: false
-        def resolve(user_id:, type: nil, start_date: nil, end_date: nil, undated: nil, all_events: nil, context_codes: nil, excludes: nil)
-          context[:canvas_api].call("LIST_CALENDAR_EVENTS_FOR_USER").proxy(
+        def resolve(user_id:, type: nil, start_date: nil, end_date: nil, undated: nil, all_events: nil, context_codes: nil, excludes: nil, get_all: false)
+          result = context[:canvas_api].call("LIST_CALENDAR_EVENTS_FOR_USER").proxy(
             "LIST_CALENDAR_EVENTS_FOR_USER",
             {
               "user_id": user_id,
@@ -26,7 +27,9 @@ module LMSGraphQL
               "context_codes": context_codes,
               "excludes": excludes            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

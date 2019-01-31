@@ -6,13 +6,15 @@ module LMSGraphQL
       class GetKalturaConfig < CanvasBaseResolver
         type Boolean, null: false
 
-        def resolve()
-          context[:canvas_api].call("GET_KALTURA_CONFIG").proxy(
+        def resolve(get_all: false)
+          result = context[:canvas_api].call("GET_KALTURA_CONFIG").proxy(
             "GET_KALTURA_CONFIG",
             {
             },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

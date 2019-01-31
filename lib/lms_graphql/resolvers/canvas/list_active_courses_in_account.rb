@@ -5,6 +5,7 @@ module LMSGraphQL
     module Canvas
       class ListActiveCoursesInAccount < CanvasBaseResolver
         type [LMSGraphQL::Types::Canvas::CanvasCourse], null: false
+        argument :get_all, Boolean, required: false
         argument :account_id, ID, required: true
         argument :with_enrollments, Boolean, required: false
         argument :enrollment_type, String, required: false
@@ -22,8 +23,8 @@ module LMSGraphQL
         argument :sort, String, required: false
         argument :order, String, required: false
         argument :search_by, String, required: false
-        def resolve(account_id:, with_enrollments: nil, enrollment_type: nil, published: nil, completed: nil, blueprint: nil, blueprint_associated: nil, by_teachers: nil, by_subaccounts: nil, hide_enrollmentless_courses: nil, state: nil, enrollment_term_id: nil, search_term: nil, include: nil, sort: nil, order: nil, search_by: nil)
-          context[:canvas_api].call("LIST_ACTIVE_COURSES_IN_ACCOUNT").proxy(
+        def resolve(account_id:, with_enrollments: nil, enrollment_type: nil, published: nil, completed: nil, blueprint: nil, blueprint_associated: nil, by_teachers: nil, by_subaccounts: nil, hide_enrollmentless_courses: nil, state: nil, enrollment_term_id: nil, search_term: nil, include: nil, sort: nil, order: nil, search_by: nil, get_all: false)
+          result = context[:canvas_api].call("LIST_ACTIVE_COURSES_IN_ACCOUNT").proxy(
             "LIST_ACTIVE_COURSES_IN_ACCOUNT",
             {
               "account_id": account_id,
@@ -44,7 +45,9 @@ module LMSGraphQL
               "order": order,
               "search_by": search_by            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

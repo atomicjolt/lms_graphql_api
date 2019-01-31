@@ -5,6 +5,7 @@ module LMSGraphQL
     module Canvas
       class ListUsersInCourseSearchUser < CanvasBaseResolver
         type [LMSGraphQL::Types::Canvas::CanvasUser], null: false
+        argument :get_all, Boolean, required: false
         argument :course_id, ID, required: true
         argument :search_term, String, required: false
         argument :enrollment_type, String, required: false
@@ -14,8 +15,8 @@ module LMSGraphQL
         argument :user_id, ID, required: false
         argument :user_ids, [ID], required: false
         argument :enrollment_state, String, required: false
-        def resolve(course_id:, search_term: nil, enrollment_type: nil, enrollment_role: nil, enrollment_role_id: nil, include: nil, user_id: nil, user_ids: nil, enrollment_state: nil)
-          context[:canvas_api].call("LIST_USERS_IN_COURSE_SEARCH_USERS").proxy(
+        def resolve(course_id:, search_term: nil, enrollment_type: nil, enrollment_role: nil, enrollment_role_id: nil, include: nil, user_id: nil, user_ids: nil, enrollment_state: nil, get_all: false)
+          result = context[:canvas_api].call("LIST_USERS_IN_COURSE_SEARCH_USERS").proxy(
             "LIST_USERS_IN_COURSE_SEARCH_USERS",
             {
               "course_id": course_id,
@@ -28,7 +29,9 @@ module LMSGraphQL
               "user_ids": user_ids,
               "enrollment_state": enrollment_state            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

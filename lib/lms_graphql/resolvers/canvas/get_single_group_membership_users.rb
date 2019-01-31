@@ -7,14 +7,16 @@ module LMSGraphQL
         type LMSGraphQL::Types::Canvas::CanvasGroupMembership, null: false
         argument :group_id, ID, required: true
         argument :user_id, ID, required: true
-        def resolve(group_id:, user_id:)
-          context[:canvas_api].call("GET_SINGLE_GROUP_MEMBERSHIP_USERS").proxy(
+        def resolve(group_id:, user_id:, get_all: false)
+          result = context[:canvas_api].call("GET_SINGLE_GROUP_MEMBERSHIP_USERS").proxy(
             "GET_SINGLE_GROUP_MEMBERSHIP_USERS",
             {
               "group_id": group_id,
               "user_id": user_id            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

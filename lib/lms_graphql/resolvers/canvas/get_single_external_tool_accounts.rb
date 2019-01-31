@@ -7,14 +7,16 @@ module LMSGraphQL
         type Boolean, null: false
         argument :account_id, ID, required: true
         argument :external_tool_id, ID, required: true
-        def resolve(account_id:, external_tool_id:)
-          context[:canvas_api].call("GET_SINGLE_EXTERNAL_TOOL_ACCOUNTS").proxy(
+        def resolve(account_id:, external_tool_id:, get_all: false)
+          result = context[:canvas_api].call("GET_SINGLE_EXTERNAL_TOOL_ACCOUNTS").proxy(
             "GET_SINGLE_EXTERNAL_TOOL_ACCOUNTS",
             {
               "account_id": account_id,
               "external_tool_id": external_tool_id            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

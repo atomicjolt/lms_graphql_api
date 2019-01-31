@@ -7,14 +7,16 @@ module LMSGraphQL
         type Boolean, null: false
         argument :group_id, ID, required: true
         argument :include, String, required: false
-        def resolve(group_id:, include: nil)
-          context[:canvas_api].call("LIST_AVAILABLE_TABS_FOR_COURSE_OR_GROUP_GROUPS").proxy(
+        def resolve(group_id:, include: nil, get_all: false)
+          result = context[:canvas_api].call("LIST_AVAILABLE_TABS_FOR_COURSE_OR_GROUP_GROUPS").proxy(
             "LIST_AVAILABLE_TABS_FOR_COURSE_OR_GROUP_GROUPS",
             {
               "group_id": group_id,
               "include": include            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

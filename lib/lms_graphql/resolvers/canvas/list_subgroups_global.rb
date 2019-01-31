@@ -5,14 +5,17 @@ module LMSGraphQL
     module Canvas
       class ListSubgroupsGlobal < CanvasBaseResolver
         type [LMSGraphQL::Types::Canvas::CanvasOutcomeGroup], null: false
+        argument :get_all, Boolean, required: false
         argument :id, ID, required: true
-        def resolve(id:)
-          context[:canvas_api].call("LIST_SUBGROUPS_GLOBAL").proxy(
+        def resolve(id:, get_all: false)
+          result = context[:canvas_api].call("LIST_SUBGROUPS_GLOBAL").proxy(
             "LIST_SUBGROUPS_GLOBAL",
             {
               "id": id            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

@@ -6,13 +6,15 @@ module LMSGraphQL
       class ShowOutcome < CanvasBaseResolver
         type LMSGraphQL::Types::Canvas::CanvasOutcome, null: false
         argument :id, ID, required: true
-        def resolve(id:)
-          context[:canvas_api].call("SHOW_OUTCOME").proxy(
+        def resolve(id:, get_all: false)
+          result = context[:canvas_api].call("SHOW_OUTCOME").proxy(
             "SHOW_OUTCOME",
             {
               "id": id            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

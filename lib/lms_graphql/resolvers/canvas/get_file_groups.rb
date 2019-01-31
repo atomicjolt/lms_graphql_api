@@ -8,15 +8,17 @@ module LMSGraphQL
         argument :group_id, ID, required: true
         argument :id, ID, required: true
         argument :include, String, required: false
-        def resolve(group_id:, id:, include: nil)
-          context[:canvas_api].call("GET_FILE_GROUPS").proxy(
+        def resolve(group_id:, id:, include: nil, get_all: false)
+          result = context[:canvas_api].call("GET_FILE_GROUPS").proxy(
             "GET_FILE_GROUPS",
             {
               "group_id": group_id,
               "id": id,
               "include": include            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

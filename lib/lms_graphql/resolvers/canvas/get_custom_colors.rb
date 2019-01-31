@@ -6,13 +6,15 @@ module LMSGraphQL
       class GetCustomColor < CanvasBaseResolver
         type Boolean, null: false
         argument :id, ID, required: true
-        def resolve(id:)
-          context[:canvas_api].call("GET_CUSTOM_COLORS").proxy(
+        def resolve(id:, get_all: false)
+          result = context[:canvas_api].call("GET_CUSTOM_COLORS").proxy(
             "GET_CUSTOM_COLORS",
             {
               "id": id            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

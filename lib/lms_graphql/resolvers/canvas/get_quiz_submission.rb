@@ -8,15 +8,17 @@ module LMSGraphQL
         argument :course_id, ID, required: true
         argument :quiz_id, ID, required: true
         argument :include, String, required: false
-        def resolve(course_id:, quiz_id:, include: nil)
-          context[:canvas_api].call("GET_QUIZ_SUBMISSION").proxy(
+        def resolve(course_id:, quiz_id:, include: nil, get_all: false)
+          result = context[:canvas_api].call("GET_QUIZ_SUBMISSION").proxy(
             "GET_QUIZ_SUBMISSION",
             {
               "course_id": course_id,
               "quiz_id": quiz_id,
               "include": include            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

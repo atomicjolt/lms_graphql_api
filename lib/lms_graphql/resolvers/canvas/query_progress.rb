@@ -6,13 +6,15 @@ module LMSGraphQL
       class QueryProgress < CanvasBaseResolver
         type LMSGraphQL::Types::Canvas::CanvasProgress, null: false
         argument :id, ID, required: true
-        def resolve(id:)
-          context[:canvas_api].call("QUERY_PROGRESS").proxy(
+        def resolve(id:, get_all: false)
+          result = context[:canvas_api].call("QUERY_PROGRESS").proxy(
             "QUERY_PROGRESS",
             {
               "id": id            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

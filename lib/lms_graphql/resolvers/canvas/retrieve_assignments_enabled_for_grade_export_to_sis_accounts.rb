@@ -10,8 +10,8 @@ module LMSGraphQL
         argument :starts_before, LMSGraphQL::Types::DateTimeType, required: false
         argument :ends_after, LMSGraphQL::Types::DateTimeType, required: false
         argument :include, String, required: false
-        def resolve(account_id:, course_id: nil, starts_before: nil, ends_after: nil, include: nil)
-          context[:canvas_api].call("RETRIEVE_ASSIGNMENTS_ENABLED_FOR_GRADE_EXPORT_TO_SIS_ACCOUNTS").proxy(
+        def resolve(account_id:, course_id: nil, starts_before: nil, ends_after: nil, include: nil, get_all: false)
+          result = context[:canvas_api].call("RETRIEVE_ASSIGNMENTS_ENABLED_FOR_GRADE_EXPORT_TO_SIS_ACCOUNTS").proxy(
             "RETRIEVE_ASSIGNMENTS_ENABLED_FOR_GRADE_EXPORT_TO_SIS_ACCOUNTS",
             {
               "account_id": account_id,
@@ -20,7 +20,9 @@ module LMSGraphQL
               "ends_after": ends_after,
               "include": include            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

@@ -5,18 +5,21 @@ module LMSGraphQL
     module Canvas
       class ListOfCommmessagesForUser < CanvasBaseResolver
         type [LMSGraphQL::Types::Canvas::CanvasCommMessage], null: false
+        argument :get_all, Boolean, required: false
         argument :user_id, ID, required: true
         argument :start_time, LMSGraphQL::Types::DateTimeType, required: false
         argument :end_time, LMSGraphQL::Types::DateTimeType, required: false
-        def resolve(user_id:, start_time: nil, end_time: nil)
-          context[:canvas_api].call("LIST_OF_COMMMESSAGES_FOR_USER").proxy(
+        def resolve(user_id:, start_time: nil, end_time: nil, get_all: false)
+          result = context[:canvas_api].call("LIST_OF_COMMMESSAGES_FOR_USER").proxy(
             "LIST_OF_COMMMESSAGES_FOR_USER",
             {
               "user_id": user_id,
               "start_time": start_time,
               "end_time": end_time            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end

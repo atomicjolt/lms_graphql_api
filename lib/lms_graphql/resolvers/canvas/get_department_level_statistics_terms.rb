@@ -7,14 +7,16 @@ module LMSGraphQL
         type Boolean, null: false
         argument :account_id, ID, required: true
         argument :term_id, ID, required: true
-        def resolve(account_id:, term_id:)
-          context[:canvas_api].call("GET_DEPARTMENT_LEVEL_STATISTICS_TERMS").proxy(
+        def resolve(account_id:, term_id:, get_all: false)
+          result = context[:canvas_api].call("GET_DEPARTMENT_LEVEL_STATISTICS_TERMS").proxy(
             "GET_DEPARTMENT_LEVEL_STATISTICS_TERMS",
             {
               "account_id": account_id,
               "term_id": term_id            },
             nil,
-          ).parsed_response
+            get_all,
+          )
+          get_all ? result : result.parsed_response
         end
       end
     end
