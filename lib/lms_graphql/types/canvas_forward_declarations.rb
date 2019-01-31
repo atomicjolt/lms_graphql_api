@@ -362,6 +362,8 @@ module LMSGraphQL
       class CanvasTab < BaseType;end
       class CanvasUserDisplayInput < BaseInputObject;end
       class CanvasUserDisplay < BaseType;end
+      class CanvasAnonymousUserDisplayInput < BaseInputObject;end
+      class CanvasAnonymousUserDisplay < BaseType;end
       class CanvasUserInput < BaseInputObject;end
       class CanvasUser < BaseType;end
       class CanvasProfileInput < BaseInputObject;end

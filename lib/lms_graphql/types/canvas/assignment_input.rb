@@ -94,6 +94,12 @@ module LMSGraphQL
         argument :overrides, [LMSGraphQL::Types::Canvas::CanvasAssignmentOverrideInput], "(Optional) If 'overrides' is included in the 'include' parameter, includes an array of assignment override objects..", required: false
         argument :omit_from_final_grade, Boolean, "(Optional) If true, the assignment will be omitted from the student's final grade.Example: true", required: false
         argument :moderated_grading, Boolean, "Boolean indicating if the assignment is moderated..Example: true", required: false
+        argument :grader_count, Int, "The maximum number of provisional graders who may issue grades for this assignment. Only relevant for moderated assignments. Must be a positive value, and must be set to 1 if the course has fewer than two active instructors. Otherwise, the maximum value is the number of active instructors in the course minus one, or 10 if the course has more than 11 active instructors..Example: 3", required: false
+        argument :final_grader_id, ID, "The user ID of the grader responsible for choosing final grades for this assignment. Only relevant for moderated assignments..Example: 3", required: false
+        argument :grader_comments_visible_to_graders, Boolean, "Boolean indicating if provisional graders' comments are visible to other provisional graders. Only relevant for moderated assignments..Example: true", required: false
+        argument :graders_anonymous_to_graders, Boolean, "Boolean indicating if provisional graders' identities are hidden from other provisional graders. Only relevant for moderated assignments with grader_comments_visible_to_graders set to true..Example: true", required: false
+        argument :grader_names_visible_to_final_grader, Boolean, "Boolean indicating if provisional grader identities are visible to the final grader. Only relevant for moderated assignments..Example: true", required: false
+        argument :anonymous_grading, Boolean, "Boolean indicating if the assignment is graded anonymously. If true, graders cannot see student identities..Example: true", required: false
         argument :allowed_attempts, Int, "The number of submission attempts a student can make for this assignment. -1 is considered unlimited..Example: 2", required: false
 
       end

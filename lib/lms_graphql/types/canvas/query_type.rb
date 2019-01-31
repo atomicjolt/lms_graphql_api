@@ -1417,7 +1417,7 @@ module LMSGraphQL
 
         field :list_gradeable_students,
           resolver: LMSGraphQL::Resolvers::Canvas::ListGradeableStudent,
-          description: "List gradeable students. A paginated list of students eligible to submit the assignment. The caller must have permission to view grades.      Section-limited instructors will only see students in their own sections.      returns [UserDisplay]"
+          description: "List gradeable students. A paginated list of students eligible to submit the assignment. The caller must have permission to view grades.      If anonymous grading is enabled for the current assignment and the allow_new_anonymous_id parameter is passed,   the returned data will not include any values identifying the student, but will instead include an   assignment-specific anonymous ID for each student.      Section-limited instructors will only see students in their own sections."
 
         field :list_multiple_assignments_gradeable_students,
           resolver: LMSGraphQL::Resolvers::Canvas::ListMultipleAssignmentsGradeableStudent,

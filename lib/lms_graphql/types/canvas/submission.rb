@@ -46,6 +46,7 @@ module LMSGraphQL
         field :seconds_late, Float, "The amount of time, in seconds, that an submission is late by..Example: 300", null: true
         field :workflow_state, SubmissionWorkflowStateEnum, "The current state of the submission.Example: submitted", null: true
         field :extra_attempts, Float, "Extra submission attempts allowed for the given user and assignment..Example: 10", null: true
+        field :anonymous_id, ID, "A unique short ID identifying this submission without reference to the owning user. Only included if the caller has administrator access for the current account..Example: acJ4Q", null: true
 
       end
     end

@@ -1,10 +1,10 @@
 require_relative "../canvas_base_resolver"
-
+require_relative "../../types/canvas/user_display"
 module LMSGraphQL
   module Resolvers
     module Canvas
       class ListGradeableStudent < CanvasBaseResolver
-        type Boolean, null: false
+        type [UserDisplay], null: false
         argument :course_id, ID, required: true
         argument :assignment_id, ID, required: true
         def resolve(course_id:, assignment_id:)
