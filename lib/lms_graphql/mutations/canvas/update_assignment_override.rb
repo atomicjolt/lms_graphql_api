@@ -19,13 +19,15 @@ module LMSGraphQL
             {
               "course_id": course_id,
               "assignment_id": assignment_id,
-              "id": id,
+              "id": id
+            },
+            {
               "assignment_override[student_ids]": assignment_override_student_ids,
               "assignment_override[title]": assignment_override_title,
               "assignment_override[due_at]": assignment_override_due_at,
               "assignment_override[unlock_at]": assignment_override_unlock_at,
-              "assignment_override[lock_at]": assignment_override_lock_at            },
-            nil,
+              "assignment_override[lock_at]": assignment_override_lock_at
+            },
           ).parsed_response
         end
       end

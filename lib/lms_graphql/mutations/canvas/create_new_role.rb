@@ -18,7 +18,9 @@ module LMSGraphQL
           context[:canvas_api].call("CREATE_NEW_ROLE").proxy(
             "CREATE_NEW_ROLE",
             {
-              "account_id": account_id,
+              "account_id": account_id
+            },
+            {
               "label": label,
               "role": role,
               "base_role_type": base_role_type,
@@ -26,8 +28,8 @@ module LMSGraphQL
               "permissions[<X>][enabled]": permissions__X__enabled,
               "permissions[<X>][locked]": permissions__X__locked,
               "permissions[<X>][applies_to_self]": permissions__X__applies_to_self,
-              "permissions[<X>][applies_to_descendants]": permissions__X__applies_to_descendants            },
-            nil,
+              "permissions[<X>][applies_to_descendants]": permissions__X__applies_to_descendants
+            },
           ).parsed_response
         end
       end

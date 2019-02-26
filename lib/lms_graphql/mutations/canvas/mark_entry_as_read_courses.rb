@@ -15,9 +15,11 @@ module LMSGraphQL
             {
               "course_id": course_id,
               "topic_id": topic_id,
-              "entry_id": entry_id,
-              "forced_read_state": forced_read_state            },
-            nil,
+              "entry_id": entry_id
+            },
+            {
+              "forced_read_state": forced_read_state
+            },
           ).parsed_response
         end
       end

@@ -12,8 +12,9 @@ module LMSGraphQL
             "DELETE_CONCLUDE_COURSE",
             {
               "id": id,
-              "event": event            },
-            nil,
+              "event": event
+            },
+            {},
           ).parsed_response
         end
       end

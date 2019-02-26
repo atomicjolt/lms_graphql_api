@@ -12,12 +12,13 @@ module LMSGraphQL
         def resolve(name: nil, url: nil, position: nil, data: nil)
           context[:canvas_api].call("CREATE_BOOKMARK").proxy(
             "CREATE_BOOKMARK",
+            {},
             {
               "name": name,
               "url": url,
               "position": position,
-              "data": data            },
-            nil,
+              "data": data
+            },
           ).parsed_response
         end
       end

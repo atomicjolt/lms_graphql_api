@@ -11,9 +11,11 @@ module LMSGraphQL
           context[:canvas_api].call("REORDER_CUSTOM_COLUMNS").proxy(
             "REORDER_CUSTOM_COLUMNS",
             {
-              "course_id": course_id,
-              "order": order            },
-            nil,
+              "course_id": course_id
+            },
+            {
+              "order": order
+            },
           ).parsed_response
         end
       end

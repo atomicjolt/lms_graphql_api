@@ -13,11 +13,13 @@ module LMSGraphQL
           context[:canvas_api].call("CREATE_NEW_GRADING_STANDARD_ACCOUNTS").proxy(
             "CREATE_NEW_GRADING_STANDARD_ACCOUNTS",
             {
-              "account_id": account_id,
+              "account_id": account_id
+            },
+            {
               "title": title,
               "grading_scheme_entry[name]": grading_scheme_entry_name,
-              "grading_scheme_entry[value]": grading_scheme_entry_value            },
-            nil,
+              "grading_scheme_entry[value]": grading_scheme_entry_value
+            },
           ).parsed_response
         end
       end

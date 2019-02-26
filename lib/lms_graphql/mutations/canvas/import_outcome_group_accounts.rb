@@ -14,10 +14,12 @@ module LMSGraphQL
             "IMPORT_OUTCOME_GROUP_ACCOUNTS",
             {
               "account_id": account_id,
-              "id": id,
+              "id": id
+            },
+            {
               "source_outcome_group_id": source_outcome_group_id,
-              "async": async            },
-            nil,
+              "async": async
+            },
           ).parsed_response
         end
       end

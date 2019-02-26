@@ -13,9 +13,11 @@ module LMSGraphQL
             "SET_FEATURE_FLAG_USERS",
             {
               "user_id": user_id,
-              "feature": feature,
-              "state": state            },
-            nil,
+              "feature": feature
+            },
+            {
+              "state": state
+            },
           ).parsed_response
         end
       end

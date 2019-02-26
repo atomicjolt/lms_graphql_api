@@ -9,9 +9,8 @@ module LMSGraphQL
         def resolve()
           context[:canvas_api].call("START_KALTURA_SESSION").proxy(
             "START_KALTURA_SESSION",
-            {
-            },
-            nil,
+            {},
+            {},
           ).parsed_response
         end
       end

@@ -10,8 +10,9 @@ module LMSGraphQL
           context[:canvas_api].call("HIDE_STREAM_ITEM").proxy(
             "HIDE_STREAM_ITEM",
             {
-              "id": id            },
-            nil,
+              "id": id
+            },
+            {},
           ).parsed_response
         end
       end

@@ -10,8 +10,9 @@ module LMSGraphQL
           context[:canvas_api].call("UPDATE_WEBHOOK_SUBSCRIPTION").proxy(
             "UPDATE_WEBHOOK_SUBSCRIPTION",
             {
-              "id": id            },
-            nil,
+              "id": id
+            },
+            {},
           ).parsed_response
         end
       end

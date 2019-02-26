@@ -33,7 +33,9 @@ module LMSGraphQL
           context[:canvas_api].call("CREATE_QUIZ").proxy(
             "CREATE_QUIZ",
             {
-              "course_id": course_id,
+              "course_id": course_id
+            },
+            {
               "quiz[title]": quiz_title,
               "quiz[description]": quiz_description,
               "quiz[quiz_type]": quiz_quiz_type,
@@ -56,8 +58,8 @@ module LMSGraphQL
               "quiz[unlock_at]": quiz_unlock_at,
               "quiz[published]": quiz_published,
               "quiz[one_time_results]": quiz_one_time_results,
-              "quiz[only_visible_to_overrides]": quiz_only_visible_to_overrides            },
-            nil,
+              "quiz[only_visible_to_overrides]": quiz_only_visible_to_overrides
+            },
           ).parsed_response
         end
       end

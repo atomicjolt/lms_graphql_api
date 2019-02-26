@@ -16,14 +16,16 @@ module LMSGraphQL
           context[:canvas_api].call("CREATE_USER_LOGIN").proxy(
             "CREATE_USER_LOGIN",
             {
-              "account_id": account_id,
+              "account_id": account_id
+            },
+            {
               "user[id]": user_id,
               "login[unique_id]": login_unique_id,
               "login[password]": login_password,
               "login[sis_user_id]": login_sis_user_id,
               "login[integration_id]": login_integration_id,
-              "login[authentication_provider_id]": login_authentication_provider_id            },
-            nil,
+              "login[authentication_provider_id]": login_authentication_provider_id
+            },
           ).parsed_response
         end
       end

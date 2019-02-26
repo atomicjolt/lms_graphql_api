@@ -11,9 +11,11 @@ module LMSGraphQL
           context[:canvas_api].call("CREATE_MEMBERSHIP").proxy(
             "CREATE_MEMBERSHIP",
             {
-              "group_id": group_id,
-              "user_id": user_id            },
-            nil,
+              "group_id": group_id
+            },
+            {
+              "user_id": user_id
+            },
           ).parsed_response
         end
       end

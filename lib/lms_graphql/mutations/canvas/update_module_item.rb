@@ -23,7 +23,9 @@ module LMSGraphQL
             {
               "course_id": course_id,
               "module_id": module_id,
-              "id": id,
+              "id": id
+            },
+            {
               "module_item[title]": module_item_title,
               "module_item[position]": module_item_position,
               "module_item[indent]": module_item_indent,
@@ -32,8 +34,8 @@ module LMSGraphQL
               "module_item[completion_requirement][type]": module_item_completion_requirement_type,
               "module_item[completion_requirement][min_score]": module_item_completion_requirement_min_score,
               "module_item[published]": module_item_published,
-              "module_item[module_id]": module_item_module_id            },
-            nil,
+              "module_item[module_id]": module_item_module_id
+            },
           ).parsed_response
         end
       end

@@ -10,8 +10,9 @@ module LMSGraphQL
           context[:canvas_api].call("ABORT_ALL_PENDING_SIS_IMPORTS").proxy(
             "ABORT_ALL_PENDING_SIS_IMPORTS",
             {
-              "account_id": account_id            },
-            nil,
+              "account_id": account_id
+            },
+            {},
           ).parsed_response
         end
       end

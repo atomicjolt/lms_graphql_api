@@ -14,8 +14,9 @@ module LMSGraphQL
             {
               "user_id": user_id,
               "type": type,
-              "address": address            },
-            nil,
+              "address": address
+            },
+            {},
           ).parsed_response
         end
       end

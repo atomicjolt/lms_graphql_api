@@ -15,11 +15,13 @@ module LMSGraphQL
             "CREATE_SUBGROUP_ACCOUNTS",
             {
               "account_id": account_id,
-              "id": id,
+              "id": id
+            },
+            {
               "title": title,
               "description": description,
-              "vendor_guid": vendor_guid            },
-            nil,
+              "vendor_guid": vendor_guid
+            },
           ).parsed_response
         end
       end

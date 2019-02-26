@@ -11,9 +11,11 @@ module LMSGraphQL
           context[:canvas_api].call("COPY_FOLDER").proxy(
             "COPY_FOLDER",
             {
-              "dest_folder_id": dest_folder_id,
-              "source_folder_id": source_folder_id            },
-            nil,
+              "dest_folder_id": dest_folder_id
+            },
+            {
+              "source_folder_id": source_folder_id
+            },
           ).parsed_response
         end
       end

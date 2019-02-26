@@ -13,11 +13,13 @@ module LMSGraphQL
           context[:canvas_api].call("CREATE_SUBGROUP_GLOBAL").proxy(
             "CREATE_SUBGROUP_GLOBAL",
             {
-              "id": id,
+              "id": id
+            },
+            {
               "title": title,
               "description": description,
-              "vendor_guid": vendor_guid            },
-            nil,
+              "vendor_guid": vendor_guid
+            },
           ).parsed_response
         end
       end

@@ -13,9 +13,11 @@ module LMSGraphQL
             "VALIDATE_QUIZ_ACCESS_CODE",
             {
               "course_id": course_id,
-              "id": id,
-              "access_code": access_code            },
-            nil,
+              "id": id
+            },
+            {
+              "access_code": access_code
+            },
           ).parsed_response
         end
       end

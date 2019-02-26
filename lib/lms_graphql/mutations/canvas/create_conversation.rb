@@ -22,6 +22,7 @@ module LMSGraphQL
         def resolve(recipients:, subject: nil, body:, force_new: nil, group_conversation: nil, attachment_ids: nil, media_comment_id: nil, media_comment_type: nil, user_note: nil, mode: nil, scope: nil, filter: nil, filter_mode: nil, context_code: nil)
           context[:canvas_api].call("CREATE_CONVERSATION").proxy(
             "CREATE_CONVERSATION",
+            {},
             {
               "recipients": recipients,
               "subject": subject,
@@ -36,8 +37,8 @@ module LMSGraphQL
               "scope": scope,
               "filter": filter,
               "filter_mode": filter_mode,
-              "context_code": context_code            },
-            nil,
+              "context_code": context_code
+            },
           ).parsed_response
         end
       end

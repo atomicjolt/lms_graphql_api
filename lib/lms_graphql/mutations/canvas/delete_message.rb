@@ -11,9 +11,11 @@ module LMSGraphQL
           context[:canvas_api].call("DELETE_MESSAGE").proxy(
             "DELETE_MESSAGE",
             {
-              "id": id,
-              "remove": remove            },
-            nil,
+              "id": id
+            },
+            {
+              "remove": remove
+            },
           ).parsed_response
         end
       end

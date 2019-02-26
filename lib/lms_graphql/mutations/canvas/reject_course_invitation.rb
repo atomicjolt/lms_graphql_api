@@ -12,8 +12,9 @@ module LMSGraphQL
             "REJECT_COURSE_INVITATION",
             {
               "course_id": course_id,
-              "id": id            },
-            nil,
+              "id": id
+            },
+            {},
           ).parsed_response
         end
       end

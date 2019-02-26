@@ -15,11 +15,13 @@ module LMSGraphQL
             "CREATE_QUIZ_REPORT",
             {
               "course_id": course_id,
-              "quiz_id": quiz_id,
+              "quiz_id": quiz_id
+            },
+            {
               "quiz_report[report_type]": quiz_report_report_type,
               "quiz_report[includes_all_versions]": quiz_report_includes_all_versions,
-              "include": include            },
-            nil,
+              "include": include
+            },
           ).parsed_response
         end
       end

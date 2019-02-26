@@ -12,8 +12,9 @@ module LMSGraphQL
             "CREATE_LIVE_ASSESSMENT_RESULTS",
             {
               "course_id": course_id,
-              "assessment_id": assessment_id            },
-            nil,
+              "assessment_id": assessment_id
+            },
+            {},
           ).parsed_response
         end
       end

@@ -71,7 +71,9 @@ module LMSGraphQL
           context[:canvas_api].call("CREATE_EXTERNAL_TOOL_COURSES").proxy(
             "CREATE_EXTERNAL_TOOL_COURSES",
             {
-              "course_id": course_id,
+              "course_id": course_id
+            },
+            {
               "name": name,
               "privacy_level": privacy_level,
               "consumer_key": consumer_key,
@@ -132,8 +134,8 @@ module LMSGraphQL
               "config_xml": config_xml,
               "config_url": config_url,
               "not_selectable": not_selectable,
-              "oauth_compliant": oauth_compliant            },
-            nil,
+              "oauth_compliant": oauth_compliant
+            },
           ).parsed_response
         end
       end

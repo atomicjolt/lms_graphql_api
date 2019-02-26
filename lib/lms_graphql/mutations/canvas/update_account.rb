@@ -25,7 +25,9 @@ module LMSGraphQL
           context[:canvas_api].call("UPDATE_ACCOUNT").proxy(
             "UPDATE_ACCOUNT",
             {
-              "id": id,
+              "id": id
+            },
+            {
               "account[name]": account_name,
               "account[sis_account_id]": account_sis_account_id,
               "account[default_time_zone]": account_default_time_zone,
@@ -40,8 +42,8 @@ module LMSGraphQL
               "account[settings][lock_all_announcements][locked]": account_settings_lock_all_announcements_locked,
               "account[settings][restrict_student_future_listing][value]": account_settings_restrict_student_future_listing_value,
               "account[settings][restrict_student_future_listing][locked]": account_settings_restrict_student_future_listing_locked,
-              "account[services]": account_services            },
-            nil,
+              "account[services]": account_services
+            },
           ).parsed_response
         end
       end

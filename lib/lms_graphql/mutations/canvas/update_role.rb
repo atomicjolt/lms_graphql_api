@@ -17,13 +17,15 @@ module LMSGraphQL
             "UPDATE_ROLE",
             {
               "account_id": account_id,
-              "id": id,
+              "id": id
+            },
+            {
               "label": label,
               "permissions[<X>][explicit]": permissions__X__explicit,
               "permissions[<X>][enabled]": permissions__X__enabled,
               "permissions[<X>][applies_to_self]": permissions__X__applies_to_self,
-              "permissions[<X>][applies_to_descendants]": permissions__X__applies_to_descendants            },
-            nil,
+              "permissions[<X>][applies_to_descendants]": permissions__X__applies_to_descendants
+            },
           ).parsed_response
         end
       end

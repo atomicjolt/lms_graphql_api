@@ -15,11 +15,13 @@ module LMSGraphQL
             "UPDATE_SINGLE_POLL_CHOICE",
             {
               "poll_id": poll_id,
-              "id": id,
+              "id": id
+            },
+            {
               "poll_choices[text]": poll_choices_text,
               "poll_choices[is_correct]": poll_choices_is_correct,
-              "poll_choices[position]": poll_choices_position            },
-            nil,
+              "poll_choices[position]": poll_choices_position
+            },
           ).parsed_response
         end
       end

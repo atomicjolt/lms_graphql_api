@@ -9,9 +9,10 @@ module LMSGraphQL
         def resolve(app_key: nil)
           context[:canvas_api].call("GET_PANDATA_EVENTS_JWT_TOKEN_AND_ITS_EXPIRATION_DATE").proxy(
             "GET_PANDATA_EVENTS_JWT_TOKEN_AND_ITS_EXPIRATION_DATE",
+            {},
             {
-              "app_key": app_key            },
-            nil,
+              "app_key": app_key
+            },
           ).parsed_response
         end
       end

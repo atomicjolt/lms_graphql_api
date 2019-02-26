@@ -22,7 +22,9 @@ module LMSGraphQL
             "CREATE_MODULE_ITEM",
             {
               "course_id": course_id,
-              "module_id": module_id,
+              "module_id": module_id
+            },
+            {
               "module_item[title]": module_item_title,
               "module_item[type]": module_item_type,
               "module_item[content_id]": module_item_content_id,
@@ -32,8 +34,8 @@ module LMSGraphQL
               "module_item[external_url]": module_item_external_url,
               "module_item[new_tab]": module_item_new_tab,
               "module_item[completion_requirement][type]": module_item_completion_requirement_type,
-              "module_item[completion_requirement][min_score]": module_item_completion_requirement_min_score            },
-            nil,
+              "module_item[completion_requirement][min_score]": module_item_completion_requirement_min_score
+            },
           ).parsed_response
         end
       end

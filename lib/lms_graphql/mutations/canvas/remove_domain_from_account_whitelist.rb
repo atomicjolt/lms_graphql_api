@@ -12,8 +12,9 @@ module LMSGraphQL
             "REMOVE_DOMAIN_FROM_ACCOUNT_WHITELIST",
             {
               "account_id": account_id,
-              "domain": domain            },
-            nil,
+              "domain": domain
+            },
+            {},
           ).parsed_response
         end
       end

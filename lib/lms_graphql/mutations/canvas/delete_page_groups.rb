@@ -12,8 +12,9 @@ module LMSGraphQL
             "DELETE_PAGE_GROUPS",
             {
               "group_id": group_id,
-              "url": url            },
-            nil,
+              "url": url
+            },
+            {},
           ).parsed_response
         end
       end

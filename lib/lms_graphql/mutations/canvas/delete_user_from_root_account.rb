@@ -12,8 +12,9 @@ module LMSGraphQL
             "DELETE_USER_FROM_ROOT_ACCOUNT",
             {
               "account_id": account_id,
-              "user_id": user_id            },
-            nil,
+              "user_id": user_id
+            },
+            {},
           ).parsed_response
         end
       end

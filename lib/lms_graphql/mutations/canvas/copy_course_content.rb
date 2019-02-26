@@ -13,11 +13,13 @@ module LMSGraphQL
           context[:canvas_api].call("COPY_COURSE_CONTENT").proxy(
             "COPY_COURSE_CONTENT",
             {
-              "course_id": course_id,
+              "course_id": course_id
+            },
+            {
               "source_course": source_course,
               "except": except,
-              "only": only            },
-            nil,
+              "only": only
+            },
           ).parsed_response
         end
       end

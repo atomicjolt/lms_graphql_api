@@ -11,9 +11,11 @@ module LMSGraphQL
           context[:canvas_api].call("UPDATE_MULTIPLE_PREFERENCES_COMMUNICATION_CHANNEL_ID").proxy(
             "UPDATE_MULTIPLE_PREFERENCES_COMMUNICATION_CHANNEL_ID",
             {
-              "communication_channel_id": communication_channel_id,
-              "notification_preferences[<X>][frequency]": notification_preferences__X__frequency            },
-            nil,
+              "communication_channel_id": communication_channel_id
+            },
+            {
+              "notification_preferences[<X>][frequency]": notification_preferences__X__frequency
+            },
           ).parsed_response
         end
       end

@@ -12,8 +12,9 @@ module LMSGraphQL
             "DELETE_ENROLLMENT_TERM",
             {
               "account_id": account_id,
-              "id": id            },
-            nil,
+              "id": id
+            },
+            {},
           ).parsed_response
         end
       end

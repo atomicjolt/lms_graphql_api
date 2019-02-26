@@ -19,15 +19,17 @@ module LMSGraphQL
             "SUBMIT_ASSIGNMENT_COURSES",
             {
               "course_id": course_id,
-              "assignment_id": assignment_id,
+              "assignment_id": assignment_id
+            },
+            {
               "comment[text_comment]": comment_text_comment,
               "submission[submission_type]": submission_submission_type,
               "submission[body]": submission_body,
               "submission[url]": submission_url,
               "submission[file_ids]": submission_file_ids,
               "submission[media_comment_id]": submission_media_comment_id,
-              "submission[media_comment_type]": submission_media_comment_type            },
-            nil,
+              "submission[media_comment_type]": submission_media_comment_type
+            },
           ).parsed_response
         end
       end

@@ -15,9 +15,11 @@ module LMSGraphQL
             {
               "type": type,
               "address": address,
-              "notification": notification,
-              "notification_preferences[frequency]": notification_preferences_frequency            },
-            nil,
+              "notification": notification
+            },
+            {
+              "notification_preferences[frequency]": notification_preferences_frequency
+            },
           ).parsed_response
         end
       end

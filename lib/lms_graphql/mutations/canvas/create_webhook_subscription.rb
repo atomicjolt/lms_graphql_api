@@ -14,14 +14,15 @@ module LMSGraphQL
         def resolve(submission_ContextId:, subscription_ContextType:, subscription_EventTypes:, subscription_Format:, subscription_TransportMetadata:, subscription_TransportType:)
           context[:canvas_api].call("CREATE_WEBHOOK_SUBSCRIPTION").proxy(
             "CREATE_WEBHOOK_SUBSCRIPTION",
+            {},
             {
               "submission[ContextId]": submission_ContextId,
               "subscription[ContextType]": subscription_ContextType,
               "subscription[EventTypes]": subscription_EventTypes,
               "subscription[Format]": subscription_Format,
               "subscription[TransportMetadata]": subscription_TransportMetadata,
-              "subscription[TransportType]": subscription_TransportType            },
-            nil,
+              "subscription[TransportType]": subscription_TransportType
+            },
           ).parsed_response
         end
       end

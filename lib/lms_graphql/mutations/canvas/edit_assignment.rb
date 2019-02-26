@@ -42,7 +42,9 @@ module LMSGraphQL
             "EDIT_ASSIGNMENT",
             {
               "course_id": course_id,
-              "id": id,
+              "id": id
+            },
+            {
               "assignment[name]": assignment_name,
               "assignment[position]": assignment_position,
               "assignment[submission_types]": assignment_submission_types,
@@ -72,8 +74,8 @@ module LMSGraphQL
               "assignment[grading_standard_id]": assignment_grading_standard_id,
               "assignment[omit_from_final_grade]": assignment_omit_from_final_grade,
               "assignment[moderated_grading]": assignment_moderated_grading,
-              "assignment[allowed_attempts]": assignment_allowed_attempts            },
-            nil,
+              "assignment[allowed_attempts]": assignment_allowed_attempts
+            },
           ).parsed_response
         end
       end

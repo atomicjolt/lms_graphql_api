@@ -13,11 +13,13 @@ module LMSGraphQL
           context[:canvas_api].call("CREATE_EXTERNAL_FEED_COURSES").proxy(
             "CREATE_EXTERNAL_FEED_COURSES",
             {
-              "course_id": course_id,
+              "course_id": course_id
+            },
+            {
               "url": url,
               "header_match": header_match,
-              "verbosity": verbosity            },
-            nil,
+              "verbosity": verbosity
+            },
           ).parsed_response
         end
       end

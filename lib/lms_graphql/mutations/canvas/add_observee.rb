@@ -13,9 +13,11 @@ module LMSGraphQL
             "ADD_OBSERVEE",
             {
               "user_id": user_id,
-              "observee_id": observee_id,
-              "root_account_id": root_account_id            },
-            nil,
+              "observee_id": observee_id
+            },
+            {
+              "root_account_id": root_account_id
+            },
           ).parsed_response
         end
       end

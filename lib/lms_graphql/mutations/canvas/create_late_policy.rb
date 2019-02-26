@@ -17,15 +17,17 @@ module LMSGraphQL
           context[:canvas_api].call("CREATE_LATE_POLICY").proxy(
             "CREATE_LATE_POLICY",
             {
-              "id": id,
+              "id": id
+            },
+            {
               "late_policy[missing_submission_deduction_enabled]": late_policy_missing_submission_deduction_enabled,
               "late_policy[missing_submission_deduction]": late_policy_missing_submission_deduction,
               "late_policy[late_submission_deduction_enabled]": late_policy_late_submission_deduction_enabled,
               "late_policy[late_submission_deduction]": late_policy_late_submission_deduction,
               "late_policy[late_submission_interval]": late_policy_late_submission_interval,
               "late_policy[late_submission_minimum_percent_enabled]": late_policy_late_submission_minimum_percent_enabled,
-              "late_policy[late_submission_minimum_percent]": late_policy_late_submission_minimum_percent            },
-            nil,
+              "late_policy[late_submission_minimum_percent]": late_policy_late_submission_minimum_percent
+            },
           ).parsed_response
         end
       end

@@ -12,8 +12,9 @@ module LMSGraphQL
             "DELETE_CALENDAR_EVENT",
             {
               "id": id,
-              "cancel_reason": cancel_reason            },
-            nil,
+              "cancel_reason": cancel_reason
+            },
+            {},
           ).parsed_response
         end
       end

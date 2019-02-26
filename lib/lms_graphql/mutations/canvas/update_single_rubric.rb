@@ -22,7 +22,9 @@ module LMSGraphQL
             "UPDATE_SINGLE_RUBRIC",
             {
               "course_id": course_id,
-              "id": id,
+              "id": id
+            },
+            {
               "rubric_association_id": rubric_association_id,
               "rubric[title]": rubric_title,
               "rubric[free_form_criterion_comments]": rubric_free_form_criterion_comments,
@@ -32,8 +34,8 @@ module LMSGraphQL
               "rubric_association[use_for_grading]": rubric_association_use_for_grading,
               "rubric_association[hide_score_total]": rubric_association_hide_score_total,
               "rubric_association[purpose]": rubric_association_purpose,
-              "rubric[criteria]": rubric_criteria            },
-            nil,
+              "rubric[criteria]": rubric_criteria
+            },
           ).parsed_response
         end
       end

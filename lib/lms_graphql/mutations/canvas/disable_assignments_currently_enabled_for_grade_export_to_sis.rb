@@ -11,9 +11,11 @@ module LMSGraphQL
           context[:canvas_api].call("DISABLE_ASSIGNMENTS_CURRENTLY_ENABLED_FOR_GRADE_EXPORT_TO_SIS").proxy(
             "DISABLE_ASSIGNMENTS_CURRENTLY_ENABLED_FOR_GRADE_EXPORT_TO_SIS",
             {
-              "course_id": course_id,
-              "grading_period_id": grading_period_id            },
-            nil,
+              "course_id": course_id
+            },
+            {
+              "grading_period_id": grading_period_id
+            },
           ).parsed_response
         end
       end

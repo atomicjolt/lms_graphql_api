@@ -11,9 +11,11 @@ module LMSGraphQL
           context[:canvas_api].call("REORDER_PINNED_TOPICS_GROUPS").proxy(
             "REORDER_PINNED_TOPICS_GROUPS",
             {
-              "group_id": group_id,
-              "order": order            },
-            nil,
+              "group_id": group_id
+            },
+            {
+              "order": order
+            },
           ).parsed_response
         end
       end

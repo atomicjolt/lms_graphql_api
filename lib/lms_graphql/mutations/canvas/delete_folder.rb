@@ -12,8 +12,9 @@ module LMSGraphQL
             "DELETE_FOLDER",
             {
               "id": id,
-              "force": force            },
-            nil,
+              "force": force
+            },
+            {},
           ).parsed_response
         end
       end

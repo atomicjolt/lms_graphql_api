@@ -14,10 +14,12 @@ module LMSGraphQL
             "UPDATE_TAB_FOR_COURSE",
             {
               "course_id": course_id,
-              "tab_id": tab_id,
+              "tab_id": tab_id
+            },
+            {
               "position": position,
-              "hidden": hidden            },
-            nil,
+              "hidden": hidden
+            },
           ).parsed_response
         end
       end

@@ -30,7 +30,9 @@ module LMSGraphQL
             "UPDATE_TOPIC_GROUPS",
             {
               "group_id": group_id,
-              "topic_id": topic_id,
+              "topic_id": topic_id
+            },
+            {
               "title": title,
               "message": message,
               "discussion_type": discussion_type,
@@ -48,8 +50,8 @@ module LMSGraphQL
               "allow_rating": allow_rating,
               "only_graders_can_rate": only_graders_can_rate,
               "sort_by_rating": sort_by_rating,
-              "specific_sections": specific_sections            },
-            nil,
+              "specific_sections": specific_sections
+            },
           ).parsed_response
         end
       end

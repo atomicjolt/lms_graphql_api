@@ -11,9 +11,11 @@ module LMSGraphQL
           context[:canvas_api].call("BULK_UPDATE_COLUMN_DATA").proxy(
             "BULK_UPDATE_COLUMN_DATA",
             {
-              "course_id": course_id,
-              "column_data": column_data            },
-            nil,
+              "course_id": course_id
+            },
+            {
+              "column_data": column_data
+            },
           ).parsed_response
         end
       end

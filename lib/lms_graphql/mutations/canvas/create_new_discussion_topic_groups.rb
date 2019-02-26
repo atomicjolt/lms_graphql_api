@@ -29,7 +29,9 @@ module LMSGraphQL
           context[:canvas_api].call("CREATE_NEW_DISCUSSION_TOPIC_GROUPS").proxy(
             "CREATE_NEW_DISCUSSION_TOPIC_GROUPS",
             {
-              "group_id": group_id,
+              "group_id": group_id
+            },
+            {
               "title": title,
               "message": message,
               "discussion_type": discussion_type,
@@ -48,8 +50,8 @@ module LMSGraphQL
               "only_graders_can_rate": only_graders_can_rate,
               "sort_by_rating": sort_by_rating,
               "attachment": attachment,
-              "specific_sections": specific_sections            },
-            nil,
+              "specific_sections": specific_sections
+            },
           ).parsed_response
         end
       end

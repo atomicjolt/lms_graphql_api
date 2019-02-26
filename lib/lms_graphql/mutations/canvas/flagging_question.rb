@@ -15,11 +15,13 @@ module LMSGraphQL
             "FLAGGING_QUESTION",
             {
               "quiz_submission_id": quiz_submission_id,
-              "id": id,
+              "id": id
+            },
+            {
               "attempt": attempt,
               "validation_token": validation_token,
-              "access_code": access_code            },
-            nil,
+              "access_code": access_code
+            },
           ).parsed_response
         end
       end

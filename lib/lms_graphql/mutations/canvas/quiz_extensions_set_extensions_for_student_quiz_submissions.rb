@@ -18,14 +18,16 @@ module LMSGraphQL
             "QUIZ_EXTENSIONS_SET_EXTENSIONS_FOR_STUDENT_QUIZ_SUBMISSIONS",
             {
               "course_id": course_id,
-              "quiz_id": quiz_id,
+              "quiz_id": quiz_id
+            },
+            {
               "quiz_extensions[user_id]": quiz_extensions_user_id,
               "quiz_extensions[extra_attempts]": quiz_extensions_extra_attempts,
               "quiz_extensions[extra_time]": quiz_extensions_extra_time,
               "quiz_extensions[manually_unlocked]": quiz_extensions_manually_unlocked,
               "quiz_extensions[extend_from_now]": quiz_extensions_extend_from_now,
-              "quiz_extensions[extend_from_end_at]": quiz_extensions_extend_from_end_at            },
-            nil,
+              "quiz_extensions[extend_from_end_at]": quiz_extensions_extend_from_end_at
+            },
           ).parsed_response
         end
       end

@@ -21,7 +21,9 @@ module LMSGraphQL
           context[:canvas_api].call("UPDATE_COURSE_SETTINGS").proxy(
             "UPDATE_COURSE_SETTINGS",
             {
-              "course_id": course_id,
+              "course_id": course_id
+            },
+            {
               "allow_student_discussion_topics": allow_student_discussion_topics,
               "allow_student_forum_attachments": allow_student_forum_attachments,
               "allow_student_discussion_editing": allow_student_discussion_editing,
@@ -32,8 +34,8 @@ module LMSGraphQL
               "restrict_student_past_view": restrict_student_past_view,
               "restrict_student_future_view": restrict_student_future_view,
               "show_announcements_on_home_page": show_announcements_on_home_page,
-              "home_page_announcement_limit": home_page_announcement_limit            },
-            nil,
+              "home_page_announcement_limit": home_page_announcement_limit
+            },
           ).parsed_response
         end
       end

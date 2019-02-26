@@ -12,8 +12,9 @@ module LMSGraphQL
             "RE_LOCK_MODULE_PROGRESSIONS",
             {
               "course_id": course_id,
-              "id": id            },
-            nil,
+              "id": id
+            },
+            {},
           ).parsed_response
         end
       end

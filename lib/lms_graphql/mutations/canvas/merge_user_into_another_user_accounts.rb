@@ -14,8 +14,9 @@ module LMSGraphQL
             {
               "id": id,
               "destination_account_id": destination_account_id,
-              "destination_user_id": destination_user_id            },
-            nil,
+              "destination_user_id": destination_user_id
+            },
+            {},
           ).parsed_response
         end
       end

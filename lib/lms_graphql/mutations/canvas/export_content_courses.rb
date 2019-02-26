@@ -13,11 +13,13 @@ module LMSGraphQL
           context[:canvas_api].call("EXPORT_CONTENT_COURSES").proxy(
             "EXPORT_CONTENT_COURSES",
             {
-              "course_id": course_id,
+              "course_id": course_id
+            },
+            {
               "export_type": export_type,
               "skip_notifications": skip_notifications,
-              "select": select            },
-            nil,
+              "select": select
+            },
           ).parsed_response
         end
       end

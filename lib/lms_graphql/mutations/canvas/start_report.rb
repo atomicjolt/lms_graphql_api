@@ -15,11 +15,13 @@ module LMSGraphQL
             "START_REPORT",
             {
               "account_id": account_id,
-              "report": report,
+              "report": report
+            },
+            {
               "parameters": parameters,
               "parameters[course_id]": parameters_course_id,
-              "parameters[users]": parameters_users            },
-            nil,
+              "parameters[users]": parameters_users
+            },
           ).parsed_response
         end
       end

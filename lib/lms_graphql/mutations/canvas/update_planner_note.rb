@@ -14,12 +14,14 @@ module LMSGraphQL
           context[:canvas_api].call("UPDATE_PLANNER_NOTE").proxy(
             "UPDATE_PLANNER_NOTE",
             {
-              "id": id,
+              "id": id
+            },
+            {
               "title": title,
               "details": details,
               "todo_date": todo_date,
-              "course_id": course_id            },
-            nil,
+              "course_id": course_id
+            },
           ).parsed_response
         end
       end

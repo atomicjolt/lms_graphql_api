@@ -12,10 +12,12 @@ module LMSGraphQL
           context[:canvas_api].call("IMPORT_OUTCOME_GROUP_GLOBAL").proxy(
             "IMPORT_OUTCOME_GROUP_GLOBAL",
             {
-              "id": id,
+              "id": id
+            },
+            {
               "source_outcome_group_id": source_outcome_group_id,
-              "async": async            },
-            nil,
+              "async": async
+            },
           ).parsed_response
         end
       end

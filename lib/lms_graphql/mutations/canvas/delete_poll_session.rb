@@ -12,8 +12,9 @@ module LMSGraphQL
             "DELETE_POLL_SESSION",
             {
               "poll_id": poll_id,
-              "id": id            },
-            nil,
+              "id": id
+            },
+            {},
           ).parsed_response
         end
       end

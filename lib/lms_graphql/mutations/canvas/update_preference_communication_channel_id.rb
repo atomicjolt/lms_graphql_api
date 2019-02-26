@@ -13,9 +13,11 @@ module LMSGraphQL
             "UPDATE_PREFERENCE_COMMUNICATION_CHANNEL_ID",
             {
               "communication_channel_id": communication_channel_id,
-              "notification": notification,
-              "notification_preferences[frequency]": notification_preferences_frequency            },
-            nil,
+              "notification": notification
+            },
+            {
+              "notification_preferences[frequency]": notification_preferences_frequency
+            },
           ).parsed_response
         end
       end

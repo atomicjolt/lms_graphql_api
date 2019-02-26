@@ -16,14 +16,16 @@ module LMSGraphQL
           context[:canvas_api].call("SET_USAGE_RIGHTS_GROUPS").proxy(
             "SET_USAGE_RIGHTS_GROUPS",
             {
-              "group_id": group_id,
+              "group_id": group_id
+            },
+            {
               "file_ids": file_ids,
               "folder_ids": folder_ids,
               "publish": publish,
               "usage_rights[use_justification]": usage_rights_use_justification,
               "usage_rights[legal_copyright]": usage_rights_legal_copyright,
-              "usage_rights[license]": usage_rights_license            },
-            nil,
+              "usage_rights[license]": usage_rights_license
+            },
           ).parsed_response
         end
       end

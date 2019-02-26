@@ -14,10 +14,12 @@ module LMSGraphQL
             "QUIZ_SUBMISSION_FILES_UPLOAD_FILE",
             {
               "course_id": course_id,
-              "quiz_id": quiz_id,
+              "quiz_id": quiz_id
+            },
+            {
               "name": name,
-              "on_duplicate": on_duplicate            },
-            nil,
+              "on_duplicate": on_duplicate
+            },
           ).parsed_response
         end
       end

@@ -12,8 +12,9 @@ module LMSGraphQL
             "UPDATE_CUSTOM_GRADEBOOK_COLUMN",
             {
               "course_id": course_id,
-              "id": id            },
-            nil,
+              "id": id
+            },
+            {},
           ).parsed_response
         end
       end
