@@ -15,9 +15,11 @@ module LMSGraphQL
             {
               "course_id": course_id,
               "id": id,
-              "user_id": user_id,
-              "column_data[content]": column_data_content            },
-            nil,
+              "user_id": user_id
+            },
+            {
+              "column_data[content]": column_data_content
+            },
           ).parsed_response
         end
       end

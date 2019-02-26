@@ -18,7 +18,9 @@ module LMSGraphQL
           context[:canvas_api].call("CREATE_FOLDER_GROUPS").proxy(
             "CREATE_FOLDER_GROUPS",
             {
-              "group_id": group_id,
+              "group_id": group_id
+            },
+            {
               "name": name,
               "parent_folder_id": parent_folder_id,
               "parent_folder_path": parent_folder_path,
@@ -26,8 +28,8 @@ module LMSGraphQL
               "unlock_at": unlock_at,
               "locked": locked,
               "hidden": hidden,
-              "position": position            },
-            nil,
+              "position": position
+            },
           ).parsed_response
         end
       end

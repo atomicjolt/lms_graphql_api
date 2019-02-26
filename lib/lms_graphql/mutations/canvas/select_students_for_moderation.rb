@@ -13,9 +13,11 @@ module LMSGraphQL
             "SELECT_STUDENTS_FOR_MODERATION",
             {
               "course_id": course_id,
-              "assignment_id": assignment_id,
-              "student_ids": student_ids            },
-            nil,
+              "assignment_id": assignment_id
+            },
+            {
+              "student_ids": student_ids
+            },
           ).parsed_response
         end
       end

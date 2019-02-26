@@ -12,8 +12,9 @@ module LMSGraphQL
             "UPDATE_AUTHENTICATION_PROVIDER",
             {
               "account_id": account_id,
-              "id": id            },
-            nil,
+              "id": id
+            },
+            {},
           ).parsed_response
         end
       end

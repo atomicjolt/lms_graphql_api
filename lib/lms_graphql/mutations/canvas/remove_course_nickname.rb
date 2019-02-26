@@ -10,8 +10,9 @@ module LMSGraphQL
           context[:canvas_api].call("REMOVE_COURSE_NICKNAME").proxy(
             "REMOVE_COURSE_NICKNAME",
             {
-              "course_id": course_id            },
-            nil,
+              "course_id": course_id
+            },
+            {},
           ).parsed_response
         end
       end

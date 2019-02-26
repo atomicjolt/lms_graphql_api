@@ -12,8 +12,9 @@ module LMSGraphQL
             "MERGE_USER_INTO_ANOTHER_USER_DESTINATION_USER_ID",
             {
               "id": id,
-              "destination_user_id": destination_user_id            },
-            nil,
+              "destination_user_id": destination_user_id
+            },
+            {},
           ).parsed_response
         end
       end

@@ -12,8 +12,9 @@ module LMSGraphQL
             "BULK_SELECT_PROVISIONAL_GRADES",
             {
               "course_id": course_id,
-              "assignment_id": assignment_id            },
-            nil,
+              "assignment_id": assignment_id
+            },
+            {},
           ).parsed_response
         end
       end

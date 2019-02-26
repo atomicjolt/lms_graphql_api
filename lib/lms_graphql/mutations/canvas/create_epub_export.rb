@@ -10,8 +10,9 @@ module LMSGraphQL
           context[:canvas_api].call("CREATE_EPUB_EXPORT").proxy(
             "CREATE_EPUB_EXPORT",
             {
-              "course_id": course_id            },
-            nil,
+              "course_id": course_id
+            },
+            {},
           ).parsed_response
         end
       end

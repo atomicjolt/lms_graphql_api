@@ -17,15 +17,17 @@ module LMSGraphQL
           context[:canvas_api].call("CREATE_COURSE_SECTION").proxy(
             "CREATE_COURSE_SECTION",
             {
-              "course_id": course_id,
+              "course_id": course_id
+            },
+            {
               "course_section[name]": course_section_name,
               "course_section[sis_section_id]": course_section_sis_section_id,
               "course_section[integration_id]": course_section_integration_id,
               "course_section[start_at]": course_section_start_at,
               "course_section[end_at]": course_section_end_at,
               "course_section[restrict_enrollments_to_section_dates]": course_section_restrict_enrollments_to_section_dates,
-              "enable_sis_reactivation": enable_sis_reactivation            },
-            nil,
+              "enable_sis_reactivation": enable_sis_reactivation
+            },
           ).parsed_response
         end
       end

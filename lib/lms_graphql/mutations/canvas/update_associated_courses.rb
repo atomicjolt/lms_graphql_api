@@ -14,10 +14,12 @@ module LMSGraphQL
             "UPDATE_ASSOCIATED_COURSES",
             {
               "course_id": course_id,
-              "template_id": template_id,
+              "template_id": template_id
+            },
+            {
               "course_ids_to_add": course_ids_to_add,
-              "course_ids_to_remove": course_ids_to_remove            },
-            nil,
+              "course_ids_to_remove": course_ids_to_remove
+            },
           ).parsed_response
         end
       end

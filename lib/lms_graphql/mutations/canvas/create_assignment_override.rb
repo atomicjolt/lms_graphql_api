@@ -19,15 +19,17 @@ module LMSGraphQL
             "CREATE_ASSIGNMENT_OVERRIDE",
             {
               "course_id": course_id,
-              "assignment_id": assignment_id,
+              "assignment_id": assignment_id
+            },
+            {
               "assignment_override[student_ids]": assignment_override_student_ids,
               "assignment_override[title]": assignment_override_title,
               "assignment_override[group_id]": assignment_override_group_id,
               "assignment_override[course_section_id]": assignment_override_course_section_id,
               "assignment_override[due_at]": assignment_override_due_at,
               "assignment_override[unlock_at]": assignment_override_unlock_at,
-              "assignment_override[lock_at]": assignment_override_lock_at            },
-            nil,
+              "assignment_override[lock_at]": assignment_override_lock_at
+            },
           ).parsed_response
         end
       end

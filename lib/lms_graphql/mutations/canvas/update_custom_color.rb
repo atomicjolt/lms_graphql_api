@@ -13,9 +13,11 @@ module LMSGraphQL
             "UPDATE_CUSTOM_COLOR",
             {
               "id": id,
-              "asset_string": asset_string,
-              "hexcode": hexcode            },
-            nil,
+              "asset_string": asset_string
+            },
+            {
+              "hexcode": hexcode
+            },
           ).parsed_response
         end
       end

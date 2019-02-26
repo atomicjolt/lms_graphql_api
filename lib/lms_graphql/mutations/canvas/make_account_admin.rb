@@ -14,12 +14,14 @@ module LMSGraphQL
           context[:canvas_api].call("MAKE_ACCOUNT_ADMIN").proxy(
             "MAKE_ACCOUNT_ADMIN",
             {
-              "account_id": account_id,
+              "account_id": account_id
+            },
+            {
               "user_id": user_id,
               "role": role,
               "role_id": role_id,
-              "send_confirmation": send_confirmation            },
-            nil,
+              "send_confirmation": send_confirmation
+            },
           ).parsed_response
         end
       end

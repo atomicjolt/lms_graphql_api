@@ -12,8 +12,9 @@ module LMSGraphQL
             "ABORT_SIS_IMPORT",
             {
               "account_id": account_id,
-              "id": id            },
-            nil,
+              "id": id
+            },
+            {},
           ).parsed_response
         end
       end

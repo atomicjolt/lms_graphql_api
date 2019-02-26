@@ -24,7 +24,9 @@ module LMSGraphQL
           context[:canvas_api].call("IMPORT_SIS_DATA").proxy(
             "IMPORT_SIS_DATA",
             {
-              "account_id": account_id,
+              "account_id": account_id
+            },
+            {
               "import_type": import_type,
               "attachment": attachment,
               "extension": extension,
@@ -38,8 +40,8 @@ module LMSGraphQL
               "diffing_data_set_identifier": diffing_data_set_identifier,
               "diffing_remaster_data_set": diffing_remaster_data_set,
               "diffing_drop_status": diffing_drop_status,
-              "change_threshold": change_threshold            },
-            nil,
+              "change_threshold": change_threshold
+            },
           ).parsed_response
         end
       end

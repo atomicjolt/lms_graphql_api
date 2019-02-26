@@ -17,11 +17,13 @@ module LMSGraphQL
             {
               "course_id": course_id,
               "quiz_id": quiz_id,
-              "id": id,
+              "id": id
+            },
+            {
               "attempt": attempt,
               "validation_token": validation_token,
-              "access_code": access_code            },
-            nil,
+              "access_code": access_code
+            },
           ).parsed_response
         end
       end

@@ -13,9 +13,11 @@ module LMSGraphQL
             "UPDATE_MULTIPLE_PREFERENCES_TYPE",
             {
               "type": type,
-              "address": address,
-              "notification_preferences[<X>][frequency]": notification_preferences__X__frequency            },
-            nil,
+              "address": address
+            },
+            {
+              "notification_preferences[<X>][frequency]": notification_preferences__X__frequency
+            },
           ).parsed_response
         end
       end

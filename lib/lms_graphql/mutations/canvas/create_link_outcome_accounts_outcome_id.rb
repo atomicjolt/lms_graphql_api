@@ -24,7 +24,9 @@ module LMSGraphQL
             {
               "account_id": account_id,
               "id": id,
-              "outcome_id": outcome_id,
+              "outcome_id": outcome_id
+            },
+            {
               "move_from": move_from,
               "title": title,
               "display_name": display_name,
@@ -34,8 +36,8 @@ module LMSGraphQL
               "ratings[description]": ratings_description,
               "ratings[points]": ratings_points,
               "calculation_method": calculation_method,
-              "calculation_int": calculation_int            },
-            nil,
+              "calculation_int": calculation_int
+            },
           ).parsed_response
         end
       end

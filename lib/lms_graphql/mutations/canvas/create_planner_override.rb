@@ -12,12 +12,13 @@ module LMSGraphQL
         def resolve(plannable_type:, plannable_id:, marked_complete: nil, dismissed: nil)
           context[:canvas_api].call("CREATE_PLANNER_OVERRIDE").proxy(
             "CREATE_PLANNER_OVERRIDE",
+            {},
             {
               "plannable_type": plannable_type,
               "plannable_id": plannable_id,
               "marked_complete": marked_complete,
-              "dismissed": dismissed            },
-            nil,
+              "dismissed": dismissed
+            },
           ).parsed_response
         end
       end

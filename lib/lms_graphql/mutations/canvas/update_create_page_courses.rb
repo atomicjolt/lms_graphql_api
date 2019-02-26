@@ -18,14 +18,16 @@ module LMSGraphQL
             "UPDATE_CREATE_PAGE_COURSES",
             {
               "course_id": course_id,
-              "url": url,
+              "url": url
+            },
+            {
               "wiki_page[title]": wiki_page_title,
               "wiki_page[body]": wiki_page_body,
               "wiki_page[editing_roles]": wiki_page_editing_roles,
               "wiki_page[notify_of_update]": wiki_page_notify_of_update,
               "wiki_page[published]": wiki_page_published,
-              "wiki_page[front_page]": wiki_page_front_page            },
-            nil,
+              "wiki_page[front_page]": wiki_page_front_page
+            },
           ).parsed_response
         end
       end

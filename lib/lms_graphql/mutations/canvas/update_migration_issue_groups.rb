@@ -15,9 +15,11 @@ module LMSGraphQL
             {
               "group_id": group_id,
               "content_migration_id": content_migration_id,
-              "id": id,
-              "workflow_state": workflow_state            },
-            nil,
+              "id": id
+            },
+            {
+              "workflow_state": workflow_state
+            },
           ).parsed_response
         end
       end

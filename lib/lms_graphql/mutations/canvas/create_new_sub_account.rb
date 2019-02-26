@@ -15,13 +15,15 @@ module LMSGraphQL
           context[:canvas_api].call("CREATE_NEW_SUB_ACCOUNT").proxy(
             "CREATE_NEW_SUB_ACCOUNT",
             {
-              "account_id": account_id,
+              "account_id": account_id
+            },
+            {
               "account[name]": account_name,
               "account[sis_account_id]": account_sis_account_id,
               "account[default_storage_quota_mb]": account_default_storage_quota_mb,
               "account[default_user_storage_quota_mb]": account_default_user_storage_quota_mb,
-              "account[default_group_storage_quota_mb]": account_default_group_storage_quota_mb            },
-            nil,
+              "account[default_group_storage_quota_mb]": account_default_group_storage_quota_mb
+            },
           ).parsed_response
         end
       end

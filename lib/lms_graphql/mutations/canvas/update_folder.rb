@@ -17,15 +17,17 @@ module LMSGraphQL
           context[:canvas_api].call("UPDATE_FOLDER").proxy(
             "UPDATE_FOLDER",
             {
-              "id": id,
+              "id": id
+            },
+            {
               "name": name,
               "parent_folder_id": parent_folder_id,
               "lock_at": lock_at,
               "unlock_at": unlock_at,
               "locked": locked,
               "hidden": hidden,
-              "position": position            },
-            nil,
+              "position": position
+            },
           ).parsed_response
         end
       end

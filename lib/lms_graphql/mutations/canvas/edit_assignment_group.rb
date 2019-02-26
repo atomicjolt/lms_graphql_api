@@ -12,8 +12,9 @@ module LMSGraphQL
             "EDIT_ASSIGNMENT_GROUP",
             {
               "course_id": course_id,
-              "assignment_group_id": assignment_group_id            },
-            nil,
+              "assignment_group_id": assignment_group_id
+            },
+            {},
           ).parsed_response
         end
       end

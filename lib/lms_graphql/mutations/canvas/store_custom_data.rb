@@ -12,10 +12,12 @@ module LMSGraphQL
           context[:canvas_api].call("STORE_CUSTOM_DATA").proxy(
             "STORE_CUSTOM_DATA",
             {
-              "user_id": user_id,
+              "user_id": user_id
+            },
+            {
               "ns": ns,
-              "data": data            },
-            nil,
+              "data": data
+            },
           ).parsed_response
         end
       end

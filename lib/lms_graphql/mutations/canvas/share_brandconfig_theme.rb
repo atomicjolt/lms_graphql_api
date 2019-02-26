@@ -12,10 +12,12 @@ module LMSGraphQL
           context[:canvas_api].call("SHARE_BRANDCONFIG_THEME").proxy(
             "SHARE_BRANDCONFIG_THEME",
             {
-              "account_id": account_id,
+              "account_id": account_id
+            },
+            {
               "shared_brand_config[name]": shared_brand_config_name,
-              "shared_brand_config[brand_config_md5]": shared_brand_config_brand_config_md5            },
-            nil,
+              "shared_brand_config[brand_config_md5]": shared_brand_config_brand_config_md5
+            },
           ).parsed_response
         end
       end

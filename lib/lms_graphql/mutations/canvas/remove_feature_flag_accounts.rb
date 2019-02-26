@@ -12,8 +12,9 @@ module LMSGraphQL
             "REMOVE_FEATURE_FLAG_ACCOUNTS",
             {
               "account_id": account_id,
-              "feature": feature            },
-            nil,
+              "feature": feature
+            },
+            {},
           ).parsed_response
         end
       end

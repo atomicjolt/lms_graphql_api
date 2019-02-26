@@ -15,11 +15,13 @@ module LMSGraphQL
             "RESTORE_WORKFLOW_STATES_OF_SIS_IMPORTED_ITEMS",
             {
               "account_id": account_id,
-              "id": id,
+              "id": id
+            },
+            {
               "batch_mode": batch_mode,
               "undelete_only": undelete_only,
-              "unconclude_only": unconclude_only            },
-            nil,
+              "unconclude_only": unconclude_only
+            },
           ).parsed_response
         end
       end

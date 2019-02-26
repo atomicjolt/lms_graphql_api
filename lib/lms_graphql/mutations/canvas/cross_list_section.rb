@@ -12,8 +12,9 @@ module LMSGraphQL
             "CROSS_LIST_SECTION",
             {
               "id": id,
-              "new_course_id": new_course_id            },
-            nil,
+              "new_course_id": new_course_id
+            },
+            {},
           ).parsed_response
         end
       end

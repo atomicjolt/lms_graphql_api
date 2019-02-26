@@ -11,9 +11,11 @@ module LMSGraphQL
           context[:canvas_api].call("ADD_RECIPIENTS").proxy(
             "ADD_RECIPIENTS",
             {
-              "id": id,
-              "recipients": recipients            },
-            nil,
+              "id": id
+            },
+            {
+              "recipients": recipients
+            },
           ).parsed_response
         end
       end

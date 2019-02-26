@@ -12,8 +12,9 @@ module LMSGraphQL
             "ADDS_LAST_ATTENDED_DATE_TO_STUDENT_ENROLLMENT_IN_COURSE",
             {
               "course_id": course_id,
-              "user_id": user_id            },
-            nil,
+              "user_id": user_id
+            },
+            {},
           ).parsed_response
         end
       end

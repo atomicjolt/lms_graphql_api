@@ -14,10 +14,12 @@ module LMSGraphQL
             "UPDATE_MEMBERSHIP_USERS",
             {
               "group_id": group_id,
-              "user_id": user_id,
+              "user_id": user_id
+            },
+            {
               "workflow_state": workflow_state,
-              "moderator": moderator            },
-            nil,
+              "moderator": moderator
+            },
           ).parsed_response
         end
       end

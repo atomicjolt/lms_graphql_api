@@ -21,7 +21,9 @@ module LMSGraphQL
           context[:canvas_api].call("ENROLL_USER_COURSES").proxy(
             "ENROLL_USER_COURSES",
             {
-              "course_id": course_id,
+              "course_id": course_id
+            },
+            {
               "enrollment[user_id]": enrollment_user_id,
               "enrollment[type]": enrollment_type,
               "enrollment[role]": enrollment_role,
@@ -32,8 +34,8 @@ module LMSGraphQL
               "enrollment[notify]": enrollment_notify,
               "enrollment[self_enrollment_code]": enrollment_self_enrollment_code,
               "enrollment[self_enrolled]": enrollment_self_enrolled,
-              "enrollment[associated_user_id]": enrollment_associated_user_id            },
-            nil,
+              "enrollment[associated_user_id]": enrollment_associated_user_id
+            },
           ).parsed_response
         end
       end

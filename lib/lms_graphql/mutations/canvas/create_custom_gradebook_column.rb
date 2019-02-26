@@ -15,13 +15,15 @@ module LMSGraphQL
           context[:canvas_api].call("CREATE_CUSTOM_GRADEBOOK_COLUMN").proxy(
             "CREATE_CUSTOM_GRADEBOOK_COLUMN",
             {
-              "course_id": course_id,
+              "course_id": course_id
+            },
+            {
               "column[title]": column_title,
               "column[position]": column_position,
               "column[hidden]": column_hidden,
               "column[teacher_notes]": column_teacher_notes,
-              "column[read_only]": column_read_only            },
-            nil,
+              "column[read_only]": column_read_only
+            },
           ).parsed_response
         end
       end

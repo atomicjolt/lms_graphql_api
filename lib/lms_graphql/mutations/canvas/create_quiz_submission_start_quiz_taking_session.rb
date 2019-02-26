@@ -14,10 +14,12 @@ module LMSGraphQL
             "CREATE_QUIZ_SUBMISSION_START_QUIZ_TAKING_SESSION",
             {
               "course_id": course_id,
-              "quiz_id": quiz_id,
+              "quiz_id": quiz_id
+            },
+            {
               "access_code": access_code,
-              "preview": preview            },
-            nil,
+              "preview": preview
+            },
           ).parsed_response
         end
       end

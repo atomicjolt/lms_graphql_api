@@ -11,9 +11,11 @@ module LMSGraphQL
           context[:canvas_api].call("COURSES_PREVIEW_PROCESSED_HTML").proxy(
             "COURSES_PREVIEW_PROCESSED_HTML",
             {
-              "course_id": course_id,
-              "html": html            },
-            nil,
+              "course_id": course_id
+            },
+            {
+              "html": html
+            },
           ).parsed_response
         end
       end

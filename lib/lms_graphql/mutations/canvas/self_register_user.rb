@@ -20,7 +20,9 @@ module LMSGraphQL
           context[:canvas_api].call("SELF_REGISTER_USER").proxy(
             "SELF_REGISTER_USER",
             {
-              "account_id": account_id,
+              "account_id": account_id
+            },
+            {
               "user[name]": user_name,
               "user[short_name]": user_short_name,
               "user[sortable_name]": user_sortable_name,
@@ -30,8 +32,8 @@ module LMSGraphQL
               "user[terms_of_use]": user_terms_of_use,
               "pseudonym[unique_id]": pseudonym_unique_id,
               "communication_channel[type]": communication_channel_type,
-              "communication_channel[address]": communication_channel_address            },
-            nil,
+              "communication_channel[address]": communication_channel_address
+            },
           ).parsed_response
         end
       end

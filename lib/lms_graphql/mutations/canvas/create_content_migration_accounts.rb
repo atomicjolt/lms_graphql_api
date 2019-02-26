@@ -26,7 +26,9 @@ module LMSGraphQL
           context[:canvas_api].call("CREATE_CONTENT_MIGRATION_ACCOUNTS").proxy(
             "CREATE_CONTENT_MIGRATION_ACCOUNTS",
             {
-              "account_id": account_id,
+              "account_id": account_id
+            },
+            {
               "migration_type": migration_type,
               "pre_attachment[name]": pre_attachment_name,
               "pre_attachment[*]": pre_attachment_star,
@@ -42,8 +44,8 @@ module LMSGraphQL
               "date_shift_options[new_start_date]": date_shift_options_new_start_date,
               "date_shift_options[new_end_date]": date_shift_options_new_end_date,
               "date_shift_options[day_substitutions][X]": date_shift_options_day_substitutions_X,
-              "date_shift_options[remove_dates]": date_shift_options_remove_dates            },
-            nil,
+              "date_shift_options[remove_dates]": date_shift_options_remove_dates
+            },
           ).parsed_response
         end
       end

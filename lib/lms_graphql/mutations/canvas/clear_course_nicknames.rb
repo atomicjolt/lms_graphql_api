@@ -9,9 +9,8 @@ module LMSGraphQL
         def resolve()
           context[:canvas_api].call("CLEAR_COURSE_NICKNAMES").proxy(
             "CLEAR_COURSE_NICKNAMES",
-            {
-            },
-            nil,
+            {},
+            {},
           ).parsed_response
         end
       end

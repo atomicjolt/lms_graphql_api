@@ -12,8 +12,9 @@ module LMSGraphQL
             "UPDATE_CONTENT_MIGRATION_USERS",
             {
               "user_id": user_id,
-              "id": id            },
-            nil,
+              "id": id
+            },
+            {},
           ).parsed_response
         end
       end

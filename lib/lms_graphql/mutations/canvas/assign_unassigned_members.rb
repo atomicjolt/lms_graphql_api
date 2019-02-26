@@ -11,9 +11,11 @@ module LMSGraphQL
           context[:canvas_api].call("ASSIGN_UNASSIGNED_MEMBERS").proxy(
             "ASSIGN_UNASSIGNED_MEMBERS",
             {
-              "group_category_id": group_category_id,
-              "sync": sync            },
-            nil,
+              "group_category_id": group_category_id
+            },
+            {
+              "sync": sync
+            },
           ).parsed_response
         end
       end

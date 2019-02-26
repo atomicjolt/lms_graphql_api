@@ -14,14 +14,15 @@ module LMSGraphQL
         def resolve(name: nil, description: nil, is_public: nil, join_level: nil, storage_quota_mb: nil, sis_group_id: nil)
           context[:canvas_api].call("CREATE_GROUP_GROUPS").proxy(
             "CREATE_GROUP_GROUPS",
+            {},
             {
               "name": name,
               "description": description,
               "is_public": is_public,
               "join_level": join_level,
               "storage_quota_mb": storage_quota_mb,
-              "sis_group_id": sis_group_id            },
-            nil,
+              "sis_group_id": sis_group_id
+            },
           ).parsed_response
         end
       end

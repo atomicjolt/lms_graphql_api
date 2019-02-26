@@ -16,14 +16,16 @@ module LMSGraphQL
           context[:canvas_api].call("EDIT_CONVERSATION").proxy(
             "EDIT_CONVERSATION",
             {
-              "id": id,
+              "id": id
+            },
+            {
               "conversation[workflow_state]": conversation_workflow_state,
               "conversation[subscribed]": conversation_subscribed,
               "conversation[starred]": conversation_starred,
               "scope": scope,
               "filter": filter,
-              "filter_mode": filter_mode            },
-            nil,
+              "filter_mode": filter_mode
+            },
           ).parsed_response
         end
       end

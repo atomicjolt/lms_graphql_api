@@ -25,7 +25,9 @@ module LMSGraphQL
             {
               "section_id": section_id,
               "assignment_id": assignment_id,
-              "user_id": user_id,
+              "user_id": user_id
+            },
+            {
               "comment[text_comment]": comment_text_comment,
               "comment[group_comment]": comment_group_comment,
               "comment[media_comment_id]": comment_media_comment_id,
@@ -36,8 +38,8 @@ module LMSGraphQL
               "submission[excuse]": submission_excuse,
               "submission[late_policy_status]": submission_late_policy_status,
               "submission[seconds_late_override]": submission_seconds_late_override,
-              "rubric_assessment": rubric_assessment            },
-            nil,
+              "rubric_assessment": rubric_assessment
+            },
           ).parsed_response
         end
       end

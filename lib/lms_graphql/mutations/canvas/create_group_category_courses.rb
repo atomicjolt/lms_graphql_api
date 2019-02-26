@@ -17,15 +17,17 @@ module LMSGraphQL
           context[:canvas_api].call("CREATE_GROUP_CATEGORY_COURSES").proxy(
             "CREATE_GROUP_CATEGORY_COURSES",
             {
-              "course_id": course_id,
+              "course_id": course_id
+            },
+            {
               "name": name,
               "self_signup": self_signup,
               "auto_leader": auto_leader,
               "group_limit": group_limit,
               "sis_group_category_id": sis_group_category_id,
               "create_group_count": create_group_count,
-              "split_group_count": split_group_count            },
-            nil,
+              "split_group_count": split_group_count
+            },
           ).parsed_response
         end
       end

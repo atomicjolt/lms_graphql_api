@@ -12,8 +12,9 @@ module LMSGraphQL
             "EDIT_EXTERNAL_TOOL_COURSES",
             {
               "course_id": course_id,
-              "external_tool_id": external_tool_id            },
-            nil,
+              "external_tool_id": external_tool_id
+            },
+            {},
           ).parsed_response
         end
       end

@@ -9,9 +9,8 @@ module LMSGraphQL
         def resolve()
           context[:canvas_api].call("DELETE_PUSH_NOTIFICATION_ENDPOINT").proxy(
             "DELETE_PUSH_NOTIFICATION_ENDPOINT",
-            {
-            },
-            nil,
+            {},
+            {},
           ).parsed_response
         end
       end

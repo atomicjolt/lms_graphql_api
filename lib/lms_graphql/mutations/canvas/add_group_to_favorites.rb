@@ -10,8 +10,9 @@ module LMSGraphQL
           context[:canvas_api].call("ADD_GROUP_TO_FAVORITES").proxy(
             "ADD_GROUP_TO_FAVORITES",
             {
-              "id": id            },
-            nil,
+              "id": id
+            },
+            {},
           ).parsed_response
         end
       end

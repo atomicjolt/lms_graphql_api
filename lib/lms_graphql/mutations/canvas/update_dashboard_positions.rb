@@ -10,8 +10,9 @@ module LMSGraphQL
           context[:canvas_api].call("UPDATE_DASHBOARD_POSITIONS").proxy(
             "UPDATE_DASHBOARD_POSITIONS",
             {
-              "id": id            },
-            nil,
+              "id": id
+            },
+            {},
           ).parsed_response
         end
       end

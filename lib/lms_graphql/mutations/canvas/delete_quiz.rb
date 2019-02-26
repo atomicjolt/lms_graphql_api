@@ -12,8 +12,9 @@ module LMSGraphQL
             "DELETE_QUIZ",
             {
               "course_id": course_id,
-              "id": id            },
-            nil,
+              "id": id
+            },
+            {},
           ).parsed_response
         end
       end

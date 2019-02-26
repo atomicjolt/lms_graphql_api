@@ -47,7 +47,9 @@ module LMSGraphQL
           context[:canvas_api].call("UPDATE_COURSE").proxy(
             "UPDATE_COURSE",
             {
-              "id": id,
+              "id": id
+            },
+            {
               "course[account_id]": course_account_id,
               "course[name]": course_name,
               "course[course_code]": course_course_code,
@@ -84,8 +86,8 @@ module LMSGraphQL
               "course[blueprint]": course_blueprint,
               "course[blueprint_restrictions]": course_blueprint_restrictions,
               "course[use_blueprint_restrictions_by_object_type]": course_use_blueprint_restrictions_by_object_type,
-              "course[blueprint_restrictions_by_object_type]": course_blueprint_restrictions_by_object_type            },
-            nil,
+              "course[blueprint_restrictions_by_object_type]": course_blueprint_restrictions_by_object_type
+            },
           ).parsed_response
         end
       end

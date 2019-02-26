@@ -16,12 +16,14 @@ module LMSGraphQL
             "SET_OR_REMOVE_RESTRICTIONS_ON_BLUEPRINT_COURSE_OBJECT",
             {
               "course_id": course_id,
-              "template_id": template_id,
+              "template_id": template_id
+            },
+            {
               "content_type": content_type,
               "content_id": content_id,
               "restricted": restricted,
-              "restrictions": restrictions            },
-            nil,
+              "restrictions": restrictions
+            },
           ).parsed_response
         end
       end

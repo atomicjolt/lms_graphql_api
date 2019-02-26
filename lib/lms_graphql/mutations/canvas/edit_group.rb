@@ -18,7 +18,9 @@ module LMSGraphQL
           context[:canvas_api].call("EDIT_GROUP").proxy(
             "EDIT_GROUP",
             {
-              "group_id": group_id,
+              "group_id": group_id
+            },
+            {
               "name": name,
               "description": description,
               "is_public": is_public,
@@ -26,8 +28,8 @@ module LMSGraphQL
               "avatar_id": avatar_id,
               "storage_quota_mb": storage_quota_mb,
               "members": members,
-              "sis_group_id": sis_group_id            },
-            nil,
+              "sis_group_id": sis_group_id
+            },
           ).parsed_response
         end
       end

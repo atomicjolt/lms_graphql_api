@@ -11,9 +11,11 @@ module LMSGraphQL
           context[:canvas_api].call("INVITE_OTHERS_TO_GROUP").proxy(
             "INVITE_OTHERS_TO_GROUP",
             {
-              "group_id": group_id,
-              "invitees": invitees            },
-            nil,
+              "group_id": group_id
+            },
+            {
+              "invitees": invitees
+            },
           ).parsed_response
         end
       end

@@ -16,12 +16,14 @@ module LMSGraphQL
             "UPDATE_OUTCOME_GROUP_COURSES",
             {
               "course_id": course_id,
-              "id": id,
+              "id": id
+            },
+            {
               "title": title,
               "description": description,
               "vendor_guid": vendor_guid,
-              "parent_outcome_group_id": parent_outcome_group_id            },
-            nil,
+              "parent_outcome_group_id": parent_outcome_group_id
+            },
           ).parsed_response
         end
       end

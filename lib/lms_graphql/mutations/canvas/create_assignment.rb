@@ -41,7 +41,9 @@ module LMSGraphQL
           context[:canvas_api].call("CREATE_ASSIGNMENT").proxy(
             "CREATE_ASSIGNMENT",
             {
-              "course_id": course_id,
+              "course_id": course_id
+            },
+            {
               "assignment[name]": assignment_name,
               "assignment[position]": assignment_position,
               "assignment[submission_types]": assignment_submission_types,
@@ -72,8 +74,8 @@ module LMSGraphQL
               "assignment[omit_from_final_grade]": assignment_omit_from_final_grade,
               "assignment[quiz_lti]": assignment_quiz_lti,
               "assignment[moderated_grading]": assignment_moderated_grading,
-              "assignment[allowed_attempts]": assignment_allowed_attempts            },
-            nil,
+              "assignment[allowed_attempts]": assignment_allowed_attempts
+            },
           ).parsed_response
         end
       end

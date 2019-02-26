@@ -13,13 +13,14 @@ module LMSGraphQL
         def resolve(error_subject:, error_url: nil, error_email: nil, error_comments: nil, error_http_env: nil)
           context[:canvas_api].call("CREATE_ERROR_REPORT").proxy(
             "CREATE_ERROR_REPORT",
+            {},
             {
               "error[subject]": error_subject,
               "error[url]": error_url,
               "error[email]": error_email,
               "error[comments]": error_comments,
-              "error[http_env]": error_http_env            },
-            nil,
+              "error[http_env]": error_http_env
+            },
           ).parsed_response
         end
       end

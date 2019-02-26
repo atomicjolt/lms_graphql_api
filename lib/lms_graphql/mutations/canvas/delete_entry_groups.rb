@@ -14,8 +14,9 @@ module LMSGraphQL
             {
               "group_id": group_id,
               "topic_id": topic_id,
-              "id": id            },
-            nil,
+              "id": id
+            },
+            {},
           ).parsed_response
         end
       end

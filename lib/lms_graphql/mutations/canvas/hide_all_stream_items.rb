@@ -9,9 +9,8 @@ module LMSGraphQL
         def resolve()
           context[:canvas_api].call("HIDE_ALL_STREAM_ITEMS").proxy(
             "HIDE_ALL_STREAM_ITEMS",
-            {
-            },
-            nil,
+            {},
+            {},
           ).parsed_response
         end
       end

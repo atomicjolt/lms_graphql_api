@@ -16,14 +16,16 @@ module LMSGraphQL
           context[:canvas_api].call("CREATE_GROUP_GROUP_CATEGORIES").proxy(
             "CREATE_GROUP_GROUP_CATEGORIES",
             {
-              "group_category_id": group_category_id,
+              "group_category_id": group_category_id
+            },
+            {
               "name": name,
               "description": description,
               "is_public": is_public,
               "join_level": join_level,
               "storage_quota_mb": storage_quota_mb,
-              "sis_group_id": sis_group_id            },
-            nil,
+              "sis_group_id": sis_group_id
+            },
           ).parsed_response
         end
       end

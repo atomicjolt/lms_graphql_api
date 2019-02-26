@@ -14,10 +14,12 @@ module LMSGraphQL
             "REORDER_QUIZ_ITEMS",
             {
               "course_id": course_id,
-              "id": id,
+              "id": id
+            },
+            {
               "order[id]": order_id,
-              "order[type]": order_type            },
-            nil,
+              "order[type]": order_type
+            },
           ).parsed_response
         end
       end

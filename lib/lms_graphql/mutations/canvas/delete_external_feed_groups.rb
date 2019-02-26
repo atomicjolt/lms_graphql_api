@@ -12,8 +12,9 @@ module LMSGraphQL
             "DELETE_EXTERNAL_FEED_GROUPS",
             {
               "group_id": group_id,
-              "external_feed_id": external_feed_id            },
-            nil,
+              "external_feed_id": external_feed_id
+            },
+            {},
           ).parsed_response
         end
       end

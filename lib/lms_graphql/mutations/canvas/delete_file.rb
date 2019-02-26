@@ -12,8 +12,9 @@ module LMSGraphQL
             "DELETE_FILE",
             {
               "id": id,
-              "replace": replace            },
-            nil,
+              "replace": replace
+            },
+            {},
           ).parsed_response
         end
       end

@@ -15,13 +15,15 @@ module LMSGraphQL
           context[:canvas_api].call("UPDATE_CREATE_FRONT_PAGE_COURSES").proxy(
             "UPDATE_CREATE_FRONT_PAGE_COURSES",
             {
-              "course_id": course_id,
+              "course_id": course_id
+            },
+            {
               "wiki_page[title]": wiki_page_title,
               "wiki_page[body]": wiki_page_body,
               "wiki_page[editing_roles]": wiki_page_editing_roles,
               "wiki_page[notify_of_update]": wiki_page_notify_of_update,
-              "wiki_page[published]": wiki_page_published            },
-            nil,
+              "wiki_page[published]": wiki_page_published
+            },
           ).parsed_response
         end
       end

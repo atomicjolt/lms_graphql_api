@@ -22,7 +22,9 @@ module LMSGraphQL
           context[:canvas_api].call("UPDATE_APPOINTMENT_GROUP").proxy(
             "UPDATE_APPOINTMENT_GROUP",
             {
-              "id": id,
+              "id": id
+            },
+            {
               "appointment_group[context_codes]": appointment_group_context_codes,
               "appointment_group[sub_context_codes]": appointment_group_sub_context_codes,
               "appointment_group[title]": appointment_group_title,
@@ -34,8 +36,8 @@ module LMSGraphQL
               "appointment_group[min_appointments_per_participant]": appointment_group_min_appointments_per_participant,
               "appointment_group[max_appointments_per_participant]": appointment_group_max_appointments_per_participant,
               "appointment_group[new_appointments][X]": appointment_group_new_appointments_X,
-              "appointment_group[participant_visibility]": appointment_group_participant_visibility            },
-            nil,
+              "appointment_group[participant_visibility]": appointment_group_participant_visibility
+            },
           ).parsed_response
         end
       end

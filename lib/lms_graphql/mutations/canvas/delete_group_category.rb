@@ -10,8 +10,9 @@ module LMSGraphQL
           context[:canvas_api].call("DELETE_GROUP_CATEGORY").proxy(
             "DELETE_GROUP_CATEGORY",
             {
-              "group_category_id": group_category_id            },
-            nil,
+              "group_category_id": group_category_id
+            },
+            {},
           ).parsed_response
         end
       end

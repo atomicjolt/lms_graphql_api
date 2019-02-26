@@ -10,8 +10,9 @@ module LMSGraphQL
           context[:canvas_api].call("UPDATE_ACCOUNT_AUTH_SETTINGS").proxy(
             "UPDATE_ACCOUNT_AUTH_SETTINGS",
             {
-              "account_id": account_id            },
-            nil,
+              "account_id": account_id
+            },
+            {},
           ).parsed_response
         end
       end

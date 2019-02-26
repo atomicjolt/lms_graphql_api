@@ -16,10 +16,12 @@ module LMSGraphQL
             {
               "course_id": course_id,
               "module_id": module_id,
-              "id": id,
+              "id": id
+            },
+            {
               "assignment_set_id": assignment_set_id,
-              "student_id": student_id            },
-            nil,
+              "student_id": student_id
+            },
           ).parsed_response
         end
       end

@@ -12,8 +12,9 @@ module LMSGraphQL
             "PUBLISH_PROVISIONAL_GRADES_FOR_ASSIGNMENT",
             {
               "course_id": course_id,
-              "assignment_id": assignment_id            },
-            nil,
+              "assignment_id": assignment_id
+            },
+            {},
           ).parsed_response
         end
       end
