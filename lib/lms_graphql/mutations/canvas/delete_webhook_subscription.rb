@@ -10,8 +10,9 @@ module LMSGraphQL
           context[:canvas_api].call("DELETE_WEBHOOK_SUBSCRIPTION").proxy(
             "DELETE_WEBHOOK_SUBSCRIPTION",
             {
-              "id": id            },
-            nil,
+              "id": id
+            },
+            {},
           ).parsed_response
         end
       end

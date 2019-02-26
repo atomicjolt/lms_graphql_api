@@ -15,11 +15,13 @@ module LMSGraphQL
             "UPDATE_SINGLE_GRADING_PERIOD",
             {
               "course_id": course_id,
-              "id": id,
+              "id": id
+            },
+            {
               "grading_periods[start_date]": grading_periods_start_date,
               "grading_periods[end_date]": grading_periods_end_date,
-              "grading_periods[weight]": grading_periods_weight            },
-            nil,
+              "grading_periods[weight]": grading_periods_weight
+            },
           ).parsed_response
         end
       end

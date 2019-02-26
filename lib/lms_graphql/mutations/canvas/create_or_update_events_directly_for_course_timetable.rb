@@ -16,14 +16,16 @@ module LMSGraphQL
           context[:canvas_api].call("CREATE_OR_UPDATE_EVENTS_DIRECTLY_FOR_COURSE_TIMETABLE").proxy(
             "CREATE_OR_UPDATE_EVENTS_DIRECTLY_FOR_COURSE_TIMETABLE",
             {
-              "course_id": course_id,
+              "course_id": course_id
+            },
+            {
               "course_section_id": course_section_id,
               "events": events,
               "events[start_at]": events_start_at,
               "events[end_at]": events_end_at,
               "events[location_name]": events_location_name,
-              "events[code]": events_code            },
-            nil,
+              "events[code]": events_code
+            },
           ).parsed_response
         end
       end

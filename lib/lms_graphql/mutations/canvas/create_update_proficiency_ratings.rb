@@ -14,12 +14,14 @@ module LMSGraphQL
           context[:canvas_api].call("CREATE_UPDATE_PROFICIENCY_RATINGS").proxy(
             "CREATE_UPDATE_PROFICIENCY_RATINGS",
             {
-              "account_id": account_id,
+              "account_id": account_id
+            },
+            {
               "ratings[description]": ratings_description,
               "ratings[points]": ratings_points,
               "ratings[mastery]": ratings_mastery,
-              "ratings[color]": ratings_color            },
-            nil,
+              "ratings[color]": ratings_color
+            },
           ).parsed_response
         end
       end

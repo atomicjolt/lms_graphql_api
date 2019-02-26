@@ -9,9 +9,10 @@ module LMSGraphQL
         def resolve(jwt:)
           context[:canvas_api].call("REFRESH_JWT").proxy(
             "REFRESH_JWT",
+            {},
             {
-              "jwt": jwt            },
-            nil,
+              "jwt": jwt
+            },
           ).parsed_response
         end
       end

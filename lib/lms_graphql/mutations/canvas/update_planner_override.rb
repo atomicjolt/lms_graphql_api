@@ -12,10 +12,12 @@ module LMSGraphQL
           context[:canvas_api].call("UPDATE_PLANNER_OVERRIDE").proxy(
             "UPDATE_PLANNER_OVERRIDE",
             {
-              "id": id,
+              "id": id
+            },
+            {
               "marked_complete": marked_complete,
-              "dismissed": dismissed            },
-            nil,
+              "dismissed": dismissed
+            },
           ).parsed_response
         end
       end

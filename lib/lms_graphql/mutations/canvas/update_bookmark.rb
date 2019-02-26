@@ -14,12 +14,14 @@ module LMSGraphQL
           context[:canvas_api].call("UPDATE_BOOKMARK").proxy(
             "UPDATE_BOOKMARK",
             {
-              "id": id,
+              "id": id
+            },
+            {
               "name": name,
               "url": url,
               "position": position,
-              "data": data            },
-            nil,
+              "data": data
+            },
           ).parsed_response
         end
       end

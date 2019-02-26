@@ -15,11 +15,13 @@ module LMSGraphQL
             "BEGIN_MIGRATION_TO_PUSH_TO_ASSOCIATED_COURSES",
             {
               "course_id": course_id,
-              "template_id": template_id,
+              "template_id": template_id
+            },
+            {
               "comment": comment,
               "send_notification": send_notification,
-              "copy_settings": copy_settings            },
-            nil,
+              "copy_settings": copy_settings
+            },
           ).parsed_response
         end
       end

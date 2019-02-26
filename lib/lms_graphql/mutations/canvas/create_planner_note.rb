@@ -14,14 +14,15 @@ module LMSGraphQL
         def resolve(title: nil, details: nil, todo_date: nil, course_id: nil, linked_object_type: nil, linked_object_id: nil)
           context[:canvas_api].call("CREATE_PLANNER_NOTE").proxy(
             "CREATE_PLANNER_NOTE",
+            {},
             {
               "title": title,
               "details": details,
               "todo_date": todo_date,
               "course_id": course_id,
               "linked_object_type": linked_object_type,
-              "linked_object_id": linked_object_id            },
-            nil,
+              "linked_object_id": linked_object_id
+            },
           ).parsed_response
         end
       end

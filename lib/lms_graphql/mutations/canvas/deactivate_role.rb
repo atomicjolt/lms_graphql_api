@@ -16,8 +16,9 @@ module LMSGraphQL
               "account_id": account_id,
               "id": id,
               "role_id": role_id,
-              "role": role            },
-            nil,
+              "role": role
+            },
+            {},
           ).parsed_response
         end
       end

@@ -39,7 +39,9 @@ module LMSGraphQL
           context[:canvas_api].call("CREATE_NEW_COURSE").proxy(
             "CREATE_NEW_COURSE",
             {
-              "account_id": account_id,
+              "account_id": account_id
+            },
+            {
               "course[name]": course_name,
               "course[course_code]": course_course_code,
               "course[start_at]": course_start_at,
@@ -68,8 +70,8 @@ module LMSGraphQL
               "course[syllabus_body]": course_syllabus_body,
               "course[grading_standard_id]": course_grading_standard_id,
               "course[course_format]": course_course_format,
-              "enable_sis_reactivation": enable_sis_reactivation            },
-            nil,
+              "enable_sis_reactivation": enable_sis_reactivation
+            },
           ).parsed_response
         end
       end

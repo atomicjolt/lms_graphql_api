@@ -13,11 +13,13 @@ module LMSGraphQL
           context[:canvas_api].call("IMPORT_OUTCOMES_ACCOUNTS").proxy(
             "IMPORT_OUTCOMES_ACCOUNTS",
             {
-              "account_id": account_id,
+              "account_id": account_id
+            },
+            {
               "import_type": import_type,
               "attachment": attachment,
-              "extension": extension            },
-            nil,
+              "extension": extension
+            },
           ).parsed_response
         end
       end

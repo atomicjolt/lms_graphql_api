@@ -25,7 +25,9 @@ module LMSGraphQL
             {
               "course_id": course_id,
               "quiz_id": quiz_id,
-              "id": id,
+              "id": id
+            },
+            {
               "question[question_name]": question_question_name,
               "question[question_text]": question_question_text,
               "question[quiz_group_id]": question_quiz_group_id,
@@ -36,8 +38,8 @@ module LMSGraphQL
               "question[incorrect_comments]": question_incorrect_comments,
               "question[neutral_comments]": question_neutral_comments,
               "question[text_after_answers]": question_text_after_answers,
-              "question[answers]": question_answers            },
-            nil,
+              "question[answers]": question_answers
+            },
           ).parsed_response
         end
       end

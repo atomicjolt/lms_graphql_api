@@ -10,8 +10,9 @@ module LMSGraphQL
           context[:canvas_api].call("REMOVE_COURSE_FROM_FAVORITES").proxy(
             "REMOVE_COURSE_FROM_FAVORITES",
             {
-              "id": id            },
-            nil,
+              "id": id
+            },
+            {},
           ).parsed_response
         end
       end

@@ -10,10 +10,11 @@ module LMSGraphQL
         def resolve(polls_question:, polls_description: nil)
           context[:canvas_api].call("CREATE_SINGLE_POLL").proxy(
             "CREATE_SINGLE_POLL",
+            {},
             {
               "polls[question]": polls_question,
-              "polls[description]": polls_description            },
-            nil,
+              "polls[description]": polls_description
+            },
           ).parsed_response
         end
       end

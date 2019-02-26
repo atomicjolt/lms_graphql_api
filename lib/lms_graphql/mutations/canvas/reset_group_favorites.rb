@@ -9,9 +9,8 @@ module LMSGraphQL
         def resolve()
           context[:canvas_api].call("RESET_GROUP_FAVORITES").proxy(
             "RESET_GROUP_FAVORITES",
-            {
-            },
-            nil,
+            {},
+            {},
           ).parsed_response
         end
       end

@@ -10,8 +10,9 @@ module LMSGraphQL
           context[:canvas_api].call("FILES_UPLOAD_FILE").proxy(
             "FILES_UPLOAD_FILE",
             {
-              "folder_id": folder_id            },
-            nil,
+              "folder_id": folder_id
+            },
+            {},
           ).parsed_response
         end
       end

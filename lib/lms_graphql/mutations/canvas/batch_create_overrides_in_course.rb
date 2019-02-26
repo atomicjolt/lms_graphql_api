@@ -11,9 +11,11 @@ module LMSGraphQL
           context[:canvas_api].call("BATCH_CREATE_OVERRIDES_IN_COURSE").proxy(
             "BATCH_CREATE_OVERRIDES_IN_COURSE",
             {
-              "course_id": course_id,
-              "assignment_overrides": assignment_overrides            },
-            nil,
+              "course_id": course_id
+            },
+            {
+              "assignment_overrides": assignment_overrides
+            },
           ).parsed_response
         end
       end

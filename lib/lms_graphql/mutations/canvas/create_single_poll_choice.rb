@@ -13,11 +13,13 @@ module LMSGraphQL
           context[:canvas_api].call("CREATE_SINGLE_POLL_CHOICE").proxy(
             "CREATE_SINGLE_POLL_CHOICE",
             {
-              "poll_id": poll_id,
+              "poll_id": poll_id
+            },
+            {
               "poll_choices[text]": poll_choices_text,
               "poll_choices[is_correct]": poll_choices_is_correct,
-              "poll_choices[position]": poll_choices_position            },
-            nil,
+              "poll_choices[position]": poll_choices_position
+            },
           ).parsed_response
         end
       end

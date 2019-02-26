@@ -13,9 +13,11 @@ module LMSGraphQL
             "CREATE_SINGLE_POLL_SUBMISSION",
             {
               "poll_id": poll_id,
-              "poll_session_id": poll_session_id,
-              "poll_submissions[poll_choice_id]": poll_submissions_poll_choice_id            },
-            nil,
+              "poll_session_id": poll_session_id
+            },
+            {
+              "poll_submissions[poll_choice_id]": poll_submissions_poll_choice_id
+            },
           ).parsed_response
         end
       end

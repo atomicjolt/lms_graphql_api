@@ -13,9 +13,11 @@ module LMSGraphQL
             "EDIT_QUIZ",
             {
               "course_id": course_id,
-              "id": id,
-              "quiz[notify_of_update]": quiz_notify_of_update            },
-            nil,
+              "id": id
+            },
+            {
+              "quiz[notify_of_update]": quiz_notify_of_update
+            },
           ).parsed_response
         end
       end

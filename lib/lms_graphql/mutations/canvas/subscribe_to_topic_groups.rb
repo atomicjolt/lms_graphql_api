@@ -12,8 +12,9 @@ module LMSGraphQL
             "SUBSCRIBE_TO_TOPIC_GROUPS",
             {
               "group_id": group_id,
-              "topic_id": topic_id            },
-            nil,
+              "topic_id": topic_id
+            },
+            {},
           ).parsed_response
         end
       end

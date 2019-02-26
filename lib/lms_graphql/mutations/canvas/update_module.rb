@@ -19,15 +19,17 @@ module LMSGraphQL
             "UPDATE_MODULE",
             {
               "course_id": course_id,
-              "id": id,
+              "id": id
+            },
+            {
               "module[name]": module_name,
               "module[unlock_at]": module_unlock_at,
               "module[position]": module_position,
               "module[require_sequential_progress]": module_require_sequential_progress,
               "module[prerequisite_module_ids]": module_prerequisite_module_ids,
               "module[publish_final_grade]": module_publish_final_grade,
-              "module[published]": module_published            },
-            nil,
+              "module[published]": module_published
+            },
           ).parsed_response
         end
       end

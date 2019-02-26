@@ -15,13 +15,15 @@ module LMSGraphQL
           context[:canvas_api].call("SET_COURSE_TIMETABLE").proxy(
             "SET_COURSE_TIMETABLE",
             {
-              "course_id": course_id,
+              "course_id": course_id
+            },
+            {
               "timetables[course_section_id]": timetables_course_section_id,
               "timetables[course_section_id][weekdays]": timetables_course_section_id_weekdays,
               "timetables[course_section_id][start_time]": timetables_course_section_id_start_time,
               "timetables[course_section_id][end_time]": timetables_course_section_id_end_time,
-              "timetables[course_section_id][location_name]": timetables_course_section_id_location_name            },
-            nil,
+              "timetables[course_section_id][location_name]": timetables_course_section_id_location_name
+            },
           ).parsed_response
         end
       end

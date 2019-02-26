@@ -14,10 +14,12 @@ module LMSGraphQL
             "POST_ENTRY_COURSES",
             {
               "course_id": course_id,
-              "topic_id": topic_id,
+              "topic_id": topic_id
+            },
+            {
               "message": message,
-              "attachment": attachment            },
-            nil,
+              "attachment": attachment
+            },
           ).parsed_response
         end
       end

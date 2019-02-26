@@ -32,7 +32,9 @@ module LMSGraphQL
           context[:canvas_api].call("CREATE_USER").proxy(
             "CREATE_USER",
             {
-              "account_id": account_id,
+              "account_id": account_id
+            },
+            {
               "user[name]": user_name,
               "user[short_name]": user_short_name,
               "user[sortable_name]": user_sortable_name,
@@ -54,8 +56,8 @@ module LMSGraphQL
               "communication_channel[skip_confirmation]": communication_channel_skip_confirmation,
               "force_validations": force_validations,
               "enable_sis_reactivation": enable_sis_reactivation,
-              "destination": destination            },
-            nil,
+              "destination": destination
+            },
           ).parsed_response
         end
       end

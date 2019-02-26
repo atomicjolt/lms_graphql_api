@@ -11,9 +11,11 @@ module LMSGraphQL
           context[:canvas_api].call("SET_COURSE_NICKNAME").proxy(
             "SET_COURSE_NICKNAME",
             {
-              "course_id": course_id,
-              "nickname": nickname            },
-            nil,
+              "course_id": course_id
+            },
+            {
+              "nickname": nickname
+            },
           ).parsed_response
         end
       end

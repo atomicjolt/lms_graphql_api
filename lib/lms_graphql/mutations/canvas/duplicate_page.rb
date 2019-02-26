@@ -12,8 +12,9 @@ module LMSGraphQL
             "DUPLICATE_PAGE",
             {
               "course_id": course_id,
-              "url": url            },
-            nil,
+              "url": url
+            },
+            {},
           ).parsed_response
         end
       end

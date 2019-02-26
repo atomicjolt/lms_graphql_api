@@ -10,8 +10,9 @@ module LMSGraphQL
           context[:canvas_api].call("ADD_AUTHENTICATION_PROVIDER").proxy(
             "ADD_AUTHENTICATION_PROVIDER",
             {
-              "account_id": account_id            },
-            nil,
+              "account_id": account_id
+            },
+            {},
           ).parsed_response
         end
       end

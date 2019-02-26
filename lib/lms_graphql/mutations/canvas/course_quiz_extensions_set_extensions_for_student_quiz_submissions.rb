@@ -16,14 +16,16 @@ module LMSGraphQL
           context[:canvas_api].call("COURSE_QUIZ_EXTENSIONS_SET_EXTENSIONS_FOR_STUDENT_QUIZ_SUBMISSIONS").proxy(
             "COURSE_QUIZ_EXTENSIONS_SET_EXTENSIONS_FOR_STUDENT_QUIZ_SUBMISSIONS",
             {
-              "course_id": course_id,
+              "course_id": course_id
+            },
+            {
               "user_id": user_id,
               "extra_attempts": extra_attempts,
               "extra_time": extra_time,
               "manually_unlocked": manually_unlocked,
               "extend_from_now": extend_from_now,
-              "extend_from_end_at": extend_from_end_at            },
-            nil,
+              "extend_from_end_at": extend_from_end_at
+            },
           ).parsed_response
         end
       end

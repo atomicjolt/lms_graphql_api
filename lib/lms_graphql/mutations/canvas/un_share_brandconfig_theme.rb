@@ -10,8 +10,9 @@ module LMSGraphQL
           context[:canvas_api].call("UN_SHARE_BRANDCONFIG_THEME").proxy(
             "UN_SHARE_BRANDCONFIG_THEME",
             {
-              "id": id            },
-            nil,
+              "id": id
+            },
+            {},
           ).parsed_response
         end
       end

@@ -15,9 +15,11 @@ module LMSGraphQL
             {
               "group_id": group_id,
               "topic_id": topic_id,
-              "id": id,
-              "message": message            },
-            nil,
+              "id": id
+            },
+            {
+              "message": message
+            },
           ).parsed_response
         end
       end

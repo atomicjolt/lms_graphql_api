@@ -14,10 +14,12 @@ module LMSGraphQL
             "SET_EXTENSIONS_FOR_STUDENT_ASSIGNMENT_SUBMISSIONS",
             {
               "course_id": course_id,
-              "assignment_id": assignment_id,
+              "assignment_id": assignment_id
+            },
+            {
               "assignment_extensions[user_id]": assignment_extensions_user_id,
-              "assignment_extensions[extra_attempts]": assignment_extensions_extra_attempts            },
-            nil,
+              "assignment_extensions[extra_attempts]": assignment_extensions_extra_attempts
+            },
           ).parsed_response
         end
       end

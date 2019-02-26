@@ -13,11 +13,13 @@ module LMSGraphQL
           context[:canvas_api].call("RESERVE_TIME_SLOT").proxy(
             "RESERVE_TIME_SLOT",
             {
-              "id": id,
+              "id": id
+            },
+            {
               "participant_id": participant_id,
               "comments": comments,
-              "cancel_existing": cancel_existing            },
-            nil,
+              "cancel_existing": cancel_existing
+            },
           ).parsed_response
         end
       end

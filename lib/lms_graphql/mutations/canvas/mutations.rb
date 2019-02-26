@@ -77,6 +77,7 @@ module LMSGraphQL
         field :enable_disable_or_clear_explicit_csp_setting_courses, mutation: LMSGraphQL::Mutations::Canvas::EnableDisableOrClearExplicitCspSettingCourse
         field :enable_disable_or_clear_explicit_csp_setting_accounts, mutation: LMSGraphQL::Mutations::Canvas::EnableDisableOrClearExplicitCspSettingAccount
         field :add_domain_to_account_whitelist, mutation: LMSGraphQL::Mutations::Canvas::AddDomainToAccountWhitelist
+        field :add_multiple_domains_to_account_whitelist, mutation: LMSGraphQL::Mutations::Canvas::AddMultipleDomainsToAccountWhitelist
         field :remove_domain_from_account_whitelist, mutation: LMSGraphQL::Mutations::Canvas::RemoveDomainFromAccountWhitelist
         field :create_conversation, mutation: LMSGraphQL::Mutations::Canvas::CreateConversation
         field :edit_conversation, mutation: LMSGraphQL::Mutations::Canvas::EditConversation
@@ -216,7 +217,6 @@ module LMSGraphQL
         field :select_students_for_moderation, mutation: LMSGraphQL::Mutations::Canvas::SelectStudentsForModeration
         field :bulk_select_provisional_grades, mutation: LMSGraphQL::Mutations::Canvas::BulkSelectProvisionalGrade
         field :select_provisional_grade, mutation: LMSGraphQL::Mutations::Canvas::SelectProvisionalGrade
-        field :copy_provisional_grade, mutation: LMSGraphQL::Mutations::Canvas::CopyProvisionalGrade
         field :publish_provisional_grades_for_assignment, mutation: LMSGraphQL::Mutations::Canvas::PublishProvisionalGradesForAssignment
         field :create_module, mutation: LMSGraphQL::Mutations::Canvas::CreateModule
         field :update_module, mutation: LMSGraphQL::Mutations::Canvas::UpdateModule

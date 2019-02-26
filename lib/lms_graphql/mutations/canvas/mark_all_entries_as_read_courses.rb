@@ -13,9 +13,11 @@ module LMSGraphQL
             "MARK_ALL_ENTRIES_AS_READ_COURSES",
             {
               "course_id": course_id,
-              "topic_id": topic_id,
-              "forced_read_state": forced_read_state            },
-            nil,
+              "topic_id": topic_id
+            },
+            {
+              "forced_read_state": forced_read_state
+            },
           ).parsed_response
         end
       end

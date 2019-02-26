@@ -12,8 +12,9 @@ module LMSGraphQL
             "REMOVE_FEATURE_FLAG_COURSES",
             {
               "course_id": course_id,
-              "feature": feature            },
-            nil,
+              "feature": feature
+            },
+            {},
           ).parsed_response
         end
       end

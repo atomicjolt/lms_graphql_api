@@ -12,8 +12,9 @@ module LMSGraphQL
             "LEAVE_GROUP_USERS",
             {
               "group_id": group_id,
-              "user_id": user_id            },
-            nil,
+              "user_id": user_id
+            },
+            {},
           ).parsed_response
         end
       end

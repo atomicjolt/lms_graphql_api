@@ -10,10 +10,11 @@ module LMSGraphQL
         def resolve(conversation_ids:, event:)
           context[:canvas_api].call("BATCH_UPDATE_CONVERSATIONS").proxy(
             "BATCH_UPDATE_CONVERSATIONS",
+            {},
             {
               "conversation_ids": conversation_ids,
-              "event": event            },
-            nil,
+              "event": event
+            },
           ).parsed_response
         end
       end

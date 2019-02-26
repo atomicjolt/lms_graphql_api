@@ -15,13 +15,15 @@ module LMSGraphQL
           context[:canvas_api].call("ADD_OBSERVEE_WITH_CREDENTIALS").proxy(
             "ADD_OBSERVEE_WITH_CREDENTIALS",
             {
-              "user_id": user_id,
+              "user_id": user_id
+            },
+            {
               "observee[unique_id]": observee_unique_id,
               "observee[password]": observee_password,
               "access_token": access_token,
               "pairing_code": pairing_code,
-              "root_account_id": root_account_id            },
-            nil,
+              "root_account_id": root_account_id
+            },
           ).parsed_response
         end
       end

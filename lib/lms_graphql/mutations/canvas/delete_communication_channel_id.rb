@@ -12,8 +12,9 @@ module LMSGraphQL
             "DELETE_COMMUNICATION_CHANNEL_ID",
             {
               "user_id": user_id,
-              "id": id            },
-            nil,
+              "id": id
+            },
+            {},
           ).parsed_response
         end
       end

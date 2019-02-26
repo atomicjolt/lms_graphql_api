@@ -14,10 +14,12 @@ module LMSGraphQL
             "POST_ENTRY_GROUPS",
             {
               "group_id": group_id,
-              "topic_id": topic_id,
+              "topic_id": topic_id
+            },
+            {
               "message": message,
-              "attachment": attachment            },
-            nil,
+              "attachment": attachment
+            },
           ).parsed_response
         end
       end

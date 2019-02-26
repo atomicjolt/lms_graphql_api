@@ -16,14 +16,16 @@ module LMSGraphQL
           context[:canvas_api].call("CREATE_GLOBAL_NOTIFICATION").proxy(
             "CREATE_GLOBAL_NOTIFICATION",
             {
-              "account_id": account_id,
+              "account_id": account_id
+            },
+            {
               "account_notification[subject]": account_notification_subject,
               "account_notification[message]": account_notification_message,
               "account_notification[start_at]": account_notification_start_at,
               "account_notification[end_at]": account_notification_end_at,
               "account_notification[icon]": account_notification_icon,
-              "account_notification_roles": account_notification_roles            },
-            nil,
+              "account_notification_roles": account_notification_roles
+            },
           ).parsed_response
         end
       end

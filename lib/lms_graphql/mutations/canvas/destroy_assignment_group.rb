@@ -14,8 +14,9 @@ module LMSGraphQL
             {
               "course_id": course_id,
               "assignment_group_id": assignment_group_id,
-              "move_assignments_to": move_assignments_to            },
-            nil,
+              "move_assignments_to": move_assignments_to
+            },
+            {},
           ).parsed_response
         end
       end

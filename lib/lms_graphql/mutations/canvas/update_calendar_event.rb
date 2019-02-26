@@ -22,7 +22,9 @@ module LMSGraphQL
           context[:canvas_api].call("UPDATE_CALENDAR_EVENT").proxy(
             "UPDATE_CALENDAR_EVENT",
             {
-              "id": id,
+              "id": id
+            },
+            {
               "calendar_event[context_code]": calendar_event_context_code,
               "calendar_event[title]": calendar_event_title,
               "calendar_event[description]": calendar_event_description,
@@ -34,8 +36,8 @@ module LMSGraphQL
               "calendar_event[all_day]": calendar_event_all_day,
               "calendar_event[child_event_data][X][start_at]": calendar_event_child_event_data_X_start_at,
               "calendar_event[child_event_data][X][end_at]": calendar_event_child_event_data_X_end_at,
-              "calendar_event[child_event_data][X][context_code]": calendar_event_child_event_data_X_context_code            },
-            nil,
+              "calendar_event[child_event_data][X][context_code]": calendar_event_child_event_data_X_context_code
+            },
           ).parsed_response
         end
       end

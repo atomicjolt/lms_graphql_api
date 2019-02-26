@@ -9,9 +9,8 @@ module LMSGraphQL
         def resolve()
           context[:canvas_api].call("MARK_ALL_AS_READ").proxy(
             "MARK_ALL_AS_READ",
-            {
-            },
-            nil,
+            {},
+            {},
           ).parsed_response
         end
       end

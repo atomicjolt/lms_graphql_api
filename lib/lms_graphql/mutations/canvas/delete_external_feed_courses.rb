@@ -12,8 +12,9 @@ module LMSGraphQL
             "DELETE_EXTERNAL_FEED_COURSES",
             {
               "course_id": course_id,
-              "external_feed_id": external_feed_id            },
-            nil,
+              "external_feed_id": external_feed_id
+            },
+            {},
           ).parsed_response
         end
       end

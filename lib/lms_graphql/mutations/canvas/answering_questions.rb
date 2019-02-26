@@ -14,12 +14,14 @@ module LMSGraphQL
           context[:canvas_api].call("ANSWERING_QUESTIONS").proxy(
             "ANSWERING_QUESTIONS",
             {
-              "quiz_submission_id": quiz_submission_id,
+              "quiz_submission_id": quiz_submission_id
+            },
+            {
               "attempt": attempt,
               "validation_token": validation_token,
               "access_code": access_code,
-              "quiz_questions": quiz_questions            },
-            nil,
+              "quiz_questions": quiz_questions
+            },
           ).parsed_response
         end
       end

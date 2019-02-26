@@ -16,14 +16,16 @@ module LMSGraphQL
           context[:canvas_api].call("EDIT_SECTION").proxy(
             "EDIT_SECTION",
             {
-              "id": id,
+              "id": id
+            },
+            {
               "course_section[name]": course_section_name,
               "course_section[sis_section_id]": course_section_sis_section_id,
               "course_section[integration_id]": course_section_integration_id,
               "course_section[start_at]": course_section_start_at,
               "course_section[end_at]": course_section_end_at,
-              "course_section[restrict_enrollments_to_section_dates]": course_section_restrict_enrollments_to_section_dates            },
-            nil,
+              "course_section[restrict_enrollments_to_section_dates]": course_section_restrict_enrollments_to_section_dates
+            },
           ).parsed_response
         end
       end

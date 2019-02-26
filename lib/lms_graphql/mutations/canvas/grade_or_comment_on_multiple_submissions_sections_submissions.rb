@@ -19,7 +19,9 @@ module LMSGraphQL
           context[:canvas_api].call("GRADE_OR_COMMENT_ON_MULTIPLE_SUBMISSIONS_SECTIONS_SUBMISSIONS").proxy(
             "GRADE_OR_COMMENT_ON_MULTIPLE_SUBMISSIONS_SECTIONS_SUBMISSIONS",
             {
-              "section_id": section_id,
+              "section_id": section_id
+            },
+            {
               "grade_data[<student_id>][posted_grade]": grade_data__student_id__posted_grade,
               "grade_data[<student_id>][excuse]": grade_data__student_id__excuse,
               "grade_data[<student_id>][rubric_assessment]": grade_data__student_id__rubric_assessment,
@@ -28,8 +30,8 @@ module LMSGraphQL
               "grade_data[<student_id>][media_comment_id]": grade_data__student_id__media_comment_id,
               "grade_data[<student_id>][media_comment_type]": grade_data__student_id__media_comment_type,
               "grade_data[<student_id>][file_ids]": grade_data__student_id__file_ids,
-              "grade_data[<student_id>][assignment_id]": grade_data__student_id__assignment_id            },
-            nil,
+              "grade_data[<student_id>][assignment_id]": grade_data__student_id__assignment_id
+            },
           ).parsed_response
         end
       end

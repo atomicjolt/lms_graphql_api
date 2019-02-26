@@ -10,8 +10,9 @@ module LMSGraphQL
           context[:canvas_api].call("RESET_COURSE").proxy(
             "RESET_COURSE",
             {
-              "course_id": course_id            },
-            nil,
+              "course_id": course_id
+            },
+            {},
           ).parsed_response
         end
       end

@@ -16,14 +16,16 @@ module LMSGraphQL
           context[:canvas_api].call("CREATE_ASSIGNMENT_GROUP").proxy(
             "CREATE_ASSIGNMENT_GROUP",
             {
-              "course_id": course_id,
+              "course_id": course_id
+            },
+            {
               "name": name,
               "position": position,
               "group_weight": group_weight,
               "sis_source_id": sis_source_id,
               "integration_data": integration_data,
-              "rules": rules            },
-            nil,
+              "rules": rules
+            },
           ).parsed_response
         end
       end

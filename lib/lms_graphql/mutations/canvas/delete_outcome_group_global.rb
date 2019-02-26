@@ -10,8 +10,9 @@ module LMSGraphQL
           context[:canvas_api].call("DELETE_OUTCOME_GROUP_GLOBAL").proxy(
             "DELETE_OUTCOME_GROUP_GLOBAL",
             {
-              "id": id            },
-            nil,
+              "id": id
+            },
+            {},
           ).parsed_response
         end
       end

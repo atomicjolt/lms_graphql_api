@@ -17,15 +17,17 @@ module LMSGraphQL
           context[:canvas_api].call("ADD_MESSAGE").proxy(
             "ADD_MESSAGE",
             {
-              "id": id,
+              "id": id
+            },
+            {
               "body": body,
               "attachment_ids": attachment_ids,
               "media_comment_id": media_comment_id,
               "media_comment_type": media_comment_type,
               "recipients": recipients,
               "included_messages": included_messages,
-              "user_note": user_note            },
-            nil,
+              "user_note": user_note
+            },
           ).parsed_response
         end
       end

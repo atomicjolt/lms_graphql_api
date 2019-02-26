@@ -19,15 +19,17 @@ module LMSGraphQL
             "CREATE_ORIGINALITY_REPORT",
             {
               "assignment_id": assignment_id,
-              "submission_id": submission_id,
+              "submission_id": submission_id
+            },
+            {
               "originality_report[file_id]": originality_report_file_id,
               "originality_report[originality_score]": originality_report_originality_score,
               "originality_report[originality_report_url]": originality_report_originality_report_url,
               "originality_report[originality_report_file_id]": originality_report_originality_report_file_id,
               "originality_report[tool_setting][resource_type_code]": originality_report_tool_setting_resource_type_code,
               "originality_report[tool_setting][resource_url]": originality_report_tool_setting_resource_url,
-              "originality_report[workflow_state]": originality_report_workflow_state            },
-            nil,
+              "originality_report[workflow_state]": originality_report_workflow_state
+            },
           ).parsed_response
         end
       end

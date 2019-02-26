@@ -10,8 +10,9 @@ module LMSGraphQL
           context[:canvas_api].call("DELETE_PLANNER_NOTE").proxy(
             "DELETE_PLANNER_NOTE",
             {
-              "id": id            },
-            nil,
+              "id": id
+            },
+            {},
           ).parsed_response
         end
       end

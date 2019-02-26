@@ -12,8 +12,9 @@ module LMSGraphQL
             "DELETE_OUTCOME_GROUP_ACCOUNTS",
             {
               "account_id": account_id,
-              "id": id            },
-            nil,
+              "id": id
+            },
+            {},
           ).parsed_response
         end
       end

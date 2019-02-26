@@ -11,9 +11,11 @@ module LMSGraphQL
           context[:canvas_api].call("ENABLE_DISABLE_OR_CLEAR_EXPLICIT_CSP_SETTING_COURSES").proxy(
             "ENABLE_DISABLE_OR_CLEAR_EXPLICIT_CSP_SETTING_COURSES",
             {
-              "course_id": course_id,
-              "status": status            },
-            nil,
+              "course_id": course_id
+            },
+            {
+              "status": status
+            },
           ).parsed_response
         end
       end

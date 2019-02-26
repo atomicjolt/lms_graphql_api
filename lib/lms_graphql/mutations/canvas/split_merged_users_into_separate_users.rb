@@ -10,8 +10,9 @@ module LMSGraphQL
           context[:canvas_api].call("SPLIT_MERGED_USERS_INTO_SEPARATE_USERS").proxy(
             "SPLIT_MERGED_USERS_INTO_SEPARATE_USERS",
             {
-              "id": id            },
-            nil,
+              "id": id
+            },
+            {},
           ).parsed_response
         end
       end

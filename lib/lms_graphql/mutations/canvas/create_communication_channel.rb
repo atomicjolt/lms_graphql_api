@@ -14,12 +14,14 @@ module LMSGraphQL
           context[:canvas_api].call("CREATE_COMMUNICATION_CHANNEL").proxy(
             "CREATE_COMMUNICATION_CHANNEL",
             {
-              "user_id": user_id,
+              "user_id": user_id
+            },
+            {
               "communication_channel[address]": communication_channel_address,
               "communication_channel[type]": communication_channel_type,
               "communication_channel[token]": communication_channel_token,
-              "skip_confirmation": skip_confirmation            },
-            nil,
+              "skip_confirmation": skip_confirmation
+            },
           ).parsed_response
         end
       end

@@ -12,10 +12,12 @@ module LMSGraphQL
           context[:canvas_api].call("UPDATE_SINGLE_POLL").proxy(
             "UPDATE_SINGLE_POLL",
             {
-              "id": id,
+              "id": id
+            },
+            {
               "polls[question]": polls_question,
-              "polls[description]": polls_description            },
-            nil,
+              "polls[description]": polls_description
+            },
           ).parsed_response
         end
       end

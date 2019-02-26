@@ -19,7 +19,9 @@ module LMSGraphQL
           context[:canvas_api].call("UPDATE_OUTCOME").proxy(
             "UPDATE_OUTCOME",
             {
-              "id": id,
+              "id": id
+            },
+            {
               "title": title,
               "display_name": display_name,
               "description": description,
@@ -28,8 +30,8 @@ module LMSGraphQL
               "ratings[description]": ratings_description,
               "ratings[points]": ratings_points,
               "calculation_method": calculation_method,
-              "calculation_int": calculation_int            },
-            nil,
+              "calculation_int": calculation_int
+            },
           ).parsed_response
         end
       end

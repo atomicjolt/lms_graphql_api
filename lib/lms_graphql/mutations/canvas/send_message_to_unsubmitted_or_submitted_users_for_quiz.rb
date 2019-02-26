@@ -13,9 +13,11 @@ module LMSGraphQL
             "SEND_MESSAGE_TO_UNSUBMITTED_OR_SUBMITTED_USERS_FOR_QUIZ",
             {
               "course_id": course_id,
-              "id": id,
-              "conversations": conversations            },
-            nil,
+              "id": id
+            },
+            {
+              "conversations": conversations
+            },
           ).parsed_response
         end
       end

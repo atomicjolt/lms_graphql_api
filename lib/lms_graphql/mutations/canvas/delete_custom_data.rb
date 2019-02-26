@@ -12,8 +12,9 @@ module LMSGraphQL
             "DELETE_CUSTOM_DATA",
             {
               "user_id": user_id,
-              "ns": ns            },
-            nil,
+              "ns": ns
+            },
+            {},
           ).parsed_response
         end
       end

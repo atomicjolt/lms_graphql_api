@@ -17,11 +17,13 @@ module LMSGraphQL
             {
               "course_id": course_id,
               "quiz_id": quiz_id,
-              "id": id,
+              "id": id
+            },
+            {
               "quiz_submissions[attempt]": quiz_submissions_attempt,
               "quiz_submissions[fudge_points]": quiz_submissions_fudge_points,
-              "quiz_submissions[questions]": quiz_submissions_questions            },
-            nil,
+              "quiz_submissions[questions]": quiz_submissions_questions
+            },
           ).parsed_response
         end
       end

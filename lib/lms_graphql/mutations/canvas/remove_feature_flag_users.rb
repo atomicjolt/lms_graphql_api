@@ -12,8 +12,9 @@ module LMSGraphQL
             "REMOVE_FEATURE_FLAG_USERS",
             {
               "user_id": user_id,
-              "feature": feature            },
-            nil,
+              "feature": feature
+            },
+            {},
           ).parsed_response
         end
       end

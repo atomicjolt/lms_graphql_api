@@ -12,8 +12,9 @@ module LMSGraphQL
             "DELETE_EXTERNAL_TOOL_ACCOUNTS",
             {
               "account_id": account_id,
-              "external_tool_id": external_tool_id            },
-            nil,
+              "external_tool_id": external_tool_id
+            },
+            {},
           ).parsed_response
         end
       end

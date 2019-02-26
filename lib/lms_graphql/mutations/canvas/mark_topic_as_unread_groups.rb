@@ -12,8 +12,9 @@ module LMSGraphQL
             "MARK_TOPIC_AS_UNREAD_GROUPS",
             {
               "group_id": group_id,
-              "topic_id": topic_id            },
-            nil,
+              "topic_id": topic_id
+            },
+            {},
           ).parsed_response
         end
       end
