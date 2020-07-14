@@ -1,15 +1,18 @@
 module LMSGraphQL
   module Types
-    DateTimeType = ::GraphQL::ScalarType.define do
-      name "DateTime"
+    class DateTimeType < ::GraphQL::Schema::Scalar
+      graphql_name "DateTime"
 
-      coerce_input ->(value, _ctx) { Time.zone.parse(value) }
-      coerce_result ->(value, _ctx) {
+      def self.coerce_input(value, _ctx)
+        Time.zone.parse(value)
+      end
+
+      def self.coerce_result(value, _ctx)
         if value.is_a? String
           value = Time.zone.parse(value)
         end
         value.utc.iso8601
-      }
+      end
     end
   end
 end
