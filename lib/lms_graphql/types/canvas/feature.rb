@@ -12,7 +12,7 @@ module LMSGraphQL
         end
       class CanvasFeature < BaseType
         description "Feature Flags. API Docs: https://canvas.instructure.com/doc/api/feature_flags.html"
-        field :name, String, "The symbolic name of the feature, used in FeatureFlags.Example: fancy_wickets", null: true
+        field :feature, String, "The symbolic name of the feature, used in FeatureFlags.Example: fancy_wickets", null: true
         field :display_name, String, "The user-visible name of the feature.Example: Fancy Wickets", null: true
         field :applies_to, FeatureAppliesToEnum, "The type of object the feature applies to (RootAccount, Account, Course, or User):
  * RootAccount features may only be controlled by flags on root accounts.

@@ -35,6 +35,7 @@ module LMSGraphQL
         argument :root_account_id, ID, "the root account associated with the course.Example: 81259", required: false
         argument :enrollment_term_id, ID, "the enrollment term associated with the course.Example: 34", required: false
         argument :grading_standard_id, ID, "the grading standard associated with the course.Example: 25", required: false
+        argument :grade_passback_setting, String, "the grade_passback_setting set on the course.Example: nightly_sync", required: false
         argument :created_at, LMSGraphQL::Types::DateTimeType, "the date the course was created..Example: 2012-05-01T00:00:00-06:00", required: false
         argument :start_at, LMSGraphQL::Types::DateTimeType, "the start date for the course, if applicable.Example: 2012-06-01T00:00:00-06:00", required: false
         argument :end_at, LMSGraphQL::Types::DateTimeType, "the end date for the course, if applicable.Example: 2012-09-01T00:00:00-06:00", required: false
@@ -46,7 +47,7 @@ module LMSGraphQL
         argument :syllabus_body, String, "optional: user-generated HTML for the course syllabus.Example: <p>syllabus html goes here</p>", required: false
         argument :needs_grading_count, Int, "optional: the number of submissions needing grading returned only if the current user has grading rights and include[]=needs_grading_count.Example: 17", required: false
         argument :term, LMSGraphQL::Types::Canvas::CanvasTermInput, "optional: the enrollment term object for the course returned only if include[]=term.", required: false
-        argument :course_progress, LMSGraphQL::Types::Canvas::CanvasCourseProgressInput, "optional (beta): information on progress through the course returned only if include[]=course_progress.", required: false
+        argument :course_progress, LMSGraphQL::Types::Canvas::CanvasCourseProgressInput, "optional: information on progress through the course returned only if include[]=course_progress.", required: false
         argument :apply_assignment_group_weights, Boolean, "weight final grade based on assignment group percentages.Example: true", required: false
         argument :permissions, String, "optional: the permissions the user has for the course. returned only for a single course and include[]=permissions.Example: true, true", required: false
         argument :is_public, Boolean, "Example: true", required: false

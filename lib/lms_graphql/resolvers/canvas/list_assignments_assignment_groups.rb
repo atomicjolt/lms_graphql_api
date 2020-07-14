@@ -15,7 +15,8 @@ module LMSGraphQL
         argument :bucket, String, required: false
         argument :assignment_ids, [ID], required: false
         argument :order_by, String, required: false
-        def resolve(course_id:, assignment_group_id:, include: nil, search_term: nil, override_assignment_dates: nil, needs_grading_count_by_section: nil, bucket: nil, assignment_ids: nil, order_by: nil, get_all: false)
+        argument :post_to_sis, Boolean, required: false
+        def resolve(course_id:, assignment_group_id:, include: nil, search_term: nil, override_assignment_dates: nil, needs_grading_count_by_section: nil, bucket: nil, assignment_ids: nil, order_by: nil, post_to_sis: nil, get_all: false)
           result = context[:canvas_api].call("LIST_ASSIGNMENTS_ASSIGNMENT_GROUPS").proxy(
             "LIST_ASSIGNMENTS_ASSIGNMENT_GROUPS",
             {
@@ -27,7 +28,8 @@ module LMSGraphQL
               "needs_grading_count_by_section": needs_grading_count_by_section,
               "bucket": bucket,
               "assignment_ids": assignment_ids,
-              "order_by": order_by            },
+              "order_by": order_by,
+              "post_to_sis": post_to_sis            },
             nil,
             get_all,
           )

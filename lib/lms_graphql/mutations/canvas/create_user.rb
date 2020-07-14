@@ -27,8 +27,10 @@ module LMSGraphQL
         argument :force_validations, Boolean, required: false
         argument :enable_sis_reactivation, Boolean, required: false
         argument :destination, String, required: false
+        argument :initial_enrollment_type, String, required: false
+        argument :pairing_code_code, String, required: false
         field :user, LMSGraphQL::Types::Canvas::CanvasUser, null: false
-        def resolve(account_id:, user_name: nil, user_short_name: nil, user_sortable_name: nil, user_time_zone: nil, user_locale: nil, user_birthdate: nil, user_terms_of_use: nil, user_skip_registration: nil, pseudonym_unique_id:, pseudonym_password: nil, pseudonym_sis_user_id: nil, pseudonym_integration_id: nil, pseudonym_send_confirmation: nil, pseudonym_force_self_registration: nil, pseudonym_authentication_provider_id: nil, communication_channel_type: nil, communication_channel_address: nil, communication_channel_confirmation_url: nil, communication_channel_skip_confirmation: nil, force_validations: nil, enable_sis_reactivation: nil, destination: nil)
+        def resolve(account_id:, user_name: nil, user_short_name: nil, user_sortable_name: nil, user_time_zone: nil, user_locale: nil, user_birthdate: nil, user_terms_of_use: nil, user_skip_registration: nil, pseudonym_unique_id:, pseudonym_password: nil, pseudonym_sis_user_id: nil, pseudonym_integration_id: nil, pseudonym_send_confirmation: nil, pseudonym_force_self_registration: nil, pseudonym_authentication_provider_id: nil, communication_channel_type: nil, communication_channel_address: nil, communication_channel_confirmation_url: nil, communication_channel_skip_confirmation: nil, force_validations: nil, enable_sis_reactivation: nil, destination: nil, initial_enrollment_type: nil, pairing_code_code: nil)
           context[:canvas_api].call("CREATE_USER").proxy(
             "CREATE_USER",
             {
@@ -56,7 +58,9 @@ module LMSGraphQL
               "communication_channel[skip_confirmation]": communication_channel_skip_confirmation,
               "force_validations": force_validations,
               "enable_sis_reactivation": enable_sis_reactivation,
-              "destination": destination
+              "destination": destination,
+              "initial_enrollment_type": initial_enrollment_type,
+              "pairing_code[code]": pairing_code_code
             },
           ).parsed_response
         end

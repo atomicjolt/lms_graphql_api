@@ -33,6 +33,7 @@ module LMSGraphQL
         field :delete_assignment, mutation: LMSGraphQL::Mutations::Canvas::DeleteAssignment
         field :create_assignment, mutation: LMSGraphQL::Mutations::Canvas::CreateAssignment
         field :edit_assignment, mutation: LMSGraphQL::Mutations::Canvas::EditAssignment
+        field :bulk_update_assignment_dates, mutation: LMSGraphQL::Mutations::Canvas::BulkUpdateAssignmentDate
         field :create_assignment_override, mutation: LMSGraphQL::Mutations::Canvas::CreateAssignmentOverride
         field :update_assignment_override, mutation: LMSGraphQL::Mutations::Canvas::UpdateAssignmentOverride
         field :delete_assignment_override, mutation: LMSGraphQL::Mutations::Canvas::DeleteAssignmentOverride
@@ -76,9 +77,14 @@ module LMSGraphQL
         field :update_content_migration_users, mutation: LMSGraphQL::Mutations::Canvas::UpdateContentMigrationUser
         field :enable_disable_or_clear_explicit_csp_setting_courses, mutation: LMSGraphQL::Mutations::Canvas::EnableDisableOrClearExplicitCspSettingCourse
         field :enable_disable_or_clear_explicit_csp_setting_accounts, mutation: LMSGraphQL::Mutations::Canvas::EnableDisableOrClearExplicitCspSettingAccount
-        field :add_domain_to_account_whitelist, mutation: LMSGraphQL::Mutations::Canvas::AddDomainToAccountWhitelist
-        field :add_multiple_domains_to_account_whitelist, mutation: LMSGraphQL::Mutations::Canvas::AddMultipleDomainsToAccountWhitelist
-        field :remove_domain_from_account_whitelist, mutation: LMSGraphQL::Mutations::Canvas::RemoveDomainFromAccountWhitelist
+        field :lock_or_unlock_current_csp_settings_for_sub_accounts_and_courses, mutation: LMSGraphQL::Mutations::Canvas::LockOrUnlockCurrentCspSettingsForSubAccountsAndCourse
+        field :add_allowed_domain_to_account, mutation: LMSGraphQL::Mutations::Canvas::AddAllowedDomainToAccount
+        field :add_multiple_allowed_domains_to_account, mutation: LMSGraphQL::Mutations::Canvas::AddMultipleAllowedDomainsToAccount
+        field :remove_domain_from_account, mutation: LMSGraphQL::Mutations::Canvas::RemoveDomainFromAccount
+        field :create_content_share, mutation: LMSGraphQL::Mutations::Canvas::CreateContentShare
+        field :remove_content_share, mutation: LMSGraphQL::Mutations::Canvas::RemoveContentShare
+        field :add_users_to_content_share, mutation: LMSGraphQL::Mutations::Canvas::AddUsersToContentShare
+        field :update_content_share, mutation: LMSGraphQL::Mutations::Canvas::UpdateContentShare
         field :create_conversation, mutation: LMSGraphQL::Mutations::Canvas::CreateConversation
         field :edit_conversation, mutation: LMSGraphQL::Mutations::Canvas::EditConversation
         field :mark_all_as_read, mutation: LMSGraphQL::Mutations::Canvas::MarkAllAsRead
@@ -168,6 +174,7 @@ module LMSGraphQL
         field :remove_feature_flag_users, mutation: LMSGraphQL::Mutations::Canvas::RemoveFeatureFlagUser
         field :update_file, mutation: LMSGraphQL::Mutations::Canvas::UpdateFile
         field :delete_file, mutation: LMSGraphQL::Mutations::Canvas::DeleteFile
+        field :reset_link_verifier, mutation: LMSGraphQL::Mutations::Canvas::ResetLinkVerifier
         field :update_folder, mutation: LMSGraphQL::Mutations::Canvas::UpdateFolder
         field :create_folder_courses, mutation: LMSGraphQL::Mutations::Canvas::CreateFolderCourse
         field :create_folder_users, mutation: LMSGraphQL::Mutations::Canvas::CreateFolderUser
@@ -205,15 +212,21 @@ module LMSGraphQL
         field :update_membership_users, mutation: LMSGraphQL::Mutations::Canvas::UpdateMembershipUser
         field :leave_group_memberships, mutation: LMSGraphQL::Mutations::Canvas::LeaveGroupMembership
         field :leave_group_users, mutation: LMSGraphQL::Mutations::Canvas::LeaveGroupUser
+        field :confirm_image_selection, mutation: LMSGraphQL::Mutations::Canvas::ConfirmImageSelection
         field :create_jwt, mutation: LMSGraphQL::Mutations::Canvas::CreateJwt
         field :refresh_jwt, mutation: LMSGraphQL::Mutations::Canvas::RefreshJwt
         field :create_late_policy, mutation: LMSGraphQL::Mutations::Canvas::CreateLatePolicy
         field :patch_late_policy, mutation: LMSGraphQL::Mutations::Canvas::PatchLatePolicy
+        field :create_line_item, mutation: LMSGraphQL::Mutations::Canvas::CreateLineItem
+        field :update_line_item, mutation: LMSGraphQL::Mutations::Canvas::UpdateLineItem
+        field :delete_line_item, mutation: LMSGraphQL::Mutations::Canvas::DeleteLineItem
         field :create_live_assessment_results, mutation: LMSGraphQL::Mutations::Canvas::CreateLiveAssessmentResult
         field :create_or_find_live_assessment, mutation: LMSGraphQL::Mutations::Canvas::CreateOrFindLiveAssessment
         field :create_user_login, mutation: LMSGraphQL::Mutations::Canvas::CreateUserLogin
         field :edit_user_login, mutation: LMSGraphQL::Mutations::Canvas::EditUserLogin
         field :delete_user_login, mutation: LMSGraphQL::Mutations::Canvas::DeleteUserLogin
+        field :update_media_tracks, mutation: LMSGraphQL::Mutations::Canvas::UpdateMediaTrack
+        field :update_media_object, mutation: LMSGraphQL::Mutations::Canvas::UpdateMediaObject
         field :select_students_for_moderation, mutation: LMSGraphQL::Mutations::Canvas::SelectStudentsForModeration
         field :bulk_select_provisional_grades, mutation: LMSGraphQL::Mutations::Canvas::BulkSelectProvisionalGrade
         field :select_provisional_grade, mutation: LMSGraphQL::Mutations::Canvas::SelectProvisionalGrade
@@ -292,6 +305,7 @@ module LMSGraphQL
         field :update_single_poll, mutation: LMSGraphQL::Mutations::Canvas::UpdateSinglePoll
         field :delete_poll, mutation: LMSGraphQL::Mutations::Canvas::DeletePoll
         field :create_update_proficiency_ratings, mutation: LMSGraphQL::Mutations::Canvas::CreateUpdateProficiencyRating
+        field :update_public_jwk, mutation: LMSGraphQL::Mutations::Canvas::UpdatePublicJwk
         field :quiz_extensions_set_extensions_for_student_quiz_submissions, mutation: LMSGraphQL::Mutations::Canvas::QuizExtensionsSetExtensionsForStudentQuizSubmission
         field :create_question_group, mutation: LMSGraphQL::Mutations::Canvas::CreateQuestionGroup
         field :update_question_group, mutation: LMSGraphQL::Mutations::Canvas::UpdateQuestionGroup
@@ -322,11 +336,19 @@ module LMSGraphQL
         field :update_role, mutation: LMSGraphQL::Mutations::Canvas::UpdateRole
         field :create_single_rubric, mutation: LMSGraphQL::Mutations::Canvas::CreateSingleRubric
         field :update_single_rubric, mutation: LMSGraphQL::Mutations::Canvas::UpdateSingleRubric
+        field :delete_single_rubric, mutation: LMSGraphQL::Mutations::Canvas::DeleteSingleRubric
+        field :create_single_rubric_assessment, mutation: LMSGraphQL::Mutations::Canvas::CreateSingleRubricAssessment
+        field :update_single_rubric_assessment, mutation: LMSGraphQL::Mutations::Canvas::UpdateSingleRubricAssessment
+        field :delete_single_rubric_assessment, mutation: LMSGraphQL::Mutations::Canvas::DeleteSingleRubricAssessment
+        field :create_rubricassociation, mutation: LMSGraphQL::Mutations::Canvas::CreateRubricassociation
+        field :update_rubricassociation, mutation: LMSGraphQL::Mutations::Canvas::UpdateRubricassociation
+        field :delete_rubricassociation, mutation: LMSGraphQL::Mutations::Canvas::DeleteRubricassociation
         field :import_sis_data, mutation: LMSGraphQL::Mutations::Canvas::ImportSisDatum
         field :restore_workflow_states_of_sis_imported_items, mutation: LMSGraphQL::Mutations::Canvas::RestoreWorkflowStatesOfSisImportedItem
         field :abort_sis_import, mutation: LMSGraphQL::Mutations::Canvas::AbortSisImport
         field :abort_all_pending_sis_imports, mutation: LMSGraphQL::Mutations::Canvas::AbortAllPendingSisImport
         field :disable_assignments_currently_enabled_for_grade_export_to_sis, mutation: LMSGraphQL::Mutations::Canvas::DisableAssignmentsCurrentlyEnabledForGradeExportToSi
+        field :create_score, mutation: LMSGraphQL::Mutations::Canvas::CreateScore
         field :create_course_section, mutation: LMSGraphQL::Mutations::Canvas::CreateCourseSection
         field :cross_list_section, mutation: LMSGraphQL::Mutations::Canvas::CrossListSection
         field :de_cross_list_section, mutation: LMSGraphQL::Mutations::Canvas::DeCrossListSection
@@ -355,11 +377,12 @@ module LMSGraphQL
         field :add_observee_with_credentials, mutation: LMSGraphQL::Mutations::Canvas::AddObserveeWithCredential
         field :add_observee, mutation: LMSGraphQL::Mutations::Canvas::AddObservee
         field :remove_observee, mutation: LMSGraphQL::Mutations::Canvas::RemoveObservee
+        field :create_observer_pairing_code, mutation: LMSGraphQL::Mutations::Canvas::CreateObserverPairingCode
         field :hide_stream_item, mutation: LMSGraphQL::Mutations::Canvas::HideStreamItem
         field :hide_all_stream_items, mutation: LMSGraphQL::Mutations::Canvas::HideAllStreamItem
         field :users_upload_file, mutation: LMSGraphQL::Mutations::Canvas::UsersUploadFile
         field :create_user, mutation: LMSGraphQL::Mutations::Canvas::CreateUser
-        field :self_register_user, mutation: LMSGraphQL::Mutations::Canvas::SelfRegisterUser
+        field :deprecated_self_register_user, mutation: LMSGraphQL::Mutations::Canvas::DeprecatedSelfRegisterUser
         field :update_custom_color, mutation: LMSGraphQL::Mutations::Canvas::UpdateCustomColor
         field :update_dashboard_positions, mutation: LMSGraphQL::Mutations::Canvas::UpdateDashboardPosition
         field :edit_user, mutation: LMSGraphQL::Mutations::Canvas::EditUser

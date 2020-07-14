@@ -17,7 +17,7 @@ module LMSGraphQL
 
         field :index_of_active_global_notification_for_user,
           resolver: LMSGraphQL::Resolvers::Canvas::IndexOfActiveGlobalNotificationForUser,
-          description: "Index of active global notification for the user. Returns a list of all global notifications in the account for the current user   Any notifications that have been closed by the user will not be returned"
+          description: "Index of active global notification for the user. Returns a list of all global notifications in the account for the current user   Any notifications that have been closed by the user will not be returned, unless   a include_past parameter is passed in as true."
 
         field :show_global_notification,
           resolver: LMSGraphQL::Resolvers::Canvas::ShowGlobalNotification,
@@ -66,6 +66,10 @@ module LMSGraphQL
         field :list_active_courses_in_account,
           resolver: LMSGraphQL::Resolvers::Canvas::ListActiveCoursesInAccount,
           description: "List active courses in an account. Retrieve a paginated list of courses in this account."
+
+        field :get_account,
+          resolver: LMSGraphQL::Resolvers::Canvas::GetAccount,
+          description: "Get account. Retrieve information on an individual account, given by local or global ID."
 
         field :list_account_admins,
           resolver: LMSGraphQL::Resolvers::Canvas::ListAccountAdmin,
@@ -335,6 +339,10 @@ module LMSGraphQL
           resolver: LMSGraphQL::Resolvers::Canvas::ListConferencesGroup,
           description: "List conferences. Retrieve the paginated list of conferences for this context      This API returns a JSON object containing the list of conferences,   the key for the list of conferences is 'conferences'"
 
+        field :list_conferences_for_current_user,
+          resolver: LMSGraphQL::Resolvers::Canvas::ListConferencesForCurrentUser,
+          description: "List conferences for the current user. Retrieve the paginated list of conferences for all courses and groups   the current user belongs to      This API returns a JSON object containing the list of conferences.   The key for the list of conferences is 'conferences'."
+
         field :list_content_exports_courses,
           resolver: LMSGraphQL::Resolvers::Canvas::ListContentExportsCourse,
           description: "List content exports. A paginated list of the past and pending content export jobs for a course,   group, or user. Exports are returned newest first."
@@ -439,6 +447,22 @@ module LMSGraphQL
           resolver: LMSGraphQL::Resolvers::Canvas::ListMigrationSystemsUser,
           description: "List Migration Systems. Lists the currently available migration types. These values may change."
 
+        field :list_items_for_selective_import_accounts,
+          resolver: LMSGraphQL::Resolvers::Canvas::ListItemsForSelectiveImportAccount,
+          description: "List items for selective import. Enumerates the content available for selective import in a tree structure. Each node provides   a +property+ copy argument that can be supplied to the {api:ContentMigrationsController#update Update endpoint}   to selectively copy the content associated with that tree node and its children. Each node may also   provide a +sub_items_url+ or an array of +sub_items+ which you can use to obtain copy parameters   for a subset of the resources in a given node.      If no +type+ is sent you will get a list of the top-level sections in the content. It will look something like this:        [{       'type': 'course_settings',       'property': 'copy[all_course_settings]',       'title': 'Course Settings'     },     {       'type': 'context_modules',       'property': 'copy[all_context_modules]',       'title': 'Modules',       'count': 5,       'sub_items_url': 'http: example.com/api/v1/courses/22/content_migrations/77/selective_data?type=context_modules'     },     {       'type': 'assignments',       'property': 'copy[all_assignments]',       'title': 'Assignments',       'count': 2,       'sub_items_url': 'http: localhost:3000/api/v1/courses/22/content_migrations/77/selective_data?type=assignments'     }]      When a +type+ is provided, nodes may be further divided via +sub_items+. For example, using +type=assignments+   results in a node for each assignment group and a sub_item for each assignment, like this:        [{       'type': 'assignment_groups',       'title': 'An Assignment Group',       'property': 'copy[assignment_groups][id_i855cf145e5acc7435e1bf1c6e2126e5f]',       'sub_items': [{           'type': 'assignments',           'title': 'Assignment 1',           'property': 'copy[assignments][id_i2102a7fa93b29226774949298626719d]'       }, {           'type': 'assignments',           'title': 'Assignment 2',           'property': 'copy[assignments][id_i310cba275dc3f4aa8a3306bbbe380979]'       }]     }]         To import the items corresponding to a particular tree node, use the +property+ as a parameter to the   {api:ContentMigrationsController#update Update endpoint} and assign a value of 1, for example:        copy[assignments][id_i310cba275dc3f4aa8a3306bbbe380979]=1      You can include multiple copy parameters to selectively import multiple items or groups of items."
+
+        field :list_items_for_selective_import_courses,
+          resolver: LMSGraphQL::Resolvers::Canvas::ListItemsForSelectiveImportCourse,
+          description: "List items for selective import. Enumerates the content available for selective import in a tree structure. Each node provides   a +property+ copy argument that can be supplied to the {api:ContentMigrationsController#update Update endpoint}   to selectively copy the content associated with that tree node and its children. Each node may also   provide a +sub_items_url+ or an array of +sub_items+ which you can use to obtain copy parameters   for a subset of the resources in a given node.      If no +type+ is sent you will get a list of the top-level sections in the content. It will look something like this:        [{       'type': 'course_settings',       'property': 'copy[all_course_settings]',       'title': 'Course Settings'     },     {       'type': 'context_modules',       'property': 'copy[all_context_modules]',       'title': 'Modules',       'count': 5,       'sub_items_url': 'http: example.com/api/v1/courses/22/content_migrations/77/selective_data?type=context_modules'     },     {       'type': 'assignments',       'property': 'copy[all_assignments]',       'title': 'Assignments',       'count': 2,       'sub_items_url': 'http: localhost:3000/api/v1/courses/22/content_migrations/77/selective_data?type=assignments'     }]      When a +type+ is provided, nodes may be further divided via +sub_items+. For example, using +type=assignments+   results in a node for each assignment group and a sub_item for each assignment, like this:        [{       'type': 'assignment_groups',       'title': 'An Assignment Group',       'property': 'copy[assignment_groups][id_i855cf145e5acc7435e1bf1c6e2126e5f]',       'sub_items': [{           'type': 'assignments',           'title': 'Assignment 1',           'property': 'copy[assignments][id_i2102a7fa93b29226774949298626719d]'       }, {           'type': 'assignments',           'title': 'Assignment 2',           'property': 'copy[assignments][id_i310cba275dc3f4aa8a3306bbbe380979]'       }]     }]         To import the items corresponding to a particular tree node, use the +property+ as a parameter to the   {api:ContentMigrationsController#update Update endpoint} and assign a value of 1, for example:        copy[assignments][id_i310cba275dc3f4aa8a3306bbbe380979]=1      You can include multiple copy parameters to selectively import multiple items or groups of items."
+
+        field :list_items_for_selective_import_groups,
+          resolver: LMSGraphQL::Resolvers::Canvas::ListItemsForSelectiveImportGroup,
+          description: "List items for selective import. Enumerates the content available for selective import in a tree structure. Each node provides   a +property+ copy argument that can be supplied to the {api:ContentMigrationsController#update Update endpoint}   to selectively copy the content associated with that tree node and its children. Each node may also   provide a +sub_items_url+ or an array of +sub_items+ which you can use to obtain copy parameters   for a subset of the resources in a given node.      If no +type+ is sent you will get a list of the top-level sections in the content. It will look something like this:        [{       'type': 'course_settings',       'property': 'copy[all_course_settings]',       'title': 'Course Settings'     },     {       'type': 'context_modules',       'property': 'copy[all_context_modules]',       'title': 'Modules',       'count': 5,       'sub_items_url': 'http: example.com/api/v1/courses/22/content_migrations/77/selective_data?type=context_modules'     },     {       'type': 'assignments',       'property': 'copy[all_assignments]',       'title': 'Assignments',       'count': 2,       'sub_items_url': 'http: localhost:3000/api/v1/courses/22/content_migrations/77/selective_data?type=assignments'     }]      When a +type+ is provided, nodes may be further divided via +sub_items+. For example, using +type=assignments+   results in a node for each assignment group and a sub_item for each assignment, like this:        [{       'type': 'assignment_groups',       'title': 'An Assignment Group',       'property': 'copy[assignment_groups][id_i855cf145e5acc7435e1bf1c6e2126e5f]',       'sub_items': [{           'type': 'assignments',           'title': 'Assignment 1',           'property': 'copy[assignments][id_i2102a7fa93b29226774949298626719d]'       }, {           'type': 'assignments',           'title': 'Assignment 2',           'property': 'copy[assignments][id_i310cba275dc3f4aa8a3306bbbe380979]'       }]     }]         To import the items corresponding to a particular tree node, use the +property+ as a parameter to the   {api:ContentMigrationsController#update Update endpoint} and assign a value of 1, for example:        copy[assignments][id_i310cba275dc3f4aa8a3306bbbe380979]=1      You can include multiple copy parameters to selectively import multiple items or groups of items."
+
+        field :list_items_for_selective_import_users,
+          resolver: LMSGraphQL::Resolvers::Canvas::ListItemsForSelectiveImportUser,
+          description: "List items for selective import. Enumerates the content available for selective import in a tree structure. Each node provides   a +property+ copy argument that can be supplied to the {api:ContentMigrationsController#update Update endpoint}   to selectively copy the content associated with that tree node and its children. Each node may also   provide a +sub_items_url+ or an array of +sub_items+ which you can use to obtain copy parameters   for a subset of the resources in a given node.      If no +type+ is sent you will get a list of the top-level sections in the content. It will look something like this:        [{       'type': 'course_settings',       'property': 'copy[all_course_settings]',       'title': 'Course Settings'     },     {       'type': 'context_modules',       'property': 'copy[all_context_modules]',       'title': 'Modules',       'count': 5,       'sub_items_url': 'http: example.com/api/v1/courses/22/content_migrations/77/selective_data?type=context_modules'     },     {       'type': 'assignments',       'property': 'copy[all_assignments]',       'title': 'Assignments',       'count': 2,       'sub_items_url': 'http: localhost:3000/api/v1/courses/22/content_migrations/77/selective_data?type=assignments'     }]      When a +type+ is provided, nodes may be further divided via +sub_items+. For example, using +type=assignments+   results in a node for each assignment group and a sub_item for each assignment, like this:        [{       'type': 'assignment_groups',       'title': 'An Assignment Group',       'property': 'copy[assignment_groups][id_i855cf145e5acc7435e1bf1c6e2126e5f]',       'sub_items': [{           'type': 'assignments',           'title': 'Assignment 1',           'property': 'copy[assignments][id_i2102a7fa93b29226774949298626719d]'       }, {           'type': 'assignments',           'title': 'Assignment 2',           'property': 'copy[assignments][id_i310cba275dc3f4aa8a3306bbbe380979]'       }]     }]         To import the items corresponding to a particular tree node, use the +property+ as a parameter to the   {api:ContentMigrationsController#update Update endpoint} and assign a value of 1, for example:        copy[assignments][id_i310cba275dc3f4aa8a3306bbbe380979]=1      You can include multiple copy parameters to selectively import multiple items or groups of items."
+
         field :get_current_settings_for_account_or_course_courses,
           resolver: LMSGraphQL::Resolvers::Canvas::GetCurrentSettingsForAccountOrCourseCourse,
           description: "Get current settings for account or course. Update multiple modules in an account."
@@ -446,6 +470,26 @@ module LMSGraphQL
         field :get_current_settings_for_account_or_course_accounts,
           resolver: LMSGraphQL::Resolvers::Canvas::GetCurrentSettingsForAccountOrCourseAccount,
           description: "Get current settings for account or course. Update multiple modules in an account."
+
+        field :retrieve_reported_csp_violations_for_account,
+          resolver: LMSGraphQL::Resolvers::Canvas::RetrieveReportedCspViolationsForAccount,
+          description: "Retrieve reported CSP Violations for account. Must be called on a root account."
+
+        field :list_content_shares_sent,
+          resolver: LMSGraphQL::Resolvers::Canvas::ListContentSharesSent,
+          description: "List content shares. Return a paginated list of content shares a user has sent or received. Use +self+ as the user_id   to retrieve your own content shares. Only linked observers and administrators may view other users'   content shares."
+
+        field :list_content_shares_received,
+          resolver: LMSGraphQL::Resolvers::Canvas::ListContentSharesReceived,
+          description: "List content shares. Return a paginated list of content shares a user has sent or received. Use +self+ as the user_id   to retrieve your own content shares. Only linked observers and administrators may view other users'   content shares."
+
+        field :get_unread_shares_count,
+          resolver: LMSGraphQL::Resolvers::Canvas::GetUnreadSharesCount,
+          description: "Get unread shares count. Return the number of content shares a user has received that have not yet been read. Use +self+ as the user_id   to retrieve your own content shares. Only linked observers and administrators may view other users'   content shares."
+
+        field :get_content_share,
+          resolver: LMSGraphQL::Resolvers::Canvas::GetContentShare,
+          description: "Get content share. Return information about a single content share. You may use +self+ as the user_id to retrieve your own content share."
 
         field :list_conversations,
           resolver: LMSGraphQL::Resolvers::Canvas::ListConversation,
@@ -470,6 +514,10 @@ module LMSGraphQL
         field :course_audit_log_query_by_course,
           resolver: LMSGraphQL::Resolvers::Canvas::CourseAuditLogQueryByCourse,
           description: "Query by course.. List course change events for a given course."
+
+        field :course_audit_log_query_by_account,
+          resolver: LMSGraphQL::Resolvers::Canvas::CourseAuditLogQueryByAccount,
+          description: "Query by account.. List course change events for a given account."
 
         field :list_your_courses,
           resolver: LMSGraphQL::Resolvers::Canvas::ListYourCourse,
@@ -499,6 +547,10 @@ module LMSGraphQL
           resolver: LMSGraphQL::Resolvers::Canvas::GetSingleUser,
           description: "Get single user. Return information on a single user.      Accepts the same include[] parameters as the :users: action, and returns a   single user with the same fields as that action."
 
+        field :search_for_content_share_users,
+          resolver: LMSGraphQL::Resolvers::Canvas::SearchForContentShareUser,
+          description: "Search for content share users. Returns a paginated list of users you can share content with.  Requires the content share   feature and the user must have the manage content permission for the course."
+
         field :course_activity_stream,
           resolver: LMSGraphQL::Resolvers::Canvas::CourseActivityStream,
           description: "Course activity stream. Returns the current user's course-specific activity stream, paginated.      For full documentation, see the API documentation for the user activity   stream, in the user api."
@@ -514,6 +566,10 @@ module LMSGraphQL
         field :get_course_settings,
           resolver: LMSGraphQL::Resolvers::Canvas::GetCourseSetting,
           description: "Get course settings. Returns some of a course's settings."
+
+        field :return_test_student_for_course,
+          resolver: LMSGraphQL::Resolvers::Canvas::ReturnTestStudentForCourse,
+          description: "Return test student for course. Returns information for a test student in this course. Creates a test   student if one does not already exist for the course. The caller must have   permission to access the course's student view."
 
         field :get_single_course_courses,
           resolver: LMSGraphQL::Resolvers::Canvas::GetSingleCourseCourse,
@@ -593,7 +649,11 @@ module LMSGraphQL
 
         field :list_enrollment_terms,
           resolver: LMSGraphQL::Resolvers::Canvas::ListEnrollmentTerm,
-          description: "List enrollment terms. A paginated list of all of the terms in the account."
+          description: "List enrollment terms. An object with a paginated list of all of the terms in the account."
+
+        field :retrieve_enrollment_term,
+          resolver: LMSGraphQL::Resolvers::Canvas::RetrieveEnrollmentTerm,
+          description: "Retrieve enrollment term. Retrieves the details for an enrollment term in the account. Includes overrides by default."
 
         field :list_enrollments_courses,
           resolver: LMSGraphQL::Resolvers::Canvas::ListEnrollmentsCourse,
@@ -787,6 +847,14 @@ module LMSGraphQL
           resolver: LMSGraphQL::Resolvers::Canvas::GetFolderFolder,
           description: "Get folder. Returns the details for a folder      You can get the root folder from a context by using 'root' as the :id.   For example, you could get the root folder for a course like:"
 
+        field :get_uploaded_media_folder_for_user_courses,
+          resolver: LMSGraphQL::Resolvers::Canvas::GetUploadedMediaFolderForUserCourse,
+          description: "Get uploaded media folder for user. Returns the details for a designated upload folder that the user has rights to   upload to, and creates it if it doesn't exist.      If the current user does not have the permissions to manage files   in the course or group, the folder will belong to the current user directly."
+
+        field :get_uploaded_media_folder_for_user_groups,
+          resolver: LMSGraphQL::Resolvers::Canvas::GetUploadedMediaFolderForUserGroup,
+          description: "Get uploaded media folder for user. Returns the details for a designated upload folder that the user has rights to   upload to, and creates it if it doesn't exist.      If the current user does not have the permissions to manage files   in the course or group, the folder will belong to the current user directly."
+
         field :list_licenses_courses,
           resolver: LMSGraphQL::Resolvers::Canvas::ListLicensesCourse,
           description: "List licenses. A paginated list of licenses that can be applied"
@@ -923,9 +991,21 @@ module LMSGraphQL
           resolver: LMSGraphQL::Resolvers::Canvas::GetSingleGroupMembershipUser,
           description: "Get a single group membership. Returns the group membership with the given membership id or user id."
 
+        field :find_images,
+          resolver: LMSGraphQL::Resolvers::Canvas::FindImage,
+          description: "Find images. Find public domain images for use in courses and user content.  If you select an image using this API, please use the {api:InternetImageController#image_selection Confirm image selection API} to indicate photo usage to the server."
+
         field :get_late_policy,
           resolver: LMSGraphQL::Resolvers::Canvas::GetLatePolicy,
           description: "Get a late policy. Returns the late policy for a course."
+
+        field :show_line_item,
+          resolver: LMSGraphQL::Resolvers::Canvas::ShowLineItem,
+          description: "Show a Line Item. Show existing Line Item"
+
+        field :list_line_items,
+          resolver: LMSGraphQL::Resolvers::Canvas::ListLineItem,
+          description: "List line Items. "
 
         field :list_live_assessment_results,
           resolver: LMSGraphQL::Resolvers::Canvas::ListLiveAssessmentResult,
@@ -942,6 +1022,18 @@ module LMSGraphQL
         field :list_user_logins_users,
           resolver: LMSGraphQL::Resolvers::Canvas::ListUserLoginsUser,
           description: "List user logins. Given a user ID, return a paginated list of that user's logins for the given account."
+
+        field :list_media_tracks_for_media_object,
+          resolver: LMSGraphQL::Resolvers::Canvas::ListMediaTracksForMediaObject,
+          description: "List media tracks for a Media Object. List the media tracks associated with a media object"
+
+        field :list_media_objects_media_objects,
+          resolver: LMSGraphQL::Resolvers::Canvas::ListMediaObjectsMediaObject,
+          description: "List Media Objects. Returns Media Objects created by the user making the request. When   using the second version, returns   only those Media Objects associated with the given course."
+
+        field :list_media_objects_courses,
+          resolver: LMSGraphQL::Resolvers::Canvas::ListMediaObjectsCourse,
+          description: "List Media Objects. Returns Media Objects created by the user making the request. When   using the second version, returns   only those Media Objects associated with the given course."
 
         field :list_students_selected_for_moderation,
           resolver: LMSGraphQL::Resolvers::Canvas::ListStudentsSelectedForModeration,
@@ -975,6 +1067,14 @@ module LMSGraphQL
           resolver: LMSGraphQL::Resolvers::Canvas::GetModuleItemSequence,
           description: "Get module item sequence. Given an asset in a course, find the ModuleItem it belongs to, the previous and next Module Items   in the course sequence, and also any applicable mastery path rules"
 
+        field :list_course_memberships,
+          resolver: LMSGraphQL::Resolvers::Canvas::ListCourseMembership,
+          description: "List Course Memberships. Return active NamesAndRoleMemberships in the given course."
+
+        field :names_and_role_list_group_memberships,
+          resolver: LMSGraphQL::Resolvers::Canvas::NamesAndRoleListGroupMembership,
+          description: "List Group Memberships. Return active NamesAndRoleMemberships in the given group."
+
         field :list_preferences_communication_channel_id,
           resolver: LMSGraphQL::Resolvers::Canvas::ListPreferencesCommunicationChannelId,
           description: "List preferences. Fetch all preferences for the given communication channel"
@@ -989,11 +1089,11 @@ module LMSGraphQL
 
         field :get_preference_communication_channel_id,
           resolver: LMSGraphQL::Resolvers::Canvas::GetPreferenceCommunicationChannelId,
-          description: "Get a preference. Fetch the preference for the given notification for the given communicaiton channel"
+          description: "Get a preference. Fetch the preference for the given notification for the given communication channel"
 
         field :get_preference_type,
           resolver: LMSGraphQL::Resolvers::Canvas::GetPreferenceType,
-          description: "Get a preference. Fetch the preference for the given notification for the given communicaiton channel"
+          description: "Get a preference. Fetch the preference for the given notification for the given communication channel"
 
         field :show_originality_report_submissions,
           resolver: LMSGraphQL::Resolvers::Canvas::ShowOriginalityReportSubmission,
@@ -1175,9 +1275,13 @@ module LMSGraphQL
           resolver: LMSGraphQL::Resolvers::Canvas::GetHistoryOfSingleSubmission,
           description: "Get the history of a single submission. Get a list of all attempts made for a submission, based on submission id."
 
-        field :list_planner_items,
-          resolver: LMSGraphQL::Resolvers::Canvas::ListPlannerItem,
-          description: "List planner items. Retrieve the paginated list of objects to be shown on the planner for the   current user with the associated planner override to override an item's   visibility if set.      [     {       'context_type': 'Course',       'course_id': 1,       'planner_override': { ... planner override object ... },   Associated PlannerOverride object if user has toggled visibility for the object on the planner       'submissions': false,   The statuses of the user's submissions for this object       'plannable_id': '123',       'plannable_type': 'discussion_topic',       'plannable': { ... discussion topic object },       'html_url': '/courses/1/discussion_topics/8'     },     {       'context_type': 'Course',       'course_id': 1,       'planner_override': {           'id': 3,           'plannable_type': 'Assignment',           'plannable_id': 1,           'user_id': 2,           'workflow_state': 'active',           'marked_complete': true,   A user-defined setting for marking items complete in the planner           'dismissed': false,   A user-defined setting for hiding items from the opportunities list           'deleted_at': null,           'created_at': '2017-05-18T18:35:55Z',           'updated_at': '2017-05-18T18:35:55Z'       },       'submissions': {   The status as it pertains to the current user         'excused': false,         'graded': false,         'late': false,         'missing': true,         'needs_grading': false,         'with_feedback': false       },       'plannable_id': '456',       'plannable_type': 'assignment',       'plannable': { ... assignment object ...  },       'html_url': 'http: canvas.instructure.com/courses/1/assignments/1#submit'     },     {       'planner_override': null,       'submissions': false,   false if no associated assignment exists for the plannable item       'plannable_id': '789',       'plannable_type': 'planner_note',       'plannable': {         'id': 1,         'todo_date': '2017-05-30T06:00:00Z',         'title': 'hello',         'details': 'world',         'user_id': 2,         'course_id': null,         'workflow_state': 'active',         'created_at': '2017-05-30T16:29:04Z',         'updated_at': '2017-05-30T16:29:15Z'       },       'html_url': 'http: canvas.instructure.com/api/v1/planner_notes.1'     }   ]"
+        field :list_planner_items_planner,
+          resolver: LMSGraphQL::Resolvers::Canvas::ListPlannerItemsPlanner,
+          description: "List planner items. Retrieve the paginated list of objects to be shown on the planner for the   current user with the associated planner override to override an item's   visibility if set.      Planner items for a student may also be retrieved by a linked observer. Use   the path that accepts a user_id and supply the student's id."
+
+        field :list_planner_items_users,
+          resolver: LMSGraphQL::Resolvers::Canvas::ListPlannerItemsUser,
+          description: "List planner items. Retrieve the paginated list of objects to be shown on the planner for the   current user with the associated planner override to override an item's   visibility if set.      Planner items for a student may also be retrieved by a linked observer. Use   the path that accepts a user_id and supply the student's id."
 
         field :list_planner_notes,
           resolver: LMSGraphQL::Resolvers::Canvas::ListPlannerNote,
@@ -1247,9 +1351,13 @@ module LMSGraphQL
           resolver: LMSGraphQL::Resolvers::Canvas::QueryProgress,
           description: "Query progress. Return completion and status information about an asynchronous job"
 
-        field :retrieve_assignment_overridden_dates_for_quizzes,
-          resolver: LMSGraphQL::Resolvers::Canvas::RetrieveAssignmentOverriddenDatesForQuiz,
-          description: "Retrieve assignment-overridden dates for quizzes. Retrieve the actual due-at, unlock-at, and available-at dates for quizzes   based on the assignment overrides active for the current API user."
+        field :retrieve_assignment_overridden_dates_for_classic_quizzes,
+          resolver: LMSGraphQL::Resolvers::Canvas::RetrieveAssignmentOverriddenDatesForClassicQuiz,
+          description: "Retrieve assignment-overridden dates for Classic Quizzes. Retrieve the actual due-at, unlock-at, and available-at dates for quizzes   based on the assignment overrides active for the current API user."
+
+        field :retrieve_assignment_overridden_dates_for_new_quizzes,
+          resolver: LMSGraphQL::Resolvers::Canvas::RetrieveAssignmentOverriddenDatesForNewQuiz,
+          description: "Retrieve assignment-overridden dates for New Quizzes. Retrieve the actual due-at, unlock-at, and available-at dates for quizzes   based on the assignment overrides active for the current API user."
 
         field :get_available_quiz_ip_filters,
           resolver: LMSGraphQL::Resolvers::Canvas::GetAvailableQuizIpFilter,
@@ -1310,6 +1418,14 @@ module LMSGraphQL
         field :get_single_quiz,
           resolver: LMSGraphQL::Resolvers::Canvas::GetSingleQuiz,
           description: "Get a single quiz. Returns the quiz with the given id."
+
+        field :show_collection_of_results,
+          resolver: LMSGraphQL::Resolvers::Canvas::ShowCollectionOfResult,
+          description: "Show a collection of Results. Show existing Results of a line item. Can be used to retrieve a specific student's   result by adding the user_id (defined as the lti_user_id or the Canvas user_id) as   a query parameter (i.e. user_id=1000). If user_id is included, it will return only   one Result in the collection if the result exists, otherwise it will be empty. May   also limit number of results by adding the limit query param (i.e. limit=100)"
+
+        field :show_result,
+          resolver: LMSGraphQL::Resolvers::Canvas::ShowResult,
+          description: "Show a Result. Show existing Result of a line item."
 
         field :list_roles,
           resolver: LMSGraphQL::Resolvers::Canvas::ListRole,
@@ -1431,6 +1547,10 @@ module LMSGraphQL
           resolver: LMSGraphQL::Resolvers::Canvas::SubmissionSummarySection,
           description: "Submission Summary. Returns the number of submissions for the given assignment based on gradeable students   that fall into three categories: graded, ungraded, not submitted."
 
+        field :list_available_tabs_for_course_or_group_accounts,
+          resolver: LMSGraphQL::Resolvers::Canvas::ListAvailableTabsForCourseOrGroupAccount,
+          description: "List available tabs for a course or group. Returns a paginated list of navigation tabs available in the current context."
+
         field :list_available_tabs_for_course_or_group_courses,
           resolver: LMSGraphQL::Resolvers::Canvas::ListAvailableTabsForCourseOrGroupCourse,
           description: "List available tabs for a course or group. Returns a paginated list of navigation tabs available in the current context."
@@ -1439,13 +1559,25 @@ module LMSGraphQL
           resolver: LMSGraphQL::Resolvers::Canvas::ListAvailableTabsForCourseOrGroupGroup,
           description: "List available tabs for a course or group. Returns a paginated list of navigation tabs available in the current context."
 
+        field :list_available_tabs_for_course_or_group_users,
+          resolver: LMSGraphQL::Resolvers::Canvas::ListAvailableTabsForCourseOrGroupUser,
+          description: "List available tabs for a course or group. Returns a paginated list of navigation tabs available in the current context."
+
         field :list_observees,
           resolver: LMSGraphQL::Resolvers::Canvas::ListObservee,
           description: "List observees. A paginated list of the users that the given user is observing.      *Note:* all users are allowed to list their own observees. Administrators can list   other users' observees.      The returned observees will include an attribute 'observation_link_root_account_ids', a list   of ids for the root accounts the observer and observee are linked on. The observer will only be able to   observe in courses associated with these root accounts."
 
+        field :list_observers,
+          resolver: LMSGraphQL::Resolvers::Canvas::ListObserver,
+          description: "List observers. A paginated list of the users that the given user is observing.      *Note:* all users are allowed to list their own observees. Administrators can list   other users' observees.      The returned observees will include an attribute 'observation_link_root_account_ids', a list   of ids for the root accounts the observer and observee are linked on. The observer will only be able to   observe in courses associated with these root accounts."
+
         field :show_observee,
           resolver: LMSGraphQL::Resolvers::Canvas::ShowObservee,
           description: "Show an observee. Gets information about an observed user.      *Note:* all users are allowed to view their own observees."
+
+        field :show_observer,
+          resolver: LMSGraphQL::Resolvers::Canvas::ShowObserver,
+          description: "Show an observer. Gets information about an observed user.      *Note:* all users are allowed to view their own observers."
 
         field :list_users_in_account,
           resolver: LMSGraphQL::Resolvers::Canvas::ListUsersInAccount,
@@ -1465,7 +1597,7 @@ module LMSGraphQL
 
         field :list_todo_items,
           resolver: LMSGraphQL::Resolvers::Canvas::ListTodoItem,
-          description: "List the TODO items. A paginated list of the current user's list of todo items, as seen on the user dashboard.      There is a limit to the number of items returned.      The `ignore` and `ignore_permanently` URLs can be used to update the user's   preferences on what items will be displayed.   Performing a DELETE request against the `ignore` URL will hide that item   from future todo item requests, until the item changes.   Performing a DELETE request against the `ignore_permanently` URL will hide   that item forever."
+          description: "List the TODO items. A paginated list of the current user's list of todo items.      There is a limit to the number of items returned.      The `ignore` and `ignore_permanently` URLs can be used to update the user's   preferences on what items will be displayed.   Performing a DELETE request against the `ignore` URL will hide that item   from future todo item requests, until the item changes.   Performing a DELETE request against the `ignore_permanently` URL will hide   that item forever."
 
         field :list_counts_for_todo_items,
           resolver: LMSGraphQL::Resolvers::Canvas::ListCountsForTodoItem,
@@ -1481,7 +1613,7 @@ module LMSGraphQL
 
         field :show_user_details,
           resolver: LMSGraphQL::Resolvers::Canvas::ShowUserDetail,
-          description: "Show user details. Shows details for user.      Also includes an attribute 'permissions', a non-comprehensive list of permissions for the user.   Example:     !!!javascript     'permissions': {      'can_update_name': true,   Whether the user can update their name.      'can_update_avatar': false   Whether the user can update their avatar.     }"
+          description: "Show user details. Shows details for user.      Also includes an attribute 'permissions', a non-comprehensive list of permissions for the user.   Example:     !!!javascript     'permissions': {      'can_update_name': true,   Whether the user can update their name.      'can_update_avatar': false,   Whether the user can update their avatar.      'limit_parent_app_web_access': false   Whether the user can interact with Canvas web from the Canvas Parent app.     }"
 
         field :update_user_settings,
           resolver: LMSGraphQL::Resolvers::Canvas::UpdateUserSetting,
@@ -1498,6 +1630,10 @@ module LMSGraphQL
         field :get_dashboard_positions,
           resolver: LMSGraphQL::Resolvers::Canvas::GetDashboardPosition,
           description: "Get dashboard positions. Returns all dashboard positions that have been saved for a user."
+
+        field :get_users_most_recently_graded_submissions,
+          resolver: LMSGraphQL::Resolvers::Canvas::GetUsersMostRecentlyGradedSubmission,
+          description: "Get a users most recently graded submissions. "
 
         field :get_user_profile,
           resolver: LMSGraphQL::Resolvers::Canvas::GetUserProfile,

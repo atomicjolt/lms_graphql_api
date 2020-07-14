@@ -1,11 +1,10 @@
 require_relative "../canvas_base_resolver"
-require_relative "../../types/canvas/enrollment_term"
+require_relative "../../types/canvas/enrollment_terms_list"
 module LMSGraphQL
   module Resolvers
     module Canvas
       class ListEnrollmentTerm < CanvasBaseResolver
-        type [LMSGraphQL::Types::Canvas::CanvasEnrollmentTerm], null: false
-        argument :get_all, Boolean, required: false
+        type LMSGraphQL::Types::Canvas::CanvasEnrollmentTermsList, null: false
         argument :account_id, ID, required: true
         argument :workflow_state, String, required: false
         argument :include, String, required: false

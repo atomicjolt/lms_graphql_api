@@ -8,13 +8,15 @@ module LMSGraphQL
         argument :id, ID, required: true
         argument :manual_mark_as_read, Boolean, required: false
         argument :collapse_global_nav, Boolean, required: false
-        def resolve(id:, manual_mark_as_read: nil, collapse_global_nav: nil, get_all: false)
+        argument :hide_dashcard_color_overlays, Boolean, required: false
+        def resolve(id:, manual_mark_as_read: nil, collapse_global_nav: nil, hide_dashcard_color_overlays: nil, get_all: false)
           result = context[:canvas_api].call("UPDATE_USER_SETTINGS").proxy(
             "UPDATE_USER_SETTINGS",
             {
               "id": id,
               "manual_mark_as_read": manual_mark_as_read,
-              "collapse_global_nav": collapse_global_nav            },
+              "collapse_global_nav": collapse_global_nav,
+              "hide_dashcard_color_overlays": hide_dashcard_color_overlays            },
             nil,
             get_all,
           )

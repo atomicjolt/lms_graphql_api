@@ -67,9 +67,9 @@ module LMSGraphQL
         argument :position, Int, "the sorting order of the assignment in the group.Example: 1", required: false
         argument :post_to_sis, Boolean, "(optional, present if Sync Grades to SIS feature is enabled).Example: true", required: false
         argument :integration_id, ID, "(optional, Third Party unique identifier for Assignment).Example: 12341234", required: false
-        argument :integration_data, String, "(optional, Third Party integration data for assignment).Example: 12341234", required: false
-        argument :muted, Boolean, "whether the assignment is muted.", required: false
-        argument :points_possible, Int, "the maximum points possible for the assignment.Example: 12", required: false
+        argument :integration_data, String, "(optional, Third Party integration data for assignment).Example: 0954", required: false
+        argument :muted, Boolean, "For courses using Old Gradebook, indicates whether the assignment is muted. For courses using New Gradebook, true if the assignment has any unposted submissions, otherwise false. To see the posted status of submissions, check the 'posted_attribute' on Submission..", required: false
+        argument :points_possible, Float, "the maximum points possible for the assignment.Example: 12.0", required: false
         argument :submission_types, AssignmentSubmissionTypeEnum, "the types of submissions allowed for this assignment list containing one or more of the following: 'discussion_topic', 'online_quiz', 'on_paper', 'none', 'external_tool', 'online_text_entry', 'online_url', 'online_upload' 'media_recording'.Example: online_text_entry", required: false
         argument :has_submitted_submissions, Boolean, "If true, the assignment has been submitted to by at least one student.Example: true", required: false
         argument :grading_type, AssignmentGradingTypeEnum, "The type of grading the assignment receives; one of 'pass_fail', 'percent', 'letter_grade', 'gpa_scale', 'points'.Example: points", required: false
@@ -101,6 +101,7 @@ module LMSGraphQL
         argument :grader_names_visible_to_final_grader, Boolean, "Boolean indicating if provisional grader identities are visible to the final grader. Only relevant for moderated assignments..Example: true", required: false
         argument :anonymous_grading, Boolean, "Boolean indicating if the assignment is graded anonymously. If true, graders cannot see student identities..Example: true", required: false
         argument :allowed_attempts, Int, "The number of submission attempts a student can make for this assignment. -1 is considered unlimited..Example: 2", required: false
+        argument :post_manually, Boolean, "Whether the assignment has manual posting enabled. Only relevant for courses using New Gradebook..Example: true", required: false
 
       end
     end

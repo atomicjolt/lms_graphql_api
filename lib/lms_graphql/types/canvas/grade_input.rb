@@ -11,10 +11,12 @@ module LMSGraphQL
         argument :final_grade, String, "The user's final grade for the class. Only included if user has permissions to view this grade..", required: false
         argument :current_score, String, "The user's current score in the class. Only included if user has permissions to view this score..", required: false
         argument :final_score, String, "The user's final score for the class. Only included if user has permissions to view this score..", required: false
+        argument :current_points, Int, "The total points the user has earned in the class. Only included if user has permissions to view this score and 'current_points' is passed in the request's 'include' parameter..Example: 150", required: false
         argument :unposted_current_grade, String, "The user's current grade in the class including muted/unposted assignments. Only included if user has permissions to view this grade, typically teachers, TAs, and admins..", required: false
         argument :unposted_final_grade, String, "The user's final grade for the class including muted/unposted assignments. Only included if user has permissions to view this grade, typically teachers, TAs, and admins...", required: false
         argument :unposted_current_score, String, "The user's current score in the class including muted/unposted assignments. Only included if user has permissions to view this score, typically teachers, TAs, and admins...", required: false
         argument :unposted_final_score, String, "The user's final score for the class including muted/unposted assignments. Only included if user has permissions to view this score, typically teachers, TAs, and admins...", required: false
+        argument :unposted_current_points, Int, "The total points the user has earned in the class, including muted/unposted assignments. Only included if user has permissions to view this score (typically teachers, TAs, and admins) and 'current_points' is passed in the request's 'include' parameter..Example: 150", required: false
 
       end
     end

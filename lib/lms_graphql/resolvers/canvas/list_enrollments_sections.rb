@@ -18,7 +18,8 @@ module LMSGraphQL
         argument :sis_course_id, ID, required: false
         argument :sis_section_id, ID, required: false
         argument :sis_user_id, ID, required: false
-        def resolve(section_id:, type: nil, role: nil, state: nil, include: nil, user_id: nil, grading_period_id: nil, enrollment_term_id: nil, sis_account_id: nil, sis_course_id: nil, sis_section_id: nil, sis_user_id: nil, get_all: false)
+        argument :created_for_sis_id, ID, required: false
+        def resolve(section_id:, type: nil, role: nil, state: nil, include: nil, user_id: nil, grading_period_id: nil, enrollment_term_id: nil, sis_account_id: nil, sis_course_id: nil, sis_section_id: nil, sis_user_id: nil, created_for_sis_id: nil, get_all: false)
           result = context[:canvas_api].call("LIST_ENROLLMENTS_SECTIONS").proxy(
             "LIST_ENROLLMENTS_SECTIONS",
             {
@@ -33,7 +34,8 @@ module LMSGraphQL
               "sis_account_id": sis_account_id,
               "sis_course_id": sis_course_id,
               "sis_section_id": sis_section_id,
-              "sis_user_id": sis_user_id            },
+              "sis_user_id": sis_user_id,
+              "created_for_sis_id": created_for_sis_id            },
             nil,
             get_all,
           )

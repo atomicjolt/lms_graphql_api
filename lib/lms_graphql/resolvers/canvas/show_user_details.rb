@@ -6,11 +6,13 @@ module LMSGraphQL
       class ShowUserDetail < CanvasBaseResolver
         type LMSGraphQL::Types::Canvas::CanvasUser, null: false
         argument :id, ID, required: true
-        def resolve(id:, get_all: false)
+        argument :include, String, required: false
+        def resolve(id:, include: nil, get_all: false)
           result = context[:canvas_api].call("SHOW_USER_DETAILS").proxy(
             "SHOW_USER_DETAILS",
             {
-              "id": id            },
+              "id": id,
+              "include": include            },
             nil,
             get_all,
           )

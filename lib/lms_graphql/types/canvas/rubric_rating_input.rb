@@ -5,11 +5,12 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasRubricRatingInput < BaseInputObject
-        description "Assignments. API Docs: https://canvas.instructure.com/doc/api/assignments.html"
-        argument :points, Int, "Example: 10", required: false
-        argument :id, ID, "Example: rat1", required: false
-        argument :description, String, "Example: Full marks", required: false
-        argument :long_description, String, "Example: Student completed the assignment flawlessly.", required: false
+        description "Rubrics. API Docs: https://canvas.instructure.com/doc/api/rubrics.html"
+        argument :id, ID, "Example: name_2", required: false
+        argument :criterion_id, ID, "Example: _10", required: false
+        argument :description, String, "", required: false
+        argument :long_description, String, "", required: false
+        argument :points, Int, "Example: 5", required: false
 
       end
     end

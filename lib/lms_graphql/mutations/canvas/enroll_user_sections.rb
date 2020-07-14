@@ -5,6 +5,8 @@ module LMSGraphQL
     module Canvas
       class EnrollUserSection < BaseMutation
         argument :section_id, ID, required: true
+        argument :enrollment_start_at, LMSGraphQL::Types::DateTimeType, required: false
+        argument :enrollment_end_at, LMSGraphQL::Types::DateTimeType, required: false
         argument :enrollment_user_id, String, required: true
         argument :enrollment_type, String, required: true
         argument :enrollment_role, String, required: false
@@ -17,13 +19,15 @@ module LMSGraphQL
         argument :enrollment_self_enrolled, Boolean, required: false
         argument :enrollment_associated_user_id, Int, required: false
         field :enrollment, LMSGraphQL::Types::Canvas::CanvasEnrollment, null: false
-        def resolve(section_id:, enrollment_user_id:, enrollment_type:, enrollment_role: nil, enrollment_role_id: nil, enrollment_enrollment_state: nil, enrollment_course_section_id: nil, enrollment_limit_privileges_to_course_section: nil, enrollment_notify: nil, enrollment_self_enrollment_code: nil, enrollment_self_enrolled: nil, enrollment_associated_user_id: nil)
+        def resolve(section_id:, enrollment_start_at: nil, enrollment_end_at: nil, enrollment_user_id:, enrollment_type:, enrollment_role: nil, enrollment_role_id: nil, enrollment_enrollment_state: nil, enrollment_course_section_id: nil, enrollment_limit_privileges_to_course_section: nil, enrollment_notify: nil, enrollment_self_enrollment_code: nil, enrollment_self_enrolled: nil, enrollment_associated_user_id: nil)
           context[:canvas_api].call("ENROLL_USER_SECTIONS").proxy(
             "ENROLL_USER_SECTIONS",
             {
               "section_id": section_id
             },
             {
+              "enrollment[start_at]": enrollment_start_at,
+              "enrollment[end_at]": enrollment_end_at,
               "enrollment[user_id]": enrollment_user_id,
               "enrollment[type]": enrollment_type,
               "enrollment[role]": enrollment_role,
