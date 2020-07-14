@@ -15,6 +15,7 @@ module LMSGraphQL
         field :location_address, String, "The address where the event is taking place.Example: Greendale, Colorado", null: true
         field :context_code, String, "the context code of the calendar this event belongs to (course, user or group).Example: course_123", null: true
         field :effective_context_code, String, "if specified, it indicates which calendar this event should be displayed on. for example, a section-level event would have the course's context code here, while the section's context code would be returned above).", null: true
+        field :context_name, String, "the context name of the calendar this event belongs to (course, user or group).Example: Chemistry 101", null: true
         field :all_context_codes, String, "a comma-separated list of all calendar contexts this event is part of.Example: course_123,course_456", null: true
         field :workflow_state, String, "Current state of the event ('active', 'locked' or 'deleted') 'locked' indicates that start_at/end_at cannot be changed (though the event could be deleted). Normally only reservations or time slots with reservations are locked (see the Appointment Groups API).Example: active", null: true
         field :hidden, Boolean, "Whether this event should be displayed on the calendar. Only true for course-level events with section-level child events..", null: true

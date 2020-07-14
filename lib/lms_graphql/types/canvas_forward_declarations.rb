@@ -24,6 +24,8 @@ module LMSGraphQL
       class CanvasHelpLink < BaseType;end
       class CanvasHelpLinkInput < BaseInputObject;end
       class CanvasHelpLink < BaseType;end
+      class CanvasAccountInput < BaseInputObject;end
+      class CanvasAccount < BaseType;end
       class CanvasAdminInput < BaseInputObject;end
       class CanvasAdmin < BaseType;end
       class CanvasExternalFeedInput < BaseInputObject;end
@@ -390,6 +392,8 @@ module LMSGraphQL
       class CanvasSubmission < BaseType;end
       class CanvasTabInput < BaseInputObject;end
       class CanvasTab < BaseType;end
+      class CanvasPairingCodeInput < BaseInputObject;end
+      class CanvasPairingCode < BaseType;end
       class CanvasUserDisplayInput < BaseInputObject;end
       class CanvasUserDisplay < BaseType;end
       class CanvasAnonymousUserDisplayInput < BaseInputObject;end

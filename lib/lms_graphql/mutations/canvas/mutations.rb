@@ -78,9 +78,9 @@ module LMSGraphQL
         field :enable_disable_or_clear_explicit_csp_setting_courses, mutation: LMSGraphQL::Mutations::Canvas::EnableDisableOrClearExplicitCspSettingCourse
         field :enable_disable_or_clear_explicit_csp_setting_accounts, mutation: LMSGraphQL::Mutations::Canvas::EnableDisableOrClearExplicitCspSettingAccount
         field :lock_or_unlock_current_csp_settings_for_sub_accounts_and_courses, mutation: LMSGraphQL::Mutations::Canvas::LockOrUnlockCurrentCspSettingsForSubAccountsAndCourse
-        field :add_domain_to_account_whitelist, mutation: LMSGraphQL::Mutations::Canvas::AddDomainToAccountWhitelist
-        field :add_multiple_domains_to_account_whitelist, mutation: LMSGraphQL::Mutations::Canvas::AddMultipleDomainsToAccountWhitelist
-        field :remove_domain_from_account_whitelist, mutation: LMSGraphQL::Mutations::Canvas::RemoveDomainFromAccountWhitelist
+        field :add_allowed_domain_to_account, mutation: LMSGraphQL::Mutations::Canvas::AddAllowedDomainToAccount
+        field :add_multiple_allowed_domains_to_account, mutation: LMSGraphQL::Mutations::Canvas::AddMultipleAllowedDomainsToAccount
+        field :remove_domain_from_account, mutation: LMSGraphQL::Mutations::Canvas::RemoveDomainFromAccount
         field :create_content_share, mutation: LMSGraphQL::Mutations::Canvas::CreateContentShare
         field :remove_content_share, mutation: LMSGraphQL::Mutations::Canvas::RemoveContentShare
         field :add_users_to_content_share, mutation: LMSGraphQL::Mutations::Canvas::AddUsersToContentShare
@@ -377,11 +377,12 @@ module LMSGraphQL
         field :add_observee_with_credentials, mutation: LMSGraphQL::Mutations::Canvas::AddObserveeWithCredential
         field :add_observee, mutation: LMSGraphQL::Mutations::Canvas::AddObservee
         field :remove_observee, mutation: LMSGraphQL::Mutations::Canvas::RemoveObservee
+        field :create_observer_pairing_code, mutation: LMSGraphQL::Mutations::Canvas::CreateObserverPairingCode
         field :hide_stream_item, mutation: LMSGraphQL::Mutations::Canvas::HideStreamItem
         field :hide_all_stream_items, mutation: LMSGraphQL::Mutations::Canvas::HideAllStreamItem
         field :users_upload_file, mutation: LMSGraphQL::Mutations::Canvas::UsersUploadFile
         field :create_user, mutation: LMSGraphQL::Mutations::Canvas::CreateUser
-        field :self_register_user, mutation: LMSGraphQL::Mutations::Canvas::SelfRegisterUser
+        field :deprecated_self_register_user, mutation: LMSGraphQL::Mutations::Canvas::DeprecatedSelfRegisterUser
         field :update_custom_color, mutation: LMSGraphQL::Mutations::Canvas::UpdateCustomColor
         field :update_dashboard_positions, mutation: LMSGraphQL::Mutations::Canvas::UpdateDashboardPosition
         field :edit_user, mutation: LMSGraphQL::Mutations::Canvas::EditUser

@@ -14,6 +14,7 @@ module LMSGraphQL
         argument :tool_setting, LMSGraphQL::Types::Canvas::CanvasToolSettingInput, "A ToolSetting object containing optional 'resource_type_code' and 'resource_url'.", required: false
         argument :error_report, String, "A message describing the error. If set, the workflow_state will become 'error.'.", required: false
         argument :submission_time, LMSGraphQL::Types::DateTimeType, "The submitted_at date time of the submission..", required: false
+        argument :root_account_id, ID, "The id of the root Account associated with the OriginalityReport.Example: 1", required: false
 
       end
     end

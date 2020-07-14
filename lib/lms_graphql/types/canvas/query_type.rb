@@ -17,7 +17,7 @@ module LMSGraphQL
 
         field :index_of_active_global_notification_for_user,
           resolver: LMSGraphQL::Resolvers::Canvas::IndexOfActiveGlobalNotificationForUser,
-          description: "Index of active global notification for the user. Returns a list of all global notifications in the account for the current user   Any notifications that have been closed by the user will not be returned"
+          description: "Index of active global notification for the user. Returns a list of all global notifications in the account for the current user   Any notifications that have been closed by the user will not be returned, unless   a include_past parameter is passed in as true."
 
         field :show_global_notification,
           resolver: LMSGraphQL::Resolvers::Canvas::ShowGlobalNotification,
@@ -66,6 +66,10 @@ module LMSGraphQL
         field :list_active_courses_in_account,
           resolver: LMSGraphQL::Resolvers::Canvas::ListActiveCoursesInAccount,
           description: "List active courses in an account. Retrieve a paginated list of courses in this account."
+
+        field :get_account,
+          resolver: LMSGraphQL::Resolvers::Canvas::GetAccount,
+          description: "Get account. Retrieve information on an individual account, given by local or global ID."
 
         field :list_account_admins,
           resolver: LMSGraphQL::Resolvers::Canvas::ListAccountAdmin,
@@ -1563,9 +1567,17 @@ module LMSGraphQL
           resolver: LMSGraphQL::Resolvers::Canvas::ListObservee,
           description: "List observees. A paginated list of the users that the given user is observing.      *Note:* all users are allowed to list their own observees. Administrators can list   other users' observees.      The returned observees will include an attribute 'observation_link_root_account_ids', a list   of ids for the root accounts the observer and observee are linked on. The observer will only be able to   observe in courses associated with these root accounts."
 
+        field :list_observers,
+          resolver: LMSGraphQL::Resolvers::Canvas::ListObserver,
+          description: "List observers. A paginated list of the users that the given user is observing.      *Note:* all users are allowed to list their own observees. Administrators can list   other users' observees.      The returned observees will include an attribute 'observation_link_root_account_ids', a list   of ids for the root accounts the observer and observee are linked on. The observer will only be able to   observe in courses associated with these root accounts."
+
         field :show_observee,
           resolver: LMSGraphQL::Resolvers::Canvas::ShowObservee,
           description: "Show an observee. Gets information about an observed user.      *Note:* all users are allowed to view their own observees."
+
+        field :show_observer,
+          resolver: LMSGraphQL::Resolvers::Canvas::ShowObserver,
+          description: "Show an observer. Gets information about an observed user.      *Note:* all users are allowed to view their own observers."
 
         field :list_users_in_account,
           resolver: LMSGraphQL::Resolvers::Canvas::ListUsersInAccount,
