@@ -1,7 +1,7 @@
 module LMSGraphQL
   module Types
     class DateTimeType < ::GraphQL::Schema::Scalar
-      name "DateTime"
+      graphql_name "DateTime"
 
       def self.coerce_input(value, _ctx)
         Time.zone.parse(value)
