@@ -35,6 +35,7 @@ module LMSGraphQL
         field :root_account_id, ID, "the root account associated with the course.Example: 81259", null: true
         field :enrollment_term_id, ID, "the enrollment term associated with the course.Example: 34", null: true
         field :grading_standard_id, ID, "the grading standard associated with the course.Example: 25", null: true
+        field :grade_passback_setting, String, "the grade_passback_setting set on the course.Example: nightly_sync", null: true
         field :created_at, LMSGraphQL::Types::DateTimeType, "the date the course was created..Example: 2012-05-01T00:00:00-06:00", null: true
         field :start_at, LMSGraphQL::Types::DateTimeType, "the start date for the course, if applicable.Example: 2012-06-01T00:00:00-06:00", null: true
         field :end_at, LMSGraphQL::Types::DateTimeType, "the end date for the course, if applicable.Example: 2012-09-01T00:00:00-06:00", null: true
@@ -46,7 +47,7 @@ module LMSGraphQL
         field :syllabus_body, String, "optional: user-generated HTML for the course syllabus.Example: <p>syllabus html goes here</p>", null: true
         field :needs_grading_count, Int, "optional: the number of submissions needing grading returned only if the current user has grading rights and include[]=needs_grading_count.Example: 17", null: true
         field :term, LMSGraphQL::Types::Canvas::CanvasTerm, "optional: the enrollment term object for the course returned only if include[]=term.", null: true
-        field :course_progress, LMSGraphQL::Types::Canvas::CanvasCourseProgress, "optional (beta): information on progress through the course returned only if include[]=course_progress.", null: true
+        field :course_progress, LMSGraphQL::Types::Canvas::CanvasCourseProgress, "optional: information on progress through the course returned only if include[]=course_progress.", null: true
         field :apply_assignment_group_weights, Boolean, "weight final grade based on assignment group percentages.Example: true", null: true
         field :permissions, String, "optional: the permissions the user has for the course. returned only for a single course and include[]=permissions.Example: true, true", null: true
         field :is_public, Boolean, "Example: true", null: true

@@ -8,6 +8,7 @@ module LMSGraphQL
         argument :get_all, Boolean, required: false
         argument :course_id, ID, required: true
         argument :search_term, String, required: false
+        argument :sort, String, required: false
         argument :enrollment_type, String, required: false
         argument :enrollment_role, String, required: false
         argument :enrollment_role_id, ID, required: false
@@ -15,12 +16,13 @@ module LMSGraphQL
         argument :user_id, ID, required: false
         argument :user_ids, [ID], required: false
         argument :enrollment_state, String, required: false
-        def resolve(course_id:, search_term: nil, enrollment_type: nil, enrollment_role: nil, enrollment_role_id: nil, include: nil, user_id: nil, user_ids: nil, enrollment_state: nil, get_all: false)
+        def resolve(course_id:, search_term: nil, sort: nil, enrollment_type: nil, enrollment_role: nil, enrollment_role_id: nil, include: nil, user_id: nil, user_ids: nil, enrollment_state: nil, get_all: false)
           result = context[:canvas_api].call("LIST_USERS_IN_COURSE_SEARCH_USERS").proxy(
             "LIST_USERS_IN_COURSE_SEARCH_USERS",
             {
               "course_id": course_id,
               "search_term": search_term,
+              "sort": sort,
               "enrollment_type": enrollment_type,
               "enrollment_role": enrollment_role,
               "enrollment_role_id": enrollment_role_id,

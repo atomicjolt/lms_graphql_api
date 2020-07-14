@@ -10,7 +10,7 @@ module LMSGraphQL
         argument :course_id, ID, "The ID of the Course the template belongs to..Example: 2", required: false
         argument :last_export_completed_at, LMSGraphQL::Types::DateTimeType, "Time when the last export was completed.Example: 2013-08-28T23:59:00-06:00", required: false
         argument :associated_course_count, Int, "Number of associated courses for the template.Example: 3", required: false
-        argument :latest_migration, String, "Details of the latest migration.", required: false
+        argument :latest_migration, LMSGraphQL::Types::Canvas::CanvasBlueprintMigrationInput, "Details of the latest migration.", required: false
 
       end
     end

@@ -32,10 +32,11 @@ module LMSGraphQL
         argument :course_default_view, String, required: false
         argument :course_syllabus_body, String, required: false
         argument :course_grading_standard_id, Int, required: false
+        argument :course_grade_passback_setting, String, required: false
         argument :course_course_format, String, required: false
         argument :enable_sis_reactivation, Boolean, required: false
         field :course, LMSGraphQL::Types::Canvas::CanvasCourse, null: false
-        def resolve(account_id:, course_name: nil, course_course_code: nil, course_start_at: nil, course_end_at: nil, course_license: nil, course_is_public: nil, course_is_public_to_auth_users: nil, course_public_syllabus: nil, course_public_syllabus_to_auth: nil, course_public_description: nil, course_allow_student_wiki_edits: nil, course_allow_wiki_comments: nil, course_allow_student_forum_attachments: nil, course_open_enrollment: nil, course_self_enrollment: nil, course_restrict_enrollments_to_course_dates: nil, course_term_id: nil, course_sis_course_id: nil, course_integration_id: nil, course_hide_final_grades: nil, course_apply_assignment_group_weights: nil, course_time_zone: nil, offer: nil, enroll_me: nil, course_default_view: nil, course_syllabus_body: nil, course_grading_standard_id: nil, course_course_format: nil, enable_sis_reactivation: nil)
+        def resolve(account_id:, course_name: nil, course_course_code: nil, course_start_at: nil, course_end_at: nil, course_license: nil, course_is_public: nil, course_is_public_to_auth_users: nil, course_public_syllabus: nil, course_public_syllabus_to_auth: nil, course_public_description: nil, course_allow_student_wiki_edits: nil, course_allow_wiki_comments: nil, course_allow_student_forum_attachments: nil, course_open_enrollment: nil, course_self_enrollment: nil, course_restrict_enrollments_to_course_dates: nil, course_term_id: nil, course_sis_course_id: nil, course_integration_id: nil, course_hide_final_grades: nil, course_apply_assignment_group_weights: nil, course_time_zone: nil, offer: nil, enroll_me: nil, course_default_view: nil, course_syllabus_body: nil, course_grading_standard_id: nil, course_grade_passback_setting: nil, course_course_format: nil, enable_sis_reactivation: nil)
           context[:canvas_api].call("CREATE_NEW_COURSE").proxy(
             "CREATE_NEW_COURSE",
             {
@@ -69,6 +70,7 @@ module LMSGraphQL
               "course[default_view]": course_default_view,
               "course[syllabus_body]": course_syllabus_body,
               "course[grading_standard_id]": course_grading_standard_id,
+              "course[grade_passback_setting]": course_grade_passback_setting,
               "course[course_format]": course_course_format,
               "enable_sis_reactivation": enable_sis_reactivation
             },

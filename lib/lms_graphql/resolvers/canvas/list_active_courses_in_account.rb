@@ -23,7 +23,9 @@ module LMSGraphQL
         argument :sort, String, required: false
         argument :order, String, required: false
         argument :search_by, String, required: false
-        def resolve(account_id:, with_enrollments: nil, enrollment_type: nil, published: nil, completed: nil, blueprint: nil, blueprint_associated: nil, by_teachers: nil, by_subaccounts: nil, hide_enrollmentless_courses: nil, state: nil, enrollment_term_id: nil, search_term: nil, include: nil, sort: nil, order: nil, search_by: nil, get_all: false)
+        argument :starts_before, LMSGraphQL::Types::DateTimeType, required: false
+        argument :ends_after, LMSGraphQL::Types::DateTimeType, required: false
+        def resolve(account_id:, with_enrollments: nil, enrollment_type: nil, published: nil, completed: nil, blueprint: nil, blueprint_associated: nil, by_teachers: nil, by_subaccounts: nil, hide_enrollmentless_courses: nil, state: nil, enrollment_term_id: nil, search_term: nil, include: nil, sort: nil, order: nil, search_by: nil, starts_before: nil, ends_after: nil, get_all: false)
           result = context[:canvas_api].call("LIST_ACTIVE_COURSES_IN_ACCOUNT").proxy(
             "LIST_ACTIVE_COURSES_IN_ACCOUNT",
             {
@@ -43,7 +45,9 @@ module LMSGraphQL
               "include": include,
               "sort": sort,
               "order": order,
-              "search_by": search_by            },
+              "search_by": search_by,
+              "starts_before": starts_before,
+              "ends_after": ends_after            },
             nil,
             get_all,
           )

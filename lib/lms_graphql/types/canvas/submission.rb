@@ -1,5 +1,8 @@
 require_relative "../canvas_base_type"
+require_relative "assignment"
+require_relative "course"
 require_relative "submission_comment"
+require_relative "user"
 
 module LMSGraphQL
   module Types
@@ -20,8 +23,8 @@ module LMSGraphQL
       class CanvasSubmission < BaseType
         description "Submissions. API Docs: https://canvas.instructure.com/doc/api/submissions.html"
         field :assignment_id, ID, "The submission's assignment id.Example: 23", null: true
-        field :assignment, String, "The submission's assignment (see the assignments API) (optional).Example: Assignment", null: true
-        field :course, String, "The submission's course (see the course API) (optional).Example: Course", null: true
+        field :assignment, LMSGraphQL::Types::Canvas::CanvasAssignment, "The submission's assignment (see the assignments API) (optional).", null: true
+        field :course, LMSGraphQL::Types::Canvas::CanvasCourse, "The submission's course (see the course API) (optional).", null: true
         field :attempt, Int, "This is the submission attempt number..Example: 1", null: true
         field :body, String, "The content of the submission, if it was submitted directly in a text field..Example: There are three factors too.", null: true
         field :grade, String, "The grade for the submission, translated into the assignment grading scheme (so a letter grade, for example)..Example: A-", null: true
@@ -36,7 +39,7 @@ module LMSGraphQL
         field :user_id, ID, "The id of the user who created the submission.Example: 134", null: true
         field :grader_id, ID, "The id of the user who graded the submission. This will be null for submissions that haven't been graded yet. It will be a positive number if a real user has graded the submission and a negative number if the submission was graded by a process (e.g. Quiz autograder and autograding LTI tools).  Specifically autograded quizzes set grader_id to the negative of the quiz id.  Submissions autograded by LTI tools set grader_id to the negative of the tool id..Example: 86", null: true
         field :graded_at, LMSGraphQL::Types::DateTimeType, "Example: 2012-01-02T03:05:34Z", null: true
-        field :user, String, "The submissions user (see user API) (optional).Example: User", null: true
+        field :user, LMSGraphQL::Types::Canvas::CanvasUser, "The submissions user (see user API) (optional).", null: true
         field :late, Boolean, "Whether the submission was made after the applicable due date.", null: true
         field :assignment_visible, Boolean, "Whether the assignment is visible to the user who submitted the assignment. Submissions where `assignment_visible` is false no longer count towards the student's grade and the assignment can no longer be accessed by the student. `assignment_visible` becomes false for submissions that do not have a grade and whose assignment is no longer assigned to the student's section..Example: true", null: true
         field :excused, Boolean, "Whether the assignment is excused.  Excused assignments have no impact on a user's grade..Example: true", null: true
@@ -47,6 +50,7 @@ module LMSGraphQL
         field :workflow_state, SubmissionWorkflowStateEnum, "The current state of the submission.Example: submitted", null: true
         field :extra_attempts, Float, "Extra submission attempts allowed for the given user and assignment..Example: 10", null: true
         field :anonymous_id, ID, "A unique short ID identifying this submission without reference to the owning user. Only included if the caller has administrator access for the current account..Example: acJ4Q", null: true
+        field :posted_at, LMSGraphQL::Types::DateTimeType, "The date this submission was posted to the student, or nil if it has not been posted..Example: 2020-01-02T11:10:30Z", null: true
 
       end
     end

@@ -8,14 +8,16 @@ module LMSGraphQL
         argument :get_all, Boolean, required: false
         argument :account_id, ID, required: true
         argument :search_term, String, required: false
+        argument :enrollment_type, String, required: false
         argument :sort, String, required: false
         argument :order, String, required: false
-        def resolve(account_id:, search_term: nil, sort: nil, order: nil, get_all: false)
+        def resolve(account_id:, search_term: nil, enrollment_type: nil, sort: nil, order: nil, get_all: false)
           result = context[:canvas_api].call("LIST_USERS_IN_ACCOUNT").proxy(
             "LIST_USERS_IN_ACCOUNT",
             {
               "account_id": account_id,
               "search_term": search_term,
+              "enrollment_type": enrollment_type,
               "sort": sort,
               "order": order            },
             nil,

@@ -21,6 +21,8 @@ module LMSGraphQL
         field :recordings, [LMSGraphQL::Types::Canvas::CanvasConferenceRecording], "A List of recordings for the conference.", null: true
         field :url, String, "URL for the conference, may be null if the conference type doesn't set it.", null: true
         field :join_url, String, "URL to join the conference, may be null if the conference type doesn't set it.", null: true
+        field :context_type, String, "The type of this conference's context, typically 'Course' or 'Group'..", null: true
+        field :context_id, ID, "The ID of this conference's context..", null: true
 
       end
     end

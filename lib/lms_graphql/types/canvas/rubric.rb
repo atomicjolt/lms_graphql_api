@@ -1,5 +1,7 @@
 require_relative "../canvas_base_type"
+require_relative "rubric_criterion"
 require_relative "rubric_assessment"
+require_relative "rubric_association"
 
 module LMSGraphQL
   module Types
@@ -15,7 +17,9 @@ module LMSGraphQL
         field :read_only, Boolean, "Example: true", null: true
         field :free_form_criterion_comments, Boolean, "whether or not free-form comments are used.Example: true", null: true
         field :hide_score_total, Boolean, "Example: true", null: true
+        field :data, [LMSGraphQL::Types::Canvas::CanvasRubricCriterion], "An array with all of this Rubric's grading Criteria.", null: true
         field :assessments, [LMSGraphQL::Types::Canvas::CanvasRubricAssessment], "If an assessment type is included in the 'include' parameter, includes an array of rubric assessment objects for a given rubric, based on the assessment type requested. If the user does not request an assessment type this key will be absent..", null: true
+        field :associations, [LMSGraphQL::Types::Canvas::CanvasRubricAssociation], "If an association type is included in the 'include' parameter, includes an array of rubric association objects for a given rubric, based on the association type requested. If the user does not request an association type this key will be absent..", null: true
 
       end
     end
