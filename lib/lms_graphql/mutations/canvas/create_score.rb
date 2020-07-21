@@ -1,5 +1,5 @@
 require_relative "../canvas_base_mutation"
-require_relative "../../types/canvas/canvasresult_url string the url to the result that was created."
+
 module LMSGraphQL
   module Mutations
     module Canvas
@@ -13,9 +13,9 @@ module LMSGraphQL
         argument :scoreGiven, Float, required: false
         argument :scoreMaximum, Float, required: false
         argument :comment, String, required: false
-        argument :https://canvas.instructure.com/lti/submission, String, required: false
-        field :canvasresult_url string the url to the result that was created., [LMSGraphQL::Types::Canvas::CanvasresultUrl String The url to the result that was created.], null: false
-        def resolve(course_id:, line_item_id:, userId:, activityProgress:, gradingProgress:, timestamp:, scoreGiven: nil, scoreMaximum: nil, comment: nil, https://canvas.instructure.com/lti/submission: nil)
+        argument :submission, String, required: false
+        field :return_value, String, null: false
+        def resolve(course_id:, line_item_id:, userId:, activityProgress:, gradingProgress:, timestamp:, scoreGiven: nil, scoreMaximum: nil, comment: nil, submission: nil)
           context[:canvas_api].call("CREATE_SCORE").proxy(
             "CREATE_SCORE",
             {
@@ -30,7 +30,7 @@ module LMSGraphQL
               "scoreGiven": scoreGiven,
               "scoreMaximum": scoreMaximum,
               "comment": comment,
-              "https://canvas.instructure.com/lti/submission": https://canvas.instructure.com/lti/submission
+              "https://canvas.instructure.com/lti/submission": submission
             },
           ).parsed_response
         end

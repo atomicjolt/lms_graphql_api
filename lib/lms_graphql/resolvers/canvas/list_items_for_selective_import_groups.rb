@@ -1,10 +1,10 @@
 require_relative "../canvas_base_resolver"
-require_relative "../../types/canvas/canvaslist of content item"
+
 module LMSGraphQL
   module Resolvers
     module Canvas
       class ListItemsForSelectiveImportGroup < CanvasBaseResolver
-        type LMSGraphQL::Types::Canvas::Canvaslist of content item, null: false
+        type [String], null: false
         argument :group_id, ID, required: true
         argument :id, ID, required: true
         argument :type, String, required: false

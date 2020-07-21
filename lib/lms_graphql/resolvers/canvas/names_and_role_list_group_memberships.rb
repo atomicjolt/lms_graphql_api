@@ -6,15 +6,15 @@ module LMSGraphQL
       class NamesAndRoleListGroupMembership < CanvasBaseResolver
         type LMSGraphQL::Types::Canvas::CanvasNamesAndRoleMembership, null: false
         argument :group_id, ID, required: true
-        argument :`rlid`, String, required: false
+        argument :rlid, String, required: false
         argument :role, String, required: false
         argument :limit, String, required: false
-        def resolve(group_id:, `rlid`: nil, role: nil, limit: nil, get_all: false)
+        def resolve(group_id:, rlid: nil, role: nil, limit: nil, get_all: false)
           result = context[:canvas_api].call("NAMES_AND_ROLE_LIST_GROUP_MEMBERSHIPS").proxy(
             "NAMES_AND_ROLE_LIST_GROUP_MEMBERSHIPS",
             {
               "group_id": group_id,
-              "`rlid`": `rlid`,
+              "`rlid`": rlid,
               "role": role,
               "limit": limit            },
             nil,
