@@ -10,9 +10,9 @@ module LMSGraphQL
         argument :resourceId, String, required: false
         argument :tag, String, required: false
         argument :resourceLinkId, String, required: false
-        argument :https://canvas.instructure.com/lti/submission_type, String, required: false
+        argument :submission_type, String, required: false
         field :line_item, LMSGraphQL::Types::Canvas::CanvasLineItem, null: false
-        def resolve(course_id:, scoreMaximum:, label:, resourceId: nil, tag: nil, resourceLinkId: nil, https://canvas.instructure.com/lti/submission_type: nil)
+        def resolve(course_id:, scoreMaximum:, label:, resourceId: nil, tag: nil, resourceLinkId: nil, submission_type: nil)
           context[:canvas_api].call("CREATE_LINE_ITEM").proxy(
             "CREATE_LINE_ITEM",
             {
@@ -24,7 +24,7 @@ module LMSGraphQL
               "resourceId": resourceId,
               "tag": tag,
               "resourceLinkId": resourceLinkId,
-              "https://canvas.instructure.com/lti/submission_type": https://canvas.instructure.com/lti/submission_type
+              "https://canvas.instructure.com/lti/submission_type": submission_type
             },
           ).parsed_response
         end
