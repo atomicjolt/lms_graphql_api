@@ -10,7 +10,6 @@ module LMSGraphQL
         argument :user_sortable_name, String, required: false
         argument :user_time_zone, String, required: false
         argument :user_locale, String, required: false
-        argument :user_birthdate, LMSGraphQL::Types::DateTimeType, required: false
         argument :user_terms_of_use, Boolean, required: false
         argument :user_skip_registration, Boolean, required: false
         argument :pseudonym_unique_id, String, required: true
@@ -30,7 +29,7 @@ module LMSGraphQL
         argument :initial_enrollment_type, String, required: false
         argument :pairing_code_code, String, required: false
         field :user, LMSGraphQL::Types::Canvas::CanvasUser, null: false
-        def resolve(account_id:, user_name: nil, user_short_name: nil, user_sortable_name: nil, user_time_zone: nil, user_locale: nil, user_birthdate: nil, user_terms_of_use: nil, user_skip_registration: nil, pseudonym_unique_id:, pseudonym_password: nil, pseudonym_sis_user_id: nil, pseudonym_integration_id: nil, pseudonym_send_confirmation: nil, pseudonym_force_self_registration: nil, pseudonym_authentication_provider_id: nil, communication_channel_type: nil, communication_channel_address: nil, communication_channel_confirmation_url: nil, communication_channel_skip_confirmation: nil, force_validations: nil, enable_sis_reactivation: nil, destination: nil, initial_enrollment_type: nil, pairing_code_code: nil)
+        def resolve(account_id:, user_name: nil, user_short_name: nil, user_sortable_name: nil, user_time_zone: nil, user_locale: nil, user_terms_of_use: nil, user_skip_registration: nil, pseudonym_unique_id:, pseudonym_password: nil, pseudonym_sis_user_id: nil, pseudonym_integration_id: nil, pseudonym_send_confirmation: nil, pseudonym_force_self_registration: nil, pseudonym_authentication_provider_id: nil, communication_channel_type: nil, communication_channel_address: nil, communication_channel_confirmation_url: nil, communication_channel_skip_confirmation: nil, force_validations: nil, enable_sis_reactivation: nil, destination: nil, initial_enrollment_type: nil, pairing_code_code: nil)
           context[:canvas_api].call("CREATE_USER").proxy(
             "CREATE_USER",
             {
@@ -42,7 +41,6 @@ module LMSGraphQL
               "user[sortable_name]": user_sortable_name,
               "user[time_zone]": user_time_zone,
               "user[locale]": user_locale,
-              "user[birthdate]": user_birthdate,
               "user[terms_of_use]": user_terms_of_use,
               "user[skip_registration]": user_skip_registration,
               "pseudonym[unique_id]": pseudonym_unique_id,

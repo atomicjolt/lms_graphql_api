@@ -9,6 +9,7 @@ module LMSGraphQL
           value "must_submit"
           value "must_contribute"
           value "min_score"
+          value "must_mark_done"
         end
       class CanvasCompletionRequirement < BaseType
         description "Modules. API Docs: https://canvas.instructure.com/doc/api/modules.html"

@@ -1029,11 +1029,11 @@ module LMSGraphQL
 
         field :list_media_objects_media_objects,
           resolver: LMSGraphQL::Resolvers::Canvas::ListMediaObjectsMediaObject,
-          description: "List Media Objects. Returns Media Objects created by the user making the request. When   using the second version, returns   only those Media Objects associated with the given course."
+          description: "List Media Objects. Returns media objects created by the user making the request. When   using the second version, returns media objects associated with   the given course."
 
         field :list_media_objects_courses,
           resolver: LMSGraphQL::Resolvers::Canvas::ListMediaObjectsCourse,
-          description: "List Media Objects. Returns Media Objects created by the user making the request. When   using the second version, returns   only those Media Objects associated with the given course."
+          description: "List Media Objects. Returns media objects created by the user making the request. When   using the second version, returns media objects associated with   the given course."
 
         field :list_students_selected_for_moderation,
           resolver: LMSGraphQL::Resolvers::Canvas::ListStudentsSelectedForModeration,
