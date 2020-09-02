@@ -21,9 +21,13 @@ module LMSGraphQL
         argument :account_settings_usage_rights_required_locked, Boolean, required: false
         argument :account_settings_restrict_student_future_listing_value, Boolean, required: false
         argument :account_settings_restrict_student_future_listing_locked, Boolean, required: false
+        argument :account_settings_lock_outcome_proficiency_value, Boolean, required: false
+        argument :account_lock_outcome_proficiency_locked, Boolean, required: false
+        argument :account_settings_lock_proficiency_calculation_value, Boolean, required: false
+        argument :account_lock_proficiency_calculation_locked, Boolean, required: false
         argument :account_services, String, required: false
         field :account, LMSGraphQL::Types::Canvas::CanvasAccount, null: false
-        def resolve(id:, account_name: nil, account_sis_account_id: nil, account_default_time_zone: nil, account_default_storage_quota_mb: nil, account_default_user_storage_quota_mb: nil, account_default_group_storage_quota_mb: nil, account_settings_restrict_student_past_view_value: nil, account_settings_restrict_student_past_view_locked: nil, account_settings_restrict_student_future_view_value: nil, account_settings_restrict_student_future_view_locked: nil, account_settings_lock_all_announcements_value: nil, account_settings_lock_all_announcements_locked: nil, account_settings_usage_rights_required_value: nil, account_settings_usage_rights_required_locked: nil, account_settings_restrict_student_future_listing_value: nil, account_settings_restrict_student_future_listing_locked: nil, account_services: nil)
+        def resolve(id:, account_name: nil, account_sis_account_id: nil, account_default_time_zone: nil, account_default_storage_quota_mb: nil, account_default_user_storage_quota_mb: nil, account_default_group_storage_quota_mb: nil, account_settings_restrict_student_past_view_value: nil, account_settings_restrict_student_past_view_locked: nil, account_settings_restrict_student_future_view_value: nil, account_settings_restrict_student_future_view_locked: nil, account_settings_lock_all_announcements_value: nil, account_settings_lock_all_announcements_locked: nil, account_settings_usage_rights_required_value: nil, account_settings_usage_rights_required_locked: nil, account_settings_restrict_student_future_listing_value: nil, account_settings_restrict_student_future_listing_locked: nil, account_settings_lock_outcome_proficiency_value: nil, account_lock_outcome_proficiency_locked: nil, account_settings_lock_proficiency_calculation_value: nil, account_lock_proficiency_calculation_locked: nil, account_services: nil)
           context[:canvas_api].call("UPDATE_ACCOUNT").proxy(
             "UPDATE_ACCOUNT",
             {
@@ -46,6 +50,10 @@ module LMSGraphQL
               "account[settings][usage_rights_required][locked]": account_settings_usage_rights_required_locked,
               "account[settings][restrict_student_future_listing][value]": account_settings_restrict_student_future_listing_value,
               "account[settings][restrict_student_future_listing][locked]": account_settings_restrict_student_future_listing_locked,
+              "account[settings][lock_outcome_proficiency][value]": account_settings_lock_outcome_proficiency_value,
+              "account[lock_outcome_proficiency][locked]": account_lock_outcome_proficiency_locked,
+              "account[settings][lock_proficiency_calculation][value]": account_settings_lock_proficiency_calculation_value,
+              "account[lock_proficiency_calculation][locked]": account_lock_proficiency_calculation_locked,
               "account[services]": account_services
             },
           ).parsed_response

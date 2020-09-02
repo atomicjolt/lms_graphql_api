@@ -68,7 +68,6 @@ module LMSGraphQL
         argument :post_to_sis, Boolean, "(optional, present if Sync Grades to SIS feature is enabled).Example: true", required: false
         argument :integration_id, ID, "(optional, Third Party unique identifier for Assignment).Example: 12341234", required: false
         argument :integration_data, String, "(optional, Third Party integration data for assignment).Example: 0954", required: false
-        argument :muted, Boolean, "For courses using Old Gradebook, indicates whether the assignment is muted. For courses using New Gradebook, true if the assignment has any unposted submissions, otherwise false. To see the posted status of submissions, check the 'posted_attribute' on Submission..", required: false
         argument :points_possible, Float, "the maximum points possible for the assignment.Example: 12.0", required: false
         argument :submission_types, AssignmentSubmissionTypeEnum, "the types of submissions allowed for this assignment list containing one or more of the following: 'discussion_topic', 'online_quiz', 'on_paper', 'none', 'external_tool', 'online_text_entry', 'online_url', 'online_upload' 'media_recording'.Example: online_text_entry", required: false
         argument :has_submitted_submissions, Boolean, "If true, the assignment has been submitted to by at least one student.Example: true", required: false
