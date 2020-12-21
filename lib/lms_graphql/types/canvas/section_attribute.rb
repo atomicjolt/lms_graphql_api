@@ -8,13 +8,13 @@ module LMSGraphQL
     module Canvas
       class CanvasSectionAttribute < BaseType
         description "SIS Integration. API Docs: https://canvas.instructure.com/doc/api/sis_integration.html"
-        field :id, ID, "The unique identifier for the section..Example: 1", null: true
-        field :name, String, "The name of the section..Example: Section A", null: true
-        field :sis_id, ID, "The sis id of the section..Example: s34643", null: true
-        field :integration_id, ID, "Optional: The integration ID of the section..Example: 3452342345", null: true
-        field :origin_course, LMSGraphQL::Types::Canvas::CanvasCourseAttribute, "The course to which the section belongs or the course from which the section was cross-listed.", null: true
-        field :xlist_course, LMSGraphQL::Types::Canvas::CanvasCourseAttribute, "Optional: Attributes of the xlist course. Only present when the section has been cross-listed. See Courses API for more details.", null: true
-        field :override, LMSGraphQL::Types::Canvas::CanvasSectionAssignmentOverrideAttribute, "Optional: Attributes of the assignment override that apply to the section. See Assignment API for more details.", null: true
+      	field :id, ID, "The unique identifier for the section..Example: 1", null: true
+      	field :name, String, "The name of the section..Example: Section A", null: true
+      	field :sis_id, ID, "The sis id of the section..Example: s34643", null: true
+      	field :integration_id, ID, "Optional: The integration ID of the section..Example: 3452342345", null: true
+      	field :origin_course, LMSGraphQL::Types::Canvas::CanvasCourseAttribute, "The course to which the section belongs or the course from which the section was cross-listed.", null: true
+      	field :xlist_course, LMSGraphQL::Types::Canvas::CanvasCourseAttribute, "Optional: Attributes of the xlist course. Only present when the section has been cross-listed. See Courses API for more details.", null: true
+      	field :override, LMSGraphQL::Types::Canvas::CanvasSectionAssignmentOverrideAttribute, "Optional: Attributes of the assignment override that apply to the section. See Assignment API for more details.", null: true
 
       end
     end

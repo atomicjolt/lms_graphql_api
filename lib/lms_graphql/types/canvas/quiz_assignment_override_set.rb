@@ -7,9 +7,9 @@ module LMSGraphQL
     module Canvas
       class CanvasQuizAssignmentOverrideSet < BaseType
         description "Quiz Assignment Overrides. API Docs: https://canvas.instructure.com/doc/api/quiz_assignment_overrides.html"
-        field :quiz_id, ID, "ID of the quiz those dates are for..Example: 1", null: true
-        field :due_dates, LMSGraphQL::Types::Canvas::CanvasQuizAssignmentOverride, "An array of quiz assignment overrides. For students, this array will always contain a single item which is the set of dates that apply to that student. For teachers and staff, it may contain more..", null: true
-        field :all_dates, LMSGraphQL::Types::Canvas::CanvasQuizAssignmentOverride, "An array of all assignment overrides active for the quiz. This is visible only to teachers and staff..", null: true
+      	field :quiz_id, ID, "ID of the quiz those dates are for..Example: 1", null: true
+      	field :due_dates, LMSGraphQL::Types::Canvas::CanvasQuizAssignmentOverride, "An array of quiz assignment overrides. For students, this array will always contain a single item which is the set of dates that apply to that student. For teachers and staff, it may contain more..", null: true
+      	field :all_dates, LMSGraphQL::Types::Canvas::CanvasQuizAssignmentOverride, "An array of all assignment overrides active for the quiz. This is visible only to teachers and staff..", null: true
 
       end
     end

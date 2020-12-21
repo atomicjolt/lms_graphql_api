@@ -10,9 +10,9 @@ module LMSGraphQL
         end
       class CanvasCollaboratorInput < BaseInputObject
         description "Collaborations. API Docs: https://canvas.instructure.com/doc/api/collaborations.html"
-        argument :id, ID, "The unique user or group identifier for the collaborator..Example: 12345", required: false
-        argument :type, CollaboratorTypeEnum, "The type of collaborator (e.g. 'user' or 'group')..Example: user", required: false
-        argument :name, String, "The name of the collaborator..Example: Don Draper", required: false
+      	argument :id, ID, "The unique user or group identifier for the collaborator..Example: 12345", required: false
+      	argument :type, CollaboratorTypeEnum, "The type of collaborator (e.g. 'user' or 'group')..Example: user", required: false
+      	argument :name, String, "The name of the collaborator..Example: Don Draper", required: false
 
       end
     end

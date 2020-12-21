@@ -160,6 +160,8 @@ module LMSGraphQL
         field :edit_external_tool_accounts, mutation: LMSGraphQL::Mutations::Canvas::EditExternalToolAccount
         field :delete_external_tool_courses, mutation: LMSGraphQL::Mutations::Canvas::DeleteExternalToolCourse
         field :delete_external_tool_accounts, mutation: LMSGraphQL::Mutations::Canvas::DeleteExternalToolAccount
+        field :add_tool_to_rce_favorites, mutation: LMSGraphQL::Mutations::Canvas::AddToolToRceFavorite
+        field :remove_tool_from_rce_favorites, mutation: LMSGraphQL::Mutations::Canvas::RemoveToolFromRceFavorite
         field :add_course_to_favorites, mutation: LMSGraphQL::Mutations::Canvas::AddCourseToFavorite
         field :add_group_to_favorites, mutation: LMSGraphQL::Mutations::Canvas::AddGroupToFavorite
         field :remove_course_from_favorites, mutation: LMSGraphQL::Mutations::Canvas::RemoveCourseFromFavorite
@@ -197,6 +199,7 @@ module LMSGraphQL
         field :create_new_grading_standard_courses, mutation: LMSGraphQL::Mutations::Canvas::CreateNewGradingStandardCourse
         field :create_group_category_accounts, mutation: LMSGraphQL::Mutations::Canvas::CreateGroupCategoryAccount
         field :create_group_category_courses, mutation: LMSGraphQL::Mutations::Canvas::CreateGroupCategoryCourse
+        field :import_category_groups, mutation: LMSGraphQL::Mutations::Canvas::ImportCategoryGroup
         field :update_group_category, mutation: LMSGraphQL::Mutations::Canvas::UpdateGroupCategory
         field :delete_group_category, mutation: LMSGraphQL::Mutations::Canvas::DeleteGroupCategory
         field :assign_unassigned_members, mutation: LMSGraphQL::Mutations::Canvas::AssignUnassignedMember
@@ -304,7 +307,8 @@ module LMSGraphQL
         field :create_single_poll, mutation: LMSGraphQL::Mutations::Canvas::CreateSinglePoll
         field :update_single_poll, mutation: LMSGraphQL::Mutations::Canvas::UpdateSinglePoll
         field :delete_poll, mutation: LMSGraphQL::Mutations::Canvas::DeletePoll
-        field :create_update_proficiency_ratings, mutation: LMSGraphQL::Mutations::Canvas::CreateUpdateProficiencyRating
+        field :create_update_proficiency_ratings_accounts, mutation: LMSGraphQL::Mutations::Canvas::CreateUpdateProficiencyRatingsAccount
+        field :create_update_proficiency_ratings_courses, mutation: LMSGraphQL::Mutations::Canvas::CreateUpdateProficiencyRatingsCourse
         field :update_public_jwk, mutation: LMSGraphQL::Mutations::Canvas::UpdatePublicJwk
         field :quiz_extensions_set_extensions_for_student_quiz_submissions, mutation: LMSGraphQL::Mutations::Canvas::QuizExtensionsSetExtensionsForStudentQuizSubmission
         field :create_question_group, mutation: LMSGraphQL::Mutations::Canvas::CreateQuestionGroup
@@ -358,6 +362,8 @@ module LMSGraphQL
         field :share_brandconfig_theme, mutation: LMSGraphQL::Mutations::Canvas::ShareBrandconfigTheme
         field :update_shared_theme, mutation: LMSGraphQL::Mutations::Canvas::UpdateSharedTheme
         field :un_share_brandconfig_theme, mutation: LMSGraphQL::Mutations::Canvas::UnShareBrandconfigTheme
+        field :edit_submission_comment, mutation: LMSGraphQL::Mutations::Canvas::EditSubmissionComment
+        field :delete_submission_comment, mutation: LMSGraphQL::Mutations::Canvas::DeleteSubmissionComment
         field :submission_comments_upload_file, mutation: LMSGraphQL::Mutations::Canvas::SubmissionCommentsUploadFile
         field :submit_assignment_courses, mutation: LMSGraphQL::Mutations::Canvas::SubmitAssignmentCourse
         field :submit_assignment_sections, mutation: LMSGraphQL::Mutations::Canvas::SubmitAssignmentSection
