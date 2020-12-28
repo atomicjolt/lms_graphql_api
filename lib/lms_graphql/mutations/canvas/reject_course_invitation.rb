@@ -6,7 +6,10 @@ module LMSGraphQL
       class RejectCourseInvitation < BaseMutation
         argument :course_id, ID, required: true
         argument :id, ID, required: true
+        
+        
         field :return_value, Boolean, null: false
+        
         def resolve(course_id:, id:)
           context[:canvas_api].call("REJECT_COURSE_INVITATION").proxy(
             "REJECT_COURSE_INVITATION",

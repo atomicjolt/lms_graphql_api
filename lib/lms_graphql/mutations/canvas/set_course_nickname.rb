@@ -6,7 +6,10 @@ module LMSGraphQL
       class SetCourseNickname < BaseMutation
         argument :course_id, ID, required: true
         argument :nickname, String, required: true
+        
+        
         field :course_nickname, LMSGraphQL::Types::Canvas::CanvasCourseNickname, null: false
+        
         def resolve(course_id:, nickname:)
           context[:canvas_api].call("SET_COURSE_NICKNAME").proxy(
             "SET_COURSE_NICKNAME",

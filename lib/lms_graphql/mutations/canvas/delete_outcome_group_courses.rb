@@ -6,7 +6,10 @@ module LMSGraphQL
       class DeleteOutcomeGroupCourse < BaseMutation
         argument :course_id, ID, required: true
         argument :id, ID, required: true
+        
+        
         field :outcome_group, LMSGraphQL::Types::Canvas::CanvasOutcomeGroup, null: false
+        
         def resolve(course_id:, id:)
           context[:canvas_api].call("DELETE_OUTCOME_GROUP_COURSES").proxy(
             "DELETE_OUTCOME_GROUP_COURSES",

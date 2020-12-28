@@ -12,7 +12,10 @@ module LMSGraphQL
         argument :events_location_name, String, required: false
         argument :events_code, String, required: false
         argument :events_title, String, required: false
+        
+        
         field :return_value, Boolean, null: false
+        
         def resolve(course_id:, course_section_id: nil, events: nil, events_start_at: nil, events_end_at: nil, events_location_name: nil, events_code: nil, events_title: nil)
           context[:canvas_api].call("CREATE_OR_UPDATE_EVENTS_DIRECTLY_FOR_COURSE_TIMETABLE").proxy(
             "CREATE_OR_UPDATE_EVENTS_DIRECTLY_FOR_COURSE_TIMETABLE",

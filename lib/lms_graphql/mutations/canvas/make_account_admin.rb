@@ -9,7 +9,10 @@ module LMSGraphQL
         argument :role, String, required: false
         argument :role_id, ID, required: false
         argument :send_confirmation, Boolean, required: false
+        
+        
         field :admin, LMSGraphQL::Types::Canvas::CanvasAdmin, null: false
+        
         def resolve(account_id:, user_id:, role: nil, role_id: nil, send_confirmation: nil)
           context[:canvas_api].call("MAKE_ACCOUNT_ADMIN").proxy(
             "MAKE_ACCOUNT_ADMIN",

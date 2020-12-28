@@ -18,7 +18,10 @@ module LMSGraphQL
         argument :submission_late_policy_status, String, required: false
         argument :submission_seconds_late_override, Int, required: false
         argument :rubric_assessment, String, required: false
+        
+        
         field :return_value, Boolean, null: false
+        
         def resolve(course_id:, assignment_id:, user_id:, comment_text_comment: nil, comment_group_comment: nil, comment_media_comment_id: nil, comment_media_comment_type: nil, comment_file_ids: nil, include_visibility: nil, submission_posted_grade: nil, submission_excuse: nil, submission_late_policy_status: nil, submission_seconds_late_override: nil, rubric_assessment: nil)
           context[:canvas_api].call("GRADE_OR_COMMENT_ON_SUBMISSION_COURSES").proxy(
             "GRADE_OR_COMMENT_ON_SUBMISSION_COURSES",

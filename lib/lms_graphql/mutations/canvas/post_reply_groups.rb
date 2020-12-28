@@ -9,7 +9,10 @@ module LMSGraphQL
         argument :entry_id, ID, required: true
         argument :message, String, required: false
         argument :attachment, String, required: false
+        
+        
         field :return_value, Boolean, null: false
+        
         def resolve(group_id:, topic_id:, entry_id:, message: nil, attachment: nil)
           context[:canvas_api].call("POST_REPLY_GROUPS").proxy(
             "POST_REPLY_GROUPS",

@@ -6,7 +6,10 @@ module LMSGraphQL
       class ReorderCustomColumn < BaseMutation
         argument :course_id, ID, required: true
         argument :order, Int, required: true
+        
+        
         field :return_value, Boolean, null: false
+        
         def resolve(course_id:, order:)
           context[:canvas_api].call("REORDER_CUSTOM_COLUMNS").proxy(
             "REORDER_CUSTOM_COLUMNS",

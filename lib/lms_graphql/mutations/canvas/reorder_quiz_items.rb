@@ -8,7 +8,10 @@ module LMSGraphQL
         argument :id, ID, required: true
         argument :order_id, Int, required: true
         argument :order_type, String, required: false
+        
+        
         field :return_value, Boolean, null: false
+        
         def resolve(course_id:, id:, order_id:, order_type: nil)
           context[:canvas_api].call("REORDER_QUIZ_ITEMS").proxy(
             "REORDER_QUIZ_ITEMS",

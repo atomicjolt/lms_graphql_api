@@ -6,7 +6,10 @@ module LMSGraphQL
       class EditExternalToolCourse < BaseMutation
         argument :course_id, ID, required: true
         argument :external_tool_id, ID, required: true
+        
+        
         field :return_value, Boolean, null: false
+        
         def resolve(course_id:, external_tool_id:)
           context[:canvas_api].call("EDIT_EXTERNAL_TOOL_COURSES").proxy(
             "EDIT_EXTERNAL_TOOL_COURSES",

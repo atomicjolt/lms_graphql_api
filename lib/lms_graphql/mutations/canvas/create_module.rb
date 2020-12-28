@@ -11,7 +11,13 @@ module LMSGraphQL
         argument :module_require_sequential_progress, Boolean, required: false
         argument :module_prerequisite_module_ids, String, required: false
         argument :module_publish_final_grade, Boolean, required: false
-        field :module, LMSGraphQL::Types::Canvas::CanvasModule, null: false
+        
+        
+        field :module, LMSGraphQL::Types::Canvas::CanvasModule, null: false, resolver_method: :resolve_module
+        def resolve_module
+          object[:module]
+        end
+        
         def resolve(course_id:, module_name:, module_unlock_at: nil, module_position: nil, module_require_sequential_progress: nil, module_prerequisite_module_ids: nil, module_publish_final_grade: nil)
           context[:canvas_api].call("CREATE_MODULE").proxy(
             "CREATE_MODULE",

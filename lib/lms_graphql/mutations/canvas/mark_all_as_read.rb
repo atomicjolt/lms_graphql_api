@@ -5,7 +5,10 @@ module LMSGraphQL
     module Canvas
       class MarkAllAsRead < BaseMutation
 
+        
+        
         field :return_value, Boolean, null: false
+        
         def resolve()
           context[:canvas_api].call("MARK_ALL_AS_READ").proxy(
             "MARK_ALL_AS_READ",

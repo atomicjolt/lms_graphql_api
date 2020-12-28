@@ -7,7 +7,10 @@ module LMSGraphQL
         argument :communication_channel_id, ID, required: true
         argument :category, String, required: true
         argument :notification_preferences_frequency, String, required: true
+        
+        
         field :return_value, Boolean, null: false
+        
         def resolve(communication_channel_id:, category:, notification_preferences_frequency:)
           context[:canvas_api].call("UPDATE_PREFERENCES_BY_CATEGORY").proxy(
             "UPDATE_PREFERENCES_BY_CATEGORY",

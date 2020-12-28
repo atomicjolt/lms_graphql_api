@@ -6,7 +6,10 @@ module LMSGraphQL
       class DeletePageCourse < BaseMutation
         argument :course_id, ID, required: true
         argument :url, String, required: true
+        
+        
         field :page, LMSGraphQL::Types::Canvas::CanvasPage, null: false
+        
         def resolve(course_id:, url:)
           context[:canvas_api].call("DELETE_PAGE_COURSES").proxy(
             "DELETE_PAGE_COURSES",

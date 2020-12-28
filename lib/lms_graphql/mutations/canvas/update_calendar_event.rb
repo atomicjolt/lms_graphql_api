@@ -17,7 +17,10 @@ module LMSGraphQL
         argument :calendar_event_child_event_data_X_start_at, LMSGraphQL::Types::DateTimeType, required: false
         argument :calendar_event_child_event_data_X_end_at, LMSGraphQL::Types::DateTimeType, required: false
         argument :calendar_event_child_event_data_X_context_code, String, required: false
+        
+        
         field :return_value, Boolean, null: false
+        
         def resolve(id:, calendar_event_context_code: nil, calendar_event_title: nil, calendar_event_description: nil, calendar_event_start_at: nil, calendar_event_end_at: nil, calendar_event_location_name: nil, calendar_event_location_address: nil, calendar_event_time_zone_edited: nil, calendar_event_all_day: nil, calendar_event_child_event_data_X_start_at: nil, calendar_event_child_event_data_X_end_at: nil, calendar_event_child_event_data_X_context_code: nil)
           context[:canvas_api].call("UPDATE_CALENDAR_EVENT").proxy(
             "UPDATE_CALENDAR_EVENT",

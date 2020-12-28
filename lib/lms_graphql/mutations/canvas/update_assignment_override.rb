@@ -12,7 +12,10 @@ module LMSGraphQL
         argument :assignment_override_due_at, LMSGraphQL::Types::DateTimeType, required: false
         argument :assignment_override_unlock_at, LMSGraphQL::Types::DateTimeType, required: false
         argument :assignment_override_lock_at, LMSGraphQL::Types::DateTimeType, required: false
+        
+        
         field :assignment_override, LMSGraphQL::Types::Canvas::CanvasAssignmentOverride, null: false
+        
         def resolve(course_id:, assignment_id:, id:, assignment_override_student_ids: nil, assignment_override_title: nil, assignment_override_due_at: nil, assignment_override_unlock_at: nil, assignment_override_lock_at: nil)
           context[:canvas_api].call("UPDATE_ASSIGNMENT_OVERRIDE").proxy(
             "UPDATE_ASSIGNMENT_OVERRIDE",

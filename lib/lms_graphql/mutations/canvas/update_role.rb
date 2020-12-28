@@ -11,7 +11,10 @@ module LMSGraphQL
         argument :permissions__X__enabled, Boolean, required: false
         argument :permissions__X__applies_to_self, Boolean, required: false
         argument :permissions__X__applies_to_descendants, Boolean, required: false
+        
+        
         field :role, LMSGraphQL::Types::Canvas::CanvasRole, null: false
+        
         def resolve(account_id:, id:, label: nil, permissions__X__explicit: nil, permissions__X__enabled: nil, permissions__X__applies_to_self: nil, permissions__X__applies_to_descendants: nil)
           context[:canvas_api].call("UPDATE_ROLE").proxy(
             "UPDATE_ROLE",

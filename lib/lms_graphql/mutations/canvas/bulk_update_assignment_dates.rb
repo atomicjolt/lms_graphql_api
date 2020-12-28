@@ -5,7 +5,10 @@ module LMSGraphQL
     module Canvas
       class BulkUpdateAssignmentDate < BaseMutation
         argument :course_id, ID, required: true
+        
+        
         field :progress, LMSGraphQL::Types::Canvas::CanvasProgress, null: false
+        
         def resolve(course_id:)
           context[:canvas_api].call("BULK_UPDATE_ASSIGNMENT_DATES").proxy(
             "BULK_UPDATE_ASSIGNMENT_DATES",

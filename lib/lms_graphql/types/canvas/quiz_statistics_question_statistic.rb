@@ -6,8 +6,8 @@ module LMSGraphQL
     module Canvas
       class CanvasQuizStatisticsQuestionStatistic < BaseType
         description "Quiz Statistics. API Docs: https://canvas.instructure.com/doc/api/quiz_statistics.html"
-      	field :responses, Int, "Number of students who have provided an answer to this question. Blank or empty responses are not counted..Example: 3", null: true
-      	field :answers, LMSGraphQL::Types::Canvas::CanvasQuizStatisticsAnswerStatistic, "Statistics related to each individual pre-defined answer..", null: true
+        field :responses, Int, "Number of students who have provided an answer to this question. Blank or empty responses are not counted..Example: 3", null: true
+        field :answers, LMSGraphQL::Types::Canvas::CanvasQuizStatisticsAnswerStatistic, "Statistics related to each individual pre-defined answer..", null: true
 
       end
     end

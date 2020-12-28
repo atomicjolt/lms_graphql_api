@@ -20,7 +20,10 @@ module LMSGraphQL
         argument :show_announcements_on_home_page, Boolean, required: false
         argument :home_page_announcement_limit, Int, required: false
         argument :syllabus_course_summary, Boolean, required: false
+        
+        
         field :return_value, Boolean, null: false
+        
         def resolve(course_id:, allow_student_discussion_topics: nil, allow_student_forum_attachments: nil, allow_student_discussion_editing: nil, allow_student_organized_groups: nil, filter_speed_grader_by_student_group: nil, hide_final_grades: nil, hide_distribution_graphs: nil, hide_sections_on_course_users_page: nil, lock_all_announcements: nil, usage_rights_required: nil, restrict_student_past_view: nil, restrict_student_future_view: nil, show_announcements_on_home_page: nil, home_page_announcement_limit: nil, syllabus_course_summary: nil)
           context[:canvas_api].call("UPDATE_COURSE_SETTINGS").proxy(
             "UPDATE_COURSE_SETTINGS",

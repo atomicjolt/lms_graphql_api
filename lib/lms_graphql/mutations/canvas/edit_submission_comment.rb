@@ -9,7 +9,10 @@ module LMSGraphQL
         argument :user_id, ID, required: true
         argument :id, ID, required: true
         argument :comment, String, required: false
+        
+        
         field :submission_comment, LMSGraphQL::Types::Canvas::CanvasSubmissionComment, null: false
+        
         def resolve(course_id:, assignment_id:, user_id:, id:, comment: nil)
           context[:canvas_api].call("EDIT_SUBMISSION_COMMENT").proxy(
             "EDIT_SUBMISSION_COMMENT",

@@ -12,7 +12,10 @@ module LMSGraphQL
         argument :recipients, String, required: false
         argument :included_messages, String, required: false
         argument :user_note, Boolean, required: false
+        
+        
         field :return_value, Boolean, null: false
+        
         def resolve(id:, body:, attachment_ids: nil, media_comment_id: nil, media_comment_type: nil, recipients: nil, included_messages: nil, user_note: nil)
           context[:canvas_api].call("ADD_MESSAGE").proxy(
             "ADD_MESSAGE",

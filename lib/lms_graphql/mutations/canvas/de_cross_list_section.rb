@@ -5,7 +5,10 @@ module LMSGraphQL
     module Canvas
       class DeCrossListSection < BaseMutation
         argument :id, ID, required: true
+        
+        
         field :section, LMSGraphQL::Types::Canvas::CanvasSection, null: false
+        
         def resolve(id:)
           context[:canvas_api].call("DE_CROSS_LIST_SECTION").proxy(
             "DE_CROSS_LIST_SECTION",

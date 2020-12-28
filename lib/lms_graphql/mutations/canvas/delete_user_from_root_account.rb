@@ -6,7 +6,10 @@ module LMSGraphQL
       class DeleteUserFromRootAccount < BaseMutation
         argument :account_id, ID, required: true
         argument :user_id, ID, required: true
+        
+        
         field :user, LMSGraphQL::Types::Canvas::CanvasUser, null: false
+        
         def resolve(account_id:, user_id:)
           context[:canvas_api].call("DELETE_USER_FROM_ROOT_ACCOUNT").proxy(
             "DELETE_USER_FROM_ROOT_ACCOUNT",

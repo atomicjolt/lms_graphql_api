@@ -6,7 +6,10 @@ module LMSGraphQL
       class GroupsPreviewProcessedHtml < BaseMutation
         argument :group_id, ID, required: true
         argument :html, String, required: false
+        
+        
         field :return_value, Boolean, null: false
+        
         def resolve(group_id:, html: nil)
           context[:canvas_api].call("GROUPS_PREVIEW_PROCESSED_HTML").proxy(
             "GROUPS_PREVIEW_PROCESSED_HTML",

@@ -7,7 +7,10 @@ module LMSGraphQL
         argument :course_id, ID, required: true
         argument :assignment_id, ID, required: true
         argument :id, ID, required: true
+        
+        
         field :assignment_override, LMSGraphQL::Types::Canvas::CanvasAssignmentOverride, null: false
+        
         def resolve(course_id:, assignment_id:, id:)
           context[:canvas_api].call("DELETE_ASSIGNMENT_OVERRIDE").proxy(
             "DELETE_ASSIGNMENT_OVERRIDE",

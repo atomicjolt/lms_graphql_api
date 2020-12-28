@@ -5,7 +5,10 @@ module LMSGraphQL
     module Canvas
       class UsersUploadFile < BaseMutation
         argument :user_id, ID, required: true
+        
+        
         field :return_value, Boolean, null: false
+        
         def resolve(user_id:)
           context[:canvas_api].call("USERS_UPLOAD_FILE").proxy(
             "USERS_UPLOAD_FILE",

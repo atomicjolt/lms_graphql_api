@@ -6,7 +6,10 @@ module LMSGraphQL
       class CreateLiveAssessmentResult < BaseMutation
         argument :course_id, ID, required: true
         argument :assessment_id, ID, required: true
+        
+        
         field :return_value, Boolean, null: false
+        
         def resolve(course_id:, assessment_id:)
           context[:canvas_api].call("CREATE_LIVE_ASSESSMENT_RESULTS").proxy(
             "CREATE_LIVE_ASSESSMENT_RESULTS",

@@ -10,7 +10,10 @@ module LMSGraphQL
         argument :send_notification, Boolean, required: false
         argument :copy_settings, Boolean, required: false
         argument :publish_after_initial_sync, Boolean, required: false
+        
+        
         field :blueprint_migration, LMSGraphQL::Types::Canvas::CanvasBlueprintMigration, null: false
+        
         def resolve(course_id:, template_id:, comment: nil, send_notification: nil, copy_settings: nil, publish_after_initial_sync: nil)
           context[:canvas_api].call("BEGIN_MIGRATION_TO_PUSH_TO_ASSOCIATED_COURSES").proxy(
             "BEGIN_MIGRATION_TO_PUSH_TO_ASSOCIATED_COURSES",

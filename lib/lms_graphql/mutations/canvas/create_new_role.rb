@@ -13,7 +13,10 @@ module LMSGraphQL
         argument :permissions__X__locked, Boolean, required: false
         argument :permissions__X__applies_to_self, Boolean, required: false
         argument :permissions__X__applies_to_descendants, Boolean, required: false
+        
+        
         field :role, LMSGraphQL::Types::Canvas::CanvasRole, null: false
+        
         def resolve(account_id:, label:, role: nil, base_role_type: nil, permissions__X__explicit: nil, permissions__X__enabled: nil, permissions__X__locked: nil, permissions__X__applies_to_self: nil, permissions__X__applies_to_descendants: nil)
           context[:canvas_api].call("CREATE_NEW_ROLE").proxy(
             "CREATE_NEW_ROLE",

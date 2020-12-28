@@ -6,7 +6,10 @@ module LMSGraphQL
       class BatchUpdateOverridesInCourse < BaseMutation
         argument :course_id, ID, required: true
         argument :assignment_overrides, [LMSGraphQL::Types::Canvas::CanvasAssignmentOverrideInput], required: true
+        
+        
         field :assignment_override, [LMSGraphQL::Types::Canvas::CanvasAssignmentOverride], null: false
+        
         def resolve(course_id:, assignment_overrides:)
           context[:canvas_api].call("BATCH_UPDATE_OVERRIDES_IN_COURSE").proxy(
             "BATCH_UPDATE_OVERRIDES_IN_COURSE",

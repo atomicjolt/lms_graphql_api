@@ -6,7 +6,10 @@ module LMSGraphQL
       class SubscribeToTopicGroup < BaseMutation
         argument :group_id, ID, required: true
         argument :topic_id, ID, required: true
+        
+        
         field :return_value, Boolean, null: false
+        
         def resolve(group_id:, topic_id:)
           context[:canvas_api].call("SUBSCRIBE_TO_TOPIC_GROUPS").proxy(
             "SUBSCRIBE_TO_TOPIC_GROUPS",

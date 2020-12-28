@@ -6,7 +6,10 @@ module LMSGraphQL
       class RemoveDomainFromAccount < BaseMutation
         argument :account_id, ID, required: true
         argument :domain, String, required: true
+        
+        
         field :return_value, Boolean, null: false
+        
         def resolve(account_id:, domain:)
           context[:canvas_api].call("REMOVE_DOMAIN_FROM_ACCOUNT").proxy(
             "REMOVE_DOMAIN_FROM_ACCOUNT",

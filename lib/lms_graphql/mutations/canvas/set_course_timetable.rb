@@ -10,7 +10,10 @@ module LMSGraphQL
         argument :timetables_course_section_id_start_time, String, required: false
         argument :timetables_course_section_id_end_time, String, required: false
         argument :timetables_course_section_id_location_name, String, required: false
+        
+        
         field :return_value, Boolean, null: false
+        
         def resolve(course_id:, timetables_course_section_id: nil, timetables_course_section_id_weekdays: nil, timetables_course_section_id_start_time: nil, timetables_course_section_id_end_time: nil, timetables_course_section_id_location_name: nil)
           context[:canvas_api].call("SET_COURSE_TIMETABLE").proxy(
             "SET_COURSE_TIMETABLE",

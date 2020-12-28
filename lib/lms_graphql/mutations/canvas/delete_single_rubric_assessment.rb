@@ -7,7 +7,10 @@ module LMSGraphQL
         argument :course_id, ID, required: true
         argument :rubric_association_id, ID, required: true
         argument :id, ID, required: true
+        
+        
         field :rubric_assessment, LMSGraphQL::Types::Canvas::CanvasRubricAssessment, null: false
+        
         def resolve(course_id:, rubric_association_id:, id:)
           context[:canvas_api].call("DELETE_SINGLE_RUBRIC_ASSESSMENT").proxy(
             "DELETE_SINGLE_RUBRIC_ASSESSMENT",

@@ -6,7 +6,10 @@ module LMSGraphQL
       class DeleteCustomDatum < BaseMutation
         argument :user_id, ID, required: true
         argument :ns, String, required: true
+        
+        
         field :return_value, Boolean, null: false
+        
         def resolve(user_id:, ns:)
           context[:canvas_api].call("DELETE_CUSTOM_DATA").proxy(
             "DELETE_CUSTOM_DATA",

@@ -7,7 +7,10 @@ module LMSGraphQL
         argument :course_id, ID, required: true
         argument :assignment_group_id, ID, required: true
         argument :move_assignments_to, Int, required: false
+        
+        
         field :assignment_group, LMSGraphQL::Types::Canvas::CanvasAssignmentGroup, null: false
+        
         def resolve(course_id:, assignment_group_id:, move_assignments_to: nil)
           context[:canvas_api].call("DESTROY_ASSIGNMENT_GROUP").proxy(
             "DESTROY_ASSIGNMENT_GROUP",

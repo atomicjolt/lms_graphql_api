@@ -6,7 +6,10 @@ module LMSGraphQL
       class DeleteExternalFeedGroup < BaseMutation
         argument :group_id, ID, required: true
         argument :external_feed_id, ID, required: true
+        
+        
         field :external_feed, LMSGraphQL::Types::Canvas::CanvasExternalFeed, null: false
+        
         def resolve(group_id:, external_feed_id:)
           context[:canvas_api].call("DELETE_EXTERNAL_FEED_GROUPS").proxy(
             "DELETE_EXTERNAL_FEED_GROUPS",

@@ -7,7 +7,10 @@ module LMSGraphQL
         argument :account_id, ID, required: true
         argument :id, ID, required: true
         argument :outcome_id, ID, required: true
+        
+        
         field :outcome_link, LMSGraphQL::Types::Canvas::CanvasOutcomeLink, null: false
+        
         def resolve(account_id:, id:, outcome_id:)
           context[:canvas_api].call("UNLINK_OUTCOME_ACCOUNTS").proxy(
             "UNLINK_OUTCOME_ACCOUNTS",

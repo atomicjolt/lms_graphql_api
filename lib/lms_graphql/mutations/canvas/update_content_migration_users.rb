@@ -6,7 +6,10 @@ module LMSGraphQL
       class UpdateContentMigrationUser < BaseMutation
         argument :user_id, ID, required: true
         argument :id, ID, required: true
+        
+        
         field :content_migration, LMSGraphQL::Types::Canvas::CanvasContentMigration, null: false
+        
         def resolve(user_id:, id:)
           context[:canvas_api].call("UPDATE_CONTENT_MIGRATION_USERS").proxy(
             "UPDATE_CONTENT_MIGRATION_USERS",

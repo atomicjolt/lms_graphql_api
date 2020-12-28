@@ -8,7 +8,10 @@ module LMSGraphQL
         argument :title, String, required: true
         argument :grading_scheme_entry_name, String, required: true
         argument :grading_scheme_entry_value, Int, required: true
+        
+        
         field :grading_standard, LMSGraphQL::Types::Canvas::CanvasGradingStandard, null: false
+        
         def resolve(account_id:, title:, grading_scheme_entry_name:, grading_scheme_entry_value:)
           context[:canvas_api].call("CREATE_NEW_GRADING_STANDARD_ACCOUNTS").proxy(
             "CREATE_NEW_GRADING_STANDARD_ACCOUNTS",

@@ -11,7 +11,10 @@ module LMSGraphQL
         argument :scope, String, required: false
         argument :filter, String, required: false
         argument :filter_mode, String, required: false
+        
+        
         field :return_value, Boolean, null: false
+        
         def resolve(id:, conversation_workflow_state: nil, conversation_subscribed: nil, conversation_starred: nil, scope: nil, filter: nil, filter_mode: nil)
           context[:canvas_api].call("EDIT_CONVERSATION").proxy(
             "EDIT_CONVERSATION",

@@ -7,7 +7,10 @@ module LMSGraphQL
         argument :user_id, ID, required: true
         argument :id, ID, required: true
         argument :receiver_ids, String, required: false
+        
+        
         field :content_share, LMSGraphQL::Types::Canvas::CanvasContentShare, null: false
+        
         def resolve(user_id:, id:, receiver_ids: nil)
           context[:canvas_api].call("ADD_USERS_TO_CONTENT_SHARE").proxy(
             "ADD_USERS_TO_CONTENT_SHARE",

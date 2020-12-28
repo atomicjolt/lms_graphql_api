@@ -7,7 +7,10 @@ module LMSGraphQL
         argument :course_id, ID, required: true
         argument :assignment_id, ID, required: true
         argument :student_ids, [ID], required: false
+        
+        
         field :user, [LMSGraphQL::Types::Canvas::CanvasUser], null: false
+        
         def resolve(course_id:, assignment_id:, student_ids: nil)
           context[:canvas_api].call("SELECT_STUDENTS_FOR_MODERATION").proxy(
             "SELECT_STUDENTS_FOR_MODERATION",

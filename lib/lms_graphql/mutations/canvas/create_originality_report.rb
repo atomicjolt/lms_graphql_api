@@ -15,7 +15,10 @@ module LMSGraphQL
         argument :originality_report_workflow_state, String, required: false
         argument :originality_report_error_message, String, required: false
         argument :originality_report_attempt, Int, required: false
+        
+        
         field :originality_report, LMSGraphQL::Types::Canvas::CanvasOriginalityReport, null: false
+        
         def resolve(assignment_id:, submission_id:, originality_report_file_id: nil, originality_report_originality_score:, originality_report_originality_report_url: nil, originality_report_originality_report_file_id: nil, originality_report_tool_setting_resource_type_code: nil, originality_report_tool_setting_resource_url: nil, originality_report_workflow_state: nil, originality_report_error_message: nil, originality_report_attempt: nil)
           context[:canvas_api].call("CREATE_ORIGINALITY_REPORT").proxy(
             "CREATE_ORIGINALITY_REPORT",

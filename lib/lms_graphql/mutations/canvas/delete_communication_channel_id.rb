@@ -6,7 +6,10 @@ module LMSGraphQL
       class DeleteCommunicationChannelId < BaseMutation
         argument :user_id, ID, required: true
         argument :id, ID, required: true
+        
+        
         field :communication_channel, LMSGraphQL::Types::Canvas::CanvasCommunicationChannel, null: false
+        
         def resolve(user_id:, id:)
           context[:canvas_api].call("DELETE_COMMUNICATION_CHANNEL_ID").proxy(
             "DELETE_COMMUNICATION_CHANNEL_ID",

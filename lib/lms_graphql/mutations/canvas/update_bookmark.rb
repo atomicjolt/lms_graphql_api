@@ -9,7 +9,10 @@ module LMSGraphQL
         argument :url, String, required: false
         argument :position, Int, required: false
         argument :data, String, required: false
+        
+        
         field :folder, LMSGraphQL::Types::Canvas::CanvasFolder, null: false
+        
         def resolve(id:, name: nil, url: nil, position: nil, data: nil)
           context[:canvas_api].call("UPDATE_BOOKMARK").proxy(
             "UPDATE_BOOKMARK",

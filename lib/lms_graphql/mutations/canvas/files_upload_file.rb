@@ -5,7 +5,10 @@ module LMSGraphQL
     module Canvas
       class FilesUploadFile < BaseMutation
         argument :folder_id, ID, required: true
+        
+        
         field :return_value, Boolean, null: false
+        
         def resolve(folder_id:)
           context[:canvas_api].call("FILES_UPLOAD_FILE").proxy(
             "FILES_UPLOAD_FILE",

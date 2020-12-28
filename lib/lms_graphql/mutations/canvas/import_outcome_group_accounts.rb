@@ -8,7 +8,10 @@ module LMSGraphQL
         argument :id, ID, required: true
         argument :source_outcome_group_id, ID, required: true
         argument :async, Boolean, required: false
+        
+        
         field :outcome_group, LMSGraphQL::Types::Canvas::CanvasOutcomeGroup, null: false
+        
         def resolve(account_id:, id:, source_outcome_group_id:, async: nil)
           context[:canvas_api].call("IMPORT_OUTCOME_GROUP_ACCOUNTS").proxy(
             "IMPORT_OUTCOME_GROUP_ACCOUNTS",

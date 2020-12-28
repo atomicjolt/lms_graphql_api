@@ -6,7 +6,10 @@ module LMSGraphQL
       class RemoveToolFromRceFavorite < BaseMutation
         argument :account_id, ID, required: true
         argument :id, ID, required: true
+        
+        
         field :return_value, Boolean, null: false
+        
         def resolve(account_id:, id:)
           context[:canvas_api].call("REMOVE_TOOL_FROM_RCE_FAVORITES").proxy(
             "REMOVE_TOOL_FROM_RCE_FAVORITES",

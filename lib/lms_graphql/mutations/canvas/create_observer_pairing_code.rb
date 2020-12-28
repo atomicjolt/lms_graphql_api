@@ -5,7 +5,10 @@ module LMSGraphQL
     module Canvas
       class CreateObserverPairingCode < BaseMutation
         argument :user_id, ID, required: true
+        
+        
         field :pairing_code, LMSGraphQL::Types::Canvas::CanvasPairingCode, null: false
+        
         def resolve(user_id:)
           context[:canvas_api].call("CREATE_OBSERVER_PAIRING_CODE").proxy(
             "CREATE_OBSERVER_PAIRING_CODE",

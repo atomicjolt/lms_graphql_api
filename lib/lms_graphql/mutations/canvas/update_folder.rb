@@ -12,7 +12,10 @@ module LMSGraphQL
         argument :locked, Boolean, required: false
         argument :hidden, Boolean, required: false
         argument :position, Int, required: false
+        
+        
         field :folder, LMSGraphQL::Types::Canvas::CanvasFolder, null: false
+        
         def resolve(id:, name: nil, parent_folder_id: nil, lock_at: nil, unlock_at: nil, locked: nil, hidden: nil, position: nil)
           context[:canvas_api].call("UPDATE_FOLDER").proxy(
             "UPDATE_FOLDER",

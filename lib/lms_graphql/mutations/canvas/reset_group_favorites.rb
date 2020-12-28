@@ -5,7 +5,10 @@ module LMSGraphQL
     module Canvas
       class ResetGroupFavorite < BaseMutation
 
+        
+        
         field :return_value, Boolean, null: false
+        
         def resolve()
           context[:canvas_api].call("RESET_GROUP_FAVORITES").proxy(
             "RESET_GROUP_FAVORITES",

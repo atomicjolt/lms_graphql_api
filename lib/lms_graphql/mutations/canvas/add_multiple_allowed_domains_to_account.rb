@@ -6,7 +6,10 @@ module LMSGraphQL
       class AddMultipleAllowedDomainsToAccount < BaseMutation
         argument :account_id, ID, required: true
         argument :domains, String, required: true
+        
+        
         field :return_value, Boolean, null: false
+        
         def resolve(account_id:, domains:)
           context[:canvas_api].call("ADD_MULTIPLE_ALLOWED_DOMAINS_TO_ACCOUNT").proxy(
             "ADD_MULTIPLE_ALLOWED_DOMAINS_TO_ACCOUNT",
