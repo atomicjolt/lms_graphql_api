@@ -6,7 +6,10 @@ module LMSGraphQL
       class EditAssignmentGroup < BaseMutation
         argument :course_id, ID, required: true
         argument :assignment_group_id, ID, required: true
+        
+        
         field :assignment_group, LMSGraphQL::Types::Canvas::CanvasAssignmentGroup, null: false
+        
         def resolve(course_id:, assignment_group_id:)
           context[:canvas_api].call("EDIT_ASSIGNMENT_GROUP").proxy(
             "EDIT_ASSIGNMENT_GROUP",

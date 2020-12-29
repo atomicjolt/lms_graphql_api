@@ -18,7 +18,10 @@ module LMSGraphQL
         argument :enrollment_self_enrollment_code, String, required: false
         argument :enrollment_self_enrolled, Boolean, required: false
         argument :enrollment_associated_user_id, Int, required: false
+        
+        
         field :enrollment, LMSGraphQL::Types::Canvas::CanvasEnrollment, null: false
+        
         def resolve(section_id:, enrollment_start_at: nil, enrollment_end_at: nil, enrollment_user_id:, enrollment_type:, enrollment_role: nil, enrollment_role_id: nil, enrollment_enrollment_state: nil, enrollment_course_section_id: nil, enrollment_limit_privileges_to_course_section: nil, enrollment_notify: nil, enrollment_self_enrollment_code: nil, enrollment_self_enrolled: nil, enrollment_associated_user_id: nil)
           context[:canvas_api].call("ENROLL_USER_SECTIONS").proxy(
             "ENROLL_USER_SECTIONS",

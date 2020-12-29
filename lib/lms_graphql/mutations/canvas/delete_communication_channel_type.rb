@@ -7,7 +7,10 @@ module LMSGraphQL
         argument :user_id, ID, required: true
         argument :type, String, required: true
         argument :address, String, required: true
+        
+        
         field :communication_channel, LMSGraphQL::Types::Canvas::CanvasCommunicationChannel, null: false
+        
         def resolve(user_id:, type:, address:)
           context[:canvas_api].call("DELETE_COMMUNICATION_CHANNEL_TYPE").proxy(
             "DELETE_COMMUNICATION_CHANNEL_TYPE",

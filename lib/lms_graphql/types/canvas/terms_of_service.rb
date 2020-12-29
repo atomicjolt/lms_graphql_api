@@ -11,6 +11,7 @@ module LMSGraphQL
         field :passive, Boolean, "Boolean dictating if the user must accept Terms of Service.", null: true
         field :account_id, ID, "The id of the root account that owns the Terms of Service.Example: 1", null: true
         field :content, String, "Content of the Terms of Service.Example: To be or not to be that is the question", null: true
+        field :self_registration_type, String, "The type of self registration allowed.Example: none, observer, all", null: true
 
       end
     end

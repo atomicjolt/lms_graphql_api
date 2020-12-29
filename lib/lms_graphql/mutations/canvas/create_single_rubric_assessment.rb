@@ -10,7 +10,10 @@ module LMSGraphQL
         argument :final, String, required: false
         argument :graded_anonymously, Boolean, required: false
         argument :rubric_assessment, String, required: false
+        
+        
         field :return_value, Boolean, null: false
+        
         def resolve(course_id:, rubric_association_id:, provisional: nil, final: nil, graded_anonymously: nil, rubric_assessment: nil)
           context[:canvas_api].call("CREATE_SINGLE_RUBRIC_ASSESSMENT").proxy(
             "CREATE_SINGLE_RUBRIC_ASSESSMENT",

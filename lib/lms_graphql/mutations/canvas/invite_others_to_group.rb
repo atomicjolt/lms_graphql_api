@@ -6,7 +6,10 @@ module LMSGraphQL
       class InviteOthersToGroup < BaseMutation
         argument :group_id, ID, required: true
         argument :invitees, String, required: true
+        
+        
         field :return_value, Boolean, null: false
+        
         def resolve(group_id:, invitees:)
           context[:canvas_api].call("INVITE_OTHERS_TO_GROUP").proxy(
             "INVITE_OTHERS_TO_GROUP",

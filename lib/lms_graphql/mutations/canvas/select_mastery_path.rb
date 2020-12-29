@@ -9,7 +9,10 @@ module LMSGraphQL
         argument :id, ID, required: true
         argument :assignment_set_id, ID, required: false
         argument :student_id, ID, required: false
+        
+        
         field :return_value, Boolean, null: false
+        
         def resolve(course_id:, module_id:, id:, assignment_set_id: nil, student_id: nil)
           context[:canvas_api].call("SELECT_MASTERY_PATH").proxy(
             "SELECT_MASTERY_PATH",

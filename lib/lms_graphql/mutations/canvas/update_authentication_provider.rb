@@ -6,7 +6,10 @@ module LMSGraphQL
       class UpdateAuthenticationProvider < BaseMutation
         argument :account_id, ID, required: true
         argument :id, ID, required: true
+        
+        
         field :authentication_provider, LMSGraphQL::Types::Canvas::CanvasAuthenticationProvider, null: false
+        
         def resolve(account_id:, id:)
           context[:canvas_api].call("UPDATE_AUTHENTICATION_PROVIDER").proxy(
             "UPDATE_AUTHENTICATION_PROVIDER",

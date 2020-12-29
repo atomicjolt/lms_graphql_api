@@ -10,7 +10,10 @@ module LMSGraphQL
         argument :content_id, ID, required: false
         argument :restricted, Boolean, required: false
         argument :restrictions, String, required: false
+        
+        
         field :return_value, Boolean, null: false
+        
         def resolve(course_id:, template_id:, content_type: nil, content_id: nil, restricted: nil, restrictions: nil)
           context[:canvas_api].call("SET_OR_REMOVE_RESTRICTIONS_ON_BLUEPRINT_COURSE_OBJECT").proxy(
             "SET_OR_REMOVE_RESTRICTIONS_ON_BLUEPRINT_COURSE_OBJECT",

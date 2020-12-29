@@ -9,7 +9,10 @@ module LMSGraphQL
         argument :title, String, required: true
         argument :description, String, required: false
         argument :vendor_guid, String, required: false
+        
+        
         field :outcome_group, LMSGraphQL::Types::Canvas::CanvasOutcomeGroup, null: false
+        
         def resolve(course_id:, id:, title:, description: nil, vendor_guid: nil)
           context[:canvas_api].call("CREATE_SUBGROUP_COURSES").proxy(
             "CREATE_SUBGROUP_COURSES",

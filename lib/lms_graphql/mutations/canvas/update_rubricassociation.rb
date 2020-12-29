@@ -14,7 +14,10 @@ module LMSGraphQL
         argument :rubric_association_hide_score_total, Boolean, required: false
         argument :rubric_association_purpose, String, required: false
         argument :rubric_association_bookmarked, Boolean, required: false
+        
+        
         field :rubric_association, LMSGraphQL::Types::Canvas::CanvasRubricAssociation, null: false
+        
         def resolve(course_id:, id:, rubric_association_rubric_id: nil, rubric_association_association_id: nil, rubric_association_association_type: nil, rubric_association_title: nil, rubric_association_use_for_grading: nil, rubric_association_hide_score_total: nil, rubric_association_purpose: nil, rubric_association_bookmarked: nil)
           context[:canvas_api].call("UPDATE_RUBRICASSOCIATION").proxy(
             "UPDATE_RUBRICASSOCIATION",

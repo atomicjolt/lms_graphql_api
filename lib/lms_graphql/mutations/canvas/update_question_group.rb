@@ -10,7 +10,10 @@ module LMSGraphQL
         argument :quiz_groups_name, String, required: false
         argument :quiz_groups_pick_count, Int, required: false
         argument :quiz_groups_question_points, Int, required: false
+        
+        
         field :return_value, Boolean, null: false
+        
         def resolve(course_id:, quiz_id:, id:, quiz_groups_name: nil, quiz_groups_pick_count: nil, quiz_groups_question_points: nil)
           context[:canvas_api].call("UPDATE_QUESTION_GROUP").proxy(
             "UPDATE_QUESTION_GROUP",

@@ -10,7 +10,10 @@ module LMSGraphQL
         argument :label, String, required: false
         argument :resourceId, String, required: false
         argument :tag, String, required: false
+        
+        
         field :line_item, LMSGraphQL::Types::Canvas::CanvasLineItem, null: false
+        
         def resolve(course_id:, id:, scoreMaximum: nil, label: nil, resourceId: nil, tag: nil)
           context[:canvas_api].call("UPDATE_LINE_ITEM").proxy(
             "UPDATE_LINE_ITEM",

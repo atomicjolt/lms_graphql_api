@@ -6,7 +6,10 @@ module LMSGraphQL
       class DeleteCalendarEvent < BaseMutation
         argument :id, ID, required: true
         argument :cancel_reason, String, required: false
+        
+        
         field :return_value, Boolean, null: false
+        
         def resolve(id:, cancel_reason: nil)
           context[:canvas_api].call("DELETE_CALENDAR_EVENT").proxy(
             "DELETE_CALENDAR_EVENT",

@@ -24,7 +24,10 @@ module LMSGraphQL
         argument :sort_by_rating, Boolean, required: false
         argument :attachment, String, required: false
         argument :specific_sections, String, required: false
+        
+        
         field :return_value, Boolean, null: false
+        
         def resolve(group_id:, title: nil, message: nil, discussion_type: nil, published: nil, delayed_post_at: nil, allow_rating: nil, lock_at: nil, podcast_enabled: nil, podcast_has_student_posts: nil, require_initial_post: nil, assignment: nil, is_announcement: nil, pinned: nil, position_after: nil, group_category_id: nil, only_graders_can_rate: nil, sort_by_rating: nil, attachment: nil, specific_sections: nil)
           context[:canvas_api].call("CREATE_NEW_DISCUSSION_TOPIC_GROUPS").proxy(
             "CREATE_NEW_DISCUSSION_TOPIC_GROUPS",

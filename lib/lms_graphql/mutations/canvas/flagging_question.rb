@@ -9,7 +9,10 @@ module LMSGraphQL
         argument :attempt, Int, required: true
         argument :validation_token, String, required: true
         argument :access_code, String, required: false
+        
+        
         field :return_value, Boolean, null: false
+        
         def resolve(quiz_submission_id:, id:, attempt:, validation_token:, access_code: nil)
           context[:canvas_api].call("FLAGGING_QUESTION").proxy(
             "FLAGGING_QUESTION",

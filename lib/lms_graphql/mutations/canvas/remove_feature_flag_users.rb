@@ -6,7 +6,10 @@ module LMSGraphQL
       class RemoveFeatureFlagUser < BaseMutation
         argument :user_id, ID, required: true
         argument :feature, String, required: true
+        
+        
         field :feature_flag, LMSGraphQL::Types::Canvas::CanvasFeatureFlag, null: false
+        
         def resolve(user_id:, feature:)
           context[:canvas_api].call("REMOVE_FEATURE_FLAG_USERS").proxy(
             "REMOVE_FEATURE_FLAG_USERS",

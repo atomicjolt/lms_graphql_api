@@ -6,7 +6,10 @@ module LMSGraphQL
       class DeleteEnrollmentTerm < BaseMutation
         argument :account_id, ID, required: true
         argument :id, ID, required: true
+        
+        
         field :enrollment_term, LMSGraphQL::Types::Canvas::CanvasEnrollmentTerm, null: false
+        
         def resolve(account_id:, id:)
           context[:canvas_api].call("DELETE_ENROLLMENT_TERM").proxy(
             "DELETE_ENROLLMENT_TERM",

@@ -8,7 +8,10 @@ module LMSGraphQL
         argument :template_id, ID, required: true
         argument :course_ids_to_add, String, required: false
         argument :course_ids_to_remove, String, required: false
+        
+        
         field :return_value, Boolean, null: false
+        
         def resolve(course_id:, template_id:, course_ids_to_add: nil, course_ids_to_remove: nil)
           context[:canvas_api].call("UPDATE_ASSOCIATED_COURSES").proxy(
             "UPDATE_ASSOCIATED_COURSES",

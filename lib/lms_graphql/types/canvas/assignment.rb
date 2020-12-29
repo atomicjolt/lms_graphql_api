@@ -8,6 +8,7 @@ require_relative "discussion_topic"
 require_relative "submission"
 require_relative "rubric_criterium"
 require_relative "assignment_override"
+require_relative "score_statistic"
 
 module LMSGraphQL
   module Types
@@ -101,6 +102,8 @@ module LMSGraphQL
         field :anonymous_grading, Boolean, "Boolean indicating if the assignment is graded anonymously. If true, graders cannot see student identities..Example: true", null: true
         field :allowed_attempts, Int, "The number of submission attempts a student can make for this assignment. -1 is considered unlimited..Example: 2", null: true
         field :post_manually, Boolean, "Whether the assignment has manual posting enabled. Only relevant for courses using New Gradebook..Example: true", null: true
+        field :score_statistics, LMSGraphQL::Types::Canvas::CanvasScoreStatistic, "(Optional) If 'score_statistics' and 'submission' are included in the 'include' parameter and statistics are available, includes the min, max, and mode for this assignment.", null: true
+        field :can_submit, Boolean, "(Optional) If retrieving a single assignment and 'can_submit' is included in the 'include' parameter, flags whether user has the right to submit the assignment (i.e. checks enrollment dates, submission types, locked status, attempts remaining, etc...). Including 'can submit' automatically includes 'submission' in the include parameter..Example: true", null: true
 
       end
     end

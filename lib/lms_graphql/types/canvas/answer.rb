@@ -21,7 +21,10 @@ module LMSGraphQL
         field :approximate, Float, "Used in numerical questions of type 'precision_answer'.  The value the answer should equal..Example: 1234600000.0", null: true
         field :precision, Int, "Used in numerical questions of type 'precision_answer'. The numerical precision that will be used when comparing the student's answer..Example: 4", null: true
         field :start, Int, "Used in numerical questions of type 'range_answer'. The start of the allowed range (inclusive)..Example: 1", null: true
-        field :end, Int, "Used in numerical questions of type 'range_answer'. The end of the allowed range (inclusive)..Example: 10", null: true
+        field :end, Int, "Used in numerical questions of type 'range_answer'. The end of the allowed range (inclusive)..Example: 10", resolver_method: :resolve_end, null: true
+        def resolve_end
+          object[:end]
+        end
         field :blank_id, ID, "Used in fill in multiple blank and multiple dropdowns questions..Example: 1170", null: true
 
       end

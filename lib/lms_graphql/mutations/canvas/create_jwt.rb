@@ -5,7 +5,10 @@ module LMSGraphQL
     module Canvas
       class CreateJwt < BaseMutation
 
+        
+        
         field :jwt, LMSGraphQL::Types::Canvas::CanvasJWT, null: false
+        
         def resolve()
           context[:canvas_api].call("CREATE_JWT").proxy(
             "CREATE_JWT",

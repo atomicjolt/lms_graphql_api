@@ -6,9 +6,9 @@ module LMSGraphQL
     module Canvas
       class CanvasCourseEpubExportInput < BaseInputObject
         description "ePub Exports. API Docs: https://canvas.instructure.com/doc/api/e_pub_exports.html"
-        argument :id, ID, "the unique identifier for the course.Example: 101", required: false
-        argument :name, String, "the name for the course.Example: Maths 101", required: false
-        argument :epub_export, LMSGraphQL::Types::Canvas::CanvasEpubExportInput, "ePub export API object.", required: false
+      argument :id, ID, "the unique identifier for the course.Example: 101", required: false
+      argument :name, String, "the name for the course.Example: Maths 101", required: false
+      argument :epub_export, LMSGraphQL::Types::Canvas::CanvasEpubExportInput, "ePub export API object.", required: false
 
       end
     end

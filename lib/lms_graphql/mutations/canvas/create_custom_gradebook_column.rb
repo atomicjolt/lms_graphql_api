@@ -10,7 +10,10 @@ module LMSGraphQL
         argument :column_hidden, Boolean, required: false
         argument :column_teacher_notes, Boolean, required: false
         argument :column_read_only, Boolean, required: false
+        
+        
         field :custom_column, LMSGraphQL::Types::Canvas::CanvasCustomColumn, null: false
+        
         def resolve(course_id:, column_title:, column_position: nil, column_hidden: nil, column_teacher_notes: nil, column_read_only: nil)
           context[:canvas_api].call("CREATE_CUSTOM_GRADEBOOK_COLUMN").proxy(
             "CREATE_CUSTOM_GRADEBOOK_COLUMN",

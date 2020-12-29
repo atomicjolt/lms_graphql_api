@@ -6,7 +6,10 @@ module LMSGraphQL
       class DuplicatePage < BaseMutation
         argument :course_id, ID, required: true
         argument :url, String, required: true
+        
+        
         field :page, LMSGraphQL::Types::Canvas::CanvasPage, null: false
+        
         def resolve(course_id:, url:)
           context[:canvas_api].call("DUPLICATE_PAGE").proxy(
             "DUPLICATE_PAGE",

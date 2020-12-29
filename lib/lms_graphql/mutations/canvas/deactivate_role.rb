@@ -8,7 +8,10 @@ module LMSGraphQL
         argument :id, ID, required: true
         argument :role_id, ID, required: true
         argument :role, String, required: false
+        
+        
         field :role, LMSGraphQL::Types::Canvas::CanvasRole, null: false
+        
         def resolve(account_id:, id:, role_id:, role: nil)
           context[:canvas_api].call("DEACTIVATE_ROLE").proxy(
             "DEACTIVATE_ROLE",

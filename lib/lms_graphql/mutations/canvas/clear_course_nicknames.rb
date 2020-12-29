@@ -5,7 +5,10 @@ module LMSGraphQL
     module Canvas
       class ClearCourseNickname < BaseMutation
 
+        
+        
         field :return_value, Boolean, null: false
+        
         def resolve()
           context[:canvas_api].call("CLEAR_COURSE_NICKNAMES").proxy(
             "CLEAR_COURSE_NICKNAMES",

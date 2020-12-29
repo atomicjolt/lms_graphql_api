@@ -11,7 +11,10 @@ module LMSGraphQL
         argument :join_level, String, required: false
         argument :storage_quota_mb, Int, required: false
         argument :sis_group_id, ID, required: false
+        
+        
         field :group, LMSGraphQL::Types::Canvas::CanvasGroup, null: false
+        
         def resolve(group_category_id:, name: nil, description: nil, is_public: nil, join_level: nil, storage_quota_mb: nil, sis_group_id: nil)
           context[:canvas_api].call("CREATE_GROUP_GROUP_CATEGORIES").proxy(
             "CREATE_GROUP_GROUP_CATEGORIES",

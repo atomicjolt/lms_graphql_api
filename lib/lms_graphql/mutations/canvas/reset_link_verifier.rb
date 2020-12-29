@@ -5,7 +5,10 @@ module LMSGraphQL
     module Canvas
       class ResetLinkVerifier < BaseMutation
         argument :id, ID, required: true
+        
+        
         field :file, LMSGraphQL::Types::Canvas::CanvasFile, null: false
+        
         def resolve(id:)
           context[:canvas_api].call("RESET_LINK_VERIFIER").proxy(
             "RESET_LINK_VERIFIER",

@@ -6,7 +6,10 @@ module LMSGraphQL
       class UpdateMediaTrack < BaseMutation
         argument :media_object_id, ID, required: true
         argument :include, String, required: false
+        
+        
         field :media_track, [LMSGraphQL::Types::Canvas::CanvasMediaTrack], null: false
+        
         def resolve(media_object_id:, include: nil)
           context[:canvas_api].call("UPDATE_MEDIA_TRACKS").proxy(
             "UPDATE_MEDIA_TRACKS",

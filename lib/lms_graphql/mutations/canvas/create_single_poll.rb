@@ -6,7 +6,10 @@ module LMSGraphQL
       class CreateSinglePoll < BaseMutation
         argument :polls_question, String, required: true
         argument :polls_description, String, required: false
+        
+        
         field :return_value, Boolean, null: false
+        
         def resolve(polls_question:, polls_description: nil)
           context[:canvas_api].call("CREATE_SINGLE_POLL").proxy(
             "CREATE_SINGLE_POLL",

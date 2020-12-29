@@ -5,7 +5,10 @@ module LMSGraphQL
     module Canvas
       class RemoveGroupFromFavorite < BaseMutation
         argument :id, ID, required: true
+        
+        
         field :favorite, LMSGraphQL::Types::Canvas::CanvasFavorite, null: false
+        
         def resolve(id:)
           context[:canvas_api].call("REMOVE_GROUP_FROM_FAVORITES").proxy(
             "REMOVE_GROUP_FROM_FAVORITES",

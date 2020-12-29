@@ -869,19 +869,23 @@ module LMSGraphQL
 
         field :query_by_assignment,
           resolver: LMSGraphQL::Resolvers::Canvas::QueryByAssignment,
-          description: "Query by assignment.. List grade change events for a given assignment."
+          description: "Query by assignment. List grade change events for a given assignment."
 
         field :grade_change_log_query_by_course,
           resolver: LMSGraphQL::Resolvers::Canvas::GradeChangeLogQueryByCourse,
-          description: "Query by course.. List grade change events for a given course."
+          description: "Query by course. List grade change events for a given course."
 
         field :query_by_student,
           resolver: LMSGraphQL::Resolvers::Canvas::QueryByStudent,
-          description: "Query by student.. List grade change events for a given student."
+          description: "Query by student. List grade change events for a given student."
 
         field :query_by_grader,
           resolver: LMSGraphQL::Resolvers::Canvas::QueryByGrader,
-          description: "Query by grader.. List grade change events for a given grader."
+          description: "Query by grader. List grade change events for a given grader."
+
+        field :advanced_query,
+          resolver: LMSGraphQL::Resolvers::Canvas::AdvancedQuery,
+          description: "Advanced query. List grade change events satisfying all given parameters. Teachers may query for events in courses they teach.   Queries without +course_id+ require account administrator rights.      At least one of +course_id+, +assignment_id+, +student_id+, or +grader_id+ must be specified."
 
         field :days_in_gradebook_history_for_this_course,
           resolver: LMSGraphQL::Resolvers::Canvas::DaysInGradebookHistoryForThisCourse,
@@ -943,6 +947,10 @@ module LMSGraphQL
           resolver: LMSGraphQL::Resolvers::Canvas::ListGroupsInGroupCategory,
           description: "List groups in group category. Returns a paginated list of groups in a group category"
 
+        field :export_groups_in_and_users_in_category,
+          resolver: LMSGraphQL::Resolvers::Canvas::ExportGroupsInAndUsersInCategory,
+          description: "export groups in and users in category. Returns a csv file of users in format ready to import."
+
         field :list_users_in_group_category,
           resolver: LMSGraphQL::Resolvers::Canvas::ListUsersInGroupCategory,
           description: "List users in group category. Returns a paginated list of users in the group category."
@@ -991,6 +999,10 @@ module LMSGraphQL
           resolver: LMSGraphQL::Resolvers::Canvas::GetSingleGroupMembershipUser,
           description: "Get a single group membership. Returns the group membership with the given membership id or user id."
 
+        field :list_recent_history_for_user,
+          resolver: LMSGraphQL::Resolvers::Canvas::ListRecentHistoryForUser,
+          description: "List recent history for a user. Return a paginated list of the user's recent history. History entries are returned in descending order,   newest to oldest. You may list history entries for yourself (use +self+ as the user_id), for a student you observe,   or for a user you manage as an administrator. Note that the +per_page+ pagination argument is not supported   and the number of history entries returned per page will vary."
+
         field :find_images,
           resolver: LMSGraphQL::Resolvers::Canvas::FindImage,
           description: "Find images. Find public domain images for use in courses and user content.  If you select an image using this API, please use the {api:InternetImageController#image_selection Confirm image selection API} to indicate photo usage to the server."
@@ -1033,6 +1045,10 @@ module LMSGraphQL
 
         field :list_media_objects_courses,
           resolver: LMSGraphQL::Resolvers::Canvas::ListMediaObjectsCourse,
+          description: "List Media Objects. Returns media objects created by the user making the request. When   using the second version, returns media objects associated with   the given course."
+
+        field :list_media_objects_groups,
+          resolver: LMSGraphQL::Resolvers::Canvas::ListMediaObjectsGroup,
           description: "List Media Objects. Returns media objects created by the user making the request. When   using the second version, returns media objects associated with   the given course."
 
         field :list_students_selected_for_moderation,
@@ -1343,8 +1359,12 @@ module LMSGraphQL
           resolver: LMSGraphQL::Resolvers::Canvas::GetSinglePoll,
           description: "Get a single poll. Returns the poll with the given id"
 
-        field :get_proficiency_ratings,
-          resolver: LMSGraphQL::Resolvers::Canvas::GetProficiencyRating,
+        field :get_proficiency_ratings_accounts,
+          resolver: LMSGraphQL::Resolvers::Canvas::GetProficiencyRatingsAccount,
+          description: "Get proficiency ratings. Get account-level proficiency ratings. If not defined for this account,   it will return proficiency ratings for the nearest super-account with ratings defined.   Will return 404 if none found.        Examples:       curl https: <canvas>/api/v1/accounts/<account_id>/outcome_proficiency \           -H 'Authorization: Bearer <token>'"
+
+        field :get_proficiency_ratings_courses,
+          resolver: LMSGraphQL::Resolvers::Canvas::GetProficiencyRatingsCourse,
           description: "Get proficiency ratings. Get account-level proficiency ratings. If not defined for this account,   it will return proficiency ratings for the nearest super-account with ratings defined.   Will return 404 if none found.        Examples:       curl https: <canvas>/api/v1/accounts/<account_id>/outcome_proficiency \           -H 'Authorization: Bearer <token>'"
 
         field :query_progress,

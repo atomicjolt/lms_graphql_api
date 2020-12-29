@@ -8,7 +8,10 @@ module LMSGraphQL
         argument :url, String, required: true
         argument :header_match, Boolean, required: false
         argument :verbosity, String, required: false
+        
+        
         field :external_feed, LMSGraphQL::Types::Canvas::CanvasExternalFeed, null: false
+        
         def resolve(group_id:, url:, header_match: nil, verbosity: nil)
           context[:canvas_api].call("CREATE_EXTERNAL_FEED_GROUPS").proxy(
             "CREATE_EXTERNAL_FEED_GROUPS",

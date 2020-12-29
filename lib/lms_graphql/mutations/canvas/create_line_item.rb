@@ -11,7 +11,10 @@ module LMSGraphQL
         argument :tag, String, required: false
         argument :resourceLinkId, String, required: false
         argument :submission_type, String, required: false
+        
+        
         field :line_item, LMSGraphQL::Types::Canvas::CanvasLineItem, null: false
+        
         def resolve(course_id:, scoreMaximum:, label:, resourceId: nil, tag: nil, resourceLinkId: nil, submission_type: nil)
           context[:canvas_api].call("CREATE_LINE_ITEM").proxy(
             "CREATE_LINE_ITEM",

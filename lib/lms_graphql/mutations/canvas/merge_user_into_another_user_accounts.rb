@@ -7,7 +7,10 @@ module LMSGraphQL
         argument :id, ID, required: true
         argument :destination_account_id, ID, required: true
         argument :destination_user_id, ID, required: true
+        
+        
         field :user, LMSGraphQL::Types::Canvas::CanvasUser, null: false
+        
         def resolve(id:, destination_account_id:, destination_user_id:)
           context[:canvas_api].call("MERGE_USER_INTO_ANOTHER_USER_ACCOUNTS").proxy(
             "MERGE_USER_INTO_ANOTHER_USER_ACCOUNTS",

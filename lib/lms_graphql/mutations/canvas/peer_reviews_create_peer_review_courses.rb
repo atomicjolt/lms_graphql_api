@@ -8,7 +8,10 @@ module LMSGraphQL
         argument :assignment_id, ID, required: true
         argument :submission_id, ID, required: true
         argument :user_id, ID, required: true
+        
+        
         field :peer_review, LMSGraphQL::Types::Canvas::CanvasPeerReview, null: false
+        
         def resolve(course_id:, assignment_id:, submission_id:, user_id:)
           context[:canvas_api].call("PEER_REVIEWS_CREATE_PEER_REVIEW_COURSES").proxy(
             "PEER_REVIEWS_CREATE_PEER_REVIEW_COURSES",

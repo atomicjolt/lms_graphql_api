@@ -54,6 +54,8 @@ module LMSGraphQL
       class CanvasTurnitinSetting < BaseType;end
       class CanvasNeedsGradingCountInput < BaseInputObject;end
       class CanvasNeedsGradingCount < BaseType;end
+      class CanvasScoreStatisticInput < BaseInputObject;end
+      class CanvasScoreStatistic < BaseType;end
       class CanvasAssignmentInput < BaseInputObject;end
       class CanvasAssignment < BaseType;end
       class CanvasAssignmentOverrideInput < BaseInputObject;end
@@ -186,6 +188,8 @@ module LMSGraphQL
       class CanvasGroup < BaseType;end
       class CanvasGroupMembershipInput < BaseInputObject;end
       class CanvasGroupMembership < BaseType;end
+      class CanvasHistoryEntryInput < BaseInputObject;end
+      class CanvasHistoryEntry < BaseType;end
       class CanvasJWTInput < BaseInputObject;end
       class CanvasJWT < BaseType;end
       class CanvasLatePolicyInput < BaseInputObject;end

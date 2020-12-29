@@ -6,7 +6,10 @@ module LMSGraphQL
       class UpdateSharedTheme < BaseMutation
         argument :account_id, ID, required: true
         argument :id, ID, required: true
+        
+        
         field :shared_brand_config, LMSGraphQL::Types::Canvas::CanvasSharedBrandConfig, null: false
+        
         def resolve(account_id:, id:)
           context[:canvas_api].call("UPDATE_SHARED_THEME").proxy(
             "UPDATE_SHARED_THEME",

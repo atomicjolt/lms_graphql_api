@@ -6,7 +6,10 @@ module LMSGraphQL
       class DeleteConcludeCourse < BaseMutation
         argument :id, ID, required: true
         argument :event, String, required: true
+        
+        
         field :return_value, Boolean, null: false
+        
         def resolve(id:, event:)
           context[:canvas_api].call("DELETE_CONCLUDE_COURSE").proxy(
             "DELETE_CONCLUDE_COURSE",

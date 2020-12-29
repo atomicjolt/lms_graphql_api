@@ -7,7 +7,10 @@ module LMSGraphQL
         argument :course_id, ID, required: true
         argument :feature, String, required: true
         argument :state, String, required: false
+        
+        
         field :feature_flag, LMSGraphQL::Types::Canvas::CanvasFeatureFlag, null: false
+        
         def resolve(course_id:, feature:, state: nil)
           context[:canvas_api].call("SET_FEATURE_FLAG_COURSES").proxy(
             "SET_FEATURE_FLAG_COURSES",

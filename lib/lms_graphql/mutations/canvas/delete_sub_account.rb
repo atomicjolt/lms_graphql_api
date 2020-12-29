@@ -6,7 +6,10 @@ module LMSGraphQL
       class DeleteSubAccount < BaseMutation
         argument :account_id, ID, required: true
         argument :id, ID, required: true
+        
+        
         field :account, LMSGraphQL::Types::Canvas::CanvasAccount, null: false
+        
         def resolve(account_id:, id:)
           context[:canvas_api].call("DELETE_SUB_ACCOUNT").proxy(
             "DELETE_SUB_ACCOUNT",

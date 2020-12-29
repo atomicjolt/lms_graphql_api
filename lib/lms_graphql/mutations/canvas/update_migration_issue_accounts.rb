@@ -8,7 +8,10 @@ module LMSGraphQL
         argument :content_migration_id, ID, required: true
         argument :id, ID, required: true
         argument :workflow_state, String, required: true
+        
+        
         field :migration_issue, LMSGraphQL::Types::Canvas::CanvasMigrationIssue, null: false
+        
         def resolve(account_id:, content_migration_id:, id:, workflow_state:)
           context[:canvas_api].call("UPDATE_MIGRATION_ISSUE_ACCOUNTS").proxy(
             "UPDATE_MIGRATION_ISSUE_ACCOUNTS",

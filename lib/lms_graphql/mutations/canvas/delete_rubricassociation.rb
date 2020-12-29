@@ -6,7 +6,10 @@ module LMSGraphQL
       class DeleteRubricassociation < BaseMutation
         argument :course_id, ID, required: true
         argument :id, ID, required: true
+        
+        
         field :rubric_association, LMSGraphQL::Types::Canvas::CanvasRubricAssociation, null: false
+        
         def resolve(course_id:, id:)
           context[:canvas_api].call("DELETE_RUBRICASSOCIATION").proxy(
             "DELETE_RUBRICASSOCIATION",

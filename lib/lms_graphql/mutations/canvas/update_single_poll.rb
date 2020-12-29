@@ -7,7 +7,10 @@ module LMSGraphQL
         argument :id, ID, required: true
         argument :polls_question, String, required: true
         argument :polls_description, String, required: false
+        
+        
         field :return_value, Boolean, null: false
+        
         def resolve(id:, polls_question:, polls_description: nil)
           context[:canvas_api].call("UPDATE_SINGLE_POLL").proxy(
             "UPDATE_SINGLE_POLL",

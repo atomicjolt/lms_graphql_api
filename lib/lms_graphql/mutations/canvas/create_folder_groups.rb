@@ -13,7 +13,10 @@ module LMSGraphQL
         argument :locked, Boolean, required: false
         argument :hidden, Boolean, required: false
         argument :position, Int, required: false
+        
+        
         field :folder, LMSGraphQL::Types::Canvas::CanvasFolder, null: false
+        
         def resolve(group_id:, name:, parent_folder_id: nil, parent_folder_path: nil, lock_at: nil, unlock_at: nil, locked: nil, hidden: nil, position: nil)
           context[:canvas_api].call("CREATE_FOLDER_GROUPS").proxy(
             "CREATE_FOLDER_GROUPS",

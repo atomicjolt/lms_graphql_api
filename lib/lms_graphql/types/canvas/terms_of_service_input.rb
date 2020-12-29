@@ -6,11 +6,12 @@ module LMSGraphQL
     module Canvas
       class CanvasTermsOfServiceInput < BaseInputObject
         description "Accounts. API Docs: https://canvas.instructure.com/doc/api/accounts.html"
-        argument :id, ID, "Terms Of Service id.Example: 1", required: false
-        argument :terms_type, String, "The given type for the Terms of Service.Example: default", required: false
-        argument :passive, Boolean, "Boolean dictating if the user must accept Terms of Service.", required: false
-        argument :account_id, ID, "The id of the root account that owns the Terms of Service.Example: 1", required: false
-        argument :content, String, "Content of the Terms of Service.Example: To be or not to be that is the question", required: false
+      argument :id, ID, "Terms Of Service id.Example: 1", required: false
+      argument :terms_type, String, "The given type for the Terms of Service.Example: default", required: false
+      argument :passive, Boolean, "Boolean dictating if the user must accept Terms of Service.", required: false
+      argument :account_id, ID, "The id of the root account that owns the Terms of Service.Example: 1", required: false
+      argument :content, String, "Content of the Terms of Service.Example: To be or not to be that is the question", required: false
+      argument :self_registration_type, String, "The type of self registration allowed.Example: none, observer, all", required: false
 
       end
     end
