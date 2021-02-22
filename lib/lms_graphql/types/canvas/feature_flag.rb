@@ -13,6 +13,7 @@ module LMSGraphQL
                 class FeatureFlagStateEnum < ::GraphQL::Schema::Enum
           value "off"
           value "allowed"
+          value "allowed_on"
           value "on"
         end
       class CanvasFeatureFlag < BaseType
@@ -20,7 +21,7 @@ module LMSGraphQL
         field :context_type, FeatureFlagContextTypeEnum, "The type of object to which this flag applies (Account, Course, or User). (This field is not present if this FeatureFlag represents the global Canvas default).Example: Account", null: true
         field :context_id, ID, "The id of the object to which this flag applies (This field is not present if this FeatureFlag represents the global Canvas default).Example: 1038", null: true
         field :feature, String, "The feature this flag controls.Example: fancy_wickets", null: true
-        field :state, FeatureFlagStateEnum, "The policy for the feature at this context.  can be 'off', 'allowed', or 'on'..Example: allowed", null: true
+        field :state, FeatureFlagStateEnum, "The policy for the feature at this context.  can be 'off', 'allowed', 'allowed_on', or 'on'..Example: allowed", null: true
         field :locked, Boolean, "If set, this feature flag cannot be changed in the caller's context because the flag is set 'off' or 'on' in a higher context.", null: true
 
       end

@@ -527,6 +527,10 @@ module LMSGraphQL
           resolver: LMSGraphQL::Resolvers::Canvas::ListCoursesForUser,
           description: "List courses for a user. Returns a paginated list of active courses for this user. To view the course list for a user other than yourself, you must be either an observer of that user or an administrator."
 
+        field :get_user_progress,
+          resolver: LMSGraphQL::Resolvers::Canvas::GetUserProgress,
+          description: "Get user progress. Return progress information for the user and course      You can supply +self+ as the user_id to query your own progress in a course. To query another user's progress,   you must be a teacher in the course, an administrator, or a linked observer of the user."
+
         field :list_students,
           resolver: LMSGraphQL::Resolvers::Canvas::ListStudent,
           description: "List students. Returns the paginated list of students enrolled in this course.      DEPRECATED: Please use the {api:CoursesController#users course users} endpoint   and pass 'student' as the enrollment_type."
@@ -730,6 +734,10 @@ module LMSGraphQL
         field :list_enabled_features_users,
           resolver: LMSGraphQL::Resolvers::Canvas::ListEnabledFeaturesUser,
           description: "List enabled features. A paginated list of all features that are enabled on a given Account, Course, or User.   Only the feature names are returned."
+
+        field :list_environment_features,
+          resolver: LMSGraphQL::Resolvers::Canvas::ListEnvironmentFeature,
+          description: "List environment features. Return a hash of global feature settings that pertain to the   Canvas user interface. This is the same information supplied to the   web interface as +ENV.FEATURES+."
 
         field :get_feature_flag_courses,
           resolver: LMSGraphQL::Resolvers::Canvas::GetFeatureFlagCourse,

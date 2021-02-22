@@ -31,6 +31,7 @@ module LMSGraphQL
         field :edit_assignment_group, mutation: LMSGraphQL::Mutations::Canvas::EditAssignmentGroup
         field :destroy_assignment_group, mutation: LMSGraphQL::Mutations::Canvas::DestroyAssignmentGroup
         field :delete_assignment, mutation: LMSGraphQL::Mutations::Canvas::DeleteAssignment
+        field :duplicate_assignnment, mutation: LMSGraphQL::Mutations::Canvas::DuplicateAssignnment
         field :create_assignment, mutation: LMSGraphQL::Mutations::Canvas::CreateAssignment
         field :edit_assignment, mutation: LMSGraphQL::Mutations::Canvas::EditAssignment
         field :bulk_update_assignment_dates, mutation: LMSGraphQL::Mutations::Canvas::BulkUpdateAssignmentDate
@@ -123,6 +124,8 @@ module LMSGraphQL
         field :delete_entry_groups, mutation: LMSGraphQL::Mutations::Canvas::DeleteEntryGroup
         field :post_entry_courses, mutation: LMSGraphQL::Mutations::Canvas::PostEntryCourse
         field :post_entry_groups, mutation: LMSGraphQL::Mutations::Canvas::PostEntryGroup
+        field :duplicate_discussion_topic_courses, mutation: LMSGraphQL::Mutations::Canvas::DuplicateDiscussionTopicCourse
+        field :duplicate_discussion_topic_groups, mutation: LMSGraphQL::Mutations::Canvas::DuplicateDiscussionTopicGroup
         field :post_reply_courses, mutation: LMSGraphQL::Mutations::Canvas::PostReplyCourse
         field :post_reply_groups, mutation: LMSGraphQL::Mutations::Canvas::PostReplyGroup
         field :mark_topic_as_read_courses, mutation: LMSGraphQL::Mutations::Canvas::MarkTopicAsReadCourse

@@ -7,21 +7,20 @@ require_relative "course_progress"
 module LMSGraphQL
   module Types
     module Canvas
-      class CourseWorkflowStateEnum < ::GraphQL::Schema::Enum
-        value "unpublished"
-        value "available"
-        value "completed"
-        value "deleted"
-      end
+        class CourseWorkflowStateEnum < ::GraphQL::Schema::Enum
+          value "unpublished"
+          value "available"
+          value "completed"
+          value "deleted"
+        end
 
-      class CourseDefaultViewEnum < ::GraphQL::Schema::Enum
-        value "feed"
-        value "wiki"
-        value "modules"
-        value "syllabus"
-        value "assignments"
-      end
-      
+                class CourseDefaultViewEnum < ::GraphQL::Schema::Enum
+          value "feed"
+          value "wiki"
+          value "modules"
+          value "syllabus"
+          value "assignments"
+        end
       class CanvasCourse < BaseType
         description "Courses. API Docs: https://canvas.instructure.com/doc/api/courses.html"
         field :id, ID, "the unique identifier for the course.Example: 370663", null: true

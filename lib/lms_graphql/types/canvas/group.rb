@@ -1,5 +1,5 @@
 require_relative "../canvas_base_type"
-
+require_relative "user"
 
 module LMSGraphQL
   module Types
@@ -33,6 +33,7 @@ module LMSGraphQL
         field :sis_import_id, ID, "The id of the SIS import if created through SIS. Only included if the user has permission to manage SIS information..Example: 14", null: true
         field :storage_quota_mb, Int, "the storage quota for the group, in megabytes.Example: 50", null: true
         field :permissions, String, "optional: the permissions the user has for the group. returned only for a single group and include[]=permissions.Example: true, true", null: true
+        field :users, [LMSGraphQL::Types::Canvas::CanvasUser], "optional: A list of users that are members in the group. Returned only if include[]=users. WARNING: this collection's size is capped (if there are an extremely large number of users in the group (thousands) not all of them will be returned).  If you need to capture all the users in a group with certainty consider using the paginated /api/v1/groups/<group_id>/memberships endpoint..", null: true
 
       end
     end
