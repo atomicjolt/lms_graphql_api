@@ -1,3 +1,3 @@
 module LMSGraphQL
-  VERSION = "1.4.0".freeze
+  VERSION = "1.7.0".freeze
 end
