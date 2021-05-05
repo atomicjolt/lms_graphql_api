@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasCalendarEventInput < BaseInputObject
-        description "Calendar Events. API Docs: https://canvas.instructure.com/doc/api/calendar_events.html"
+          description "Calendar Events. API Docs: https://canvas.instructure.com/doc/api/calendar_events.html"
       argument :id, ID, "The ID of the calendar event.Example: 234", required: false
       argument :title, String, "The title of the calendar event.Example: Paintball Fight!", required: false
       argument :start_at, LMSGraphQL::Types::DateTimeType, "The start timestamp of the event.Example: 2012-07-19T15:00:00-06:00", required: false

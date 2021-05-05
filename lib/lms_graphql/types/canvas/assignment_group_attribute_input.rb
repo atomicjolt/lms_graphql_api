@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasAssignmentGroupAttributeInput < BaseInputObject
-        description "SIS Integration. API Docs: https://canvas.instructure.com/doc/api/sis_integration.html"
+          description "SIS Integration. API Docs: https://canvas.instructure.com/doc/api/sis_integration.html"
       argument :id, ID, "the id of the Assignment Group.Example: 1", required: false
       argument :name, String, "the name of the Assignment Group.Example: group2", required: false
       argument :group_weight, Int, "the weight of the Assignment Group.Example: 20", required: false

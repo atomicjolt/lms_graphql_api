@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasUserAssignmentOverrideAttributeInput < BaseInputObject
-        description "SIS Integration. API Docs: https://canvas.instructure.com/doc/api/sis_integration.html"
+          description "SIS Integration. API Docs: https://canvas.instructure.com/doc/api/sis_integration.html"
       argument :id, ID, "The unique Canvas identifier for the assignment override.Example: 218", required: false
       argument :title, String, "The title of the assignment override..Example: Override title", required: false
       argument :due_at, LMSGraphQL::Types::DateTimeType, "The time at which this assignment is due.Example: 2013-01-01T00:00:00-06:00", required: false

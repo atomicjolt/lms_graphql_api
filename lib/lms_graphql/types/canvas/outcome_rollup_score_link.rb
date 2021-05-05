@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasOutcomeRollupScoreLink < BaseType
-        description "Outcome Results. API Docs: https://canvas.instructure.com/doc/api/outcome_results.html"
+          description "Outcome Results. API Docs: https://canvas.instructure.com/doc/api/outcome_results.html"
         field :outcome, Int, "The id of the related outcome.Example: 42", null: true
 
       end

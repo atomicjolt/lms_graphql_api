@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasMediaObject < BaseType
-        description "Media Objects. API Docs: https://canvas.instructure.com/doc/api/media_objects.html"
+          description "Media Objects. API Docs: https://canvas.instructure.com/doc/api/media_objects.html"
         field :can_add_captions, Boolean, "", null: true
         field :user_entered_title, String, "", null: true
         field :title, String, "", null: true

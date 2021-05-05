@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasEnrollmentTerm < BaseType
-        description "Enrollment Terms. API Docs: https://canvas.instructure.com/doc/api/enrollment_terms.html"
+          description "Enrollment Terms. API Docs: https://canvas.instructure.com/doc/api/enrollment_terms.html"
         field :id, ID, "The unique identifier for the enrollment term..Example: 1", null: true
         field :sis_term_id, ID, "The SIS id of the term. Only included if the user has permission to view SIS information..Example: Sp2014", null: true
         field :sis_import_id, ID, "the unique identifier for the SIS import. This field is only included if the user has permission to manage SIS information..Example: 34", null: true

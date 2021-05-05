@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasQuizGroupInput < BaseInputObject
-        description "Quiz Question Groups. API Docs: https://canvas.instructure.com/doc/api/quiz_question_groups.html"
+          description "Quiz Question Groups. API Docs: https://canvas.instructure.com/doc/api/quiz_question_groups.html"
       argument :id, ID, "The ID of the question group..Example: 1", required: false
       argument :quiz_id, ID, "The ID of the Quiz the question group belongs to..Example: 2", required: false
       argument :name, String, "The name of the question group..Example: Fraction questions", required: false

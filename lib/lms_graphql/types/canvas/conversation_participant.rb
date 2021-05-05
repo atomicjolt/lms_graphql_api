@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasConversationParticipant < BaseType
-        description "Conversations. API Docs: https://canvas.instructure.com/doc/api/conversations.html"
+          description "Conversations. API Docs: https://canvas.instructure.com/doc/api/conversations.html"
         field :id, ID, "The user ID for the participant..Example: 2", null: true
         field :name, String, "A short name the user has selected, for use in conversations or other less formal places through the site..Example: Shelly", null: true
         field :full_name, String, "The full name of the user..Example: Sheldon Cooper", null: true

@@ -5,7 +5,8 @@ require_relative "content_detail"
 module LMSGraphQL
   module Types
     module Canvas
-        class ModuleItemTypeEnum < ::GraphQL::Schema::Enum
+      class CanvasModuleItem < BaseType
+          class ModuleItemTypeEnum < ::GraphQL::Schema::Enum
           value "File"
           value "Page"
           value "Discussion"
@@ -15,7 +16,6 @@ module LMSGraphQL
           value "ExternalUrl"
           value "ExternalTool"
         end
-      class CanvasModuleItem < BaseType
         description "Modules. API Docs: https://canvas.instructure.com/doc/api/modules.html"
         field :id, ID, "the unique identifier for the module item.Example: 768", null: true
         field :module_id, ID, "the id of the Module this item appears in.Example: 123", null: true

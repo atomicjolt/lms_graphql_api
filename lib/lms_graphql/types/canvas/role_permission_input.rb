@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasRolePermissionInput < BaseInputObject
-        description "Roles. API Docs: https://canvas.instructure.com/doc/api/roles.html"
+          description "Roles. API Docs: https://canvas.instructure.com/doc/api/roles.html"
       argument :enabled, Boolean, "Whether the role has the permission.Example: true", required: false
       argument :locked, Boolean, "Whether the permission is locked by this role.", required: false
       argument :applies_to_self, Boolean, "Whether the permission applies to the account this role is in. Only present if enabled is true.Example: true", required: false

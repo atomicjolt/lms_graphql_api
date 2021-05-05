@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasSubmissionVersionInput < BaseInputObject
-        description "Gradebook History. API Docs: https://canvas.instructure.com/doc/api/gradebook_history.html"
+          description "Gradebook History. API Docs: https://canvas.instructure.com/doc/api/gradebook_history.html"
       argument :assignment_id, ID, "the id of the assignment this submissions is for.Example: 22604", required: false
       argument :assignment_name, String, "the name of the assignment this submission is for.Example: some assignment", required: false
       argument :body, String, "the body text of the submission.Example: text from the submission", required: false

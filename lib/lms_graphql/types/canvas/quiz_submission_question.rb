@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasQuizSubmissionQuestion < BaseType
-        description "Quiz Submission Questions. API Docs: https://canvas.instructure.com/doc/api/quiz_submission_questions.html"
+          description "Quiz Submission Questions. API Docs: https://canvas.instructure.com/doc/api/quiz_submission_questions.html"
         field :id, ID, "The ID of the QuizQuestion this answer is for..Example: 1", null: true
         field :flagged, Boolean, "Whether this question is flagged..Example: true", null: true
         field :answer, String, "The provided answer (if any) for this question. The format of this parameter depends on the type of the question, see the Appendix for more information..", null: true

@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasMediaObjectInput < BaseInputObject
-        description "Media Objects. API Docs: https://canvas.instructure.com/doc/api/media_objects.html"
+          description "Media Objects. API Docs: https://canvas.instructure.com/doc/api/media_objects.html"
       argument :can_add_captions, Boolean, "", required: false
       argument :user_entered_title, String, "", required: false
       argument :title, String, "", required: false

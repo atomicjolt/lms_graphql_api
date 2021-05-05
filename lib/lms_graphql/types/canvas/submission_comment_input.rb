@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasSubmissionCommentInput < BaseInputObject
-        description "Submissions. API Docs: https://canvas.instructure.com/doc/api/submissions.html"
+          description "Submissions. API Docs: https://canvas.instructure.com/doc/api/submissions.html"
       argument :id, ID, "Example: 37", required: false
       argument :author_id, ID, "Example: 134", required: false
       argument :author_name, String, "Example: Toph Beifong", required: false

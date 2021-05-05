@@ -527,6 +527,10 @@ module LMSGraphQL
           resolver: LMSGraphQL::Resolvers::Canvas::ListCoursesForUser,
           description: "List courses for a user. Returns a paginated list of active courses for this user. To view the course list for a user other than yourself, you must be either an observer of that user or an administrator."
 
+        field :get_user_progress,
+          resolver: LMSGraphQL::Resolvers::Canvas::GetUserProgress,
+          description: "Get user progress. Return progress information for the user and course      You can supply +self+ as the user_id to query your own progress in a course. To query another user's progress,   you must be a teacher in the course, an administrator, or a linked observer of the user."
+
         field :list_students,
           resolver: LMSGraphQL::Resolvers::Canvas::ListStudent,
           description: "List students. Returns the paginated list of students enrolled in this course.      DEPRECATED: Please use the {api:CoursesController#users course users} endpoint   and pass 'student' as the enrollment_type."
@@ -699,6 +703,10 @@ module LMSGraphQL
           resolver: LMSGraphQL::Resolvers::Canvas::GetSingleExternalToolAccount,
           description: "Get a single external tool. Returns the specified external tool."
 
+        field :get_visible_course_navigation_tools,
+          resolver: LMSGraphQL::Resolvers::Canvas::GetVisibleCourseNavigationTool,
+          description: "Get visible course navigation tools. Get a list of external tools with the course_navigation placement that have not been hidden in   course settings and whose visibility settings apply to the requesting user. These tools are the   same that appear in the course navigation."
+
         field :list_favorite_courses,
           resolver: LMSGraphQL::Resolvers::Canvas::ListFavoriteCourse,
           description: "List favorite courses. Retrieve the paginated list of favorite courses for the current user. If the user has not chosen   any favorites, then a selection of currently enrolled courses will be returned.      See the {api:CoursesController#index List courses API} for details on accepted include[] parameters."
@@ -730,6 +738,10 @@ module LMSGraphQL
         field :list_enabled_features_users,
           resolver: LMSGraphQL::Resolvers::Canvas::ListEnabledFeaturesUser,
           description: "List enabled features. A paginated list of all features that are enabled on a given Account, Course, or User.   Only the feature names are returned."
+
+        field :list_environment_features,
+          resolver: LMSGraphQL::Resolvers::Canvas::ListEnvironmentFeature,
+          description: "List environment features. Return a hash of global feature settings that pertain to the   Canvas user interface. This is the same information supplied to the   web interface as +ENV.FEATURES+."
 
         field :get_feature_flag_courses,
           resolver: LMSGraphQL::Resolvers::Canvas::GetFeatureFlagCourse,
@@ -1371,6 +1383,10 @@ module LMSGraphQL
           resolver: LMSGraphQL::Resolvers::Canvas::QueryProgress,
           description: "Query progress. Return completion and status information about an asynchronous job"
 
+        field :progress_query_progress,
+          resolver: LMSGraphQL::Resolvers::Canvas::ProgressQueryProgress,
+          description: "Query progress. Return completion and status information about an asynchronous job"
+
         field :retrieve_assignment_overridden_dates_for_classic_quizzes,
           resolver: LMSGraphQL::Resolvers::Canvas::RetrieveAssignmentOverriddenDatesForClassicQuiz,
           description: "Retrieve assignment-overridden dates for Classic Quizzes. Retrieve the actual due-at, unlock-at, and available-at dates for quizzes   based on the assignment overrides active for the current API user."
@@ -1414,6 +1430,10 @@ module LMSGraphQL
         field :get_all_quiz_submission_questions,
           resolver: LMSGraphQL::Resolvers::Canvas::GetAllQuizSubmissionQuestion,
           description: "Get all quiz submission questions.. Get a list of all the question records for this quiz submission.      <b>200 OK</b> response code is returned if the request was successful."
+
+        field :get_formatted_student_numerical_answer,
+          resolver: LMSGraphQL::Resolvers::Canvas::GetFormattedStudentNumericalAnswer,
+          description: "Get a formatted student numerical answer.. Matches the intended behavior of the UI when a numerical answer is entered   and returns the resulting formatted number"
 
         field :get_all_quiz_submissions,
           resolver: LMSGraphQL::Resolvers::Canvas::GetAllQuizSubmission,

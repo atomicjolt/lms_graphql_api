@@ -4,7 +4,8 @@ require_relative "../canvas_base_input_type"
 module LMSGraphQL
   module Types
     module Canvas
-        class ContentMigrationWorkflowStateEnum < ::GraphQL::Schema::Enum
+      class CanvasContentMigrationInput < BaseInputObject
+          class ContentMigrationWorkflowStateEnum < ::GraphQL::Schema::Enum
           value "pre_processing"
           value "pre_processed"
           value "running"
@@ -12,7 +13,6 @@ module LMSGraphQL
           value "completed"
           value "failed"
         end
-      class CanvasContentMigrationInput < BaseInputObject
         description "Content Migrations. API Docs: https://canvas.instructure.com/doc/api/content_migrations.html"
       argument :id, ID, "the unique identifier for the migration.Example: 370663", required: false
       argument :migration_type, String, "the type of content migration.Example: common_cartridge_importer", required: false

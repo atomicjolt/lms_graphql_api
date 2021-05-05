@@ -4,7 +4,8 @@ require_relative "module_item"
 module LMSGraphQL
   module Types
     module Canvas
-        class ModuleWorkflowStateEnum < ::GraphQL::Schema::Enum
+      class CanvasModule < BaseType
+          class ModuleWorkflowStateEnum < ::GraphQL::Schema::Enum
           value "active"
           value "deleted"
         end
@@ -15,7 +16,6 @@ module LMSGraphQL
           value "started"
           value "completed"
         end
-      class CanvasModule < BaseType
         description "Modules. API Docs: https://canvas.instructure.com/doc/api/modules.html"
         field :id, ID, "the unique identifier for the module.Example: 123", null: true
         field :workflow_state, ModuleWorkflowStateEnum, "the state of the module: 'active', 'deleted'.Example: active", null: true

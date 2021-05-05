@@ -6,7 +6,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasEnrollmentInput < BaseInputObject
-        description "Enrollments. API Docs: https://canvas.instructure.com/doc/api/enrollments.html"
+          description "Enrollments. API Docs: https://canvas.instructure.com/doc/api/enrollments.html"
       argument :id, ID, "The ID of the enrollment..Example: 1", required: false
       argument :course_id, ID, "The unique id of the course..Example: 1", required: false
       argument :sis_course_id, ID, "The SIS Course ID in which the enrollment is associated. Only displayed if present. This field is only included if the user has permission to view SIS information..Example: SHEL93921", required: false

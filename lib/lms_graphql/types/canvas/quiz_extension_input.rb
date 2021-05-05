@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasQuizExtensionInput < BaseInputObject
-        description "Quiz Extensions. API Docs: https://canvas.instructure.com/doc/api/quiz_extensions.html"
+          description "Quiz Extensions. API Docs: https://canvas.instructure.com/doc/api/quiz_extensions.html"
       argument :quiz_id, ID, "The ID of the Quiz the quiz extension belongs to..Example: 2", required: false
       argument :user_id, ID, "The ID of the Student that needs the quiz extension..Example: 3", required: false
       argument :extra_attempts, Int, "Number of times the student is allowed to re-take the quiz over the multiple-attempt limit..Example: 1", required: false

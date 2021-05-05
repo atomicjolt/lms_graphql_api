@@ -6,7 +6,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasNamesAndRoleMembership < BaseType
-        description "Names and Role. API Docs: https://canvas.instructure.com/doc/api/names_and_role.html"
+          description "Names and Role. API Docs: https://canvas.instructure.com/doc/api/names_and_role.html"
         field :id, ID, "Invocation URL.Example: https://example.instructure.com/api/lti/courses/1/names_and_roles?tlid=f91ca4d8-fa84-4a9b-b08e-47d5527416b0", null: true
         field :context, LMSGraphQL::Types::Canvas::CanvasNamesAndRoleContext, "The LTI Context containing the memberships.Example: 4dde05e8ca1973bcca9bffc13e1548820eee93a3, CS-101, Computer Science 101", resolver_method: :resolve_context, null: true
         def resolve_context

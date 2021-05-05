@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasPollInput < BaseInputObject
-        description "Polls. API Docs: https://canvas.instructure.com/doc/api/polls.html"
+          description "Polls. API Docs: https://canvas.instructure.com/doc/api/polls.html"
       argument :id, ID, "The unique identifier for the poll..Example: 1023", required: false
       argument :question, String, "The question/title of the poll..Example: What do you consider most important to your learning in this course?", required: false
       argument :description, String, "A short description of the poll..Example: This poll is to determine what priorities the students in the course have.", required: false

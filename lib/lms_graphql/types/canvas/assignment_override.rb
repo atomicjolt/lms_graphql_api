@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasAssignmentOverride < BaseType
-        description "Assignments. API Docs: https://canvas.instructure.com/doc/api/assignments.html"
+          description "Assignments. API Docs: https://canvas.instructure.com/doc/api/assignments.html"
         field :id, ID, "the ID of the assignment override.Example: 4", null: true
         field :assignment_id, ID, "the ID of the assignment the override applies to.Example: 123", null: true
         field :student_ids, [ID], "the IDs of the override's target students (present if the override targets an ad-hoc set of students).Example: 1, 2, 3", null: true

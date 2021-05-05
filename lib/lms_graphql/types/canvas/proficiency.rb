@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasProficiency < BaseType
-        description "Proficiency Ratings. API Docs: https://canvas.instructure.com/doc/api/proficiency_ratings.html"
+          description "Proficiency Ratings. API Docs: https://canvas.instructure.com/doc/api/proficiency_ratings.html"
         field :ratings, String, "An array of proficiency ratings. See the ProficiencyRating specification above..", null: true
 
       end

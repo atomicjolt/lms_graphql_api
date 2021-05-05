@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasPeerReviewInput < BaseInputObject
-        description "Peer Reviews. API Docs: https://canvas.instructure.com/doc/api/peer_reviews.html"
+          description "Peer Reviews. API Docs: https://canvas.instructure.com/doc/api/peer_reviews.html"
       argument :assessor_id, ID, "The assessors user id.Example: 23", required: false
       argument :asset_id, ID, "The id for the asset associated with this Peer Review.Example: 13", required: false
       argument :asset_type, String, "The type of the asset.Example: Submission", required: false

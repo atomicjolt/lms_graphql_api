@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasCourseEventLinkInput < BaseInputObject
-        description "Course Audit log. API Docs: https://canvas.instructure.com/doc/api/course_audit_log.html"
+          description "Course Audit log. API Docs: https://canvas.instructure.com/doc/api/course_audit_log.html"
       argument :course, Int, "ID of the course for the event..Example: 12345", required: false
       argument :user, Int, "ID of the user for the event (who made the change)..Example: 12345", required: false
       argument :page_view, String, "ID of the page view during the event if it exists..Example: e2b76430-27a5-0131-3ca1-48e0eb13f29b", required: false

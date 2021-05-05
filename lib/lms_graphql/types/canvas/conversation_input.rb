@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasConversationInput < BaseInputObject
-        description "Conversations. API Docs: https://canvas.instructure.com/doc/api/conversations.html"
+          description "Conversations. API Docs: https://canvas.instructure.com/doc/api/conversations.html"
       argument :id, ID, "the unique identifier for the conversation..Example: 2", required: false
       argument :subject, String, "the subject of the conversation..Example: 2", required: false
       argument :workflow_state, String, "The current state of the conversation (read, unread or archived)..Example: unread", required: false

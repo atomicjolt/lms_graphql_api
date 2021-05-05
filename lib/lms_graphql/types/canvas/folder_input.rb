@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasFolderInput < BaseInputObject
-        description "Files. API Docs: https://canvas.instructure.com/doc/api/files.html"
+          description "Files. API Docs: https://canvas.instructure.com/doc/api/files.html"
       argument :context_type, String, "Example: Course", required: false
       argument :context_id, ID, "Example: 1401", required: false
       argument :files_count, Int, "Example: 0", required: false

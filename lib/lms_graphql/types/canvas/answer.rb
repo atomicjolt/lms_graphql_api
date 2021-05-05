@@ -5,10 +5,10 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasAnswer < BaseType
-        description "Quiz Questions. API Docs: https://canvas.instructure.com/doc/api/quiz_questions.html"
+          description "Quiz Questions. API Docs: https://canvas.instructure.com/doc/api/quiz_questions.html"
         field :id, ID, "The unique identifier for the answer.  Do not supply if this answer is part of a new question.Example: 6656", null: true
         field :answer_text, String, "The text of the answer..Example: Constantinople", null: true
-        field :answer_weight, Int, "An integer to determine correctness of the answer. Incorrect answers should be 0, correct answers should be non-negative..Example: 100", null: true
+        field :answer_weight, Int, "An integer to determine correctness of the answer. Incorrect answers should be 0, correct answers should be 100..Example: 100", null: true
         field :answer_comments, String, "Specific contextual comments for a particular answer..Example: Remember to check your spelling prior to submitting this answer.", null: true
         field :text_after_answers, String, "Used in missing word questions.  The text to follow the missing word.Example:  is the capital of Utah.", null: true
         field :answer_match_left, String, "Used in matching questions.  The static value of the answer that will be displayed on the left for students to match for..Example: Salt Lake City", null: true

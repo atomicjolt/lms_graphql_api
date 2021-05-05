@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasProvisionalGradeInput < BaseInputObject
-        description "Moderated Grading. API Docs: https://canvas.instructure.com/doc/api/moderated_grading.html"
+          description "Moderated Grading. API Docs: https://canvas.instructure.com/doc/api/moderated_grading.html"
       argument :provisional_grade_id, ID, "The identifier for the provisional grade.Example: 23", required: false
       argument :score, Int, "The numeric score.Example: 90", required: false
       argument :grade, String, "The grade.Example: A-", required: false

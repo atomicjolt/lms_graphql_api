@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasQuizAssignmentOverrideSetContainerInput < BaseInputObject
-        description "Quiz Assignment Overrides. API Docs: https://canvas.instructure.com/doc/api/quiz_assignment_overrides.html"
+          description "Quiz Assignment Overrides. API Docs: https://canvas.instructure.com/doc/api/quiz_assignment_overrides.html"
       argument :quiz_assignment_overrides, [LMSGraphQL::Types::Canvas::CanvasQuizAssignmentOverrideSetInput], "The QuizAssignmentOverrideSet.", required: false
 
       end

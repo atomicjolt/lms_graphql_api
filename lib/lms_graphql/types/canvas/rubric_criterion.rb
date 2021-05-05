@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasRubricCriterion < BaseType
-        description "Rubrics. API Docs: https://canvas.instructure.com/doc/api/rubrics.html"
+          description "Rubrics. API Docs: https://canvas.instructure.com/doc/api/rubrics.html"
         field :id, ID, "the ID of the criterion.Example: _10", null: true
         field :description, String, "", null: true
         field :long_description, String, "", null: true

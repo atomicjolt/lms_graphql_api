@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasQuizSubmissionUserListMetum < BaseType
-        description "Quiz Submission User List. API Docs: https://canvas.instructure.com/doc/api/quiz_submission_user_list.html"
+          description "Quiz Submission User List. API Docs: https://canvas.instructure.com/doc/api/quiz_submission_user_list.html"
         
       end
     end

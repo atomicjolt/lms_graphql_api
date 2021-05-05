@@ -5,7 +5,8 @@ require_relative "file_attachment"
 module LMSGraphQL
   module Types
     module Canvas
-        class DiscussionTopicReadStateEnum < ::GraphQL::Schema::Enum
+      class CanvasDiscussionTopicInput < BaseInputObject
+          class DiscussionTopicReadStateEnum < ::GraphQL::Schema::Enum
           value "read"
           value "unread"
         end
@@ -21,7 +22,6 @@ module LMSGraphQL
           value "side_comment"
           value "threaded"
         end
-      class CanvasDiscussionTopicInput < BaseInputObject
         description "Discussion Topics. API Docs: https://canvas.instructure.com/doc/api/discussion_topics.html"
       argument :id, ID, "The ID of this topic..Example: 1", required: false
       argument :title, String, "The topic title..Example: Topic 1", required: false

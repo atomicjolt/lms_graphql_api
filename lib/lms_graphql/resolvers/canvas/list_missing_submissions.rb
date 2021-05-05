@@ -9,13 +9,15 @@ module LMSGraphQL
         argument :user_id, ID, required: true
         argument :include, String, required: false
         argument :filter, String, required: false
-        def resolve(user_id:, include: nil, filter: nil, get_all: false)
+        argument :course_ids, [ID], required: false
+        def resolve(user_id:, include: nil, filter: nil, course_ids: nil, get_all: false)
           result = context[:canvas_api].call("LIST_MISSING_SUBMISSIONS").proxy(
             "LIST_MISSING_SUBMISSIONS",
             {
               "user_id": user_id,
               "include": include,
-              "filter": filter            },
+              "filter": filter,
+              "course_ids": course_ids            },
             nil,
             get_all,
           )

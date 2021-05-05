@@ -5,11 +5,11 @@ require_relative "assignment_override"
 module LMSGraphQL
   module Types
     module Canvas
-        class AssignmentEventWorkflowStateEnum < ::GraphQL::Schema::Enum
+      class CanvasAssignmentEvent < BaseType
+          class AssignmentEventWorkflowStateEnum < ::GraphQL::Schema::Enum
           value "published"
           value "deleted"
         end
-      class CanvasAssignmentEvent < BaseType
         description "Calendar Events. API Docs: https://canvas.instructure.com/doc/api/calendar_events.html"
         field :id, ID, "A synthetic ID for the assignment.Example: assignment_987", null: true
         field :title, String, "The title of the assignment.Example: Essay", null: true

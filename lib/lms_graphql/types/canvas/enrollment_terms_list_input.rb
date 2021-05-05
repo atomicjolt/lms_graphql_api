@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasEnrollmentTermsListInput < BaseInputObject
-        description "Enrollment Terms. API Docs: https://canvas.instructure.com/doc/api/enrollment_terms.html"
+          description "Enrollment Terms. API Docs: https://canvas.instructure.com/doc/api/enrollment_terms.html"
       argument :enrollment_terms, [LMSGraphQL::Types::Canvas::CanvasEnrollmentTermInput], "a paginated list of all terms in the account.", required: false
 
       end

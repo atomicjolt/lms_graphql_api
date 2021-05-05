@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasMediaComment < BaseType
-        description "Submissions. API Docs: https://canvas.instructure.com/doc/api/submissions.html"
+          description "Submissions. API Docs: https://canvas.instructure.com/doc/api/submissions.html"
         field :content_type, String, "Example: audio/mp4", null: true
         field :display_name, String, "Example: something", null: true
         field :media_id, ID, "Example: 3232", null: true

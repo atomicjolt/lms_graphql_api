@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasProfile < BaseType
-        description "Users. API Docs: https://canvas.instructure.com/doc/api/users.html"
+          description "Users. API Docs: https://canvas.instructure.com/doc/api/users.html"
         field :id, ID, "The ID of the user..Example: 1234", null: true
         field :name, String, "Sample User.Example: Sample User", null: true
         field :short_name, String, "Sample User.Example: Sample User", null: true

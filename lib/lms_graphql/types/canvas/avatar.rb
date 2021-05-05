@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasAvatar < BaseType
-        description "Users. API Docs: https://canvas.instructure.com/doc/api/users.html"
+          description "Users. API Docs: https://canvas.instructure.com/doc/api/users.html"
         field :type, String, "['gravatar'|'attachment'|'no_pic'] The type of avatar record, for categorization purposes..Example: gravatar", null: true
         field :url, String, "The url of the avatar.Example: https://secure.gravatar.com/avatar/2284.", null: true
         field :token, String, "A unique representation of the avatar record which can be used to set the avatar with the user update endpoint. Note: this is an internal representation and is subject to change without notice. It should be consumed with this api endpoint and used in the user update endpoint, and should not be constructed by the client..Example: <opaque_token>", null: true

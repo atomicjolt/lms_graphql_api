@@ -13,7 +13,8 @@ require_relative "score_statistic"
 module LMSGraphQL
   module Types
     module Canvas
-        class AssignmentSubmissionTypeEnum < ::GraphQL::Schema::Enum
+      class CanvasAssignment < BaseType
+          class AssignmentSubmissionTypeEnum < ::GraphQL::Schema::Enum
           value "discussion_topic"
           value "online_quiz"
           value "on_paper"
@@ -24,6 +25,7 @@ module LMSGraphQL
           value "online_url"
           value "online_upload"
           value "media_recording"
+          value "student_annotation"
         end
 
                 class AssignmentGradingTypeEnum < ::GraphQL::Schema::Enum
@@ -33,7 +35,6 @@ module LMSGraphQL
           value "gpa_scale"
           value "points"
         end
-      class CanvasAssignment < BaseType
         description "Assignments. API Docs: https://canvas.instructure.com/doc/api/assignments.html"
         field :id, ID, "the ID of the assignment.Example: 4", null: true
         field :name, String, "the name of the assignment.Example: some assignment", null: true
@@ -70,7 +71,7 @@ module LMSGraphQL
         field :integration_id, ID, "(optional, Third Party unique identifier for Assignment).Example: 12341234", null: true
         field :integration_data, String, "(optional, Third Party integration data for assignment).Example: 0954", null: true
         field :points_possible, Float, "the maximum points possible for the assignment.Example: 12.0", null: true
-        field :submission_types, AssignmentSubmissionTypeEnum, "the types of submissions allowed for this assignment list containing one or more of the following: 'discussion_topic', 'online_quiz', 'on_paper', 'none', 'external_tool', 'online_text_entry', 'online_url', 'online_upload' 'media_recording'.Example: online_text_entry", null: true
+        field :submission_types, AssignmentSubmissionTypeEnum, "the types of submissions allowed for this assignment list containing one or more of the following: 'discussion_topic', 'online_quiz', 'on_paper', 'none', 'external_tool', 'online_text_entry', 'online_url', 'online_upload', 'media_recording', 'student_annotation'.Example: online_text_entry", null: true
         field :has_submitted_submissions, Boolean, "If true, the assignment has been submitted to by at least one student.Example: true", null: true
         field :grading_type, AssignmentGradingTypeEnum, "The type of grading the assignment receives; one of 'pass_fail', 'percent', 'letter_grade', 'gpa_scale', 'points'.Example: points", null: true
         field :grading_standard_id, ID, "The id of the grading standard being applied to this assignment. Valid if grading_type is 'letter_grade' or 'gpa_scale'..", null: true

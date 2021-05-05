@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasTabInput < BaseInputObject
-        description "Tabs. API Docs: https://canvas.instructure.com/doc/api/tabs.html"
+          description "Tabs. API Docs: https://canvas.instructure.com/doc/api/tabs.html"
       argument :html_url, String, "Example: /courses/1/external_tools/4", required: false
       argument :id, ID, "Example: context_external_tool_4", required: false
       argument :label, String, "Example: WordPress", required: false

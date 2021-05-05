@@ -6,7 +6,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasOutcomeLink < BaseType
-        description "Outcome Groups. API Docs: https://canvas.instructure.com/doc/api/outcome_groups.html"
+          description "Outcome Groups. API Docs: https://canvas.instructure.com/doc/api/outcome_groups.html"
         field :url, String, "the URL for fetching/updating the outcome link. should be treated as opaque.Example: /api/v1/accounts/1/outcome_groups/1/outcomes/1", null: true
         field :context_id, ID, "the context owning the outcome link. will match the context owning the outcome group containing the outcome link; included for convenience. may be null for links in global outcome groups..Example: 1", null: true
         field :context_type, String, "Example: Account", null: true

@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasContentDetailInput < BaseInputObject
-        description "Modules. API Docs: https://canvas.instructure.com/doc/api/modules.html"
+          description "Modules. API Docs: https://canvas.instructure.com/doc/api/modules.html"
       argument :points_possible, Int, "Example: 20", required: false
       argument :due_at, LMSGraphQL::Types::DateTimeType, "Example: 2012-12-31T06:00:00-06:00", required: false
       argument :unlock_at, LMSGraphQL::Types::DateTimeType, "Example: 2012-12-31T06:00:00-06:00", required: false

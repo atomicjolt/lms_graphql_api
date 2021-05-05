@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasPollSession < BaseType
-        description "Poll Sessions. API Docs: https://canvas.instructure.com/doc/api/poll_sessions.html"
+          description "Poll Sessions. API Docs: https://canvas.instructure.com/doc/api/poll_sessions.html"
         field :id, ID, "The unique identifier for the poll session..Example: 1023", null: true
         field :poll_id, ID, "The id of the Poll this poll session is associated with.Example: 55", null: true
         field :course_id, ID, "The id of the Course this poll session is associated with.Example: 1111", null: true

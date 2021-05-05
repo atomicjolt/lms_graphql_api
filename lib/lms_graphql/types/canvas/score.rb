@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasScore < BaseType
-        description "Score. API Docs: https://canvas.instructure.com/doc/api/score.html"
+          description "Score. API Docs: https://canvas.instructure.com/doc/api/score.html"
         field :user_id, String, "The lti_user_id or the Canvas user_id.Example: 50 | 'abcasdf'", null: true
         field :score_given, Float, "The Current score received in the tool for this line item and user, scaled to the scoreMaximum.Example: 50", null: true
         field :score_maximum, Float, "Maximum possible score for this result; it must be present if scoreGiven is present..Example: 50", null: true

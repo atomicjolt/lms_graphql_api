@@ -4,12 +4,12 @@ require_relative "../canvas_base_input_type"
 module LMSGraphQL
   module Types
     module Canvas
-        class GroupMembershipWorkflowStateEnum < ::GraphQL::Schema::Enum
+      class CanvasGroupMembershipInput < BaseInputObject
+          class GroupMembershipWorkflowStateEnum < ::GraphQL::Schema::Enum
           value "accepted"
           value "invited"
           value "requested"
         end
-      class CanvasGroupMembershipInput < BaseInputObject
         description "Groups. API Docs: https://canvas.instructure.com/doc/api/groups.html"
       argument :id, ID, "The id of the membership object.Example: 92", required: false
       argument :group_id, ID, "The id of the group object to which the membership belongs.Example: 17", required: false

@@ -6,7 +6,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasHelpLink < BaseType
-        description "Accounts. API Docs: https://canvas.instructure.com/doc/api/accounts.html"
+          description "Accounts. API Docs: https://canvas.instructure.com/doc/api/accounts.html"
         field :help_link_name, String, "Help link button title.Example: Help And Policies", null: true
         field :help_link_icon, String, "Help link button icon.Example: help", null: true
         field :custom_help_links, [LMSGraphQL::Types::Canvas::CanvasHelpLink], "Help links defined by the account. Could include default help links..Example: {'id'=>'link1', 'text'=>'Custom Link!', 'subtext'=>'Something something.', 'url'=>'https://google.com', 'type'=>'custom', 'available_to'=>['user', 'student', 'teacher', 'admin', 'observer', 'unenrolled'], 'is_featured'=>true, 'is_new'=>false, 'feature_headline'=>'Check this out!'}", null: true

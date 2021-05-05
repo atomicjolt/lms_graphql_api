@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasFederatedAttributeConfig < BaseType
-        description "Authentication Providers. API Docs: https://canvas.instructure.com/doc/api/authentication_providers.html"
+          description "Authentication Providers. API Docs: https://canvas.instructure.com/doc/api/authentication_providers.html"
         field :attribute, String, "The name of the attribute as it will be sent from the authentication provider.Example: mail", null: true
         field :provisioning_only, Boolean, "If the attribute should be applied only when provisioning a new user, rather than all logins.", null: true
 

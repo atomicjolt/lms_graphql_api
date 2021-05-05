@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasLockInfo < BaseType
-        description "Assignments. API Docs: https://canvas.instructure.com/doc/api/assignments.html"
+          description "Assignments. API Docs: https://canvas.instructure.com/doc/api/assignments.html"
         field :asset_string, String, "Asset string for the object causing the lock.Example: assignment_4", null: true
         field :unlock_at, LMSGraphQL::Types::DateTimeType, "(Optional) Time at which this was/will be unlocked. Must be before the due date..Example: 2013-01-01T00:00:00-06:00", null: true
         field :lock_at, LMSGraphQL::Types::DateTimeType, "(Optional) Time at which this was/will be locked. Must be after the due date..Example: 2013-02-01T00:00:00-06:00", null: true

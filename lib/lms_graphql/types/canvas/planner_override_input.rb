@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasPlannerOverrideInput < BaseInputObject
-        description "Planner. API Docs: https://canvas.instructure.com/doc/api/planner.html"
+          description "Planner. API Docs: https://canvas.instructure.com/doc/api/planner.html"
       argument :id, ID, "The ID of the planner override.Example: 234", required: false
       argument :plannable_type, String, "The type of the associated object for the planner override.Example: Assignment", required: false
       argument :plannable_id, ID, "The id of the associated object for the planner override.Example: 1578941", required: false

@@ -1,10 +1,11 @@
 require_relative "../canvas_base_input_type"
-
+require_relative "user"
 
 module LMSGraphQL
   module Types
     module Canvas
-        class GroupJoinLevelEnum < ::GraphQL::Schema::Enum
+      class CanvasGroupInput < BaseInputObject
+          class GroupJoinLevelEnum < ::GraphQL::Schema::Enum
           value "parent_context_auto_join"
           value "parent_context_request"
           value "invitation_only"
@@ -15,7 +16,6 @@ module LMSGraphQL
           value "student_organized"
           value "imported"
         end
-      class CanvasGroupInput < BaseInputObject
         description "Groups. API Docs: https://canvas.instructure.com/doc/api/groups.html"
       argument :id, ID, "The ID of the group..Example: 17", required: false
       argument :name, String, "The display name of the group..Example: Math Group 1", required: false
@@ -33,6 +33,7 @@ module LMSGraphQL
       argument :sis_import_id, ID, "The id of the SIS import if created through SIS. Only included if the user has permission to manage SIS information..Example: 14", required: false
       argument :storage_quota_mb, Int, "the storage quota for the group, in megabytes.Example: 50", required: false
       argument :permissions, String, "optional: the permissions the user has for the group. returned only for a single group and include[]=permissions.Example: true, true", required: false
+      argument :users, [LMSGraphQL::Types::Canvas::CanvasUserInput], "optional: A list of users that are members in the group. Returned only if include[]=users. WARNING: this collection's size is capped (if there are an extremely large number of users in the group (thousands) not all of them will be returned).  If you need to capture all the users in a group with certainty consider using the paginated /api/v1/groups/<group_id>/memberships endpoint..", required: false
 
       end
     end

@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasScope < BaseType
-        description "API Token Scopes. API Docs: https://canvas.instructure.com/doc/api/api_token_scopes.html"
+          description "API Token Scopes. API Docs: https://canvas.instructure.com/doc/api/api_token_scopes.html"
         field :resource, String, "The resource the scope is associated with.Example: courses", null: true
         field :resource_name, String, "The localized resource name.Example: Courses", null: true
         field :controller, String, "The controller the scope is associated to.Example: courses", null: true

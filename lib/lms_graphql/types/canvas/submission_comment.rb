@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasSubmissionComment < BaseType
-        description "Submissions. API Docs: https://canvas.instructure.com/doc/api/submissions.html"
+          description "Submissions. API Docs: https://canvas.instructure.com/doc/api/submissions.html"
         field :id, ID, "Example: 37", null: true
         field :author_id, ID, "Example: 134", null: true
         field :author_name, String, "Example: Toph Beifong", null: true

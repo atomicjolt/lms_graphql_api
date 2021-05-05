@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasContentShareInput < BaseInputObject
-        description "Content Shares. API Docs: https://canvas.instructure.com/doc/api/content_shares.html"
+          description "Content Shares. API Docs: https://canvas.instructure.com/doc/api/content_shares.html"
       argument :id, ID, "The id of the content share for the current user.Example: 1", required: false
       argument :name, String, "The name of the shared content.Example: War of 1812 homework", required: false
       argument :content_type, String, "The type of content that was shared. Can be assignment, discussion_topic, page, quiz, module, or module_item..Example: assignment", required: false

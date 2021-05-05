@@ -5,11 +5,11 @@ require_relative "progress"
 module LMSGraphQL
   module Types
     module Canvas
-        class QuizReportReportTypeEnum < ::GraphQL::Schema::Enum
+      class CanvasQuizReportInput < BaseInputObject
+          class QuizReportReportTypeEnum < ::GraphQL::Schema::Enum
           value "student_analysis"
           value "item_analysis"
         end
-      class CanvasQuizReportInput < BaseInputObject
         description "Quiz Reports. API Docs: https://canvas.instructure.com/doc/api/quiz_reports.html"
       argument :id, ID, "the ID of the quiz report.Example: 5", required: false
       argument :quiz_id, ID, "the ID of the quiz.Example: 4", required: false

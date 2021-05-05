@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasResultInput < BaseInputObject
-        description "Result. API Docs: https://canvas.instructure.com/doc/api/result.html"
+          description "Result. API Docs: https://canvas.instructure.com/doc/api/result.html"
       argument :id, ID, "The fully qualified URL for showing the Result.Example: http://institution.canvas.com/api/lti/courses/5/line_items/2/results/1", required: false
       argument :user_id, String, "The lti_user_id or the Canvas user_id.Example: 50 | 'abcasdf'", required: false
       argument :result_score, Float, "The score of the result as defined by Canvas, scaled to the resultMaximum.Example: 50", required: false

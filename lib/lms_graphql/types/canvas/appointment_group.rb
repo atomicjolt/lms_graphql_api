@@ -6,7 +6,8 @@ require_relative "calendar_event"
 module LMSGraphQL
   module Types
     module Canvas
-        class AppointmentGroupWorkflowStateEnum < ::GraphQL::Schema::Enum
+      class CanvasAppointmentGroup < BaseType
+          class AppointmentGroupWorkflowStateEnum < ::GraphQL::Schema::Enum
           value "pending"
           value "active"
           value "deleted"
@@ -21,7 +22,6 @@ module LMSGraphQL
           value "User"
           value "Group"
         end
-      class CanvasAppointmentGroup < BaseType
         description "Appointment Groups. API Docs: https://canvas.instructure.com/doc/api/appointment_groups.html"
         field :id, ID, "The ID of the appointment group.Example: 543", null: true
         field :title, String, "The title of the appointment group.Example: Final Presentation", null: true

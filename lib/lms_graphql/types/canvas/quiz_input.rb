@@ -6,7 +6,8 @@ require_relative "assignment_date"
 module LMSGraphQL
   module Types
     module Canvas
-        class QuizQuizTypeEnum < ::GraphQL::Schema::Enum
+      class CanvasQuizInput < BaseInputObject
+          class QuizQuizTypeEnum < ::GraphQL::Schema::Enum
           value "practice_quiz"
           value "assignment"
           value "graded_survey"
@@ -22,7 +23,6 @@ module LMSGraphQL
           value "keep_highest"
           value "keep_latest"
         end
-      class CanvasQuizInput < BaseInputObject
         description "Quizzes. API Docs: https://canvas.instructure.com/doc/api/quizzes.html"
       argument :id, ID, "the ID of the quiz.Example: 5", required: false
       argument :title, String, "the title of the quiz.Example: Hamlet Act 3 Quiz", required: false

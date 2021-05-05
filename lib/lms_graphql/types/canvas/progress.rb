@@ -4,13 +4,13 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-        class ProgressWorkflowStateEnum < ::GraphQL::Schema::Enum
+      class CanvasProgress < BaseType
+          class ProgressWorkflowStateEnum < ::GraphQL::Schema::Enum
           value "queued"
           value "running"
           value "completed"
           value "failed"
         end
-      class CanvasProgress < BaseType
         description "Progress. API Docs: https://canvas.instructure.com/doc/api/progress.html"
         field :id, ID, "the ID of the Progress object.Example: 1", null: true
         field :context_id, ID, "the context owning the job..Example: 1", null: true
@@ -23,7 +23,7 @@ module LMSGraphQL
         field :updated_at, LMSGraphQL::Types::DateTimeType, "the time the job was last updated.Example: 2013-01-15T15:04:00Z", null: true
         field :message, String, "optional details about the job.Example: 17 courses processed", null: true
         field :results, String, "optional results of the job. omitted when job is still pending.Example: 123", null: true
-        field :url, String, "url where a progress update can be retrieved.Example: https://canvas.example.edu/api/v1/progress/1", null: true
+        field :url, String, "url where a progress update can be retrieved with an LTI access token.Example: https://canvas.example.edu/api/lti/courses/1/progress/1", null: true
 
       end
     end
