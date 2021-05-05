@@ -6,7 +6,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasReportInput < BaseInputObject
-        description "Account Reports. API Docs: https://canvas.instructure.com/doc/api/account_reports.html"
+          description "Account Reports. API Docs: https://canvas.instructure.com/doc/api/account_reports.html"
       argument :id, ID, "The unique identifier for the report..Example: 1", required: false
       argument :report, String, "The type of report..Example: sis_export_csv", required: false
       argument :file_url, String, "The url to the report download..Example: https://example.com/some/path", required: false

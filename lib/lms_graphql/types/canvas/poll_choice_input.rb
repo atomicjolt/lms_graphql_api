@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasPollChoiceInput < BaseInputObject
-        description "PollChoices. API Docs: https://canvas.instructure.com/doc/api/poll_choices.html"
+          description "PollChoices. API Docs: https://canvas.instructure.com/doc/api/poll_choices.html"
       argument :id, ID, "The unique identifier for the poll choice..Example: 1023", required: false
       argument :poll_id, ID, "The id of the poll this poll choice belongs to..Example: 1779", required: false
       argument :is_correct, Boolean, "Specifies whether or not this poll choice is a 'correct' choice..Example: true", required: false

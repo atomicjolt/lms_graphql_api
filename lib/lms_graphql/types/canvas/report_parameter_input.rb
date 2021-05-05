@@ -4,12 +4,12 @@ require_relative "../canvas_base_input_type"
 module LMSGraphQL
   module Types
     module Canvas
-        class ReportParameterOrderEnum < ::GraphQL::Schema::Enum
+      class CanvasReportParameterInput < BaseInputObject
+          class ReportParameterOrderEnum < ::GraphQL::Schema::Enum
           value "users"
           value "courses"
           value "outcomes"
         end
-      class CanvasReportParameterInput < BaseInputObject
         description "Account Reports. API Docs: https://canvas.instructure.com/doc/api/account_reports.html"
       argument :enrollment_term_id, ID, "The canvas id of the term to get grades from.Example: 2", required: false
       argument :include_deleted, Boolean, "If true, deleted objects will be included. If false, deleted objects will be omitted..", required: false

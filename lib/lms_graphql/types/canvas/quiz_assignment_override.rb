@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasQuizAssignmentOverride < BaseType
-        description "Quiz Assignment Overrides. API Docs: https://canvas.instructure.com/doc/api/quiz_assignment_overrides.html"
+          description "Quiz Assignment Overrides. API Docs: https://canvas.instructure.com/doc/api/quiz_assignment_overrides.html"
         field :id, ID, "ID of the assignment override, unless this is the base construct, in which case the 'id' field is omitted..Example: 1", null: true
         field :due_at, LMSGraphQL::Types::DateTimeType, "The date after which any quiz submission is considered late..Example: 2014-02-21T06:59:59Z", null: true
         field :unlock_at, LMSGraphQL::Types::DateTimeType, "Date when the quiz becomes available for taking..", null: true

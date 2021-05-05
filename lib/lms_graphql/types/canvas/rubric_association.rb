@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasRubricAssociation < BaseType
-        description "Rubrics. API Docs: https://canvas.instructure.com/doc/api/rubrics.html"
+          description "Rubrics. API Docs: https://canvas.instructure.com/doc/api/rubrics.html"
         field :id, ID, "the ID of the association.Example: 1", null: true
         field :rubric_id, ID, "the ID of the rubric.Example: 1", null: true
         field :association_id, ID, "the ID of the object this association links to.Example: 1", null: true

@@ -4,7 +4,8 @@ require_relative "../canvas_base_input_type"
 module LMSGraphQL
   module Types
     module Canvas
-        class MigrationIssueWorkflowStateEnum < ::GraphQL::Schema::Enum
+      class CanvasMigrationIssueInput < BaseInputObject
+          class MigrationIssueWorkflowStateEnum < ::GraphQL::Schema::Enum
           value "active"
           value "resolved"
         end
@@ -14,7 +15,6 @@ module LMSGraphQL
           value "warning"
           value "error"
         end
-      class CanvasMigrationIssueInput < BaseInputObject
         description "Content Migrations. API Docs: https://canvas.instructure.com/doc/api/content_migrations.html"
       argument :id, ID, "the unique identifier for the issue.Example: 370663", required: false
       argument :content_migration_url, String, "API url to the content migration.Example: https://example.com/api/v1/courses/1/content_migrations/1", required: false

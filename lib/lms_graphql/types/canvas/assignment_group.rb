@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasAssignmentGroup < BaseType
-        description "Assignment Groups. API Docs: https://canvas.instructure.com/doc/api/assignment_groups.html"
+          description "Assignment Groups. API Docs: https://canvas.instructure.com/doc/api/assignment_groups.html"
         field :id, ID, "the id of the Assignment Group.Example: 1", null: true
         field :name, String, "the name of the Assignment Group.Example: group2", null: true
         field :position, Int, "the position of the Assignment Group.Example: 7", null: true

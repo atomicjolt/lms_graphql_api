@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasErrorReportInput < BaseInputObject
-        description "Error Reports. API Docs: https://canvas.instructure.com/doc/api/error_reports.html"
+          description "Error Reports. API Docs: https://canvas.instructure.com/doc/api/error_reports.html"
       argument :subject, String, "The users problem summary, like an email subject line.Example: File upload breaking", required: false
       argument :comments, String, "long form documentation of what was witnessed.Example: When I went to upload a .mov file to my files page, I got an error.  Retrying didn't help, other file types seem ok", required: false
       argument :user_perceived_severity, String, "categorization of how bad the user thinks the problem is.  Should be one of [just_a_comment, not_urgent, workaround_possible, blocks_what_i_need_to_do, extreme_critical_emergency]..Example: just_a_comment", required: false

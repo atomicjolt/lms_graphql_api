@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasPageViewInput < BaseInputObject
-        description "Users. API Docs: https://canvas.instructure.com/doc/api/users.html"
+          description "Users. API Docs: https://canvas.instructure.com/doc/api/users.html"
       argument :id, ID, "A UUID representing the page view.  This is also the unique request id.Example: 3e246700-e305-0130-51de-02e33aa501ef", required: false
       argument :app_name, String, "If the request is from an API request, the app that generated the access token.Example: Canvas for iOS", required: false
       argument :url, String, "The URL requested.Example: https://canvas.instructure.com/conversations", required: false

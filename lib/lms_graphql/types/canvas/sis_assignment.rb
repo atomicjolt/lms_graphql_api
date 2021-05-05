@@ -6,7 +6,8 @@ require_relative "user_assignment_override_attribute"
 module LMSGraphQL
   module Types
     module Canvas
-        class SisAssignmentSubmissionTypeEnum < ::GraphQL::Schema::Enum
+      class CanvasSisAssignment < BaseType
+          class SisAssignmentSubmissionTypeEnum < ::GraphQL::Schema::Enum
           value "discussion_topic"
           value "online_quiz"
           value "on_paper"
@@ -17,8 +18,8 @@ module LMSGraphQL
           value "online_url"
           value "online_upload"
           value "media_recording"
+          value "student_annotation"
         end
-      class CanvasSisAssignment < BaseType
         description "SIS Integration. API Docs: https://canvas.instructure.com/doc/api/sis_integration.html"
         field :id, ID, "The unique identifier for the assignment..Example: 4", null: true
         field :course_id, ID, "The unique identifier for the course..Example: 6", null: true
@@ -28,7 +29,7 @@ module LMSGraphQL
         field :unlock_at, LMSGraphQL::Types::DateTimeType, "(Optional) Time at which this was/will be unlocked..Example: 2013-01-01T00:00:00-06:00", null: true
         field :lock_at, LMSGraphQL::Types::DateTimeType, "(Optional) Time at which this was/will be locked..Example: 2013-02-01T00:00:00-06:00", null: true
         field :points_possible, Int, "The maximum points possible for the assignment.Example: 12", null: true
-        field :submission_types, SisAssignmentSubmissionTypeEnum, "the types of submissions allowed for this assignment list containing one or more of the following: 'discussion_topic', 'online_quiz', 'on_paper', 'none', 'external_tool', 'online_text_entry', 'online_url', 'online_upload' 'media_recording'.Example: online_text_entry", null: true
+        field :submission_types, SisAssignmentSubmissionTypeEnum, "the types of submissions allowed for this assignment list containing one or more of the following: 'discussion_topic', 'online_quiz', 'on_paper', 'none', 'external_tool', 'online_text_entry', 'online_url', 'online_upload', 'media_recording', 'student_annotation'.Example: online_text_entry", null: true
         field :integration_id, ID, "Third Party integration id for assignment.Example: 12341234", null: true
         field :integration_data, String, "(optional, Third Party integration data for assignment).Example: other_data", null: true
         field :include_in_final_grade, Boolean, "If false, the assignment will be omitted from the student's final grade.Example: true", null: true

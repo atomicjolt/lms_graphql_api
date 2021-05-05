@@ -4,11 +4,11 @@ require_relative "../canvas_base_input_type"
 module LMSGraphQL
   module Types
     module Canvas
-        class AuthenticationEventEventTypeEnum < ::GraphQL::Schema::Enum
+      class CanvasAuthenticationEventInput < BaseInputObject
+          class AuthenticationEventEventTypeEnum < ::GraphQL::Schema::Enum
           value "login"
           value "logout"
         end
-      class CanvasAuthenticationEventInput < BaseInputObject
         description "Authentications Log. API Docs: https://canvas.instructure.com/doc/api/authentications_log.html"
       argument :created_at, LMSGraphQL::Types::DateTimeType, "timestamp of the event.Example: 2012-07-19T15:00:00-06:00", required: false
       argument :event_type, AuthenticationEventEventTypeEnum, "authentication event type ('login' or 'logout').Example: login", required: false

@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasQuizSubmissionInput < BaseInputObject
-        description "Quiz Submissions. API Docs: https://canvas.instructure.com/doc/api/quiz_submissions.html"
+          description "Quiz Submissions. API Docs: https://canvas.instructure.com/doc/api/quiz_submissions.html"
       argument :id, ID, "The ID of the quiz submission..Example: 1", required: false
       argument :quiz_id, ID, "The ID of the Quiz the quiz submission belongs to..Example: 2", required: false
       argument :user_id, ID, "The ID of the Student that made the quiz submission..Example: 3", required: false

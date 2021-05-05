@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasQuizQuestionInput < BaseInputObject
-        description "Quiz Questions. API Docs: https://canvas.instructure.com/doc/api/quiz_questions.html"
+          description "Quiz Questions. API Docs: https://canvas.instructure.com/doc/api/quiz_questions.html"
       argument :id, ID, "The ID of the quiz question..Example: 1", required: false
       argument :quiz_id, ID, "The ID of the Quiz the question belongs to..Example: 2", required: false
       argument :position, Int, "The order in which the question will be retrieved and displayed..Example: 1", required: false

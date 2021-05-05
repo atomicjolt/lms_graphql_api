@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasAuthenticationProvider < BaseType
-        description "Authentication Providers. API Docs: https://canvas.instructure.com/doc/api/authentication_providers.html"
+          description "Authentication Providers. API Docs: https://canvas.instructure.com/doc/api/authentication_providers.html"
         field :identifier_format, String, "Valid for SAML providers..Example: urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress", null: true
         field :auth_type, String, "Valid for all providers..Example: saml", null: true
         field :id, ID, "Valid for all providers..Example: 1649", null: true

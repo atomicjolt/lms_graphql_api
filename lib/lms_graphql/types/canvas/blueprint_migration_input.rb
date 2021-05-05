@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasBlueprintMigrationInput < BaseInputObject
-        description "Blueprint Courses. API Docs: https://canvas.instructure.com/doc/api/blueprint_courses.html"
+          description "Blueprint Courses. API Docs: https://canvas.instructure.com/doc/api/blueprint_courses.html"
       argument :id, ID, "The ID of the migration..Example: 1", required: false
       argument :template_id, ID, "The ID of the template the migration belongs to. Only present when querying a blueprint course..Example: 2", required: false
       argument :subscription_id, ID, "The ID of the associated course's blueprint subscription. Only present when querying a course associated with a blueprint..Example: 101", required: false

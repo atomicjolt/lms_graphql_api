@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasMigrator < BaseType
-        description "Content Migrations. API Docs: https://canvas.instructure.com/doc/api/content_migrations.html"
+          description "Content Migrations. API Docs: https://canvas.instructure.com/doc/api/content_migrations.html"
         field :type, String, "The value to pass to the create endpoint.Example: common_cartridge_importer", null: true
         field :requires_file_upload, Boolean, "Whether this endpoint requires a file upload.Example: true", null: true
         field :name, String, "Description of the package type expected.Example: Common Cartridge 1.0/1.1/1.2 Package", null: true

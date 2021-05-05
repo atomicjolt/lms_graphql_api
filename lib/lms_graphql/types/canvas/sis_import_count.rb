@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasSisImportCount < BaseType
-        description "SIS Imports. API Docs: https://canvas.instructure.com/doc/api/sis_imports.html"
+          description "SIS Imports. API Docs: https://canvas.instructure.com/doc/api/sis_imports.html"
         field :accounts, Int, "Example: 0", null: true
         field :terms, Int, "Example: 3", null: true
         field :abstract_courses, Int, "Example: 0", null: true

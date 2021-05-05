@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasFolder < BaseType
-        description "Files. API Docs: https://canvas.instructure.com/doc/api/files.html"
+          description "Files. API Docs: https://canvas.instructure.com/doc/api/files.html"
         field :context_type, String, "Example: Course", null: true
         field :context_id, ID, "Example: 1401", null: true
         field :files_count, Int, "Example: 0", null: true

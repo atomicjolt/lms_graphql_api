@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasGradingStandard < BaseType
-        description "Grading Standards. API Docs: https://canvas.instructure.com/doc/api/grading_standards.html"
+          description "Grading Standards. API Docs: https://canvas.instructure.com/doc/api/grading_standards.html"
         field :title, String, "the title of the grading standard.Example: Account Standard", null: true
         field :id, ID, "the id of the grading standard.Example: 1", null: true
         field :context_type, String, "the context this standard is associated with, either 'Account' or 'Course'.Example: Account", null: true

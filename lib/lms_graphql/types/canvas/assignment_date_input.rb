@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasAssignmentDateInput < BaseInputObject
-        description "Assignments. API Docs: https://canvas.instructure.com/doc/api/assignments.html"
+          description "Assignments. API Docs: https://canvas.instructure.com/doc/api/assignments.html"
       argument :id, ID, "(Optional, missing if 'base' is present) id of the assignment override this date represents.Example: 1", required: false
       argument :base, Boolean, "(Optional, present if 'id' is missing) whether this date represents the assignment's or quiz's default due date.Example: true", required: false
       argument :title, String, "Example: Summer Session", required: false

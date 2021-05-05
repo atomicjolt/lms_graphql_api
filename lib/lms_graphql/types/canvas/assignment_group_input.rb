@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasAssignmentGroupInput < BaseInputObject
-        description "Assignment Groups. API Docs: https://canvas.instructure.com/doc/api/assignment_groups.html"
+          description "Assignment Groups. API Docs: https://canvas.instructure.com/doc/api/assignment_groups.html"
       argument :id, ID, "the id of the Assignment Group.Example: 1", required: false
       argument :name, String, "the name of the Assignment Group.Example: group2", required: false
       argument :position, Int, "the position of the Assignment Group.Example: 7", required: false

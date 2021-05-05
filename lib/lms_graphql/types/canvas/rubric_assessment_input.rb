@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasRubricAssessmentInput < BaseInputObject
-        description "Rubrics. API Docs: https://canvas.instructure.com/doc/api/rubrics.html"
+          description "Rubrics. API Docs: https://canvas.instructure.com/doc/api/rubrics.html"
       argument :id, ID, "the ID of the rubric.Example: 1", required: false
       argument :rubric_id, ID, "the rubric the assessment belongs to.Example: 1", required: false
       argument :rubric_association_id, ID, "Example: 2", required: false

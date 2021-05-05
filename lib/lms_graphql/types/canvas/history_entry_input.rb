@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasHistoryEntryInput < BaseInputObject
-        description "History. API Docs: https://canvas.instructure.com/doc/api/history.html"
+          description "History. API Docs: https://canvas.instructure.com/doc/api/history.html"
       argument :asset_code, String, "The asset string for the item viewed.Example: assignment_123", required: false
       argument :asset_name, String, "The name of the item.Example: Test Assignment", required: false
       argument :asset_icon, String, "The icon type shown for the item. One of 'icon-announcement', 'icon-assignment', 'icon-calendar-month', 'icon-discussion', 'icon-document', 'icon-download', 'icon-gradebook', 'icon-home', 'icon-message', 'icon-module', 'icon-outcomes', 'icon-quiz', 'icon-user', 'icon-syllabus'.Example: icon-assignment", required: false

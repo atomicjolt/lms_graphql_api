@@ -7,7 +7,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasQuizStatistic < BaseType
-        description "Quiz Statistics. API Docs: https://canvas.instructure.com/doc/api/quiz_statistics.html"
+          description "Quiz Statistics. API Docs: https://canvas.instructure.com/doc/api/quiz_statistics.html"
         field :id, ID, "The ID of the quiz statistics report..Example: 1", null: true
         field :quiz_id, ID, "The ID of the Quiz the statistics report is for. 
 NOTE: AVAILABLE ONLY IN NON-JSON-API REQUESTS..Example: 2", null: true

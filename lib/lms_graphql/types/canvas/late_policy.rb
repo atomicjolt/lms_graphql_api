@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasLatePolicy < BaseType
-        description "Late Policy. API Docs: https://canvas.instructure.com/doc/api/late_policy.html"
+          description "Late Policy. API Docs: https://canvas.instructure.com/doc/api/late_policy.html"
         field :id, ID, "the unique identifier for the late policy.Example: 123", null: true
         field :course_id, ID, "the unique identifier for the course.Example: 123", null: true
         field :missing_submission_deduction_enabled, Boolean, "whether to enable missing submission deductions.Example: true", null: true

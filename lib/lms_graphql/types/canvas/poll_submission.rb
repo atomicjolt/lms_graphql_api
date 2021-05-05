@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasPollSubmission < BaseType
-        description "PollSubmissions. API Docs: https://canvas.instructure.com/doc/api/poll_submissions.html"
+          description "PollSubmissions. API Docs: https://canvas.instructure.com/doc/api/poll_submissions.html"
         field :id, ID, "The unique identifier for the poll submission..Example: 1023", null: true
         field :poll_choice_id, ID, "The unique identifier of the poll choice chosen for this submission..Example: 155", null: true
         field :user_id, ID, "the unique identifier of the user who submitted this poll submission..Example: 4555", null: true

@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasOutcomeAlignment < BaseType
-        description "Outcomes. API Docs: https://canvas.instructure.com/doc/api/outcomes.html"
+          description "Outcomes. API Docs: https://canvas.instructure.com/doc/api/outcomes.html"
         field :id, ID, "the id of the aligned learning outcome..Example: 1", null: true
         field :assignment_id, ID, "the id of the aligned assignment (null for live assessments)..Example: 2", null: true
         field :assessment_id, ID, "the id of the aligned live assessment (null for assignments)..Example: 3", null: true

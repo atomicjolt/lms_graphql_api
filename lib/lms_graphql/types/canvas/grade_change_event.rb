@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasGradeChangeEvent < BaseType
-        description "Grade Change Log. API Docs: https://canvas.instructure.com/doc/api/grade_change_log.html"
+          description "Grade Change Log. API Docs: https://canvas.instructure.com/doc/api/grade_change_log.html"
         field :id, ID, "ID of the event..Example: e2b76430-27a5-0131-3ca1-48e0eb13f29b", null: true
         field :created_at, LMSGraphQL::Types::DateTimeType, "timestamp of the event.Example: 2012-07-19T15:00:00-06:00", null: true
         field :event_type, String, "GradeChange event type.Example: grade_change", null: true

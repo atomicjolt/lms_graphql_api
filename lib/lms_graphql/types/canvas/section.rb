@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasSection < BaseType
-        description "Sections. API Docs: https://canvas.instructure.com/doc/api/sections.html"
+          description "Sections. API Docs: https://canvas.instructure.com/doc/api/sections.html"
         field :id, ID, "The unique identifier for the section..Example: 1", null: true
         field :name, String, "The name of the section..Example: Section A", null: true
         field :sis_section_id, ID, "The sis id of the section. This field is only included if the user has permission to view SIS information..Example: s34643", null: true

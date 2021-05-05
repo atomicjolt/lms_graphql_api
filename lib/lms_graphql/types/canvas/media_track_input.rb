@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasMediaTrackInput < BaseInputObject
-        description "Media Objects. API Docs: https://canvas.instructure.com/doc/api/media_objects.html"
+          description "Media Objects. API Docs: https://canvas.instructure.com/doc/api/media_objects.html"
       argument :id, ID, "", required: false
       argument :user_id, ID, "", required: false
       argument :media_object_id, ID, "", required: false

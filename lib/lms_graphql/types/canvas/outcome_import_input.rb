@@ -5,13 +5,13 @@ require_relative "user"
 module LMSGraphQL
   module Types
     module Canvas
-        class OutcomeImportWorkflowStateEnum < ::GraphQL::Schema::Enum
+      class CanvasOutcomeImportInput < BaseInputObject
+          class OutcomeImportWorkflowStateEnum < ::GraphQL::Schema::Enum
           value "created"
           value "importing"
           value "succeeded"
           value "failed"
         end
-      class CanvasOutcomeImportInput < BaseInputObject
         description "Outcome Imports. API Docs: https://canvas.instructure.com/doc/api/outcome_imports.html"
       argument :id, ID, "The unique identifier for the outcome import..Example: 1", required: false
       argument :created_at, LMSGraphQL::Types::DateTimeType, "The date the outcome import was created..Example: 2013-12-01T23:59:00-06:00", required: false

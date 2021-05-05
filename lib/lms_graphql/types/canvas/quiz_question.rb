@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasQuizQuestion < BaseType
-        description "Quiz Questions. API Docs: https://canvas.instructure.com/doc/api/quiz_questions.html"
+          description "Quiz Questions. API Docs: https://canvas.instructure.com/doc/api/quiz_questions.html"
         field :id, ID, "The ID of the quiz question..Example: 1", null: true
         field :quiz_id, ID, "The ID of the Quiz the question belongs to..Example: 2", null: true
         field :position, Int, "The order in which the question will be retrieved and displayed..Example: 1", null: true

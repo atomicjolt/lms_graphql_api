@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasLineItem < BaseType
-        description "Line Items. API Docs: https://canvas.instructure.com/doc/api/line_items.html"
+          description "Line Items. API Docs: https://canvas.instructure.com/doc/api/line_items.html"
         field :id, ID, "The fully qualified URL for showing, updating, and deleting the Line Item.Example: http://institution.canvas.com/api/lti/courses/5/line_items/2", null: true
         field :score_maximum, Float, "The maximum score of the Line Item.Example: 50", null: true
         field :label, String, "The label of the Line Item..Example: 50", null: true

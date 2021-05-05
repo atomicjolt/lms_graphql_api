@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasCollaborationInput < BaseInputObject
-        description "Collaborations. API Docs: https://canvas.instructure.com/doc/api/collaborations.html"
+          description "Collaborations. API Docs: https://canvas.instructure.com/doc/api/collaborations.html"
       argument :id, ID, "The unique identifier for the collaboration.Example: 43", required: false
       argument :collaboration_type, String, "A name for the type of collaboration.Example: Microsoft Office", required: false
       argument :document_id, ID, "The collaboration document identifier for the collaboration provider.Example: oinwoenfe8w8ef_onweufe89fef", required: false

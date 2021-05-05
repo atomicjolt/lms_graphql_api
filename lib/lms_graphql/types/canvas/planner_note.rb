@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasPlannerNote < BaseType
-        description "Planner. API Docs: https://canvas.instructure.com/doc/api/planner.html"
+          description "Planner. API Docs: https://canvas.instructure.com/doc/api/planner.html"
         field :id, ID, "The ID of the planner note.Example: 234", null: true
         field :title, String, "The title for a planner note.Example: Bring books tomorrow", null: true
         field :description, String, "The description of the planner note.Example: I need to bring books tomorrow for my course on biology", null: true

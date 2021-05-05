@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasLtiAssignmentInput < BaseInputObject
-        description "Plagiarism Detection Platform Assignments. API Docs: https://canvas.instructure.com/doc/api/plagiarism_detection_platform_assignments.html"
+          description "Plagiarism Detection Platform Assignments. API Docs: https://canvas.instructure.com/doc/api/plagiarism_detection_platform_assignments.html"
       argument :id, ID, "Example: 4", required: false
       argument :name, String, "Example: Midterm Review", required: false
       argument :description, String, "Example: <p>Do the following:</p>.", required: false

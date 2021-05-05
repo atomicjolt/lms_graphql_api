@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasBookmarkInput < BaseInputObject
-        description "Bookmarks. API Docs: https://canvas.instructure.com/doc/api/bookmarks.html"
+          description "Bookmarks. API Docs: https://canvas.instructure.com/doc/api/bookmarks.html"
       argument :id, ID, "Example: 1", required: false
       argument :name, String, "Example: Biology 101", required: false
       argument :url, String, "Example: /courses/1", required: false

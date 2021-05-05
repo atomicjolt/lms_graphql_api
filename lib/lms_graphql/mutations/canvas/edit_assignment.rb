@@ -42,11 +42,12 @@ module LMSGraphQL
         argument :assignment_graders_names_visible_to_final_grader, Boolean, required: false
         argument :assignment_anonymous_grading, Boolean, required: false
         argument :assignment_allowed_attempts, Int, required: false
+        argument :assignment_annotatable_attachment_id, Int, required: false
         
         
         field :assignment, LMSGraphQL::Types::Canvas::CanvasAssignment, null: false
         
-        def resolve(course_id:, id:, assignment_name: nil, assignment_position: nil, assignment_submission_types: nil, assignment_allowed_extensions: nil, assignment_turnitin_enabled: nil, assignment_vericite_enabled: nil, assignment_turnitin_settings: nil, assignment_sis_assignment_id: nil, assignment_integration_data: nil, assignment_integration_id: nil, assignment_peer_reviews: nil, assignment_automatic_peer_reviews: nil, assignment_notify_of_update: nil, assignment_group_category_id: nil, assignment_grade_group_students_individually: nil, assignment_external_tool_tag_attributes: nil, assignment_points_possible: nil, assignment_grading_type: nil, assignment_due_at: nil, assignment_lock_at: nil, assignment_unlock_at: nil, assignment_description: nil, assignment_assignment_group_id: nil, assignment_assignment_overrides: nil, assignment_only_visible_to_overrides: nil, assignment_published: nil, assignment_grading_standard_id: nil, assignment_omit_from_final_grade: nil, assignment_moderated_grading: nil, assignment_grader_count: nil, assignment_final_grader_id: nil, assignment_grader_comments_visible_to_graders: nil, assignment_graders_anonymous_to_graders: nil, assignment_graders_names_visible_to_final_grader: nil, assignment_anonymous_grading: nil, assignment_allowed_attempts: nil)
+        def resolve(course_id:, id:, assignment_name: nil, assignment_position: nil, assignment_submission_types: nil, assignment_allowed_extensions: nil, assignment_turnitin_enabled: nil, assignment_vericite_enabled: nil, assignment_turnitin_settings: nil, assignment_sis_assignment_id: nil, assignment_integration_data: nil, assignment_integration_id: nil, assignment_peer_reviews: nil, assignment_automatic_peer_reviews: nil, assignment_notify_of_update: nil, assignment_group_category_id: nil, assignment_grade_group_students_individually: nil, assignment_external_tool_tag_attributes: nil, assignment_points_possible: nil, assignment_grading_type: nil, assignment_due_at: nil, assignment_lock_at: nil, assignment_unlock_at: nil, assignment_description: nil, assignment_assignment_group_id: nil, assignment_assignment_overrides: nil, assignment_only_visible_to_overrides: nil, assignment_published: nil, assignment_grading_standard_id: nil, assignment_omit_from_final_grade: nil, assignment_moderated_grading: nil, assignment_grader_count: nil, assignment_final_grader_id: nil, assignment_grader_comments_visible_to_graders: nil, assignment_graders_anonymous_to_graders: nil, assignment_graders_names_visible_to_final_grader: nil, assignment_anonymous_grading: nil, assignment_allowed_attempts: nil, assignment_annotatable_attachment_id: nil)
           context[:canvas_api].call("EDIT_ASSIGNMENT").proxy(
             "EDIT_ASSIGNMENT",
             {
@@ -89,7 +90,8 @@ module LMSGraphQL
               "assignment[graders_anonymous_to_graders]": assignment_graders_anonymous_to_graders,
               "assignment[graders_names_visible_to_final_grader]": assignment_graders_names_visible_to_final_grader,
               "assignment[anonymous_grading]": assignment_anonymous_grading,
-              "assignment[allowed_attempts]": assignment_allowed_attempts
+              "assignment[allowed_attempts]": assignment_allowed_attempts,
+              "assignment[annotatable_attachment_id]": assignment_annotatable_attachment_id
             },
           ).parsed_response
         end

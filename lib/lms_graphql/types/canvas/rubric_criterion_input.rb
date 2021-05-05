@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasRubricCriterionInput < BaseInputObject
-        description "Rubrics. API Docs: https://canvas.instructure.com/doc/api/rubrics.html"
+          description "Rubrics. API Docs: https://canvas.instructure.com/doc/api/rubrics.html"
       argument :id, ID, "the ID of the criterion.Example: _10", required: false
       argument :description, String, "", required: false
       argument :long_description, String, "", required: false

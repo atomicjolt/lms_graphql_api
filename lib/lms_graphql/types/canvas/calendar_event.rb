@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasCalendarEvent < BaseType
-        description "Calendar Events. API Docs: https://canvas.instructure.com/doc/api/calendar_events.html"
+          description "Calendar Events. API Docs: https://canvas.instructure.com/doc/api/calendar_events.html"
         field :id, ID, "The ID of the calendar event.Example: 234", null: true
         field :title, String, "The title of the calendar event.Example: Paintball Fight!", null: true
         field :start_at, LMSGraphQL::Types::DateTimeType, "The start timestamp of the event.Example: 2012-07-19T15:00:00-06:00", null: true

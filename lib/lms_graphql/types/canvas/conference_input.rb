@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasConferenceInput < BaseInputObject
-        description "Conferences. API Docs: https://canvas.instructure.com/doc/api/conferences.html"
+          description "Conferences. API Docs: https://canvas.instructure.com/doc/api/conferences.html"
       argument :id, ID, "The id of the conference.Example: 170", required: false
       argument :conference_type, String, "The type of conference.Example: AdobeConnect", required: false
       argument :conference_key, String, "The 3rd party's ID for the conference.Example: abcdjoelisgreatxyz", required: false

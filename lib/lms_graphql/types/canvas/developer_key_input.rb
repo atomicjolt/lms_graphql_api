@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasDeveloperKeyInput < BaseInputObject
-        description "Public JWK. API Docs: https://canvas.instructure.com/doc/api/public_jwk.html"
+          description "Public JWK. API Docs: https://canvas.instructure.com/doc/api/public_jwk.html"
       argument :id, ID, "The ID should match the Developer Key ID in canvas.Example: 1000000000040", required: false
       argument :is_lti_key, Boolean, "true the tool is a lti key, null is not a lti key.Example: true", required: false
       argument :visible, Boolean, "Controls if the tool is visable.Example: true", required: false

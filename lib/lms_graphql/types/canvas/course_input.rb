@@ -1,4 +1,5 @@
 require_relative "../canvas_base_input_type"
+require_relative "grading_period"
 require_relative "enrollment"
 require_relative "calendar_link"
 require_relative "term"
@@ -7,7 +8,8 @@ require_relative "course_progress"
 module LMSGraphQL
   module Types
     module Canvas
-        class CourseWorkflowStateEnum < ::GraphQL::Schema::Enum
+      class CanvasCourseInput < BaseInputObject
+          class CourseWorkflowStateEnum < ::GraphQL::Schema::Enum
           value "unpublished"
           value "available"
           value "completed"
@@ -21,7 +23,6 @@ module LMSGraphQL
           value "syllabus"
           value "assignments"
         end
-      class CanvasCourseInput < BaseInputObject
         description "Courses. API Docs: https://canvas.instructure.com/doc/api/courses.html"
       argument :id, ID, "the unique identifier for the course.Example: 370663", required: false
       argument :sis_course_id, ID, "the SIS identifier for the course, if defined. This field is only included if the user has permission to view SIS information..", required: false
@@ -34,6 +35,7 @@ module LMSGraphQL
       argument :account_id, ID, "the account associated with the course.Example: 81259", required: false
       argument :root_account_id, ID, "the root account associated with the course.Example: 81259", required: false
       argument :enrollment_term_id, ID, "the enrollment term associated with the course.Example: 34", required: false
+      argument :grading_periods, [LMSGraphQL::Types::Canvas::CanvasGradingPeriodInput], "A list of grading periods associated with the course.", required: false
       argument :grading_standard_id, ID, "the grading standard associated with the course.Example: 25", required: false
       argument :grade_passback_setting, String, "the grade_passback_setting set on the course.Example: nightly_sync", required: false
       argument :created_at, LMSGraphQL::Types::DateTimeType, "the date the course was created..Example: 2012-05-01T00:00:00-06:00", required: false
@@ -71,6 +73,7 @@ module LMSGraphQL
       argument :blueprint, Boolean, "optional: whether the course is set as a Blueprint Course (blueprint fields require the Blueprint Courses feature).Example: true", required: false
       argument :blueprint_restrictions, String, "optional: Set of restrictions applied to all locked course objects.Example: true, true, false, false", required: false
       argument :blueprint_restrictions_by_object_type, String, "optional: Sets of restrictions differentiated by object type applied to locked course objects.Example: {'content'=>true, 'points'=>true}, {'content'=>true}", required: false
+      argument :template, Boolean, "optional: whether the course is set as a template (requires the Course Templates feature).Example: true", required: false
 
       end
     end

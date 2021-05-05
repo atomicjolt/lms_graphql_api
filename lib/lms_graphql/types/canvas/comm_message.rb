@@ -4,7 +4,8 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-        class CommMessageWorkflowStateEnum < ::GraphQL::Schema::Enum
+      class CanvasCommMessage < BaseType
+          class CommMessageWorkflowStateEnum < ::GraphQL::Schema::Enum
           value "created"
           value "staged"
           value "sending"
@@ -14,7 +15,6 @@ module LMSGraphQL
           value "cancelled"
           value "closed"
         end
-      class CanvasCommMessage < BaseType
         description "CommMessages. API Docs: https://canvas.instructure.com/doc/api/comm_messages.html"
         field :id, ID, "The ID of the CommMessage..Example: 42", null: true
         field :created_at, LMSGraphQL::Types::DateTimeType, "The date and time this message was created.Example: 2013-03-19T21:00:00Z", null: true

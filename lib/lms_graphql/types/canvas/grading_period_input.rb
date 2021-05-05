@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasGradingPeriodInput < BaseInputObject
-        description "Grading Periods. API Docs: https://canvas.instructure.com/doc/api/grading_periods.html"
+          description "Grading Periods. API Docs: https://canvas.instructure.com/doc/api/grading_periods.html"
       argument :id, ID, "The unique identifier for the grading period..Example: 1023", required: false
       argument :title, String, "The title for the grading period..Example: First Block", required: false
       argument :start_date, String, "The start date of the grading period..Example: 2014-01-07T15:04:00Z", required: false

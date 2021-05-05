@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasMediaTrack < BaseType
-        description "Media Objects. API Docs: https://canvas.instructure.com/doc/api/media_objects.html"
+          description "Media Objects. API Docs: https://canvas.instructure.com/doc/api/media_objects.html"
         field :id, ID, "", null: true
         field :user_id, ID, "", null: true
         field :media_object_id, ID, "", null: true

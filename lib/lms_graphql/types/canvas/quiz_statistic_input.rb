@@ -7,7 +7,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasQuizStatisticInput < BaseInputObject
-        description "Quiz Statistics. API Docs: https://canvas.instructure.com/doc/api/quiz_statistics.html"
+          description "Quiz Statistics. API Docs: https://canvas.instructure.com/doc/api/quiz_statistics.html"
       argument :id, ID, "The ID of the quiz statistics report..Example: 1", required: false
       argument :quiz_id, ID, "The ID of the Quiz the statistics report is for. 
 NOTE: AVAILABLE ONLY IN NON-JSON-API REQUESTS..Example: 2", required: false

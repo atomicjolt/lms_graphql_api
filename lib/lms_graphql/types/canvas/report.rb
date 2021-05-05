@@ -6,7 +6,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasReport < BaseType
-        description "Account Reports. API Docs: https://canvas.instructure.com/doc/api/account_reports.html"
+          description "Account Reports. API Docs: https://canvas.instructure.com/doc/api/account_reports.html"
         field :id, ID, "The unique identifier for the report..Example: 1", null: true
         field :report, String, "The type of report..Example: sis_export_csv", null: true
         field :file_url, String, "The url to the report download..Example: https://example.com/some/path", null: true

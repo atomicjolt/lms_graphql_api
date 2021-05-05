@@ -7,7 +7,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasModuleItemSequenceNode < BaseType
-        description "Modules. API Docs: https://canvas.instructure.com/doc/api/modules.html"
+          description "Modules. API Docs: https://canvas.instructure.com/doc/api/modules.html"
         field :prev, LMSGraphQL::Types::Canvas::CanvasModuleItem, "The previous ModuleItem in the sequence.", null: true
         field :current, LMSGraphQL::Types::Canvas::CanvasModuleItem, "The ModuleItem being queried.Example: 768, 123, A lonely page, Page", null: true
         field :next, LMSGraphQL::Types::Canvas::CanvasModuleItem, "The next ModuleItem in the sequence.Example: 769, 127, Project 1, Assignment", resolver_method: :resolve_next, null: true

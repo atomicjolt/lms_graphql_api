@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasUser < BaseType
-        description "Users. API Docs: https://canvas.instructure.com/doc/api/users.html"
+          description "Users. API Docs: https://canvas.instructure.com/doc/api/users.html"
         field :id, ID, "The ID of the user..Example: 2", null: true
         field :name, String, "The name of the user..Example: Sheldon Cooper", null: true
         field :sortable_name, String, "The name of the user that is should be used for sorting groups of users, such as in the gradebook..Example: Cooper, Sheldon", null: true

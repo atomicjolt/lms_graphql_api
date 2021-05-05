@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasOriginalityReport < BaseType
-        description "Originality Reports. API Docs: https://canvas.instructure.com/doc/api/originality_reports.html"
+          description "Originality Reports. API Docs: https://canvas.instructure.com/doc/api/originality_reports.html"
         field :id, ID, "The id of the OriginalityReport.Example: 4", null: true
         field :file_id, ID, "The id of the file receiving the originality score.Example: 8", null: true
         field :originality_score, Float, "A number between 0 and 100 representing the originality score.Example: 0.16", null: true

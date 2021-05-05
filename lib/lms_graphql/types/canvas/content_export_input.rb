@@ -4,7 +4,8 @@ require_relative "file"
 module LMSGraphQL
   module Types
     module Canvas
-        class ContentExportExportTypeEnum < ::GraphQL::Schema::Enum
+      class CanvasContentExportInput < BaseInputObject
+          class ContentExportExportTypeEnum < ::GraphQL::Schema::Enum
           value "common_cartridge"
           value "qti"
         end
@@ -15,7 +16,6 @@ module LMSGraphQL
           value "exported"
           value "failed"
         end
-      class CanvasContentExportInput < BaseInputObject
         description "Content Exports. API Docs: https://canvas.instructure.com/doc/api/content_exports.html"
       argument :id, ID, "the unique identifier for the export.Example: 101", required: false
       argument :created_at, LMSGraphQL::Types::DateTimeType, "the date and time this export was requested.Example: 2014-01-01T00:00:00Z", required: false

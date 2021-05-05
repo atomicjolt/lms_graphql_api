@@ -4,13 +4,13 @@ require_relative "rubric_rating"
 module LMSGraphQL
   module Types
     module Canvas
-        class OutcomeCalculationMethodEnum < ::GraphQL::Schema::Enum
+      class CanvasOutcomeInput < BaseInputObject
+          class OutcomeCalculationMethodEnum < ::GraphQL::Schema::Enum
           value "decaying_average"
           value "n_mastery"
           value "latest"
           value "highest"
         end
-      class CanvasOutcomeInput < BaseInputObject
         description "Outcomes. API Docs: https://canvas.instructure.com/doc/api/outcomes.html"
       argument :id, ID, "the ID of the outcome.Example: 1", required: false
       argument :url, String, "the URL for fetching/updating the outcome. should be treated as opaque.Example: /api/v1/outcomes/1", required: false

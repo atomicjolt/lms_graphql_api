@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasRubricRating < BaseType
-        description "Rubrics. API Docs: https://canvas.instructure.com/doc/api/rubrics.html"
+          description "Rubrics. API Docs: https://canvas.instructure.com/doc/api/rubrics.html"
         field :id, ID, "Example: name_2", null: true
         field :criterion_id, ID, "Example: _10", null: true
         field :description, String, "", null: true

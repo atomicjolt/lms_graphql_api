@@ -7,7 +7,8 @@ require_relative "user"
 module LMSGraphQL
   module Types
     module Canvas
-        class SisImportWorkflowStateEnum < ::GraphQL::Schema::Enum
+      class CanvasSisImport < BaseType
+          class SisImportWorkflowStateEnum < ::GraphQL::Schema::Enum
           value "initializing"
           value "created"
           value "importing"
@@ -21,7 +22,6 @@ module LMSGraphQL
           value "partially_restored"
           value "restored"
         end
-      class CanvasSisImport < BaseType
         description "SIS Imports. API Docs: https://canvas.instructure.com/doc/api/sis_imports.html"
         field :id, ID, "The unique identifier for the SIS import..Example: 1", null: true
         field :created_at, LMSGraphQL::Types::DateTimeType, "The date the SIS import was created..Example: 2013-12-01T23:59:00-06:00", null: true

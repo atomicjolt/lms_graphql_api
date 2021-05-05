@@ -4,7 +4,8 @@ require_relative "../canvas_base_input_type"
 module LMSGraphQL
   module Types
     module Canvas
-        class CommunicationChannelTypeEnum < ::GraphQL::Schema::Enum
+      class CanvasCommunicationChannelInput < BaseInputObject
+          class CommunicationChannelTypeEnum < ::GraphQL::Schema::Enum
           value "email"
           value "push"
           value "sms"
@@ -15,7 +16,6 @@ module LMSGraphQL
           value "unconfirmed"
           value "active"
         end
-      class CanvasCommunicationChannelInput < BaseInputObject
         description "Communication Channels. API Docs: https://canvas.instructure.com/doc/api/communication_channels.html"
       argument :id, ID, "The ID of the communication channel..Example: 16", required: false
       argument :address, String, "The address, or path, of the communication channel..Example: sheldon@caltech.example.com", required: false

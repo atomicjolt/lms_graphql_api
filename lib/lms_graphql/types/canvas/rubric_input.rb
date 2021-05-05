@@ -7,7 +7,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasRubricInput < BaseInputObject
-        description "Rubrics. API Docs: https://canvas.instructure.com/doc/api/rubrics.html"
+          description "Rubrics. API Docs: https://canvas.instructure.com/doc/api/rubrics.html"
       argument :id, ID, "the ID of the rubric.Example: 1", required: false
       argument :title, String, "title of the rubric.Example: some title", required: false
       argument :context_id, ID, "the context owning the rubric.Example: 1", required: false

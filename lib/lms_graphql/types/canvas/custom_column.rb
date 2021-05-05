@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasCustomColumn < BaseType
-        description "Custom Gradebook Columns. API Docs: https://canvas.instructure.com/doc/api/custom_gradebook_columns.html"
+          description "Custom Gradebook Columns. API Docs: https://canvas.instructure.com/doc/api/custom_gradebook_columns.html"
         field :id, ID, "The ID of the custom gradebook column.Example: 2", null: true
         field :teacher_notes, Boolean, "When true, this column's visibility will be toggled in the Gradebook when a user selects to show or hide notes.", null: true
         field :title, String, "header text.Example: Stuff", null: true

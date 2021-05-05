@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasTurnitinSettingInput < BaseInputObject
-        description "Assignments. API Docs: https://canvas.instructure.com/doc/api/assignments.html"
+          description "Assignments. API Docs: https://canvas.instructure.com/doc/api/assignments.html"
       argument :originality_report_visibility, String, "Example: after_grading", required: false
       argument :s_paper_check, Boolean, "", required: false
       argument :internet_check, Boolean, "", required: false

@@ -7,7 +7,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasRubric < BaseType
-        description "Rubrics. API Docs: https://canvas.instructure.com/doc/api/rubrics.html"
+          description "Rubrics. API Docs: https://canvas.instructure.com/doc/api/rubrics.html"
         field :id, ID, "the ID of the rubric.Example: 1", null: true
         field :title, String, "title of the rubric.Example: some title", null: true
         field :context_id, ID, "the context owning the rubric.Example: 1", null: true

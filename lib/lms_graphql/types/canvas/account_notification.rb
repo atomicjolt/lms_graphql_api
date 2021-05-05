@@ -4,14 +4,14 @@ require_relative "../canvas_base_type"
 module LMSGraphQL
   module Types
     module Canvas
-        class AccountNotificationIconEnum < ::GraphQL::Schema::Enum
+      class CanvasAccountNotification < BaseType
+          class AccountNotificationIconEnum < ::GraphQL::Schema::Enum
           value "warning"
           value "information"
           value "question"
           value "error"
           value "calendar"
         end
-      class CanvasAccountNotification < BaseType
         description "Account Notifications. API Docs: https://canvas.instructure.com/doc/api/account_notifications.html"
         field :subject, String, "The subject of the notifications.Example: Attention Students", null: true
         field :message, String, "The message to be sent in the notification..Example: This is a test of the notification system.", null: true

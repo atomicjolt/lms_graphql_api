@@ -4,7 +4,8 @@ require_relative "user"
 module LMSGraphQL
   module Types
     module Canvas
-        class GroupJoinLevelEnum < ::GraphQL::Schema::Enum
+      class CanvasGroup < BaseType
+          class GroupJoinLevelEnum < ::GraphQL::Schema::Enum
           value "parent_context_auto_join"
           value "parent_context_request"
           value "invitation_only"
@@ -15,7 +16,6 @@ module LMSGraphQL
           value "student_organized"
           value "imported"
         end
-      class CanvasGroup < BaseType
         description "Groups. API Docs: https://canvas.instructure.com/doc/api/groups.html"
         field :id, ID, "The ID of the group..Example: 17", null: true
         field :name, String, "The display name of the group..Example: Math Group 1", null: true

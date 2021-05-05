@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasCourseQuizExtension < BaseType
-        description "Course Quiz Extensions. API Docs: https://canvas.instructure.com/doc/api/course_quiz_extensions.html"
+          description "Course Quiz Extensions. API Docs: https://canvas.instructure.com/doc/api/course_quiz_extensions.html"
         field :user_id, ID, "The ID of the Student that needs the quiz extension..Example: 3", null: true
         field :extra_attempts, Int, "Number of times the student is allowed to re-take the quiz over the multiple-attempt limit..Example: 1", null: true
         field :extra_time, Int, "Amount of extra time allowed for the quiz submission, in minutes..Example: 60", null: true

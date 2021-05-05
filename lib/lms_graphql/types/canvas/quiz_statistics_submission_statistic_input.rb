@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasQuizStatisticsSubmissionStatisticInput < BaseInputObject
-        description "Quiz Statistics. API Docs: https://canvas.instructure.com/doc/api/quiz_statistics.html"
+          description "Quiz Statistics. API Docs: https://canvas.instructure.com/doc/api/quiz_statistics.html"
       argument :unique_count, Int, "The number of students who have taken the quiz..Example: 3", required: false
       argument :score_average, Float, "The mean of the student submission scores..Example: 4.33333333333333", required: false
       argument :score_high, Float, "The highest submission score..Example: 6", required: false

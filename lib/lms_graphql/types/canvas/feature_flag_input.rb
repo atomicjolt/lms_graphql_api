@@ -4,7 +4,8 @@ require_relative "../canvas_base_input_type"
 module LMSGraphQL
   module Types
     module Canvas
-        class FeatureFlagContextTypeEnum < ::GraphQL::Schema::Enum
+      class CanvasFeatureFlagInput < BaseInputObject
+          class FeatureFlagContextTypeEnum < ::GraphQL::Schema::Enum
           value "Course"
           value "Account"
           value "User"
@@ -16,7 +17,6 @@ module LMSGraphQL
           value "allowed_on"
           value "on"
         end
-      class CanvasFeatureFlagInput < BaseInputObject
         description "Feature Flags. API Docs: https://canvas.instructure.com/doc/api/feature_flags.html"
       argument :context_type, FeatureFlagContextTypeEnum, "The type of object to which this flag applies (Account, Course, or User). (This field is not present if this FeatureFlag represents the global Canvas default).Example: Account", required: false
       argument :context_id, ID, "The id of the object to which this flag applies (This field is not present if this FeatureFlag represents the global Canvas default).Example: 1038", required: false

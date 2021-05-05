@@ -4,7 +4,8 @@ require_relative "progress"
 module LMSGraphQL
   module Types
     module Canvas
-        class GroupCategorySelfSignupEnum < ::GraphQL::Schema::Enum
+      class CanvasGroupCategory < BaseType
+          class GroupCategorySelfSignupEnum < ::GraphQL::Schema::Enum
           value "restricted"
           value "enabled"
         end
@@ -13,7 +14,6 @@ module LMSGraphQL
           value "first"
           value "random"
         end
-      class CanvasGroupCategory < BaseType
         description "Group Categories. API Docs: https://canvas.instructure.com/doc/api/group_categories.html"
         field :id, ID, "The ID of the group category..Example: 17", null: true
         field :name, String, "The display name of the group category..Example: Math Groups", null: true

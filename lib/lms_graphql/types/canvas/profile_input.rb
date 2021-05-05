@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasProfileInput < BaseInputObject
-        description "Users. API Docs: https://canvas.instructure.com/doc/api/users.html"
+          description "Users. API Docs: https://canvas.instructure.com/doc/api/users.html"
       argument :id, ID, "The ID of the user..Example: 1234", required: false
       argument :name, String, "Sample User.Example: Sample User", required: false
       argument :short_name, String, "Sample User.Example: Sample User", required: false

@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasTurnitinSetting < BaseType
-        description "Assignments. API Docs: https://canvas.instructure.com/doc/api/assignments.html"
+          description "Assignments. API Docs: https://canvas.instructure.com/doc/api/assignments.html"
         field :originality_report_visibility, String, "Example: after_grading", null: true
         field :s_paper_check, Boolean, "", null: true
         field :internet_check, Boolean, "", null: true

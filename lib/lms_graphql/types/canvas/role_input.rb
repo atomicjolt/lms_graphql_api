@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasRoleInput < BaseInputObject
-        description "Roles. API Docs: https://canvas.instructure.com/doc/api/roles.html"
+          description "Roles. API Docs: https://canvas.instructure.com/doc/api/roles.html"
       argument :label, String, "The label of the role..Example: New Role", required: false
       argument :role, String, "The label of the role. (Deprecated alias for 'label').Example: New Role", required: false
       argument :base_role_type, String, "The role type that is being used as a base for this role. For account-level roles, this is 'AccountMembership'. For course-level roles, it is an enrollment type..Example: AccountMembership", required: false

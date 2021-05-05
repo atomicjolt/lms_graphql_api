@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasPageRevisionInput < BaseInputObject
-        description "Pages. API Docs: https://canvas.instructure.com/doc/api/pages.html"
+          description "Pages. API Docs: https://canvas.instructure.com/doc/api/pages.html"
       argument :revision_id, ID, "an identifier for this revision of the page.Example: 7", required: false
       argument :updated_at, LMSGraphQL::Types::DateTimeType, "the time when this revision was saved.Example: 2012-08-07T11:23:58-06:00", required: false
       argument :latest, Boolean, "whether this is the latest revision or not.Example: true", required: false

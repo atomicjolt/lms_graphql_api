@@ -4,13 +4,13 @@ require_relative "feature_flag"
 module LMSGraphQL
   module Types
     module Canvas
-        class FeatureAppliesToEnum < ::GraphQL::Schema::Enum
+      class CanvasFeatureInput < BaseInputObject
+          class FeatureAppliesToEnum < ::GraphQL::Schema::Enum
           value "Course"
           value "RootAccount"
           value "Account"
           value "User"
         end
-      class CanvasFeatureInput < BaseInputObject
         description "Feature Flags. API Docs: https://canvas.instructure.com/doc/api/feature_flags.html"
       argument :feature, String, "The symbolic name of the feature, used in FeatureFlags.Example: fancy_wickets", required: false
       argument :display_name, String, "The user-visible name of the feature.Example: Fancy Wickets", required: false

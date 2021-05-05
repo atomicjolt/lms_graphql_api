@@ -17,7 +17,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasSisImportStatistic < BaseType
-        description "SIS Imports. API Docs: https://canvas.instructure.com/doc/api/sis_imports.html"
+          description "SIS Imports. API Docs: https://canvas.instructure.com/doc/api/sis_imports.html"
         field :total_state_changes, Int, "This is the total number of items that were changed in the sis import. There are a few caveats that can cause this number to not add up to the individual counts. There are some state changes that happen that have no impact to the object. An example would be changing a course from 'created' to 'claimed'. Both of these would be considered an active course, but would increment this counter. In this example the course would not increment the created or restored counters for course statistic..Example: 382", null: true
         field :account, LMSGraphQL::Types::Canvas::CanvasSisImportStatistic, "This contains that statistics for accounts..", null: true
         field :enrollment_term, LMSGraphQL::Types::Canvas::CanvasSisImportStatistic, "This contains that statistics for terms..", null: true

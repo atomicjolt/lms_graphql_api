@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasPageViewLinkInput < BaseInputObject
-        description "Users. API Docs: https://canvas.instructure.com/doc/api/users.html"
+          description "Users. API Docs: https://canvas.instructure.com/doc/api/users.html"
       argument :user, Int, "The ID of the user for this page view.Example: 1234", required: false
       argument :context, Int, "The ID of the context for the request (course id if context_type is Course, etc).Example: 1234", required: false
       argument :asset, Int, "The ID of the asset for the request, if any.Example: 1234", required: false
