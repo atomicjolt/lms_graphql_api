@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :course_id, ID, required: true
         argument :sort, String, required: false
         argument :order, String, required: false
-        argument :exclude, String, required: false
+        argument :exclude, [String], required: false
         def resolve(course_id:, sort: nil, order: nil, exclude: nil, get_all: false)
           result = context[:canvas_api].call("LIST_MEDIA_OBJECTS_COURSES").proxy(
             "LIST_MEDIA_OBJECTS_COURSES",

@@ -25,6 +25,7 @@ module LMSGraphQL
       argument :sig_alg, String, "Valid for SAML providers..Example: http://www.w3.org/2001/04/xmldsig-more#rsa-sha256", required: false
       argument :jit_provisioning, Boolean, "Just In Time provisioning. Valid for all providers except Canvas (which has the similar in concept self_registration setting)..", required: false
       argument :federated_attributes, LMSGraphQL::Types::Canvas::CanvasFederatedAttributesConfigInput, "", required: false
+      argument :mfa_required, Boolean, "If multi-factor authentication is required when logging in with this authentication provider. The account must not have MFA disabled..", required: false
 
       end
     end

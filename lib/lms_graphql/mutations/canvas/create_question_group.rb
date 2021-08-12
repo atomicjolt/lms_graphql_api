@@ -6,10 +6,10 @@ module LMSGraphQL
       class CreateQuestionGroup < BaseMutation
         argument :course_id, ID, required: true
         argument :quiz_id, ID, required: true
-        argument :quiz_groups_name, String, required: false
-        argument :quiz_groups_pick_count, Int, required: false
-        argument :quiz_groups_question_points, Int, required: false
-        argument :quiz_groups_assessment_question_bank_id, Int, required: false
+        argument :quiz_groups_name, [String], required: false
+        argument :quiz_groups_pick_count, [Int], required: false
+        argument :quiz_groups_question_points, [Int], required: false
+        argument :quiz_groups_assessment_question_bank_id, [Int], required: false
         
         
         field :return_value, Boolean, null: false

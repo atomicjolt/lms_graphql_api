@@ -190,6 +190,8 @@ module LMSGraphQL
       class CanvasGroupMembership < BaseType;end
       class CanvasHistoryEntryInput < BaseInputObject;end
       class CanvasHistoryEntry < BaseType;end
+      class CanvasInstIDInput < BaseInputObject;end
+      class CanvasInstID < BaseType;end
       class CanvasJWTInput < BaseInputObject;end
       class CanvasJWT < BaseType;end
       class CanvasLatePolicyInput < BaseInputObject;end

@@ -6,7 +6,7 @@ module LMSGraphQL
       class GroupsPermission < CanvasBaseResolver
         type Boolean, null: false
         argument :group_id, ID, required: true
-        argument :permissions, String, required: false
+        argument :permissions, [String], required: false
         def resolve(group_id:, permissions: nil, get_all: false)
           result = context[:canvas_api].call("GROUPS_PERMISSIONS").proxy(
             "GROUPS_PERMISSIONS",

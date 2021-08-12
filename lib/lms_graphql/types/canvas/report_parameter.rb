@@ -26,7 +26,7 @@ module LMSGraphQL
         field :sis_terms_csv, Int, "Example: 1", null: true
         field :sis_accounts_csv, Int, "Example: 1", null: true
         field :include_enrollment_state, Boolean, "If true, enrollment state will be included. If false, enrollment state will be omitted. Defaults to false..", null: true
-        field :enrollment_state, String, "Include enrollment state. Defaults to 'all' Options: ['active'| 'invited'| 'creation_pending'| 'deleted'| 'rejected'| 'completed'| 'inactive'| 'all'].Example: all", null: true
+        field :enrollment_state, [String], "Include enrollment state. Defaults to 'all' Options: ['active'| 'invited'| 'creation_pending'| 'deleted'| 'rejected'| 'completed'| 'inactive'| 'all'].Example: all", null: true
         field :start_at, LMSGraphQL::Types::DateTimeType, "The beginning date for submissions. Max time range is 2 weeks..Example: 2012-07-13T10:55:20-06:00", null: true
         field :end_at, LMSGraphQL::Types::DateTimeType, "The end date for submissions. Max time range is 2 weeks..Example: 2012-07-13T10:55:20-06:00", null: true
 

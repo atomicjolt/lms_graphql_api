@@ -26,6 +26,7 @@ module LMSGraphQL
         field :updated_at, LMSGraphQL::Types::DateTimeType, "When the assignment was last updated.Example: 2012-07-12T10:55:20-06:00", null: true
         field :assignment, LMSGraphQL::Types::Canvas::CanvasAssignment, "The full assignment JSON data (See the Assignments API).", null: true
         field :assignment_overrides, LMSGraphQL::Types::Canvas::CanvasAssignmentOverride, "The list of AssignmentOverrides that apply to this event (See the Assignments API). This information is useful for determining which students or sections this assignment-due event applies to..", null: true
+        field :important_dates, Boolean, "Boolean indicating whether this has important dates. Only present if the Important Dates feature flag is enabled.Example: true", null: true
 
       end
     end

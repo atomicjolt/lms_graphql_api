@@ -5,7 +5,7 @@ module LMSGraphQL
     module Canvas
       class ReorderPinnedTopicsGroup < BaseMutation
         argument :group_id, ID, required: true
-        argument :order, Int, required: true
+        argument :order, [Int], required: true
         
         
         field :return_value, Boolean, null: false

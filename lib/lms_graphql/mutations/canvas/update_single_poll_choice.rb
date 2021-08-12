@@ -6,9 +6,9 @@ module LMSGraphQL
       class UpdateSinglePollChoice < BaseMutation
         argument :poll_id, ID, required: true
         argument :id, ID, required: true
-        argument :poll_choices_text, String, required: true
-        argument :poll_choices_is_correct, Boolean, required: false
-        argument :poll_choices_position, Int, required: false
+        argument :poll_choices_text, [String], required: true
+        argument :poll_choices_is_correct, [Boolean], required: false
+        argument :poll_choices_position, [Int], required: false
         
         
         field :return_value, Boolean, null: false

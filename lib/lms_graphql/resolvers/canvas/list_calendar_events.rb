@@ -11,9 +11,10 @@ module LMSGraphQL
         argument :end_date, LMSGraphQL::Types::DateTimeType, required: false
         argument :undated, Boolean, required: false
         argument :all_events, Boolean, required: false
-        argument :context_codes, String, required: false
+        argument :context_codes, [String], required: false
         argument :excludes, [String], required: false
-        def resolve(type: nil, start_date: nil, end_date: nil, undated: nil, all_events: nil, context_codes: nil, excludes: nil, get_all: false)
+        argument :important_dates, Boolean, required: false
+        def resolve(type: nil, start_date: nil, end_date: nil, undated: nil, all_events: nil, context_codes: nil, excludes: nil, important_dates: nil, get_all: false)
           result = context[:canvas_api].call("LIST_CALENDAR_EVENTS").proxy(
             "LIST_CALENDAR_EVENTS",
             {
@@ -23,7 +24,8 @@ module LMSGraphQL
               "undated": undated,
               "all_events": all_events,
               "context_codes": context_codes,
-              "excludes": excludes            },
+              "excludes": excludes,
+              "important_dates": important_dates            },
             nil,
             get_all,
           )

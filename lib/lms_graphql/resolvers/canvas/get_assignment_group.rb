@@ -7,7 +7,7 @@ module LMSGraphQL
         type LMSGraphQL::Types::Canvas::CanvasAssignmentGroup, null: false
         argument :course_id, ID, required: true
         argument :assignment_group_id, ID, required: true
-        argument :include, String, required: false
+        argument :include, [String], required: false
         argument :override_assignment_dates, Boolean, required: false
         argument :grading_period_id, ID, required: false
         def resolve(course_id:, assignment_group_id:, include: nil, override_assignment_dates: nil, grading_period_id: nil, get_all: false)

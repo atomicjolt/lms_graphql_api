@@ -11,7 +11,7 @@ module LMSGraphQL
         argument :comment_group_comment, Boolean, required: false
         argument :comment_media_comment_id, String, required: false
         argument :comment_media_comment_type, String, required: false
-        argument :comment_file_ids, Int, required: false
+        argument :comment_file_ids, [Int], required: false
         argument :include_visibility, String, required: false
         argument :submission_posted_grade, String, required: false
         argument :submission_excuse, Boolean, required: false

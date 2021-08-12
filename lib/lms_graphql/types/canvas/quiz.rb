@@ -61,7 +61,7 @@ module LMSGraphQL
         field :permissions, LMSGraphQL::Types::Canvas::CanvasQuizPermission, "Permissions the user has for the quiz.", null: true
         field :all_dates, [LMSGraphQL::Types::Canvas::CanvasAssignmentDate], "list of due dates for the quiz.", null: true
         field :version_number, Int, "Current version number of the quiz.Example: 3", null: true
-        field :question_types, String, "List of question types in the quiz.Example: multiple_choice, essay", null: true
+        field :question_types, [String], "List of question types in the quiz.Example: multiple_choice, essay", null: true
         field :anonymous_submissions, Boolean, "Whether survey submissions will be kept anonymous (only applicable to 'graded_survey', 'survey' quiz types).", null: true
 
       end

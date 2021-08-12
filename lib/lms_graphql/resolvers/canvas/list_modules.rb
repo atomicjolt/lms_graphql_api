@@ -7,7 +7,7 @@ module LMSGraphQL
         type [LMSGraphQL::Types::Canvas::CanvasModule], null: false
         argument :get_all, Boolean, required: false
         argument :course_id, ID, required: true
-        argument :include, String, required: false
+        argument :include, [String], required: false
         argument :search_term, String, required: false
         argument :student_id, ID, required: false
         def resolve(course_id:, include: nil, search_term: nil, student_id: nil, get_all: false)

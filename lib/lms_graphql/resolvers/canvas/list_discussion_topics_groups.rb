@@ -7,7 +7,7 @@ module LMSGraphQL
         type [LMSGraphQL::Types::Canvas::CanvasDiscussionTopic], null: false
         argument :get_all, Boolean, required: false
         argument :group_id, ID, required: true
-        argument :include, String, required: false
+        argument :include, [String], required: false
         argument :order_by, String, required: false
         argument :scope, String, required: false
         argument :only_announcements, Boolean, required: false

@@ -20,6 +20,7 @@ module LMSGraphQL
         field :calendar, LMSGraphQL::Types::Canvas::CanvasCalendarLink, "", null: true
         field :time_zone, String, "Optional: This field is only returned in certain API calls, and will return the IANA time zone name of the user's preferred timezone..Example: America/Denver", null: true
         field :locale, String, "The users locale..", null: true
+        field :k5_user, Boolean, "Optional: Whether or not the user is a K5 user. This field is nil if the user settings are not for the user making the request..Example: true", null: true
 
       end
     end

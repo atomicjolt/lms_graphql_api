@@ -7,7 +7,7 @@ module LMSGraphQL
         type [LMSGraphQL::Types::Canvas::CanvasSubmission], null: false
         argument :get_all, Boolean, required: false
         argument :id, ID, required: true
-        argument :include, String, required: false
+        argument :include, [String], required: false
         argument :only_current_enrollments, Boolean, required: false
         argument :only_published_assignments, Boolean, required: false
         def resolve(id:, include: nil, only_current_enrollments: nil, only_published_assignments: nil, get_all: false)

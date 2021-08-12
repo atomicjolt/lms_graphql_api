@@ -9,7 +9,7 @@ module LMSGraphQL
         argument :conversation_subscribed, Boolean, required: false
         argument :conversation_starred, Boolean, required: false
         argument :scope, String, required: false
-        argument :filter, String, required: false
+        argument :filter, [String], required: false
         argument :filter_mode, String, required: false
         
         

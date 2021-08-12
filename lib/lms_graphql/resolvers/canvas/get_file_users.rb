@@ -7,7 +7,7 @@ module LMSGraphQL
         type LMSGraphQL::Types::Canvas::CanvasFile, null: false
         argument :user_id, ID, required: true
         argument :id, ID, required: true
-        argument :include, String, required: false
+        argument :include, [String], required: false
         def resolve(user_id:, id:, include: nil, get_all: false)
           result = context[:canvas_api].call("GET_FILE_USERS").proxy(
             "GET_FILE_USERS",

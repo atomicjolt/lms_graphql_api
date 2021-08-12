@@ -7,7 +7,7 @@ module LMSGraphQL
         type Boolean, null: false
         argument :course_id, ID, required: true
         argument :topic_id, ID, required: true
-        argument :include, String, required: false
+        argument :include, [String], required: false
         def resolve(course_id:, topic_id:, include: nil, get_all: false)
           result = context[:canvas_api].call("GET_SINGLE_TOPIC_COURSES").proxy(
             "GET_SINGLE_TOPIC_COURSES",

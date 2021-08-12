@@ -7,8 +7,8 @@ module LMSGraphQL
         argument :course_id, ID, required: true
         argument :quiz_id, ID, required: true
         argument :id, ID, required: true
-        argument :quiz_submissions_attempt, Int, required: true
-        argument :quiz_submissions_fudge_points, Float, required: false
+        argument :quiz_submissions_attempt, [Int], required: true
+        argument :quiz_submissions_fudge_points, [Float], required: false
         argument :quiz_submissions_questions, [LMSGraphQL::Types::Canvas::CanvasHashInput], required: false
         
         

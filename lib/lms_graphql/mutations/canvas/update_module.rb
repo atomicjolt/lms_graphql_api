@@ -10,7 +10,7 @@ module LMSGraphQL
         argument :module_unlock_at, LMSGraphQL::Types::DateTimeType, required: false
         argument :module_position, Int, required: false
         argument :module_require_sequential_progress, Boolean, required: false
-        argument :module_prerequisite_module_ids, String, required: false
+        argument :module_prerequisite_module_ids, [String], required: false
         argument :module_publish_final_grade, Boolean, required: false
         argument :module_published, Boolean, required: false
         

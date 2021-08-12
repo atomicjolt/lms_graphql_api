@@ -6,8 +6,8 @@ module LMSGraphQL
       class CreateNewGradingStandardAccount < BaseMutation
         argument :account_id, ID, required: true
         argument :title, String, required: true
-        argument :grading_scheme_entry_name, String, required: true
-        argument :grading_scheme_entry_value, Int, required: true
+        argument :grading_scheme_entry_name, [String], required: true
+        argument :grading_scheme_entry_value, [Int], required: true
         
         
         field :grading_standard, LMSGraphQL::Types::Canvas::CanvasGradingStandard, null: false

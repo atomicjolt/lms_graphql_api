@@ -5,7 +5,7 @@ module LMSGraphQL
     module Canvas
       class UpdateMediaTrack < BaseMutation
         argument :media_object_id, ID, required: true
-        argument :include, String, required: false
+        argument :include, [String], required: false
         
         
         field :media_track, [LMSGraphQL::Types::Canvas::CanvasMediaTrack], null: false

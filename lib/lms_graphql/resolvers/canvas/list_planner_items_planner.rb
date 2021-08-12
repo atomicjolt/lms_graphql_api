@@ -7,7 +7,7 @@ module LMSGraphQL
         type Boolean, null: false
         argument :start_date, LMSGraphQL::Types::DateTimeType, required: false
         argument :end_date, LMSGraphQL::Types::DateTimeType, required: false
-        argument :context_codes, String, required: false
+        argument :context_codes, [String], required: false
         argument :filter, String, required: false
         def resolve(start_date: nil, end_date: nil, context_codes: nil, filter: nil, get_all: false)
           result = context[:canvas_api].call("LIST_PLANNER_ITEMS_PLANNER").proxy(

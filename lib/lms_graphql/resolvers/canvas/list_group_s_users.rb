@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :get_all, Boolean, required: false
         argument :group_id, ID, required: true
         argument :search_term, String, required: false
-        argument :include, String, required: false
+        argument :include, [String], required: false
         argument :exclude_inactive, Boolean, required: false
         def resolve(group_id:, search_term: nil, include: nil, exclude_inactive: nil, get_all: false)
           result = context[:canvas_api].call("LIST_GROUP_S_USERS").proxy(

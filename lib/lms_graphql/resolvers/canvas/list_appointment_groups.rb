@@ -6,9 +6,9 @@ module LMSGraphQL
       class ListAppointmentGroup < CanvasBaseResolver
         type Boolean, null: false
         argument :scope, String, required: false
-        argument :context_codes, String, required: false
+        argument :context_codes, [String], required: false
         argument :include_past_appointments, Boolean, required: false
-        argument :include, String, required: false
+        argument :include, [String], required: false
         def resolve(scope: nil, context_codes: nil, include_past_appointments: nil, include: nil, get_all: false)
           result = context[:canvas_api].call("LIST_APPOINTMENT_GROUPS").proxy(
             "LIST_APPOINTMENT_GROUPS",

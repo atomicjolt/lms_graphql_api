@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :get_all, Boolean, required: false
         argument :section_id, ID, required: true
         argument :assignment_id, ID, required: true
-        argument :include, String, required: false
+        argument :include, [String], required: false
         argument :grouped, Boolean, required: false
         def resolve(section_id:, assignment_id:, include: nil, grouped: nil, get_all: false)
           result = context[:canvas_api].call("LIST_ASSIGNMENT_SUBMISSIONS_SECTIONS").proxy(

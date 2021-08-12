@@ -6,8 +6,8 @@ module LMSGraphQL
       class CopyCourseContent < BaseMutation
         argument :course_id, ID, required: true
         argument :source_course, String, required: false
-        argument :except, String, required: false
-        argument :only, String, required: false
+        argument :except, [String], required: false
+        argument :only, [String], required: false
         
         
         field :return_value, Boolean, null: false

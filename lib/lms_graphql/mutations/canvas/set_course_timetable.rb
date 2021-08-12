@@ -6,10 +6,10 @@ module LMSGraphQL
       class SetCourseTimetable < BaseMutation
         argument :course_id, ID, required: true
         argument :timetables_course_section_id, [String], required: false
-        argument :timetables_course_section_id_weekdays, String, required: false
-        argument :timetables_course_section_id_start_time, String, required: false
-        argument :timetables_course_section_id_end_time, String, required: false
-        argument :timetables_course_section_id_location_name, String, required: false
+        argument :timetables_course_section_id_weekdays, [String], required: false
+        argument :timetables_course_section_id_start_time, [String], required: false
+        argument :timetables_course_section_id_end_time, [String], required: false
+        argument :timetables_course_section_id_location_name, [String], required: false
         
         
         field :return_value, Boolean, null: false

@@ -21,7 +21,7 @@ module LMSGraphQL
       argument :hidden, Boolean, "Whether this event should be displayed on the calendar. Only true for course-level events with section-level child events..", required: false
       argument :parent_event_id, ID, "Normally null. If this is a reservation (see the Appointment Groups API), the id will indicate the time slot it is for. If this is a section-level event, this will be the course-level parent event..", required: false
       argument :child_events_count, Int, "The number of child_events. See child_events (and parent_event_id).Example: 0", required: false
-      argument :child_events, Int, "Included by default, but may be excluded (see include[] option). If this is a time slot (see the Appointment Groups API) this will be a list of any reservations. If this is a course-level event, this will be a list of section-level events (if any).", required: false
+      argument :child_events, [Int], "Included by default, but may be excluded (see include[] option). If this is a time slot (see the Appointment Groups API) this will be a list of any reservations. If this is a course-level event, this will be a list of section-level events (if any).", required: false
       argument :url, String, "URL for this calendar event (to update, delete, etc.).Example: https://example.com/api/v1/calendar_events/234", required: false
       argument :html_url, String, "URL for a user to view this event.Example: https://example.com/calendar?event_id=234&include_contexts=course_123", required: false
       argument :all_day_date, LMSGraphQL::Types::DateTimeType, "The date of this event.Example: 2012-07-19", required: false
@@ -38,6 +38,7 @@ module LMSGraphQL
       argument :available_slots, Int, "If the event is a time slot and it has a participant limit, an integer indicating how many slots are available.", required: false
       argument :user, String, "If the event is a user-level reservation, this will contain the user participant JSON (refer to the Users API)..", required: false
       argument :group, String, "If the event is a group-level reservation, this will contain the group participant JSON (refer to the Groups API)..", required: false
+      argument :important_dates, Boolean, "Boolean indicating whether this has important dates. Only present if the Important Dates feature flag is enabled.Example: true", required: false
 
       end
     end

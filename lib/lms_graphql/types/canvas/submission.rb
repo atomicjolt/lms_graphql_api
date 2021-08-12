@@ -22,6 +22,11 @@ module LMSGraphQL
           value "unsubmitted"
           value "pending_review"
         end
+
+                class SubmissionReadStatusEnum < ::GraphQL::Schema::Enum
+          value "read"
+          value "unread"
+        end
         description "Submissions. API Docs: https://canvas.instructure.com/doc/api/submissions.html"
         field :assignment_id, ID, "The submission's assignment id.Example: 23", null: true
         field :assignment, LMSGraphQL::Types::Canvas::CanvasAssignment, "The submission's assignment (see the assignments API) (optional).", null: true
@@ -52,6 +57,7 @@ module LMSGraphQL
         field :extra_attempts, Float, "Extra submission attempts allowed for the given user and assignment..Example: 10", null: true
         field :anonymous_id, ID, "A unique short ID identifying this submission without reference to the owning user. Only included if the caller has administrator access for the current account..Example: acJ4Q", null: true
         field :posted_at, LMSGraphQL::Types::DateTimeType, "The date this submission was posted to the student, or nil if it has not been posted..Example: 2020-01-02T11:10:30Z", null: true
+        field :read_status, SubmissionReadStatusEnum, "The read status of this submission for the given user (optional). Including read_status will mark submission(s) as read..Example: read", null: true
 
       end
     end

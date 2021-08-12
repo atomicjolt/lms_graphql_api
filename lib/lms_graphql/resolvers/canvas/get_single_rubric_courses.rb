@@ -7,7 +7,7 @@ module LMSGraphQL
         type LMSGraphQL::Types::Canvas::CanvasRubric, null: false
         argument :course_id, ID, required: true
         argument :id, ID, required: true
-        argument :include, String, required: false
+        argument :include, [String], required: false
         argument :style, String, required: false
         def resolve(course_id:, id:, include: nil, style: nil, get_all: false)
           result = context[:canvas_api].call("GET_SINGLE_RUBRIC_COURSES").proxy(

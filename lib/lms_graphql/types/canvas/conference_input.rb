@@ -14,7 +14,7 @@ module LMSGraphQL
       argument :ended_at, LMSGraphQL::Types::DateTimeType, "The date that the conference ended at, null if it hasn't ended.Example: 2013-12-13T17:23:26Z", required: false
       argument :started_at, LMSGraphQL::Types::DateTimeType, "The date the conference started at, null if it hasn't started.Example: 2013-12-12T23:02:17Z", required: false
       argument :title, String, "The title of the conference.Example: Test conference", required: false
-      argument :users, Int, "Array of user ids that are participants in the conference.Example: 1, 7, 8, 9, 10", required: false
+      argument :users, [Int], "Array of user ids that are participants in the conference.Example: 1, 7, 8, 9, 10", required: false
       argument :has_advanced_settings, Boolean, "True if the conference type has advanced settings..", required: false
       argument :long_running, Boolean, "If true the conference is long running and has no expected end time.", required: false
       argument :user_settings, String, "A collection of settings specific to the conference type.Example: true", required: false
