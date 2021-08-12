@@ -5,8 +5,8 @@ module LMSGraphQL
     module Canvas
       class UpdateSinglePoll < BaseMutation
         argument :id, ID, required: true
-        argument :polls_question, String, required: true
-        argument :polls_description, String, required: false
+        argument :polls_question, [String], required: true
+        argument :polls_description, [String], required: false
         
         
         field :return_value, Boolean, null: false

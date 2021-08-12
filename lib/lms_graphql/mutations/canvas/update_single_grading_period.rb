@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :id, ID, required: true
         argument :grading_periods_start_date, [LMSGraphQL::Types::DateTimeType], required: true
         argument :grading_periods_end_date, [LMSGraphQL::Types::DateTimeType], required: true
-        argument :grading_periods_weight, Float, required: false
+        argument :grading_periods_weight, [Float], required: false
         
         
         field :return_value, Boolean, null: false

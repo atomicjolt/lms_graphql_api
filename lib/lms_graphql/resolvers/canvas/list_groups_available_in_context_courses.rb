@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :get_all, Boolean, required: false
         argument :course_id, ID, required: true
         argument :only_own_groups, Boolean, required: false
-        argument :include, String, required: false
+        argument :include, [String], required: false
         def resolve(course_id:, only_own_groups: nil, include: nil, get_all: false)
           result = context[:canvas_api].call("LIST_GROUPS_AVAILABLE_IN_CONTEXT_COURSES").proxy(
             "LIST_GROUPS_AVAILABLE_IN_CONTEXT_COURSES",

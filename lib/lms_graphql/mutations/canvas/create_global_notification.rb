@@ -10,7 +10,7 @@ module LMSGraphQL
         argument :account_notification_start_at, LMSGraphQL::Types::DateTimeType, required: true
         argument :account_notification_end_at, LMSGraphQL::Types::DateTimeType, required: true
         argument :account_notification_icon, String, required: false
-        argument :account_notification_roles, String, required: false
+        argument :account_notification_roles, [String], required: false
         
         
         field :return_value, Boolean, null: false

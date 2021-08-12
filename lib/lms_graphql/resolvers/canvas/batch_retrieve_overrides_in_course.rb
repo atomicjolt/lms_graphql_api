@@ -7,8 +7,8 @@ module LMSGraphQL
         type [LMSGraphQL::Types::Canvas::CanvasAssignmentOverride], null: false
         argument :get_all, Boolean, required: false
         argument :course_id, ID, required: true
-        argument :assignment_overrides_id, String, required: true
-        argument :assignment_overrides_assignment_id, String, required: true
+        argument :assignment_overrides_id, [String], required: true
+        argument :assignment_overrides_assignment_id, [String], required: true
         def resolve(course_id:, assignment_overrides_id:, assignment_overrides_assignment_id:, get_all: false)
           result = context[:canvas_api].call("BATCH_RETRIEVE_OVERRIDES_IN_COURSE").proxy(
             "BATCH_RETRIEVE_OVERRIDES_IN_COURSE",

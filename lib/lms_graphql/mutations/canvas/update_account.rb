@@ -15,6 +15,11 @@ module LMSGraphQL
         argument :account_settings_restrict_student_past_view_value, Boolean, required: false
         argument :account_settings_restrict_student_past_view_locked, Boolean, required: false
         argument :account_settings_restrict_student_future_view_value, Boolean, required: false
+        argument :account_settings_microsoft_sync_enabled, Boolean, required: false
+        argument :account_settings_microsoft_sync_tenant, String, required: false
+        argument :account_settings_microsoft_sync_login_attribute, String, required: false
+        argument :account_settings_microsoft_sync_login_attribute_suffix, String, required: false
+        argument :account_settings_microsoft_sync_remote_attribute, String, required: false
         argument :account_settings_restrict_student_future_view_locked, Boolean, required: false
         argument :account_settings_lock_all_announcements_value, Boolean, required: false
         argument :account_settings_lock_all_announcements_locked, Boolean, required: false
@@ -31,7 +36,7 @@ module LMSGraphQL
         
         field :account, LMSGraphQL::Types::Canvas::CanvasAccount, null: false
         
-        def resolve(id:, account_name: nil, account_sis_account_id: nil, account_default_time_zone: nil, account_default_storage_quota_mb: nil, account_default_user_storage_quota_mb: nil, account_default_group_storage_quota_mb: nil, account_course_template_id: nil, account_settings_restrict_student_past_view_value: nil, account_settings_restrict_student_past_view_locked: nil, account_settings_restrict_student_future_view_value: nil, account_settings_restrict_student_future_view_locked: nil, account_settings_lock_all_announcements_value: nil, account_settings_lock_all_announcements_locked: nil, account_settings_usage_rights_required_value: nil, account_settings_usage_rights_required_locked: nil, account_settings_restrict_student_future_listing_value: nil, account_settings_restrict_student_future_listing_locked: nil, account_settings_lock_outcome_proficiency_value: nil, account_lock_outcome_proficiency_locked: nil, account_settings_lock_proficiency_calculation_value: nil, account_lock_proficiency_calculation_locked: nil, account_services: nil)
+        def resolve(id:, account_name: nil, account_sis_account_id: nil, account_default_time_zone: nil, account_default_storage_quota_mb: nil, account_default_user_storage_quota_mb: nil, account_default_group_storage_quota_mb: nil, account_course_template_id: nil, account_settings_restrict_student_past_view_value: nil, account_settings_restrict_student_past_view_locked: nil, account_settings_restrict_student_future_view_value: nil, account_settings_microsoft_sync_enabled: nil, account_settings_microsoft_sync_tenant: nil, account_settings_microsoft_sync_login_attribute: nil, account_settings_microsoft_sync_login_attribute_suffix: nil, account_settings_microsoft_sync_remote_attribute: nil, account_settings_restrict_student_future_view_locked: nil, account_settings_lock_all_announcements_value: nil, account_settings_lock_all_announcements_locked: nil, account_settings_usage_rights_required_value: nil, account_settings_usage_rights_required_locked: nil, account_settings_restrict_student_future_listing_value: nil, account_settings_restrict_student_future_listing_locked: nil, account_settings_lock_outcome_proficiency_value: nil, account_lock_outcome_proficiency_locked: nil, account_settings_lock_proficiency_calculation_value: nil, account_lock_proficiency_calculation_locked: nil, account_services: nil)
           context[:canvas_api].call("UPDATE_ACCOUNT").proxy(
             "UPDATE_ACCOUNT",
             {
@@ -48,6 +53,11 @@ module LMSGraphQL
               "account[settings][restrict_student_past_view][value]": account_settings_restrict_student_past_view_value,
               "account[settings][restrict_student_past_view][locked]": account_settings_restrict_student_past_view_locked,
               "account[settings][restrict_student_future_view][value]": account_settings_restrict_student_future_view_value,
+              "account[settings][microsoft_sync_enabled]": account_settings_microsoft_sync_enabled,
+              "account[settings][microsoft_sync_tenant]": account_settings_microsoft_sync_tenant,
+              "account[settings][microsoft_sync_login_attribute]": account_settings_microsoft_sync_login_attribute,
+              "account[settings][microsoft_sync_login_attribute_suffix]": account_settings_microsoft_sync_login_attribute_suffix,
+              "account[settings][microsoft_sync_remote_attribute]": account_settings_microsoft_sync_remote_attribute,
               "account[settings][restrict_student_future_view][locked]": account_settings_restrict_student_future_view_locked,
               "account[settings][lock_all_announcements][value]": account_settings_lock_all_announcements_value,
               "account[settings][lock_all_announcements][locked]": account_settings_lock_all_announcements_locked,

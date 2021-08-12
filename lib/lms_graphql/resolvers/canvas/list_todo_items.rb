@@ -5,7 +5,7 @@ module LMSGraphQL
     module Canvas
       class ListTodoItem < CanvasBaseResolver
         type Boolean, null: false
-        argument :include, String, required: false
+        argument :include, [String], required: false
         def resolve(include: nil, get_all: false)
           result = context[:canvas_api].call("LIST_TODO_ITEMS").proxy(
             "LIST_TODO_ITEMS",

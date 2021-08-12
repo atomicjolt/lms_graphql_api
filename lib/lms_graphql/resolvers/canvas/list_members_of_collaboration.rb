@@ -7,7 +7,7 @@ module LMSGraphQL
         type [LMSGraphQL::Types::Canvas::CanvasCollaborator], null: false
         argument :get_all, Boolean, required: false
         argument :id, ID, required: true
-        argument :include, String, required: false
+        argument :include, [String], required: false
         def resolve(id:, include: nil, get_all: false)
           result = context[:canvas_api].call("LIST_MEMBERS_OF_COLLABORATION").proxy(
             "LIST_MEMBERS_OF_COLLABORATION",

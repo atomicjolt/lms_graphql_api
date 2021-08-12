@@ -6,7 +6,7 @@ module LMSGraphQL
       class RetrieveAssignmentOverriddenDatesForClassicQuiz < CanvasBaseResolver
         type LMSGraphQL::Types::Canvas::CanvasQuizAssignmentOverrideSetContainer, null: false
         argument :course_id, ID, required: true
-        argument :quiz_assignment_overrides_0_quiz_ids, Int, required: false
+        argument :quiz_assignment_overrides_0_quiz_ids, [Int], required: false
         def resolve(course_id:, quiz_assignment_overrides_0_quiz_ids: nil, get_all: false)
           result = context[:canvas_api].call("RETRIEVE_ASSIGNMENT_OVERRIDDEN_DATES_FOR_CLASSIC_QUIZZES").proxy(
             "RETRIEVE_ASSIGNMENT_OVERRIDDEN_DATES_FOR_CLASSIC_QUIZZES",

@@ -6,7 +6,7 @@ module LMSGraphQL
       class GetSingleAppointmentGroup < CanvasBaseResolver
         type Boolean, null: false
         argument :id, ID, required: true
-        argument :include, String, required: false
+        argument :include, [String], required: false
         def resolve(id:, include: nil, get_all: false)
           result = context[:canvas_api].call("GET_SINGLE_APPOINTMENT_GROUP").proxy(
             "GET_SINGLE_APPOINTMENT_GROUP",

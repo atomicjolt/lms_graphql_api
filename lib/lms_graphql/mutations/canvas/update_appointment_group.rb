@@ -5,8 +5,8 @@ module LMSGraphQL
     module Canvas
       class UpdateAppointmentGroup < BaseMutation
         argument :id, ID, required: true
-        argument :appointment_group_context_codes, String, required: true
-        argument :appointment_group_sub_context_codes, String, required: false
+        argument :appointment_group_context_codes, [String], required: true
+        argument :appointment_group_sub_context_codes, [String], required: false
         argument :appointment_group_title, String, required: false
         argument :appointment_group_description, String, required: false
         argument :appointment_group_location_name, String, required: false
@@ -15,7 +15,7 @@ module LMSGraphQL
         argument :appointment_group_participants_per_appointment, Int, required: false
         argument :appointment_group_min_appointments_per_participant, Int, required: false
         argument :appointment_group_max_appointments_per_participant, Int, required: false
-        argument :appointment_group_new_appointments_X, String, required: false
+        argument :appointment_group_new_appointments_X, [String], required: false
         argument :appointment_group_participant_visibility, String, required: false
         
         

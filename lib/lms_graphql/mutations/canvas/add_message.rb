@@ -9,8 +9,8 @@ module LMSGraphQL
         argument :attachment_ids, [ID], required: false
         argument :media_comment_id, ID, required: false
         argument :media_comment_type, String, required: false
-        argument :recipients, String, required: false
-        argument :included_messages, String, required: false
+        argument :recipients, [String], required: false
+        argument :included_messages, [String], required: false
         argument :user_note, Boolean, required: false
         
         

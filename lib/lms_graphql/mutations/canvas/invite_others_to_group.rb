@@ -5,7 +5,7 @@ module LMSGraphQL
     module Canvas
       class InviteOthersToGroup < BaseMutation
         argument :group_id, ID, required: true
-        argument :invitees, String, required: true
+        argument :invitees, [String], required: true
         
         
         field :return_value, Boolean, null: false

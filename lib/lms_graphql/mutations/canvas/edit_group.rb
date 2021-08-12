@@ -11,7 +11,7 @@ module LMSGraphQL
         argument :join_level, String, required: false
         argument :avatar_id, ID, required: false
         argument :storage_quota_mb, Int, required: false
-        argument :members, String, required: false
+        argument :members, [String], required: false
         argument :sis_group_id, ID, required: false
         
         

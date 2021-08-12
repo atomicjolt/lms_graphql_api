@@ -5,7 +5,7 @@ module LMSGraphQL
     module Canvas
       class AddRecipient < BaseMutation
         argument :id, ID, required: true
-        argument :recipients, String, required: true
+        argument :recipients, [String], required: true
         
         
         field :return_value, Boolean, null: false

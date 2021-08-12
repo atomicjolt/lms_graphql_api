@@ -7,10 +7,10 @@ module LMSGraphQL
         type [LMSGraphQL::Types::Canvas::CanvasFile], null: false
         argument :get_all, Boolean, required: false
         argument :course_id, ID, required: true
-        argument :content_types, String, required: false
-        argument :exclude_content_types, String, required: false
+        argument :content_types, [String], required: false
+        argument :exclude_content_types, [String], required: false
         argument :search_term, String, required: false
-        argument :include, String, required: false
+        argument :include, [String], required: false
         argument :only, [String], required: false
         argument :sort, String, required: false
         argument :order, String, required: false

@@ -10,8 +10,8 @@ module LMSGraphQL
         argument :aggregate_stat, String, required: false
         argument :user_ids, [ID], required: false
         argument :outcome_ids, [ID], required: false
-        argument :include, String, required: false
-        argument :exclude, String, required: false
+        argument :include, [String], required: false
+        argument :exclude, [String], required: false
         argument :sort_by, String, required: false
         argument :sort_outcome_id, ID, required: false
         argument :sort_order, String, required: false

@@ -21,7 +21,7 @@ module LMSGraphQL
         argument :course_open_enrollment, Boolean, required: false
         argument :course_self_enrollment, Boolean, required: false
         argument :course_restrict_enrollments_to_course_dates, Boolean, required: false
-        argument :course_term_id, Int, required: false
+        argument :course_term_id, String, required: false
         argument :course_sis_course_id, String, required: false
         argument :course_integration_id, String, required: false
         argument :course_hide_final_grades, Boolean, required: false

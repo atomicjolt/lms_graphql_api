@@ -5,10 +5,10 @@ module LMSGraphQL
     module Canvas
       class CreateUpdateProficiencyRatingsCourse < BaseMutation
         argument :course_id, ID, required: true
-        argument :ratings_description, String, required: false
-        argument :ratings_points, Int, required: false
-        argument :ratings_mastery, Int, required: false
-        argument :ratings_color, Int, required: false
+        argument :ratings_description, [String], required: false
+        argument :ratings_points, [Int], required: false
+        argument :ratings_mastery, [Int], required: false
+        argument :ratings_color, [Int], required: false
         
         
         field :proficiency, LMSGraphQL::Types::Canvas::CanvasProficiency, null: false

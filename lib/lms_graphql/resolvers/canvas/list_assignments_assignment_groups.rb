@@ -8,7 +8,7 @@ module LMSGraphQL
         argument :get_all, Boolean, required: false
         argument :course_id, ID, required: true
         argument :assignment_group_id, ID, required: true
-        argument :include, String, required: false
+        argument :include, [String], required: false
         argument :search_term, String, required: false
         argument :override_assignment_dates, Boolean, required: false
         argument :needs_grading_count_by_section, Boolean, required: false

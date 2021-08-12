@@ -16,7 +16,7 @@ module LMSGraphQL
         field :assessment_type, String, "the type of assessment. values will be either 'grading', 'peer_review', or 'provisional_grade'.Example: grading", null: true
         field :assessor_id, ID, "user id of the person who made the assessment.Example: 6", null: true
         field :data, String, "(Optional) If 'full' is included in the 'style' parameter, returned assessments will have their full details contained in their data hash. If the user does not request a style, this key will be absent..", null: true
-        field :comments, String, "(Optional) If 'comments_only' is included in the 'style' parameter, returned assessments will include only the comments portion of their data hash. If the user does not request a style, this key will be absent..", null: true
+        field :comments, [String], "(Optional) If 'comments_only' is included in the 'style' parameter, returned assessments will include only the comments portion of their data hash. If the user does not request a style, this key will be absent..", null: true
 
       end
     end

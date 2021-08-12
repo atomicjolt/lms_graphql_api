@@ -8,8 +8,8 @@ module LMSGraphQL
         argument :id, ID, required: true
         argument :assignment_name, String, required: false
         argument :assignment_position, Int, required: false
-        argument :assignment_submission_types, String, required: false
-        argument :assignment_allowed_extensions, String, required: false
+        argument :assignment_submission_types, [String], required: false
+        argument :assignment_allowed_extensions, [String], required: false
         argument :assignment_turnitin_enabled, Boolean, required: false
         argument :assignment_vericite_enabled, Boolean, required: false
         argument :assignment_turnitin_settings, String, required: false

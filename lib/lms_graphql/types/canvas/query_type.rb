@@ -39,6 +39,10 @@ module LMSGraphQL
           resolver: LMSGraphQL::Resolvers::Canvas::ListAccount,
           description: "List accounts. A paginated list of accounts that the current user can view or manage.   Typically, students and even teachers will get an empty list in response,   only account admins can view the accounts that they are in."
 
+        field :get_accounts_that_admins_can_manage,
+          resolver: LMSGraphQL::Resolvers::Canvas::GetAccountsThatAdminsCanManage,
+          description: "Get accounts that admins can manage. A paginated list of accounts where the current user has permission to create   or manage courses. List will be empty for students and teachers as only admins   can view which accounts they are in."
+
         field :list_accounts_for_course_admins,
           resolver: LMSGraphQL::Resolvers::Canvas::ListAccountsForCourseAdmin,
           description: "List accounts for course admins. A paginated list of accounts that the current user can view through their   admin course enrollments. (Teacher, TA, or designer enrollments).   Only returns 'id', 'name', 'workflow_state', 'root_account_id' and 'parent_account_id'"
@@ -46,6 +50,10 @@ module LMSGraphQL
         field :get_single_account,
           resolver: LMSGraphQL::Resolvers::Canvas::GetSingleAccount,
           description: "Get a single account. Retrieve information on an individual account, given by id or sis   sis_account_id."
+
+        field :settings,
+          resolver: LMSGraphQL::Resolvers::Canvas::Setting,
+          description: "Settings. Returns all of the settings for the specified account as a JSON object. The caller must be an Account   admin with the manage_account_settings permission."
 
         field :permissions,
           resolver: LMSGraphQL::Resolvers::Canvas::Permission,
@@ -705,7 +713,11 @@ module LMSGraphQL
 
         field :get_visible_course_navigation_tools,
           resolver: LMSGraphQL::Resolvers::Canvas::GetVisibleCourseNavigationTool,
-          description: "Get visible course navigation tools. Get a list of external tools with the course_navigation placement that have not been hidden in   course settings and whose visibility settings apply to the requesting user. These tools are the   same that appear in the course navigation."
+          description: "Get visible course navigation tools. Get a list of external tools with the course_navigation placement that have not been hidden in   course settings and whose visibility settings apply to the requesting user. These tools are the   same that appear in the course navigation.      The response format is the same as for List external tools, but with additional context_id and   context_name fields on each element in the array."
+
+        field :get_visible_course_navigation_tools_for_single_course,
+          resolver: LMSGraphQL::Resolvers::Canvas::GetVisibleCourseNavigationToolsForSingleCourse,
+          description: "Get visible course navigation tools for a single course. Get a list of external tools with the course_navigation placement that have not been hidden in   course settings and whose visibility settings apply to the requesting user. These tools are the   same that appear in the course navigation.      The response format is the same as Get visible course navigation tools."
 
         field :list_favorite_courses,
           resolver: LMSGraphQL::Resolvers::Canvas::ListFavoriteCourse,

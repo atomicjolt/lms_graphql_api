@@ -7,7 +7,7 @@ module LMSGraphQL
         type LMSGraphQL::Types::Canvas::CanvasAssignment, null: false
         argument :course_id, ID, required: true
         argument :id, ID, required: true
-        argument :include, String, required: false
+        argument :include, [String], required: false
         argument :override_assignment_dates, Boolean, required: false
         argument :needs_grading_count_by_section, Boolean, required: false
         argument :all_dates, Boolean, required: false

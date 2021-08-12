@@ -7,7 +7,7 @@ module LMSGraphQL
         type [LMSGraphQL::Types::Canvas::CanvasGroupMembership], null: false
         argument :get_all, Boolean, required: false
         argument :group_id, ID, required: true
-        argument :filter_states, String, required: false
+        argument :filter_states, [String], required: false
         def resolve(group_id:, filter_states: nil, get_all: false)
           result = context[:canvas_api].call("LIST_GROUP_MEMBERSHIPS").proxy(
             "LIST_GROUP_MEMBERSHIPS",

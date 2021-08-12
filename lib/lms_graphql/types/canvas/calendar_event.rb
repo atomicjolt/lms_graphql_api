@@ -21,7 +21,7 @@ module LMSGraphQL
         field :hidden, Boolean, "Whether this event should be displayed on the calendar. Only true for course-level events with section-level child events..", null: true
         field :parent_event_id, ID, "Normally null. If this is a reservation (see the Appointment Groups API), the id will indicate the time slot it is for. If this is a section-level event, this will be the course-level parent event..", null: true
         field :child_events_count, Int, "The number of child_events. See child_events (and parent_event_id).Example: 0", null: true
-        field :child_events, Int, "Included by default, but may be excluded (see include[] option). If this is a time slot (see the Appointment Groups API) this will be a list of any reservations. If this is a course-level event, this will be a list of section-level events (if any).", null: true
+        field :child_events, [Int], "Included by default, but may be excluded (see include[] option). If this is a time slot (see the Appointment Groups API) this will be a list of any reservations. If this is a course-level event, this will be a list of section-level events (if any).", null: true
         field :url, String, "URL for this calendar event (to update, delete, etc.).Example: https://example.com/api/v1/calendar_events/234", null: true
         field :html_url, String, "URL for a user to view this event.Example: https://example.com/calendar?event_id=234&include_contexts=course_123", null: true
         field :all_day_date, LMSGraphQL::Types::DateTimeType, "The date of this event.Example: 2012-07-19", null: true
@@ -38,6 +38,7 @@ module LMSGraphQL
         field :available_slots, Int, "If the event is a time slot and it has a participant limit, an integer indicating how many slots are available.", null: true
         field :user, String, "If the event is a user-level reservation, this will contain the user participant JSON (refer to the Users API)..", null: true
         field :group, String, "If the event is a group-level reservation, this will contain the group participant JSON (refer to the Groups API)..", null: true
+        field :important_dates, Boolean, "Boolean indicating whether this has important dates. Only present if the Important Dates feature flag is enabled.Example: true", null: true
 
       end
     end

@@ -7,7 +7,7 @@ module LMSGraphQL
         argument :course_id, ID, required: true
         argument :assignment_id, ID, required: true
         argument :id, ID, required: true
-        argument :assignment_override_student_ids, Int, required: false
+        argument :assignment_override_student_ids, [Int], required: false
         argument :assignment_override_title, String, required: false
         argument :assignment_override_due_at, LMSGraphQL::Types::DateTimeType, required: false
         argument :assignment_override_unlock_at, LMSGraphQL::Types::DateTimeType, required: false

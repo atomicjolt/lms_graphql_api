@@ -6,12 +6,12 @@ module LMSGraphQL
       class QuizExtensionsSetExtensionsForStudentQuizSubmission < BaseMutation
         argument :course_id, ID, required: true
         argument :quiz_id, ID, required: true
-        argument :quiz_extensions_user_id, Int, required: true
-        argument :quiz_extensions_extra_attempts, Int, required: false
-        argument :quiz_extensions_extra_time, Int, required: false
-        argument :quiz_extensions_manually_unlocked, Boolean, required: false
-        argument :quiz_extensions_extend_from_now, Int, required: false
-        argument :quiz_extensions_extend_from_end_at, Int, required: false
+        argument :quiz_extensions_user_id, [Int], required: true
+        argument :quiz_extensions_extra_attempts, [Int], required: false
+        argument :quiz_extensions_extra_time, [Int], required: false
+        argument :quiz_extensions_manually_unlocked, [Boolean], required: false
+        argument :quiz_extensions_extend_from_now, [Int], required: false
+        argument :quiz_extensions_extend_from_end_at, [Int], required: false
         
         
         field :return_value, Boolean, null: false

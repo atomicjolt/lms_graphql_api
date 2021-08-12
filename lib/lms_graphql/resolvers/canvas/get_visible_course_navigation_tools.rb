@@ -5,12 +5,12 @@ module LMSGraphQL
     module Canvas
       class GetVisibleCourseNavigationTool < CanvasBaseResolver
         type Boolean, null: false
-        argument :course_id, ID, required: true
-        def resolve(course_id:, get_all: false)
+        argument :context_codes, [String], required: true
+        def resolve(context_codes:, get_all: false)
           result = context[:canvas_api].call("GET_VISIBLE_COURSE_NAVIGATION_TOOLS").proxy(
             "GET_VISIBLE_COURSE_NAVIGATION_TOOLS",
             {
-              "course_id": course_id            },
+              "context_codes": context_codes            },
             nil,
             get_all,
           )

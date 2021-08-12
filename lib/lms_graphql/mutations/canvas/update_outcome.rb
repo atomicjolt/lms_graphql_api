@@ -10,8 +10,8 @@ module LMSGraphQL
         argument :description, String, required: false
         argument :vendor_guid, String, required: false
         argument :mastery_points, Int, required: false
-        argument :ratings_description, String, required: false
-        argument :ratings_points, Int, required: false
+        argument :ratings_description, [String], required: false
+        argument :ratings_points, [Int], required: false
         argument :calculation_method, String, required: false
         argument :calculation_int, Int, required: false
         

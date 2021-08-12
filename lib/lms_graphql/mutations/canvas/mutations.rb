@@ -219,6 +219,7 @@ module LMSGraphQL
         field :leave_group_memberships, mutation: LMSGraphQL::Mutations::Canvas::LeaveGroupMembership
         field :leave_group_users, mutation: LMSGraphQL::Mutations::Canvas::LeaveGroupUser
         field :confirm_image_selection, mutation: LMSGraphQL::Mutations::Canvas::ConfirmImageSelection
+        field :create_instid, mutation: LMSGraphQL::Mutations::Canvas::CreateInstid
         field :create_jwt, mutation: LMSGraphQL::Mutations::Canvas::CreateJwt
         field :refresh_jwt, mutation: LMSGraphQL::Mutations::Canvas::RefreshJwt
         field :create_late_policy, mutation: LMSGraphQL::Mutations::Canvas::CreateLatePolicy

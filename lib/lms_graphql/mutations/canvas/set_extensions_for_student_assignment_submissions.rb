@@ -6,8 +6,8 @@ module LMSGraphQL
       class SetExtensionsForStudentAssignmentSubmission < BaseMutation
         argument :course_id, ID, required: true
         argument :assignment_id, ID, required: true
-        argument :assignment_extensions_user_id, Int, required: true
-        argument :assignment_extensions_extra_attempts, Int, required: true
+        argument :assignment_extensions_user_id, [Int], required: true
+        argument :assignment_extensions_extra_attempts, [Int], required: true
         
         
         field :return_value, Boolean, null: false

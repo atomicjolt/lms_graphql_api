@@ -6,7 +6,7 @@ module LMSGraphQL
       class CreateAssignmentOverride < BaseMutation
         argument :course_id, ID, required: true
         argument :assignment_id, ID, required: true
-        argument :assignment_override_student_ids, Int, required: false
+        argument :assignment_override_student_ids, [Int], required: false
         argument :assignment_override_title, String, required: false
         argument :assignment_override_group_id, Int, required: false
         argument :assignment_override_course_section_id, Int, required: false

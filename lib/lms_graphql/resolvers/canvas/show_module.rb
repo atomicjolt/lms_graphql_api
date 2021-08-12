@@ -7,7 +7,7 @@ module LMSGraphQL
         type LMSGraphQL::Types::Canvas::CanvasModule, null: false
         argument :course_id, ID, required: true
         argument :id, ID, required: true
-        argument :include, String, required: false
+        argument :include, [String], required: false
         argument :student_id, ID, required: false
         def resolve(course_id:, id:, include: nil, student_id: nil, get_all: false)
           result = context[:canvas_api].call("SHOW_MODULE").proxy(

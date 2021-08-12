@@ -46,7 +46,7 @@ module LMSGraphQL
       argument :lock_info, LMSGraphQL::Types::Canvas::CanvasLockInfoInput, "(Optional) Information for the user about the lock. Present when locked_for_user is true..", required: false
       argument :lock_explanation, String, "(Optional) An explanation of why this is locked for the user. Present when locked_for_user is true..Example: This discussion is locked until September 1 at 12:00am", required: false
       argument :user_name, String, "The username of the topic creator..Example: User Name", required: false
-      argument :topic_children, Int, "DEPRECATED An array of topic_ids for the group discussions the user is a part of..Example: 5, 7, 10", required: false
+      argument :topic_children, [Int], "DEPRECATED An array of topic_ids for the group discussions the user is a part of..Example: 5, 7, 10", required: false
       argument :group_topic_children, String, "An array of group discussions the user is a part of. Fields include: id, group_id.Example: {'id'=>5, 'group_id'=>1}, {'id'=>7, 'group_id'=>5}, {'id'=>10, 'group_id'=>4}", required: false
       argument :root_topic_id, ID, "If the topic is for grading and a group assignment this will point to the original topic in the course..", required: false
       argument :podcast_url, String, "If the topic is a podcast topic this is the feed url for the current user..Example: /feeds/topics/1/enrollment_1XAcepje4u228rt4mi7Z1oFbRpn3RAkTzuXIGOPe.rss", required: false

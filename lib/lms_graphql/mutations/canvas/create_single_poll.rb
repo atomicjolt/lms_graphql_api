@@ -4,8 +4,8 @@ module LMSGraphQL
   module Mutations
     module Canvas
       class CreateSinglePoll < BaseMutation
-        argument :polls_question, String, required: true
-        argument :polls_description, String, required: false
+        argument :polls_question, [String], required: true
+        argument :polls_description, [String], required: false
         
         
         field :return_value, Boolean, null: false

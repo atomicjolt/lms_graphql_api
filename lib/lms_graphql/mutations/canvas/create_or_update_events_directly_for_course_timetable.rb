@@ -9,9 +9,9 @@ module LMSGraphQL
         argument :events, [String], required: false
         argument :events_start_at, [LMSGraphQL::Types::DateTimeType], required: false
         argument :events_end_at, [LMSGraphQL::Types::DateTimeType], required: false
-        argument :events_location_name, String, required: false
-        argument :events_code, String, required: false
-        argument :events_title, String, required: false
+        argument :events_location_name, [String], required: false
+        argument :events_code, [String], required: false
+        argument :events_title, [String], required: false
         
         
         field :return_value, Boolean, null: false

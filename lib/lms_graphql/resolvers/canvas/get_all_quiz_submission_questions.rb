@@ -6,7 +6,7 @@ module LMSGraphQL
       class GetAllQuizSubmissionQuestion < CanvasBaseResolver
         type Boolean, null: false
         argument :quiz_submission_id, ID, required: true
-        argument :include, String, required: false
+        argument :include, [String], required: false
         def resolve(quiz_submission_id:, include: nil, get_all: false)
           result = context[:canvas_api].call("GET_ALL_QUIZ_SUBMISSION_QUESTIONS").proxy(
             "GET_ALL_QUIZ_SUBMISSION_QUESTIONS",

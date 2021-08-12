@@ -7,11 +7,11 @@ module LMSGraphQL
         type [LMSGraphQL::Types::Canvas::CanvasConversation], null: false
         argument :get_all, Boolean, required: false
         argument :scope, String, required: false
-        argument :filter, String, required: false
+        argument :filter, [String], required: false
         argument :filter_mode, String, required: false
         argument :interleave_submissions, Boolean, required: false
         argument :include_all_conversation_ids, [ID], required: false
-        argument :include, String, required: false
+        argument :include, [String], required: false
         def resolve(scope: nil, filter: nil, filter_mode: nil, interleave_submissions: nil, include_all_conversation_ids: nil, include: nil, get_all: false)
           result = context[:canvas_api].call("LIST_CONVERSATIONS").proxy(
             "LIST_CONVERSATIONS",

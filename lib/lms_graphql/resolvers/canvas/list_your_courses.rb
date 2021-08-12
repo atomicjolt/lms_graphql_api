@@ -11,8 +11,8 @@ module LMSGraphQL
         argument :enrollment_role_id, ID, required: false
         argument :enrollment_state, String, required: false
         argument :exclude_blueprint_courses, Boolean, required: false
-        argument :include, String, required: false
-        argument :state, String, required: false
+        argument :include, [String], required: false
+        argument :state, [String], required: false
         def resolve(enrollment_type: nil, enrollment_role: nil, enrollment_role_id: nil, enrollment_state: nil, exclude_blueprint_courses: nil, include: nil, state: nil, get_all: false)
           result = context[:canvas_api].call("LIST_YOUR_COURSES").proxy(
             "LIST_YOUR_COURSES",

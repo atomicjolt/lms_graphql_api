@@ -12,7 +12,7 @@ module LMSGraphQL
         argument :grade_data__student_id__group_comment, Boolean, required: false
         argument :grade_data__student_id__media_comment_id, String, required: false
         argument :grade_data__student_id__media_comment_type, String, required: false
-        argument :grade_data__student_id__file_ids, Int, required: false
+        argument :grade_data__student_id__file_ids, [Int], required: false
         argument :grade_data__student_id__assignment_id, Int, required: false
         
         

@@ -4,7 +4,7 @@ module LMSGraphQL
   module Mutations
     module Canvas
       class CreateConversation < BaseMutation
-        argument :recipients, String, required: true
+        argument :recipients, [String], required: true
         argument :subject, String, required: false
         argument :body, String, required: true
         argument :force_new, Boolean, required: false
@@ -15,7 +15,7 @@ module LMSGraphQL
         argument :user_note, Boolean, required: false
         argument :mode, String, required: false
         argument :scope, String, required: false
-        argument :filter, String, required: false
+        argument :filter, [String], required: false
         argument :filter_mode, String, required: false
         argument :context_code, String, required: false
         

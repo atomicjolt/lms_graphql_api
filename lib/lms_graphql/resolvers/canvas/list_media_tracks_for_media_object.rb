@@ -7,7 +7,7 @@ module LMSGraphQL
         type [LMSGraphQL::Types::Canvas::CanvasMediaTrack], null: false
         argument :get_all, Boolean, required: false
         argument :media_object_id, ID, required: true
-        argument :include, String, required: false
+        argument :include, [String], required: false
         def resolve(media_object_id:, include: nil, get_all: false)
           result = context[:canvas_api].call("LIST_MEDIA_TRACKS_FOR_MEDIA_OBJECT").proxy(
             "LIST_MEDIA_TRACKS_FOR_MEDIA_OBJECT",

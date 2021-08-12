@@ -10,7 +10,7 @@ module LMSGraphQL
         argument :submission_submission_type, String, required: true
         argument :submission_body, String, required: false
         argument :submission_url, String, required: false
-        argument :submission_file_ids, Int, required: false
+        argument :submission_file_ids, [Int], required: false
         argument :submission_media_comment_id, String, required: false
         argument :submission_media_comment_type, String, required: false
         argument :submission_user_id, Int, required: false

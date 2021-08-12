@@ -7,7 +7,7 @@ module LMSGraphQL
         type [LMSGraphQL::Types::Canvas::CanvasRole], null: false
         argument :get_all, Boolean, required: false
         argument :account_id, ID, required: true
-        argument :state, String, required: false
+        argument :state, [String], required: false
         argument :show_inherited, Boolean, required: false
         def resolve(account_id:, state: nil, show_inherited: nil, get_all: false)
           result = context[:canvas_api].call("LIST_ROLES").proxy(
