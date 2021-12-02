@@ -8,7 +8,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasSubmissionInput < BaseInputObject
-          class SubmissionSubmissionTypeEnum < ::GraphQL::Schema::Enum
+          class SubmissionInputSubmissionTypeEnum < ::GraphQL::Schema::Enum
           value "online_text_entry"
           value "online_url"
           value "online_upload"
@@ -16,14 +16,14 @@ module LMSGraphQL
           value "student_annotation"
         end
 
-                class SubmissionWorkflowStateEnum < ::GraphQL::Schema::Enum
+                class SubmissionInputWorkflowStateEnum < ::GraphQL::Schema::Enum
           value "graded"
           value "submitted"
           value "unsubmitted"
           value "pending_review"
         end
 
-                class SubmissionReadStatusEnum < ::GraphQL::Schema::Enum
+                class SubmissionInputReadStatusEnum < ::GraphQL::Schema::Enum
           value "read"
           value "unread"
         end
@@ -39,7 +39,7 @@ module LMSGraphQL
       argument :preview_url, String, "URL to the submission preview. This will require the user to log in..Example: http://example.com/courses/255/assignments/543/submissions/134?preview=1", required: false
       argument :score, Float, "The raw score.Example: 13.5", required: false
       argument :submission_comments, [LMSGraphQL::Types::Canvas::CanvasSubmissionCommentInput], "Associated comments for a submission (optional).", required: false
-      argument :submission_type, SubmissionSubmissionTypeEnum, "The types of submission ex: ('online_text_entry'|'online_url'|'online_upload'|'media_recording'|'student_annotation').Example: online_text_entry", required: false
+      argument :submission_type, SubmissionInputSubmissionTypeEnum, "The types of submission ex: ('online_text_entry'|'online_url'|'online_upload'|'media_recording'|'student_annotation').Example: online_text_entry", required: false
       argument :submitted_at, LMSGraphQL::Types::DateTimeType, "The timestamp when the assignment was submitted.Example: 2012-01-01T01:00:00Z", required: false
       argument :url, String, "The URL of the submission (for 'online_url' submissions)..", required: false
       argument :user_id, ID, "The id of the user who created the submission.Example: 134", required: false
@@ -53,11 +53,11 @@ module LMSGraphQL
       argument :late_policy_status, String, "The status of the submission in relation to the late policy. Can be late, missing, none, or null..Example: missing", required: false
       argument :points_deducted, Float, "The amount of points automatically deducted from the score by the missing/late policy for a late or missing assignment..Example: 12.3", required: false
       argument :seconds_late, Float, "The amount of time, in seconds, that an submission is late by..Example: 300", required: false
-      argument :workflow_state, SubmissionWorkflowStateEnum, "The current state of the submission.Example: submitted", required: false
+      argument :workflow_state, SubmissionInputWorkflowStateEnum, "The current state of the submission.Example: submitted", required: false
       argument :extra_attempts, Float, "Extra submission attempts allowed for the given user and assignment..Example: 10", required: false
       argument :anonymous_id, ID, "A unique short ID identifying this submission without reference to the owning user. Only included if the caller has administrator access for the current account..Example: acJ4Q", required: false
       argument :posted_at, LMSGraphQL::Types::DateTimeType, "The date this submission was posted to the student, or nil if it has not been posted..Example: 2020-01-02T11:10:30Z", required: false
-      argument :read_status, SubmissionReadStatusEnum, "The read status of this submission for the given user (optional). Including read_status will mark submission(s) as read..Example: read", required: false
+      argument :read_status, SubmissionInputReadStatusEnum, "The read status of this submission for the given user (optional). Including read_status will mark submission(s) as read..Example: read", required: false
 
       end
     end

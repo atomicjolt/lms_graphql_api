@@ -7,19 +7,19 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasQuizInput < BaseInputObject
-          class QuizQuizTypeEnum < ::GraphQL::Schema::Enum
+          class QuizInputQuizTypeEnum < ::GraphQL::Schema::Enum
           value "practice_quiz"
           value "assignment"
           value "graded_survey"
           value "survey"
         end
 
-                class QuizHideResultEnum < ::GraphQL::Schema::Enum
+                class QuizInputHideResultEnum < ::GraphQL::Schema::Enum
           value "always"
           value "until_after_last_attempt"
         end
 
-                class QuizScoringPolicyEnum < ::GraphQL::Schema::Enum
+                class QuizInputScoringPolicyEnum < ::GraphQL::Schema::Enum
           value "keep_highest"
           value "keep_latest"
         end
@@ -30,17 +30,17 @@ module LMSGraphQL
       argument :mobile_url, String, "a url suitable for loading the quiz in a mobile webview.  it will persiste the headless session and, for quizzes in public courses, will force the user to login.Example: http://canvas.example.edu/courses/1/quizzes/2?persist_healdess=1&force_user=1", required: false
       argument :preview_url, String, "A url that can be visited in the browser with a POST request to preview a quiz as the teacher. Only present when the user may grade.Example: http://canvas.example.edu/courses/1/quizzes/2/take?preview=1", required: false
       argument :description, String, "the description of the quiz.Example: This is a quiz on Act 3 of Hamlet", required: false
-      argument :quiz_type, QuizQuizTypeEnum, "type of quiz possible values: 'practice_quiz', 'assignment', 'graded_survey', 'survey'.Example: assignment", required: false
+      argument :quiz_type, QuizInputQuizTypeEnum, "type of quiz possible values: 'practice_quiz', 'assignment', 'graded_survey', 'survey'.Example: assignment", required: false
       argument :assignment_group_id, ID, "the ID of the quiz's assignment group:.Example: 3", required: false
       argument :time_limit, Int, "quiz time limit in minutes.Example: 5", required: false
       argument :shuffle_answers, Boolean, "shuffle answers for students?.", required: false
-      argument :hide_results, QuizHideResultEnum, "let students see their quiz responses? possible values: null, 'always', 'until_after_last_attempt'.Example: always", required: false
+      argument :hide_results, QuizInputHideResultEnum, "let students see their quiz responses? possible values: null, 'always', 'until_after_last_attempt'.Example: always", required: false
       argument :show_correct_answers, Boolean, "show which answers were correct when results are shown? only valid if hide_results=null.Example: true", required: false
       argument :show_correct_answers_last_attempt, Boolean, "restrict the show_correct_answers option above to apply only to the last submitted attempt of a quiz that allows multiple attempts. only valid if show_correct_answers=true and allowed_attempts > 1.Example: true", required: false
       argument :show_correct_answers_at, LMSGraphQL::Types::DateTimeType, "when should the correct answers be visible by students? only valid if show_correct_answers=true.Example: 2013-01-23T23:59:00-07:00", required: false
       argument :hide_correct_answers_at, LMSGraphQL::Types::DateTimeType, "prevent the students from seeing correct answers after the specified date has passed. only valid if show_correct_answers=true.Example: 2013-01-23T23:59:00-07:00", required: false
       argument :one_time_results, Boolean, "prevent the students from seeing their results more than once (right after they submit the quiz).Example: true", required: false
-      argument :scoring_policy, QuizScoringPolicyEnum, "which quiz score to keep (only if allowed_attempts != 1) possible values: 'keep_highest', 'keep_latest'.Example: keep_highest", required: false
+      argument :scoring_policy, QuizInputScoringPolicyEnum, "which quiz score to keep (only if allowed_attempts != 1) possible values: 'keep_highest', 'keep_latest'.Example: keep_highest", required: false
       argument :allowed_attempts, Int, "how many times a student can take the quiz -1 = unlimited attempts.Example: 3", required: false
       argument :one_question_at_a_time, Boolean, "show one question at a time?.", required: false
       argument :question_count, Int, "the number of questions in the quiz.Example: 12", required: false

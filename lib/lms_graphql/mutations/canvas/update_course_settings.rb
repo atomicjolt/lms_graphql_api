@@ -9,6 +9,7 @@ module LMSGraphQL
         argument :allow_student_forum_attachments, Boolean, required: false
         argument :allow_student_discussion_editing, Boolean, required: false
         argument :allow_student_organized_groups, Boolean, required: false
+        argument :allow_student_discussion_reporting, Boolean, required: false
         argument :filter_speed_grader_by_student_group, Boolean, required: false
         argument :hide_final_grades, Boolean, required: false
         argument :hide_distribution_graphs, Boolean, required: false
@@ -24,7 +25,7 @@ module LMSGraphQL
         
         field :return_value, Boolean, null: false
         
-        def resolve(course_id:, allow_student_discussion_topics: nil, allow_student_forum_attachments: nil, allow_student_discussion_editing: nil, allow_student_organized_groups: nil, filter_speed_grader_by_student_group: nil, hide_final_grades: nil, hide_distribution_graphs: nil, hide_sections_on_course_users_page: nil, lock_all_announcements: nil, usage_rights_required: nil, restrict_student_past_view: nil, restrict_student_future_view: nil, show_announcements_on_home_page: nil, home_page_announcement_limit: nil, syllabus_course_summary: nil)
+        def resolve(course_id:, allow_student_discussion_topics: nil, allow_student_forum_attachments: nil, allow_student_discussion_editing: nil, allow_student_organized_groups: nil, allow_student_discussion_reporting: nil, filter_speed_grader_by_student_group: nil, hide_final_grades: nil, hide_distribution_graphs: nil, hide_sections_on_course_users_page: nil, lock_all_announcements: nil, usage_rights_required: nil, restrict_student_past_view: nil, restrict_student_future_view: nil, show_announcements_on_home_page: nil, home_page_announcement_limit: nil, syllabus_course_summary: nil)
           context[:canvas_api].call("UPDATE_COURSE_SETTINGS").proxy(
             "UPDATE_COURSE_SETTINGS",
             {
@@ -35,6 +36,7 @@ module LMSGraphQL
               "allow_student_forum_attachments": allow_student_forum_attachments,
               "allow_student_discussion_editing": allow_student_discussion_editing,
               "allow_student_organized_groups": allow_student_organized_groups,
+              "allow_student_discussion_reporting": allow_student_discussion_reporting,
               "filter_speed_grader_by_student_group": filter_speed_grader_by_student_group,
               "hide_final_grades": hide_final_grades,
               "hide_distribution_graphs": hide_distribution_graphs,

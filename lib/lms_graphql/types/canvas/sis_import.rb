@@ -45,8 +45,8 @@ module LMSGraphQL
         field :progress, String, "The progress of the SIS import. The progress will reset when using batch_mode and have a different progress for the cleanup stage.Example: 100", null: true
         field :errors_attachment, LMSGraphQL::Types::Canvas::CanvasFile, "The errors_attachment api object of the SIS import. Only available if there are errors or warning and import has completed..", null: true
         field :user, LMSGraphQL::Types::Canvas::CanvasUser, "The user that initiated the sis_batch. See the Users API for details..", null: true
-        field :processing_warnings, String, "Only imports that are complete will get this data. An array of CSV_file/warning_message pairs..Example: students.csv, user John Doe has already claimed john_doe's requested login information, skipping", null: true
-        field :processing_errors, String, "An array of CSV_file/error_message pairs..Example: students.csv, Error while importing CSV. Please contact support.", null: true
+        field :processing_warnings, [String], "Only imports that are complete will get this data. An array of CSV_file/warning_message pairs..Example: students.csv, user John Doe has already claimed john_doe's requested login information, skipping", null: true
+        field :processing_errors, [String], "An array of CSV_file/error_message pairs..Example: students.csv, Error while importing CSV. Please contact support.", null: true
         field :batch_mode, Boolean, "Whether the import was run in batch mode..Example: true", null: true
         field :batch_mode_term_id, ID, "The term the batch was limited to..Example: 1234", null: true
         field :multi_term_batch_mode, Boolean, "Enables batch mode against all terms in term file. Requires change_threshold to be set..Example: false", null: true
@@ -56,7 +56,7 @@ module LMSGraphQL
         field :clear_sis_stickiness, Boolean, "Whether stickiness was cleared..Example: false", null: true
         field :diffing_data_set_identifier, String, "The identifier of the data set that this SIS batch diffs against.Example: account-5-enrollments", null: true
         field :diffed_against_import_id, ID, "The ID of the SIS Import that this import was diffed against.Example: 1", null: true
-        field :csv_attachments, String, "An array of CSV files for processing.", null: true
+        field :csv_attachments, [String], "An array of CSV files for processing.", null: true
 
       end
     end

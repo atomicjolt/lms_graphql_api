@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasExternalFeedInput < BaseInputObject
-          class ExternalFeedVerbosityEnum < ::GraphQL::Schema::Enum
+          class ExternalFeedInputVerbosityEnum < ::GraphQL::Schema::Enum
           value "link_only"
           value "truncate"
           value "full"
@@ -16,7 +16,7 @@ module LMSGraphQL
       argument :url, String, "The HTTP/HTTPS URL to the feed.Example: http://example.com/myblog.rss", required: false
       argument :header_match, String, "If not null, only feed entries whose title contains this string will trigger new posts in Canvas.Example: pattern", required: false
       argument :created_at, LMSGraphQL::Types::DateTimeType, "When this external feed was added to Canvas.Example: 2012-06-01T00:00:00-06:00", required: false
-      argument :verbosity, ExternalFeedVerbosityEnum, "The verbosity setting determines how much of the feed's content is imported into Canvas as part of the posting. 'link_only' means that only the title and a link to the item. 'truncate' means that a summary of the first portion of the item body will be used. 'full' means that the full item body will be used..Example: truncate", required: false
+      argument :verbosity, ExternalFeedInputVerbosityEnum, "The verbosity setting determines how much of the feed's content is imported into Canvas as part of the posting. 'link_only' means that only the title and a link to the item. 'truncate' means that a summary of the first portion of the item body will be used. 'full' means that the full item body will be used..Example: truncate", required: false
 
       end
     end

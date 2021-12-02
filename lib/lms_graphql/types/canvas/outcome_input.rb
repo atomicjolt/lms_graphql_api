@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasOutcomeInput < BaseInputObject
-          class OutcomeCalculationMethodEnum < ::GraphQL::Schema::Enum
+          class OutcomeInputCalculationMethodEnum < ::GraphQL::Schema::Enum
           value "decaying_average"
           value "n_mastery"
           value "latest"
@@ -22,7 +22,7 @@ module LMSGraphQL
       argument :vendor_guid, String, "A custom GUID for the learning standard..Example: customid9000", required: false
       argument :points_possible, Int, "maximum points possible. included only if the outcome embeds a rubric criterion. omitted in the abbreviated form..Example: 5", required: false
       argument :mastery_points, Int, "points necessary to demonstrate mastery outcomes. included only if the outcome embeds a rubric criterion. omitted in the abbreviated form..Example: 3", required: false
-      argument :calculation_method, OutcomeCalculationMethodEnum, "the method used to calculate a students score.Example: decaying_average", required: false
+      argument :calculation_method, OutcomeInputCalculationMethodEnum, "the method used to calculate a students score.Example: decaying_average", required: false
       argument :calculation_int, Int, "this defines the variable value used by the calculation_method. included only if calculation_method uses it.Example: 65", required: false
       argument :ratings, [LMSGraphQL::Types::Canvas::CanvasRubricRatingInput], "possible ratings for this outcome. included only if the outcome embeds a rubric criterion. omitted in the abbreviated form..", required: false
       argument :can_edit, Boolean, "whether the current user can update the outcome.Example: true", required: false

@@ -3,7 +3,7 @@ require_relative "../canvas_base_resolver"
 module LMSGraphQL
   module Resolvers
     module Canvas
-      class GetCustomColor < CanvasBaseResolver
+      class GetCustomColors < CanvasBaseResolver
         type Boolean, null: false
         argument :id, ID, required: true
         def resolve(id:, get_all: false)

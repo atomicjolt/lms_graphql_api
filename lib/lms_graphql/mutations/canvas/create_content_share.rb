@@ -5,7 +5,7 @@ module LMSGraphQL
     module Canvas
       class CreateContentShare < BaseMutation
         argument :user_id, ID, required: true
-        argument :receiver_ids, String, required: true
+        argument :receiver_ids, [String], required: true
         argument :content_type, String, required: true
         argument :content_id, ID, required: true
         

@@ -9,8 +9,9 @@ module LMSGraphQL
         argument :start_date, LMSGraphQL::Types::DateTimeType, required: false
         argument :end_date, LMSGraphQL::Types::DateTimeType, required: false
         argument :context_codes, [String], required: false
+        argument :observed_user_id, ID, required: false
         argument :filter, String, required: false
-        def resolve(user_id:, start_date: nil, end_date: nil, context_codes: nil, filter: nil, get_all: false)
+        def resolve(user_id:, start_date: nil, end_date: nil, context_codes: nil, observed_user_id: nil, filter: nil, get_all: false)
           result = context[:canvas_api].call("LIST_PLANNER_ITEMS_USERS").proxy(
             "LIST_PLANNER_ITEMS_USERS",
             {
@@ -18,6 +19,7 @@ module LMSGraphQL
               "start_date": start_date,
               "end_date": end_date,
               "context_codes": context_codes,
+              "observed_user_id": observed_user_id,
               "filter": filter            },
             nil,
             get_all,
