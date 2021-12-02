@@ -6,7 +6,7 @@ module LMSGraphQL
       class AddUsersToContentShare < BaseMutation
         argument :user_id, ID, required: true
         argument :id, ID, required: true
-        argument :receiver_ids, String, required: false
+        argument :receiver_ids, [String], required: false
         
         
         field :content_share, LMSGraphQL::Types::Canvas::CanvasContentShare, null: false

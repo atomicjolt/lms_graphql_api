@@ -11,7 +11,7 @@ module LMSGraphQL
         argument :end_date, LMSGraphQL::Types::DateTimeType, required: false
         argument :active_only, Boolean, required: false
         argument :latest_only, Boolean, required: false
-        argument :include, String, required: false
+        argument :include, [String], required: false
         def resolve(context_codes:, start_date: nil, end_date: nil, active_only: nil, latest_only: nil, include: nil, get_all: false)
           result = context[:canvas_api].call("LIST_ANNOUNCEMENTS").proxy(
             "LIST_ANNOUNCEMENTS",

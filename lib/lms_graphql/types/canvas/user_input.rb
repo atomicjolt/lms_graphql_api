@@ -9,6 +9,8 @@ module LMSGraphQL
       argument :id, ID, "The ID of the user..Example: 2", required: false
       argument :name, String, "The name of the user..Example: Sheldon Cooper", required: false
       argument :sortable_name, String, "The name of the user that is should be used for sorting groups of users, such as in the gradebook..Example: Cooper, Sheldon", required: false
+      argument :last_name, String, "The last name of the user..Example: Cooper", required: false
+      argument :first_name, String, "The first name of the user..Example: Sheldon", required: false
       argument :short_name, String, "A short name the user has selected, for use in conversations or other less formal places through the site..Example: Shelly", required: false
       argument :sis_user_id, ID, "The SIS ID associated with the user.  This field is only included if the user came from a SIS import and has permissions to view SIS information..Example: SHEL93921", required: false
       argument :sis_import_id, ID, "The id of the SIS import.  This field is only included if the user came from a SIS import and has permissions to manage SIS information..Example: 18", required: false

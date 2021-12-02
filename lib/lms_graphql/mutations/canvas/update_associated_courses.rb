@@ -6,8 +6,8 @@ module LMSGraphQL
       class UpdateAssociatedCourse < BaseMutation
         argument :course_id, ID, required: true
         argument :template_id, ID, required: true
-        argument :course_ids_to_add, String, required: false
-        argument :course_ids_to_remove, String, required: false
+        argument :course_ids_to_add, [String], required: false
+        argument :course_ids_to_remove, [String], required: false
         
         
         field :return_value, Boolean, null: false

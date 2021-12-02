@@ -13,7 +13,7 @@ module LMSGraphQL
         field :updated_at, LMSGraphQL::Types::DateTimeType, "The datetime the content was updated..Example: 2017-05-09T10:12:00Z", null: true
         field :user_id, ID, "The id of the user who sent or received the content share..Example: 1578941", null: true
         field :sender, String, "The user who shared the content. This field is provided only to receivers; it is not populated in the sender's list of sent content shares..Example: 1, Matilda Vargas, http://localhost:3000/image_url, http://localhost:3000/users/1", null: true
-        field :receivers, String, "An Array of users the content is shared with.  This field is provided only to senders; an empty array will be returned for the receiving users..Example: {'id'=>1, 'display_name'=>'Jon Snow', 'avatar_image_url'=>'http://localhost:3000/image_url2', 'html_url'=>'http://localhost:3000/users/2'}", null: true
+        field :receivers, [String], "An Array of users the content is shared with.  This field is provided only to senders; an empty array will be returned for the receiving users..Example: {'id'=>1, 'display_name'=>'Jon Snow', 'avatar_image_url'=>'http://localhost:3000/image_url2', 'html_url'=>'http://localhost:3000/users/2'}", null: true
         field :source_course, String, "The course the content was originally shared from..Example: 787, History 105", null: true
         field :read_state, String, "Whether the recipient has viewed the content share..Example: read", null: true
         field :content_export, LMSGraphQL::Types::Canvas::CanvasContentExport, "The content export record associated with this content share.Example: 42", null: true

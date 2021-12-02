@@ -5,7 +5,7 @@ module LMSGraphQL
     module Canvas
       class AddMultipleAllowedDomainsToAccount < BaseMutation
         argument :account_id, ID, required: true
-        argument :domains, String, required: true
+        argument :domains, [String], required: true
         
         
         field :return_value, Boolean, null: false

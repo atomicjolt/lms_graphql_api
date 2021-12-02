@@ -9,14 +9,14 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasCourseInput < BaseInputObject
-          class CourseWorkflowStateEnum < ::GraphQL::Schema::Enum
+          class CourseInputWorkflowStateEnum < ::GraphQL::Schema::Enum
           value "unpublished"
           value "available"
           value "completed"
           value "deleted"
         end
 
-                class CourseDefaultViewEnum < ::GraphQL::Schema::Enum
+                class CourseInputDefaultViewEnum < ::GraphQL::Schema::Enum
           value "feed"
           value "wiki"
           value "modules"
@@ -31,7 +31,7 @@ module LMSGraphQL
       argument :sis_import_id, ID, "the unique identifier for the SIS import. This field is only included if the user has permission to manage SIS information..Example: 34", required: false
       argument :name, String, "the full name of the course.Example: InstructureCon 2012", required: false
       argument :course_code, String, "the course code.Example: INSTCON12", required: false
-      argument :workflow_state, CourseWorkflowStateEnum, "the current state of the course one of 'unpublished', 'available', 'completed', or 'deleted'.Example: available", required: false
+      argument :workflow_state, CourseInputWorkflowStateEnum, "the current state of the course one of 'unpublished', 'available', 'completed', or 'deleted'.Example: available", required: false
       argument :account_id, ID, "the account associated with the course.Example: 81259", required: false
       argument :root_account_id, ID, "the root account associated with the course.Example: 81259", required: false
       argument :enrollment_term_id, ID, "the enrollment term associated with the course.Example: 34", required: false
@@ -45,7 +45,7 @@ module LMSGraphQL
       argument :enrollments, [LMSGraphQL::Types::Canvas::CanvasEnrollmentInput], "A list of enrollments linking the current user to the course. for student enrollments, grading information may be included if include[]=total_scores.", required: false
       argument :total_students, Int, "optional: the total number of active and invited students in the course.Example: 32", required: false
       argument :calendar, LMSGraphQL::Types::Canvas::CanvasCalendarLinkInput, "course calendar.", required: false
-      argument :default_view, CourseDefaultViewEnum, "the type of page that users will see when they first visit the course - 'feed': Recent Activity Dashboard - 'wiki': Wiki Front Page - 'modules': Course Modules/Sections Page - 'assignments': Course Assignments List - 'syllabus': Course Syllabus Page other types may be added in the future.Example: feed", required: false
+      argument :default_view, CourseInputDefaultViewEnum, "the type of page that users will see when they first visit the course - 'feed': Recent Activity Dashboard - 'wiki': Wiki Front Page - 'modules': Course Modules/Sections Page - 'assignments': Course Assignments List - 'syllabus': Course Syllabus Page other types may be added in the future.Example: feed", required: false
       argument :syllabus_body, String, "optional: user-generated HTML for the course syllabus.Example: <p>syllabus html goes here</p>", required: false
       argument :needs_grading_count, Int, "optional: the number of submissions needing grading returned only if the current user has grading rights and include[]=needs_grading_count.Example: 17", required: false
       argument :term, LMSGraphQL::Types::Canvas::CanvasTermInput, "optional: the enrollment term object for the course returned only if include[]=term.", required: false

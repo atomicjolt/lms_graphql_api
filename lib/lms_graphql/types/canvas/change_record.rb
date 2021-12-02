@@ -12,7 +12,7 @@ module LMSGraphQL
         field :change_type, String, "The type of change; one of 'created', 'updated', 'deleted'.Example: created", null: true
         field :html_url, String, "The URL of the changed object.Example: https://canvas.example.com/courses/101/assignments/2", null: true
         field :locked, Boolean, "Whether the object is locked in the blueprint.", null: true
-        field :exceptions, String, "A list of ExceptionRecords for linked courses that did not receive this update..Example: {'course_id'=>101, 'conflicting_changes'=>['points']}", null: true
+        field :exceptions, [String], "A list of ExceptionRecords for linked courses that did not receive this update..Example: {'course_id'=>101, 'conflicting_changes'=>['points']}", null: true
 
       end
     end

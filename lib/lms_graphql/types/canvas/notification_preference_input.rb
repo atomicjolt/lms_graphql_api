@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasNotificationPreferenceInput < BaseInputObject
-          class NotificationPreferenceFrequencyEnum < ::GraphQL::Schema::Enum
+          class NotificationPreferenceInputFrequencyEnum < ::GraphQL::Schema::Enum
           value "immediately"
           value "daily"
           value "weekly"
@@ -15,7 +15,7 @@ module LMSGraphQL
       argument :href, String, "Example: https://canvas.instructure.com/users/1/communication_channels/email/student@example.edu/notification_preferences/new_announcement", required: false
       argument :notification, String, "The notification this preference belongs to.Example: new_announcement", required: false
       argument :category, String, "The category of that notification.Example: announcement", required: false
-      argument :frequency, NotificationPreferenceFrequencyEnum, "How often to send notifications to this communication channel for the given notification. Possible values are 'immediately', 'daily', 'weekly', and 'never'.Example: daily", required: false
+      argument :frequency, NotificationPreferenceInputFrequencyEnum, "How often to send notifications to this communication channel for the given notification. Possible values are 'immediately', 'daily', 'weekly', and 'never'.Example: daily", required: false
 
       end
     end

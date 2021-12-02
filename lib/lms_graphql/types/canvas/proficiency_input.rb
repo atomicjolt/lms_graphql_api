@@ -6,7 +6,7 @@ module LMSGraphQL
     module Canvas
       class CanvasProficiencyInput < BaseInputObject
           description "Proficiency Ratings. API Docs: https://canvas.instructure.com/doc/api/proficiency_ratings.html"
-      argument :ratings, String, "An array of proficiency ratings. See the ProficiencyRating specification above..", required: false
+      argument :ratings, [String], "An array of proficiency ratings. See the ProficiencyRating specification above..", required: false
 
       end
     end

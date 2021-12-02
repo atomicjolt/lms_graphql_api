@@ -6,7 +6,7 @@ module LMSGraphQL
       class CreateWebhookSubscription < BaseMutation
         argument :subscription_ContextId, String, required: true
         argument :subscription_ContextType, String, required: true
-        argument :subscription_EventTypes, String, required: true
+        argument :subscription_EventTypes, [String], required: true
         argument :subscription_Format, String, required: true
         argument :subscription_TransportMetadata, String, required: true
         argument :subscription_TransportType, String, required: true

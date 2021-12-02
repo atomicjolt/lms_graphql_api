@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasCommMessageInput < BaseInputObject
-          class CommMessageWorkflowStateEnum < ::GraphQL::Schema::Enum
+          class CommMessageInputWorkflowStateEnum < ::GraphQL::Schema::Enum
           value "created"
           value "staged"
           value "sending"
@@ -19,7 +19,7 @@ module LMSGraphQL
       argument :id, ID, "The ID of the CommMessage..Example: 42", required: false
       argument :created_at, LMSGraphQL::Types::DateTimeType, "The date and time this message was created.Example: 2013-03-19T21:00:00Z", required: false
       argument :sent_at, LMSGraphQL::Types::DateTimeType, "The date and time this message was sent.Example: 2013-03-20T22:42:00Z", required: false
-      argument :workflow_state, CommMessageWorkflowStateEnum, "The workflow state of the message. One of 'created', 'staged', 'sending', 'sent', 'bounced', 'dashboard', 'cancelled', or 'closed'.Example: sent", required: false
+      argument :workflow_state, CommMessageInputWorkflowStateEnum, "The workflow state of the message. One of 'created', 'staged', 'sending', 'sent', 'bounced', 'dashboard', 'cancelled', or 'closed'.Example: sent", required: false
       argument :from, String, "The address that was put in the 'from' field of the message.Example: notifications@example.com", required: false
       argument :from_name, String, "The display name for the from address.Example: Instructure Canvas", required: false
       argument :to, String, "The address the message was sent to:.Example: someone@example.com", required: false
