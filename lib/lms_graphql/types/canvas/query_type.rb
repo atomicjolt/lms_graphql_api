@@ -1736,7 +1736,7 @@ module LMSGraphQL
           description: "Update user settings.. Update an existing user's settings."
 
         field :get_custom_colors,
-          resolver: LMSGraphQL::Resolvers::Canvas::GetCustomColor,
+          resolver: LMSGraphQL::Resolvers::Canvas::GetCustomColors,
           description: "Get custom colors. Returns all custom colors that have been saved for a user."
 
         field :get_custom_color,
