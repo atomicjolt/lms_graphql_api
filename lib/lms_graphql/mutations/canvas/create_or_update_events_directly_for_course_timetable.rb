@@ -7,8 +7,8 @@ module LMSGraphQL
         argument :course_id, ID, required: true
         argument :course_section_id, ID, required: false
         argument :events, [String], required: false
-        argument :events_start_at, [LMSGraphQL::Types::DateTimeType], required: false
-        argument :events_end_at, [LMSGraphQL::Types::DateTimeType], required: false
+        argument :events_start_at, [GraphQL::Types::ISO8601DateTime], required: false
+        argument :events_end_at, [GraphQL::Types::ISO8601DateTime], required: false
         argument :events_location_name, [String], required: false
         argument :events_code, [String], required: false
         argument :events_title, [String], required: false

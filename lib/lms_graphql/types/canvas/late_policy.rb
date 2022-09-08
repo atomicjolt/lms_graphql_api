@@ -15,8 +15,8 @@ module LMSGraphQL
         field :late_submission_interval, String, "time interval for late submission deduction.Example: hour", null: true
         field :late_submission_minimum_percent_enabled, Boolean, "whether to enable late submission minimum percent.Example: true", null: true
         field :late_submission_minimum_percent, Float, "the minimum score a submission can receive in percentage points.Example: 12.34", null: true
-        field :created_at, LMSGraphQL::Types::DateTimeType, "the time at which this late policy was originally created.Example: 2012-07-01T23:59:00-06:00", null: true
-        field :updated_at, LMSGraphQL::Types::DateTimeType, "the time at which this late policy was last modified in any way.Example: 2012-07-01T23:59:00-06:00", null: true
+        field :created_at, GraphQL::Types::ISO8601DateTime, "the time at which this late policy was originally created.Example: 2012-07-01T23:59:00-06:00", null: true
+        field :updated_at, GraphQL::Types::ISO8601DateTime, "the time at which this late policy was last modified in any way.Example: 2012-07-01T23:59:00-06:00", null: true
 
       end
     end

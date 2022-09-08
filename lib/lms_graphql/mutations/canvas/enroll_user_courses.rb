@@ -5,8 +5,8 @@ module LMSGraphQL
     module Canvas
       class EnrollUserCourse < BaseMutation
         argument :course_id, ID, required: true
-        argument :enrollment_start_at, LMSGraphQL::Types::DateTimeType, required: false
-        argument :enrollment_end_at, LMSGraphQL::Types::DateTimeType, required: false
+        argument :enrollment_start_at, GraphQL::Types::ISO8601DateTime, required: false
+        argument :enrollment_end_at, GraphQL::Types::ISO8601DateTime, required: false
         argument :enrollment_user_id, String, required: true
         argument :enrollment_type, String, required: true
         argument :enrollment_role, String, required: false

@@ -10,8 +10,8 @@ module LMSGraphQL
         argument :assignment_ids, [ID], required: false
         argument :grouped, Boolean, required: false
         argument :post_to_sis, Boolean, required: false
-        argument :submitted_since, LMSGraphQL::Types::DateTimeType, required: false
-        argument :graded_since, LMSGraphQL::Types::DateTimeType, required: false
+        argument :submitted_since, GraphQL::Types::ISO8601DateTime, required: false
+        argument :graded_since, GraphQL::Types::ISO8601DateTime, required: false
         argument :grading_period_id, ID, required: false
         argument :workflow_state, String, required: false
         argument :enrollment_state, String, required: false

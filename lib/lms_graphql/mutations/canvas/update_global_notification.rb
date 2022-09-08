@@ -8,8 +8,8 @@ module LMSGraphQL
         argument :id, ID, required: true
         argument :account_notification_subject, String, required: false
         argument :account_notification_message, String, required: false
-        argument :account_notification_start_at, LMSGraphQL::Types::DateTimeType, required: false
-        argument :account_notification_end_at, LMSGraphQL::Types::DateTimeType, required: false
+        argument :account_notification_start_at, GraphQL::Types::ISO8601DateTime, required: false
+        argument :account_notification_end_at, GraphQL::Types::ISO8601DateTime, required: false
         argument :account_notification_icon, String, required: false
         argument :account_notification_roles, [String], required: false
         

@@ -7,8 +7,8 @@ module LMSGraphQL
         type [LMSGraphQL::Types::Canvas::CanvasDiscussionTopic], null: false
         argument :get_all, Boolean, required: false
         argument :context_codes, [String], required: true
-        argument :start_date, LMSGraphQL::Types::DateTimeType, required: false
-        argument :end_date, LMSGraphQL::Types::DateTimeType, required: false
+        argument :start_date, GraphQL::Types::ISO8601DateTime, required: false
+        argument :end_date, GraphQL::Types::ISO8601DateTime, required: false
         argument :active_only, Boolean, required: false
         argument :latest_only, Boolean, required: false
         argument :include, [String], required: false

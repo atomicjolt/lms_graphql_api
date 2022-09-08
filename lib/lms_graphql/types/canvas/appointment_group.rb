@@ -25,8 +25,8 @@ module LMSGraphQL
         description "Appointment Groups. API Docs: https://canvas.instructure.com/doc/api/appointment_groups.html"
         field :id, ID, "The ID of the appointment group.Example: 543", null: true
         field :title, String, "The title of the appointment group.Example: Final Presentation", null: true
-        field :start_at, LMSGraphQL::Types::DateTimeType, "The start of the first time slot in the appointment group.Example: 2012-07-20T15:00:00-06:00", null: true
-        field :end_at, LMSGraphQL::Types::DateTimeType, "The end of the last time slot in the appointment group.Example: 2012-07-20T17:00:00-06:00", null: true
+        field :start_at, GraphQL::Types::ISO8601DateTime, "The start of the first time slot in the appointment group.Example: 2012-07-20T15:00:00-06:00", null: true
+        field :end_at, GraphQL::Types::ISO8601DateTime, "The end of the last time slot in the appointment group.Example: 2012-07-20T17:00:00-06:00", null: true
         field :description, String, "The text description of the appointment group.Example: Es muy importante", null: true
         field :location_name, String, "The location name of the appointment group.Example: El Tigre Chino's office", null: true
         field :location_address, String, "The address of the appointment group's location.Example: Room 234", null: true
@@ -46,8 +46,8 @@ module LMSGraphQL
         field :participant_type, AppointmentGroupParticipantTypeEnum, "Indicates how participants sign up for the appointment group, either as individuals ('User') or in student groups ('Group'). Related to sub_context_codes (i.e. 'Group' signups always have a single group category).Example: User", null: true
         field :url, String, "URL for this appointment group (to update, delete, etc.).Example: https://example.com/api/v1/appointment_groups/543", null: true
         field :html_url, String, "URL for a user to view this appointment group.Example: http://example.com/appointment_groups/1", null: true
-        field :created_at, LMSGraphQL::Types::DateTimeType, "When the appointment group was created.Example: 2012-07-13T10:55:20-06:00", null: true
-        field :updated_at, LMSGraphQL::Types::DateTimeType, "When the appointment group was last updated.Example: 2012-07-13T10:55:20-06:00", null: true
+        field :created_at, GraphQL::Types::ISO8601DateTime, "When the appointment group was created.Example: 2012-07-13T10:55:20-06:00", null: true
+        field :updated_at, GraphQL::Types::ISO8601DateTime, "When the appointment group was last updated.Example: 2012-07-13T10:55:20-06:00", null: true
 
       end
     end

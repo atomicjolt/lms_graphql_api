@@ -13,8 +13,8 @@ module LMSGraphQL
         field :sis_import_id, ID, "The unique identifier for the SIS import if created through SIS. This field is only included if the user has permission to manage SIS information..Example: 47", null: true
         field :course_id, ID, "The unique Canvas identifier for the course in which the section belongs.Example: 7", null: true
         field :sis_course_id, ID, "The unique SIS identifier for the course in which the section belongs. This field is only included if the user has permission to view SIS information..Example: 7", null: true
-        field :start_at, LMSGraphQL::Types::DateTimeType, "the start date for the section, if applicable.Example: 2012-06-01T00:00:00-06:00", null: true
-        field :end_at, LMSGraphQL::Types::DateTimeType, "the end date for the section, if applicable.", null: true
+        field :start_at, GraphQL::Types::ISO8601DateTime, "the start date for the section, if applicable.Example: 2012-06-01T00:00:00-06:00", null: true
+        field :end_at, GraphQL::Types::ISO8601DateTime, "the end date for the section, if applicable.", null: true
         field :restrict_enrollments_to_section_dates, Boolean, "Restrict user enrollments to the start and end dates of the section.", null: true
         field :nonxlist_course_id, ID, "The unique identifier of the original course of a cross-listed section.", null: true
         field :total_students, Int, "optional: the total number of active and invited students in the section.Example: 13", null: true

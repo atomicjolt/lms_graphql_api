@@ -21,10 +21,10 @@ module LMSGraphQL
         argument :settings_move_to_assignment_group_id, Int, required: false
         argument :settings_importer_skips, [String], required: false
         argument :date_shift_options_shift_dates, Boolean, required: false
-        argument :date_shift_options_old_start_date, LMSGraphQL::Types::DateTimeType, required: false
-        argument :date_shift_options_old_end_date, LMSGraphQL::Types::DateTimeType, required: false
-        argument :date_shift_options_new_start_date, LMSGraphQL::Types::DateTimeType, required: false
-        argument :date_shift_options_new_end_date, LMSGraphQL::Types::DateTimeType, required: false
+        argument :date_shift_options_old_start_date, GraphQL::Types::ISO8601DateTime, required: false
+        argument :date_shift_options_old_end_date, GraphQL::Types::ISO8601DateTime, required: false
+        argument :date_shift_options_new_start_date, GraphQL::Types::ISO8601DateTime, required: false
+        argument :date_shift_options_new_end_date, GraphQL::Types::ISO8601DateTime, required: false
         argument :date_shift_options_day_substitutions_X, Int, required: false
         argument :date_shift_options_remove_dates, Boolean, required: false
         argument :selective_import, Boolean, required: false

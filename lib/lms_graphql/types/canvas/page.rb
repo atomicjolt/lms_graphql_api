@@ -10,8 +10,8 @@ module LMSGraphQL
         field :page_id, ID, "the ID of the page.Example: 1", null: true
         field :url, String, "the unique locator for the page.Example: my-page-title", null: true
         field :title, String, "the title of the page.Example: My Page Title", null: true
-        field :created_at, LMSGraphQL::Types::DateTimeType, "the creation date for the page.Example: 2012-08-06T16:46:33-06:00", null: true
-        field :updated_at, LMSGraphQL::Types::DateTimeType, "the date the page was last updated.Example: 2012-08-08T14:25:20-06:00", null: true
+        field :created_at, GraphQL::Types::ISO8601DateTime, "the creation date for the page.Example: 2012-08-06T16:46:33-06:00", null: true
+        field :updated_at, GraphQL::Types::ISO8601DateTime, "the date the page was last updated.Example: 2012-08-08T14:25:20-06:00", null: true
         field :hide_from_students, Boolean, "(DEPRECATED) whether this page is hidden from students (note: this is always reflected as the inverse of the published value).", null: true
         field :editing_roles, String, "roles allowed to edit the page; comma-separated list comprising a combination of 'teachers', 'students', 'members', and/or 'public' if not supplied, course defaults are used.Example: teachers,students", null: true
         field :last_edited_by, LMSGraphQL::Types::Canvas::CanvasUser, "the User who last edited the page (this may not be present if the page was imported from another system).", null: true

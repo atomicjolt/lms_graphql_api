@@ -25,12 +25,12 @@ module LMSGraphQL
         field :associated_user_id, ID, "The unique id of the associated user. Will be null unless type is ObserverEnrollment..", null: true
         field :role, String, "The enrollment role, for course-level permissions. This field will match `type` if the enrollment role has not been customized..Example: StudentEnrollment", null: true
         field :role_id, ID, "The id of the enrollment role..Example: 1", null: true
-        field :created_at, LMSGraphQL::Types::DateTimeType, "The created time of the enrollment, in ISO8601 format..Example: 2012-04-18T23:08:51Z", null: true
-        field :updated_at, LMSGraphQL::Types::DateTimeType, "The updated time of the enrollment, in ISO8601 format..Example: 2012-04-18T23:08:51Z", null: true
-        field :start_at, LMSGraphQL::Types::DateTimeType, "The start time of the enrollment, in ISO8601 format..Example: 2012-04-18T23:08:51Z", null: true
-        field :end_at, LMSGraphQL::Types::DateTimeType, "The end time of the enrollment, in ISO8601 format..Example: 2012-04-18T23:08:51Z", null: true
-        field :last_activity_at, LMSGraphQL::Types::DateTimeType, "The last activity time of the user for the enrollment, in ISO8601 format..Example: 2012-04-18T23:08:51Z", null: true
-        field :last_attended_at, LMSGraphQL::Types::DateTimeType, "The last attended date of the user for the enrollment in a course, in ISO8601 format..Example: 2012-04-18T23:08:51Z", null: true
+        field :created_at, GraphQL::Types::ISO8601DateTime, "The created time of the enrollment, in ISO8601 format..Example: 2012-04-18T23:08:51Z", null: true
+        field :updated_at, GraphQL::Types::ISO8601DateTime, "The updated time of the enrollment, in ISO8601 format..Example: 2012-04-18T23:08:51Z", null: true
+        field :start_at, GraphQL::Types::ISO8601DateTime, "The start time of the enrollment, in ISO8601 format..Example: 2012-04-18T23:08:51Z", null: true
+        field :end_at, GraphQL::Types::ISO8601DateTime, "The end time of the enrollment, in ISO8601 format..Example: 2012-04-18T23:08:51Z", null: true
+        field :last_activity_at, GraphQL::Types::ISO8601DateTime, "The last activity time of the user for the enrollment, in ISO8601 format..Example: 2012-04-18T23:08:51Z", null: true
+        field :last_attended_at, GraphQL::Types::ISO8601DateTime, "The last attended date of the user for the enrollment in a course, in ISO8601 format..Example: 2012-04-18T23:08:51Z", null: true
         field :total_activity_time, Int, "The total activity time of the user for the enrollment, in seconds..Example: 260", null: true
         field :html_url, String, "The URL to the Canvas web UI page for this course enrollment..Example: https://.", null: true
         field :grades, LMSGraphQL::Types::Canvas::CanvasGrade, "The URL to the Canvas web UI page containing the grades associated with this enrollment..Example: https://., 35, , 6.67, ", null: true

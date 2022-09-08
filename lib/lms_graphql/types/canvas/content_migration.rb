@@ -22,8 +22,8 @@ module LMSGraphQL
         field :progress_url, String, "The api endpoint for polling the current progress.Example: https://example.com/api/v1/progress/4", null: true
         field :user_id, ID, "The user who started the migration.Example: 4", null: true
         field :workflow_state, ContentMigrationWorkflowStateEnum, "Current state of the content migration: pre_processing, pre_processed, running, waiting_for_select, completed, failed.Example: running", null: true
-        field :started_at, LMSGraphQL::Types::DateTimeType, "timestamp.Example: 2012-06-01T00:00:00-06:00", null: true
-        field :finished_at, LMSGraphQL::Types::DateTimeType, "timestamp.Example: 2012-06-01T00:00:00-06:00", null: true
+        field :started_at, GraphQL::Types::ISO8601DateTime, "timestamp.Example: 2012-06-01T00:00:00-06:00", null: true
+        field :finished_at, GraphQL::Types::ISO8601DateTime, "timestamp.Example: 2012-06-01T00:00:00-06:00", null: true
         field :pre_attachment, String, "file uploading data, see {file:file_uploads.html File Upload Documentation} for file upload workflow This works a little differently in that all the file data is in the pre_attachment hash if there is no upload_url then there was an attachment pre-processing error, the error message will be in the message key This data will only be here after a create or update call.Example: {'upload_url'=>'', 'message'=>'file exceeded quota', 'upload_params'=>{}}", null: true
 
       end

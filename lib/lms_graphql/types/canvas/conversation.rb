@@ -10,7 +10,7 @@ module LMSGraphQL
         field :subject, String, "the subject of the conversation..Example: 2", null: true
         field :workflow_state, String, "The current state of the conversation (read, unread or archived)..Example: unread", null: true
         field :last_message, String, "A <=100 character preview from the most recent message..Example: sure thing, here's the file", null: true
-        field :start_at, LMSGraphQL::Types::DateTimeType, "the date and time at which the last message was sent..Example: 2011-09-02T12:00:00Z", null: true
+        field :start_at, GraphQL::Types::ISO8601DateTime, "the date and time at which the last message was sent..Example: 2011-09-02T12:00:00Z", null: true
         field :message_count, Int, "the number of messages in the conversation..Example: 2", null: true
         field :subscribed, Boolean, "whether the current user is subscribed to the conversation..Example: true", null: true
         field :private, Boolean, "whether the conversation is private..Example: true", null: true

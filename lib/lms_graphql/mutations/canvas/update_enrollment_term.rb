@@ -7,11 +7,11 @@ module LMSGraphQL
         argument :account_id, ID, required: true
         argument :id, ID, required: true
         argument :enrollment_term_name, String, required: false
-        argument :enrollment_term_start_at, LMSGraphQL::Types::DateTimeType, required: false
-        argument :enrollment_term_end_at, LMSGraphQL::Types::DateTimeType, required: false
+        argument :enrollment_term_start_at, GraphQL::Types::ISO8601DateTime, required: false
+        argument :enrollment_term_end_at, GraphQL::Types::ISO8601DateTime, required: false
         argument :enrollment_term_sis_term_id, String, required: false
-        argument :enrollment_term_overrides_enrollment_type_start_at, LMSGraphQL::Types::DateTimeType, required: false
-        argument :enrollment_term_overrides_enrollment_type_end_at, LMSGraphQL::Types::DateTimeType, required: false
+        argument :enrollment_term_overrides_enrollment_type_start_at, GraphQL::Types::ISO8601DateTime, required: false
+        argument :enrollment_term_overrides_enrollment_type_end_at, GraphQL::Types::ISO8601DateTime, required: false
         argument :override_sis_stickiness, Boolean, required: false
         
         

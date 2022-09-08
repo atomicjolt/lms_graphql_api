@@ -10,7 +10,7 @@ module LMSGraphQL
         argument :user_sortable_name, String, required: false
         argument :user_time_zone, String, required: false
         argument :user_locale, String, required: false
-        argument :user_birthdate, LMSGraphQL::Types::DateTimeType, required: false
+        argument :user_birthdate, GraphQL::Types::ISO8601DateTime, required: false
         argument :user_terms_of_use, Boolean, required: true
         argument :pseudonym_unique_id, String, required: true
         argument :communication_channel_type, String, required: false

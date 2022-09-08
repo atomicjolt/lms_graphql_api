@@ -7,8 +7,8 @@ module LMSGraphQL
         type Boolean, null: false
         argument :account_id, ID, required: false
         argument :course_id, ID, required: true
-        argument :starts_before, LMSGraphQL::Types::DateTimeType, required: false
-        argument :ends_after, LMSGraphQL::Types::DateTimeType, required: false
+        argument :starts_before, GraphQL::Types::ISO8601DateTime, required: false
+        argument :ends_after, GraphQL::Types::ISO8601DateTime, required: false
         argument :include, String, required: false
         def resolve(account_id: nil, course_id:, starts_before: nil, ends_after: nil, include: nil, get_all: false)
           result = context[:canvas_api].call("RETRIEVE_ASSIGNMENTS_ENABLED_FOR_GRADE_EXPORT_TO_SIS_COURSES").proxy(

@@ -10,8 +10,8 @@ module LMSGraphQL
         argument :assignment_id, ID, required: false
         argument :student_id, ID, required: false
         argument :grader_id, ID, required: false
-        argument :start_time, LMSGraphQL::Types::DateTimeType, required: false
-        argument :end_time, LMSGraphQL::Types::DateTimeType, required: false
+        argument :start_time, GraphQL::Types::ISO8601DateTime, required: false
+        argument :end_time, GraphQL::Types::ISO8601DateTime, required: false
         def resolve(course_id: nil, assignment_id: nil, student_id: nil, grader_id: nil, start_time: nil, end_time: nil, get_all: false)
           result = context[:canvas_api].call("ADVANCED_QUERY").proxy(
             "ADVANCED_QUERY",

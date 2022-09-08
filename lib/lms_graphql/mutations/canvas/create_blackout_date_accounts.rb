@@ -5,8 +5,8 @@ module LMSGraphQL
     module Canvas
       class CreateBlackoutDateAccount < BaseMutation
         argument :account_id, ID, required: true
-        argument :start_date, LMSGraphQL::Types::DateTimeType, required: false
-        argument :end_date, LMSGraphQL::Types::DateTimeType, required: false
+        argument :start_date, GraphQL::Types::ISO8601DateTime, required: false
+        argument :end_date, GraphQL::Types::ISO8601DateTime, required: false
         argument :event_title, String, required: false
         
         

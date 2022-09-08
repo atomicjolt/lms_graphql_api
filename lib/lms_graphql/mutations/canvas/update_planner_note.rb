@@ -7,7 +7,7 @@ module LMSGraphQL
         argument :id, ID, required: true
         argument :title, String, required: false
         argument :details, String, required: false
-        argument :todo_date, LMSGraphQL::Types::DateTimeType, required: false
+        argument :todo_date, GraphQL::Types::ISO8601DateTime, required: false
         argument :course_id, ID, required: false
         
         

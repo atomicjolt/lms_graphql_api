@@ -14,17 +14,17 @@ module LMSGraphQL
         argument :quiz_hide_results, String, required: false
         argument :quiz_show_correct_answers, Boolean, required: false
         argument :quiz_show_correct_answers_last_attempt, Boolean, required: false
-        argument :quiz_show_correct_answers_at, LMSGraphQL::Types::DateTimeType, required: false
-        argument :quiz_hide_correct_answers_at, LMSGraphQL::Types::DateTimeType, required: false
+        argument :quiz_show_correct_answers_at, GraphQL::Types::ISO8601DateTime, required: false
+        argument :quiz_hide_correct_answers_at, GraphQL::Types::ISO8601DateTime, required: false
         argument :quiz_allowed_attempts, Int, required: false
         argument :quiz_scoring_policy, String, required: false
         argument :quiz_one_question_at_a_time, Boolean, required: false
         argument :quiz_cant_go_back, Boolean, required: false
         argument :quiz_access_code, String, required: false
         argument :quiz_ip_filter, String, required: false
-        argument :quiz_due_at, LMSGraphQL::Types::DateTimeType, required: false
-        argument :quiz_lock_at, LMSGraphQL::Types::DateTimeType, required: false
-        argument :quiz_unlock_at, LMSGraphQL::Types::DateTimeType, required: false
+        argument :quiz_due_at, GraphQL::Types::ISO8601DateTime, required: false
+        argument :quiz_lock_at, GraphQL::Types::ISO8601DateTime, required: false
+        argument :quiz_unlock_at, GraphQL::Types::ISO8601DateTime, required: false
         argument :quiz_published, Boolean, required: false
         argument :quiz_one_time_results, Boolean, required: false
         argument :quiz_only_visible_to_overrides, Boolean, required: false

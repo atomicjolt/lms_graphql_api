@@ -6,7 +6,7 @@ module LMSGraphQL
     module Canvas
       class CanvasQuizSubmissionUserListInput < BaseInputObject
           description "Quiz Submission User List. API Docs: https://canvas.instructure.com/doc/api/quiz_submission_user_list.html"
-      
+        
       end
     end
   end

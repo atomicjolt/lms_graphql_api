@@ -7,8 +7,8 @@ module LMSGraphQL
         type [LMSGraphQL::Types::Canvas::CanvasCalendarEvent], null: false
         argument :get_all, Boolean, required: false
         argument :type, String, required: false
-        argument :start_date, LMSGraphQL::Types::DateTimeType, required: false
-        argument :end_date, LMSGraphQL::Types::DateTimeType, required: false
+        argument :start_date, GraphQL::Types::ISO8601DateTime, required: false
+        argument :end_date, GraphQL::Types::ISO8601DateTime, required: false
         argument :undated, Boolean, required: false
         argument :all_events, Boolean, required: false
         argument :context_codes, [String], required: false

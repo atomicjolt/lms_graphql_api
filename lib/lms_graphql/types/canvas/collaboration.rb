@@ -13,8 +13,8 @@ module LMSGraphQL
         field :context_id, ID, "The canvas id of the course or group to which the collaboration belongs.Example: 77", null: true
         field :context_type, String, "The canvas type of the course or group to which the collaboration belongs.Example: Course", null: true
         field :url, String, "The LTI launch url to view collaboration..", null: true
-        field :created_at, LMSGraphQL::Types::DateTimeType, "The timestamp when the collaboration was created.Example: 2012-06-01T00:00:00-06:00", null: true
-        field :updated_at, LMSGraphQL::Types::DateTimeType, "The timestamp when the collaboration was last modified.Example: 2012-06-01T00:00:00-06:00", null: true
+        field :created_at, GraphQL::Types::ISO8601DateTime, "The timestamp when the collaboration was created.Example: 2012-06-01T00:00:00-06:00", null: true
+        field :updated_at, GraphQL::Types::ISO8601DateTime, "The timestamp when the collaboration was last modified.Example: 2012-06-01T00:00:00-06:00", null: true
         field :description, String, "", null: true
         field :title, String, "", null: true
         field :type, String, "Another representation of the collaboration type.Example: ExternalToolCollaboration", null: true

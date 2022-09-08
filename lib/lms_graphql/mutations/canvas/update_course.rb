@@ -8,8 +8,8 @@ module LMSGraphQL
         argument :course_account_id, Int, required: false
         argument :course_name, String, required: false
         argument :course_course_code, String, required: false
-        argument :course_start_at, LMSGraphQL::Types::DateTimeType, required: false
-        argument :course_end_at, LMSGraphQL::Types::DateTimeType, required: false
+        argument :course_start_at, GraphQL::Types::ISO8601DateTime, required: false
+        argument :course_end_at, GraphQL::Types::ISO8601DateTime, required: false
         argument :course_license, String, required: false
         argument :course_is_public, Boolean, required: false
         argument :course_is_public_to_auth_users, Boolean, required: false

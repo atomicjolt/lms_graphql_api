@@ -11,8 +11,8 @@ module LMSGraphQL
         field :url, String, "Example: http://www.example.com/files/569/download?download_frd=1&verifier=c6HdZmxOZa0Fiin2cbvZeI8I5ry7yqD7RChQzb6P", null: true
         field :id, ID, "Example: 569", null: true
         field :display_name, String, "Example: file.txt", null: true
-        field :created_at, LMSGraphQL::Types::DateTimeType, "Example: 2012-07-06T14:58:50Z", null: true
-        field :updated_at, LMSGraphQL::Types::DateTimeType, "Example: 2012-07-06T14:58:50Z", null: true
+        field :created_at, GraphQL::Types::ISO8601DateTime, "Example: 2012-07-06T14:58:50Z", null: true
+        field :updated_at, GraphQL::Types::ISO8601DateTime, "Example: 2012-07-06T14:58:50Z", null: true
 
       end
     end

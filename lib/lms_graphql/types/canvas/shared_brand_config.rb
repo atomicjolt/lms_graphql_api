@@ -10,8 +10,8 @@ module LMSGraphQL
         field :account_id, ID, "The id of the account it should be shared within..", null: true
         field :brand_config_md5, String, "The md5 (since BrandConfigs are identified by MD5 and not numeric id) of the BrandConfig to share..Example: 1d31002c95842f8fe16da7dfcc0d1f39", null: true
         field :name, String, "The name to share this theme as.Example: Crimson and Gold Verson 1", null: true
-        field :created_at, LMSGraphQL::Types::DateTimeType, "When this was created.Example: 2012-07-13T10:55:20-06:00", null: true
-        field :updated_at, LMSGraphQL::Types::DateTimeType, "When this was last updated.Example: 2012-07-13T10:55:20-06:00", null: true
+        field :created_at, GraphQL::Types::ISO8601DateTime, "When this was created.Example: 2012-07-13T10:55:20-06:00", null: true
+        field :updated_at, GraphQL::Types::ISO8601DateTime, "When this was last updated.Example: 2012-07-13T10:55:20-06:00", null: true
 
       end
     end

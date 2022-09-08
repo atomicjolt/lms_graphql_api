@@ -11,8 +11,8 @@ module LMSGraphQL
         field :conference_key, String, "The 3rd party's ID for the conference.Example: abcdjoelisgreatxyz", null: true
         field :description, String, "The description for the conference.Example: Conference Description", null: true
         field :duration, Int, "The expected duration the conference is supposed to last.Example: 60", null: true
-        field :ended_at, LMSGraphQL::Types::DateTimeType, "The date that the conference ended at, null if it hasn't ended.Example: 2013-12-13T17:23:26Z", null: true
-        field :started_at, LMSGraphQL::Types::DateTimeType, "The date the conference started at, null if it hasn't started.Example: 2013-12-12T23:02:17Z", null: true
+        field :ended_at, GraphQL::Types::ISO8601DateTime, "The date that the conference ended at, null if it hasn't ended.Example: 2013-12-13T17:23:26Z", null: true
+        field :started_at, GraphQL::Types::ISO8601DateTime, "The date the conference started at, null if it hasn't started.Example: 2013-12-12T23:02:17Z", null: true
         field :title, String, "The title of the conference.Example: Test conference", null: true
         field :users, [Int], "Array of user ids that are participants in the conference.Example: 1, 7, 8, 9, 10", null: true
         field :has_advanced_settings, Boolean, "True if the conference type has advanced settings..", null: true

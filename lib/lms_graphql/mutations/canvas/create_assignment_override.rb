@@ -10,9 +10,9 @@ module LMSGraphQL
         argument :assignment_override_title, String, required: false
         argument :assignment_override_group_id, Int, required: false
         argument :assignment_override_course_section_id, Int, required: false
-        argument :assignment_override_due_at, LMSGraphQL::Types::DateTimeType, required: false
-        argument :assignment_override_unlock_at, LMSGraphQL::Types::DateTimeType, required: false
-        argument :assignment_override_lock_at, LMSGraphQL::Types::DateTimeType, required: false
+        argument :assignment_override_due_at, GraphQL::Types::ISO8601DateTime, required: false
+        argument :assignment_override_unlock_at, GraphQL::Types::ISO8601DateTime, required: false
+        argument :assignment_override_lock_at, GraphQL::Types::ISO8601DateTime, required: false
         
         
         field :assignment_override, LMSGraphQL::Types::Canvas::CanvasAssignmentOverride, null: false

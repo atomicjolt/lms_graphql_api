@@ -8,14 +8,14 @@ module LMSGraphQL
         argument :calendar_event_context_code, String, required: false
         argument :calendar_event_title, String, required: false
         argument :calendar_event_description, String, required: false
-        argument :calendar_event_start_at, LMSGraphQL::Types::DateTimeType, required: false
-        argument :calendar_event_end_at, LMSGraphQL::Types::DateTimeType, required: false
+        argument :calendar_event_start_at, GraphQL::Types::ISO8601DateTime, required: false
+        argument :calendar_event_end_at, GraphQL::Types::ISO8601DateTime, required: false
         argument :calendar_event_location_name, String, required: false
         argument :calendar_event_location_address, String, required: false
         argument :calendar_event_time_zone_edited, String, required: false
         argument :calendar_event_all_day, Boolean, required: false
-        argument :calendar_event_child_event_data_X_start_at, LMSGraphQL::Types::DateTimeType, required: false
-        argument :calendar_event_child_event_data_X_end_at, LMSGraphQL::Types::DateTimeType, required: false
+        argument :calendar_event_child_event_data_X_start_at, GraphQL::Types::ISO8601DateTime, required: false
+        argument :calendar_event_child_event_data_X_end_at, GraphQL::Types::ISO8601DateTime, required: false
         argument :calendar_event_child_event_data_X_context_code, String, required: false
         argument :calendar_event_rrule, String, required: false
         argument :which, String, required: false

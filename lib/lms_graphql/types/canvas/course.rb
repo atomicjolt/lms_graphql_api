@@ -39,9 +39,9 @@ module LMSGraphQL
         field :grading_periods, [LMSGraphQL::Types::Canvas::CanvasGradingPeriod], "A list of grading periods associated with the course.", null: true
         field :grading_standard_id, ID, "the grading standard associated with the course.Example: 25", null: true
         field :grade_passback_setting, String, "the grade_passback_setting set on the course.Example: nightly_sync", null: true
-        field :created_at, LMSGraphQL::Types::DateTimeType, "the date the course was created..Example: 2012-05-01T00:00:00-06:00", null: true
-        field :start_at, LMSGraphQL::Types::DateTimeType, "the start date for the course, if applicable.Example: 2012-06-01T00:00:00-06:00", null: true
-        field :end_at, LMSGraphQL::Types::DateTimeType, "the end date for the course, if applicable.Example: 2012-09-01T00:00:00-06:00", null: true
+        field :created_at, GraphQL::Types::ISO8601DateTime, "the date the course was created..Example: 2012-05-01T00:00:00-06:00", null: true
+        field :start_at, GraphQL::Types::ISO8601DateTime, "the start date for the course, if applicable.Example: 2012-06-01T00:00:00-06:00", null: true
+        field :end_at, GraphQL::Types::ISO8601DateTime, "the end date for the course, if applicable.Example: 2012-09-01T00:00:00-06:00", null: true
         field :locale, String, "the course-set locale, if applicable.Example: en", null: true
         field :enrollments, [LMSGraphQL::Types::Canvas::CanvasEnrollment], "A list of enrollments linking the current user to the course. for student enrollments, grading information may be included if include[]=total_scores.", null: true
         field :total_students, Int, "optional: the total number of active and invited students in the course.Example: 32", null: true

@@ -24,9 +24,9 @@ module LMSGraphQL
         argument :assignment_external_tool_tag_attributes, String, required: false
         argument :assignment_points_possible, Float, required: false
         argument :assignment_grading_type, String, required: false
-        argument :assignment_due_at, LMSGraphQL::Types::DateTimeType, required: false
-        argument :assignment_lock_at, LMSGraphQL::Types::DateTimeType, required: false
-        argument :assignment_unlock_at, LMSGraphQL::Types::DateTimeType, required: false
+        argument :assignment_due_at, GraphQL::Types::ISO8601DateTime, required: false
+        argument :assignment_lock_at, GraphQL::Types::ISO8601DateTime, required: false
+        argument :assignment_unlock_at, GraphQL::Types::ISO8601DateTime, required: false
         argument :assignment_description, String, required: false
         argument :assignment_assignment_group_id, Int, required: false
         argument :assignment_assignment_overrides, [LMSGraphQL::Types::Canvas::CanvasAssignmentOverrideInput], required: false

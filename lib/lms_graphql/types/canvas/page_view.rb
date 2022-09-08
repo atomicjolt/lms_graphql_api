@@ -15,7 +15,7 @@ module LMSGraphQL
         field :action, String, "The rails action that handled the request.Example: index", null: true
         field :contributed, Boolean, "This field is deprecated, and will always be false.Example: false", null: true
         field :interaction_seconds, Float, "An approximation of how long the user spent on the page, in seconds.Example: 7.21", null: true
-        field :created_at, LMSGraphQL::Types::DateTimeType, "When the request was made.Example: 2013-10-01T19:49:47Z", null: true
+        field :created_at, GraphQL::Types::ISO8601DateTime, "When the request was made.Example: 2013-10-01T19:49:47Z", null: true
         field :user_request, Boolean, "A flag indicating whether the request was user-initiated, or automatic (such as an AJAX call).Example: true", null: true
         field :render_time, Float, "How long the response took to render, in seconds.Example: 0.369", null: true
         field :user_agent, String, "The user-agent of the browser or program that made the request.Example: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/536.30.1 (KHTML, like Gecko) Version/6.0.5 Safari/536.30.1", null: true

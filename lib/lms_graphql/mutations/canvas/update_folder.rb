@@ -7,8 +7,8 @@ module LMSGraphQL
         argument :id, ID, required: true
         argument :name, String, required: false
         argument :parent_folder_id, ID, required: false
-        argument :lock_at, LMSGraphQL::Types::DateTimeType, required: false
-        argument :unlock_at, LMSGraphQL::Types::DateTimeType, required: false
+        argument :lock_at, GraphQL::Types::ISO8601DateTime, required: false
+        argument :unlock_at, GraphQL::Types::ISO8601DateTime, required: false
         argument :locked, Boolean, required: false
         argument :hidden, Boolean, required: false
         argument :position, Int, required: false
