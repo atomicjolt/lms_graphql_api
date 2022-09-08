@@ -24,10 +24,10 @@ module LMSGraphQL
         field :id, ID, "The unique identifier for the assignment..Example: 4", null: true
         field :course_id, ID, "The unique identifier for the course..Example: 6", null: true
         field :name, String, "the name of the assignment.Example: some assignment", null: true
-        field :created_at, LMSGraphQL::Types::DateTimeType, "The time at which this assignment was originally created.Example: 2012-07-01T23:59:00-06:00", null: true
-        field :due_at, LMSGraphQL::Types::DateTimeType, "the due date for the assignment. returns null if not present. NOTE: If this assignment has assignment overrides, this field will be the due date as it applies to the user requesting information from the API..Example: 2012-07-01T23:59:00-06:00", null: true
-        field :unlock_at, LMSGraphQL::Types::DateTimeType, "(Optional) Time at which this was/will be unlocked..Example: 2013-01-01T00:00:00-06:00", null: true
-        field :lock_at, LMSGraphQL::Types::DateTimeType, "(Optional) Time at which this was/will be locked..Example: 2013-02-01T00:00:00-06:00", null: true
+        field :created_at, GraphQL::Types::ISO8601DateTime, "The time at which this assignment was originally created.Example: 2012-07-01T23:59:00-06:00", null: true
+        field :due_at, GraphQL::Types::ISO8601DateTime, "the due date for the assignment. returns null if not present. NOTE: If this assignment has assignment overrides, this field will be the due date as it applies to the user requesting information from the API..Example: 2012-07-01T23:59:00-06:00", null: true
+        field :unlock_at, GraphQL::Types::ISO8601DateTime, "(Optional) Time at which this was/will be unlocked..Example: 2013-01-01T00:00:00-06:00", null: true
+        field :lock_at, GraphQL::Types::ISO8601DateTime, "(Optional) Time at which this was/will be locked..Example: 2013-02-01T00:00:00-06:00", null: true
         field :points_possible, Int, "The maximum points possible for the assignment.Example: 12", null: true
         field :submission_types, SisAssignmentSubmissionTypeEnum, "the types of submissions allowed for this assignment list containing one or more of the following: 'discussion_topic', 'online_quiz', 'on_paper', 'none', 'external_tool', 'online_text_entry', 'online_url', 'online_upload', 'media_recording', 'student_annotation'.Example: online_text_entry", null: true
         field :integration_id, ID, "Third Party integration id for assignment.Example: 12341234", null: true

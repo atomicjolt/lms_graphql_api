@@ -27,8 +27,8 @@ module LMSGraphQL
         field :title, String, "The topic title..Example: Topic 1", null: true
         field :message, String, "The HTML content of the message body..Example: <p>content here</p>", null: true
         field :html_url, String, "The URL to the discussion topic in canvas..Example: https://<canvas>/courses/1/discussion_topics/2", null: true
-        field :posted_at, LMSGraphQL::Types::DateTimeType, "The datetime the topic was posted. If it is null it hasn't been posted yet. (see delayed_post_at).Example: 2037-07-21T13:29:31Z", null: true
-        field :last_reply_at, LMSGraphQL::Types::DateTimeType, "The datetime for when the last reply was in the topic..Example: 2037-07-28T19:38:31Z", null: true
+        field :posted_at, GraphQL::Types::ISO8601DateTime, "The datetime the topic was posted. If it is null it hasn't been posted yet. (see delayed_post_at).Example: 2037-07-21T13:29:31Z", null: true
+        field :last_reply_at, GraphQL::Types::ISO8601DateTime, "The datetime for when the last reply was in the topic..Example: 2037-07-28T19:38:31Z", null: true
         field :require_initial_post, Boolean, "If true then a user may not respond to other replies until that user has made an initial reply. Defaults to false..", null: true
         field :user_can_see_posts, Boolean, "Whether or not posts in this topic are visible to the user..Example: true", null: true
         field :discussion_subentry_count, Int, "The count of entries in the topic..Example: 0", null: true
@@ -37,9 +37,9 @@ module LMSGraphQL
         field :subscribed, Boolean, "Whether or not the current user is subscribed to this topic..Example: true", null: true
         field :subscription_hold, DiscussionTopicSubscriptionHoldEnum, "(Optional) Why the user cannot subscribe to this topic. Only one reason will be returned even if multiple apply. Can be one of: 'initial_post_required': The user must post a reply first; 'not_in_group_set': The user is not in the group set for this graded group discussion; 'not_in_group': The user is not in this topic's group; 'topic_is_announcement': This topic is an announcement.Example: not_in_group_set", null: true
         field :assignment_id, ID, "The unique identifier of the assignment if the topic is for grading, otherwise null..", null: true
-        field :delayed_post_at, LMSGraphQL::Types::DateTimeType, "The datetime to publish the topic (if not right away)..", null: true
+        field :delayed_post_at, GraphQL::Types::ISO8601DateTime, "The datetime to publish the topic (if not right away)..", null: true
         field :published, Boolean, "Whether this discussion topic is published (true) or draft state (false).Example: true", null: true
-        field :lock_at, LMSGraphQL::Types::DateTimeType, "The datetime to lock the topic (if ever)..", null: true
+        field :lock_at, GraphQL::Types::ISO8601DateTime, "The datetime to lock the topic (if ever)..", null: true
         field :locked, Boolean, "Whether or not the discussion is 'closed for comments'..", null: true
         field :pinned, Boolean, "Whether or not the discussion has been 'pinned' by an instructor.", null: true
         field :locked_for_user, Boolean, "Whether or not this is locked for the user..Example: true", null: true

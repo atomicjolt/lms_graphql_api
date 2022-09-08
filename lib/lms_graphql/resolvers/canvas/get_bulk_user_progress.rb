@@ -1,10 +1,10 @@
 require_relative "../canvas_base_resolver"
-
+require_relative "../../types/canvas_bespoke/canvas_module_user"
 module LMSGraphQL
   module Resolvers
     module Canvas
       class GetBulkUserProgress < CanvasBaseResolver
-        type Boolean, null: false
+        type LMSGraphQL::Types::CanvasBespoke::CanvasModuleUser, null: false
         argument :course_id, ID, required: true
         def resolve(course_id:, get_all: false)
           result = context[:canvas_api].call("GET_BULK_USER_PROGRESS").proxy(

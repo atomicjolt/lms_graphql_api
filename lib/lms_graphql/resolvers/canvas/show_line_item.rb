@@ -7,12 +7,14 @@ module LMSGraphQL
         type LMSGraphQL::Types::Canvas::CanvasLineItem, null: false
         argument :course_id, ID, required: true
         argument :id, ID, required: true
-        def resolve(course_id:, id:, get_all: false)
+        argument :include, [String], required: false
+        def resolve(course_id:, id:, include: nil, get_all: false)
           result = context[:canvas_api].call("SHOW_LINE_ITEM").proxy(
             "SHOW_LINE_ITEM",
             {
               "course_id": course_id,
-              "id": id            },
+              "id": id,
+              "include": include            },
             nil,
             get_all,
           )

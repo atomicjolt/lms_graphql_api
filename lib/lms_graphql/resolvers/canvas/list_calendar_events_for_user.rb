@@ -8,16 +8,18 @@ module LMSGraphQL
         argument :get_all, Boolean, required: false
         argument :user_id, ID, required: true
         argument :type, String, required: false
-        argument :start_date, LMSGraphQL::Types::DateTimeType, required: false
-        argument :end_date, LMSGraphQL::Types::DateTimeType, required: false
+        argument :start_date, GraphQL::Types::ISO8601DateTime, required: false
+        argument :end_date, GraphQL::Types::ISO8601DateTime, required: false
         argument :undated, Boolean, required: false
         argument :all_events, Boolean, required: false
         argument :context_codes, [String], required: false
         argument :excludes, [String], required: false
         argument :submission_types, [String], required: false
         argument :exclude_submission_types, [String], required: false
+        argument :includes, [String], required: false
         argument :important_dates, Boolean, required: false
-        def resolve(user_id:, type: nil, start_date: nil, end_date: nil, undated: nil, all_events: nil, context_codes: nil, excludes: nil, submission_types: nil, exclude_submission_types: nil, important_dates: nil, get_all: false)
+        argument :blackout_date, Boolean, required: false
+        def resolve(user_id:, type: nil, start_date: nil, end_date: nil, undated: nil, all_events: nil, context_codes: nil, excludes: nil, submission_types: nil, exclude_submission_types: nil, includes: nil, important_dates: nil, blackout_date: nil, get_all: false)
           result = context[:canvas_api].call("LIST_CALENDAR_EVENTS_FOR_USER").proxy(
             "LIST_CALENDAR_EVENTS_FOR_USER",
             {
@@ -31,7 +33,9 @@ module LMSGraphQL
               "excludes": excludes,
               "submission_types": submission_types,
               "exclude_submission_types": exclude_submission_types,
-              "important_dates": important_dates            },
+              "includes": includes,
+              "important_dates": important_dates,
+              "blackout_date": blackout_date            },
             nil,
             get_all,
           )

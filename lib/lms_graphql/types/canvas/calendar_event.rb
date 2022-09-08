@@ -8,8 +8,8 @@ module LMSGraphQL
           description "Calendar Events. API Docs: https://canvas.instructure.com/doc/api/calendar_events.html"
         field :id, ID, "The ID of the calendar event.Example: 234", null: true
         field :title, String, "The title of the calendar event.Example: Paintball Fight!", null: true
-        field :start_at, LMSGraphQL::Types::DateTimeType, "The start timestamp of the event.Example: 2012-07-19T15:00:00-06:00", null: true
-        field :end_at, LMSGraphQL::Types::DateTimeType, "The end timestamp of the event.Example: 2012-07-19T16:00:00-06:00", null: true
+        field :start_at, GraphQL::Types::ISO8601DateTime, "The start timestamp of the event.Example: 2012-07-19T15:00:00-06:00", null: true
+        field :end_at, GraphQL::Types::ISO8601DateTime, "The end timestamp of the event.Example: 2012-07-19T16:00:00-06:00", null: true
         field :description, String, "The HTML description of the event.Example: <b>It's that time again!</b>", null: true
         field :location_name, String, "The location name of the event.Example: Greendale Community College", null: true
         field :location_address, String, "The address where the event is taking place.Example: Greendale, Colorado", null: true
@@ -24,10 +24,10 @@ module LMSGraphQL
         field :child_events, [Int], "Included by default, but may be excluded (see include[] option). If this is a time slot (see the Appointment Groups API) this will be a list of any reservations. If this is a course-level event, this will be a list of section-level events (if any).", null: true
         field :url, String, "URL for this calendar event (to update, delete, etc.).Example: https://example.com/api/v1/calendar_events/234", null: true
         field :html_url, String, "URL for a user to view this event.Example: https://example.com/calendar?event_id=234&include_contexts=course_123", null: true
-        field :all_day_date, LMSGraphQL::Types::DateTimeType, "The date of this event.Example: 2012-07-19", null: true
+        field :all_day_date, GraphQL::Types::ISO8601DateTime, "The date of this event.Example: 2012-07-19", null: true
         field :all_day, Boolean, "Boolean indicating whether this is an all-day event (midnight to midnight).", null: true
-        field :created_at, LMSGraphQL::Types::DateTimeType, "When the calendar event was created.Example: 2012-07-12T10:55:20-06:00", null: true
-        field :updated_at, LMSGraphQL::Types::DateTimeType, "When the calendar event was last updated.Example: 2012-07-12T10:55:20-06:00", null: true
+        field :created_at, GraphQL::Types::ISO8601DateTime, "When the calendar event was created.Example: 2012-07-12T10:55:20-06:00", null: true
+        field :updated_at, GraphQL::Types::ISO8601DateTime, "When the calendar event was last updated.Example: 2012-07-12T10:55:20-06:00", null: true
         field :appointment_group_id, ID, "Various Appointment-Group-related fields.These fields are only pertinent to time slots (appointments) and reservations of those time slots. See the Appointment Groups API. The id of the appointment group.", null: true
         field :appointment_group_url, String, "The API URL of the appointment group.", null: true
         field :own_reservation, Boolean, "If the event is a reservation, this a boolean indicating whether it is the current user's reservation, or someone else's.", null: true
@@ -38,7 +38,11 @@ module LMSGraphQL
         field :available_slots, Int, "If the event is a time slot and it has a participant limit, an integer indicating how many slots are available.", null: true
         field :user, String, "If the event is a user-level reservation, this will contain the user participant JSON (refer to the Users API)..", null: true
         field :group, String, "If the event is a group-level reservation, this will contain the group participant JSON (refer to the Groups API)..", null: true
-        field :important_dates, Boolean, "Boolean indicating whether this has important dates. Only present if the Important Dates feature flag is enabled.Example: true", null: true
+        field :important_dates, Boolean, "Boolean indicating whether this has important dates..Example: true", null: true
+        field :series_uuid, String, "Identifies the recurring event series this event may belong to.", null: true
+        field :rrule, String, "An iCalendar RRULE for defining how events in a recurring event series repeat..", null: true
+        field :series_natural_language, String, "A natural language expression of how events occur in the series. (e.g. Daily, 2 times).", null: true
+        field :blackout_date, Boolean, "Boolean indicating whether this has blackout date..Example: true", null: true
 
       end
     end

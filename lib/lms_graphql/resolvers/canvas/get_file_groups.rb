@@ -8,13 +8,17 @@ module LMSGraphQL
         argument :group_id, ID, required: true
         argument :id, ID, required: true
         argument :include, [String], required: false
-        def resolve(group_id:, id:, include: nil, get_all: false)
+        argument :replacement_chain_context_type, String, required: false
+        argument :replacement_chain_context_id, ID, required: false
+        def resolve(group_id:, id:, include: nil, replacement_chain_context_type: nil, replacement_chain_context_id: nil, get_all: false)
           result = context[:canvas_api].call("GET_FILE_GROUPS").proxy(
             "GET_FILE_GROUPS",
             {
               "group_id": group_id,
               "id": id,
-              "include": include            },
+              "include": include,
+              "replacement_chain_context_type": replacement_chain_context_type,
+              "replacement_chain_context_id": replacement_chain_context_id            },
             nil,
             get_all,
           )

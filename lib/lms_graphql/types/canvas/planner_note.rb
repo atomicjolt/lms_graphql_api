@@ -12,7 +12,7 @@ module LMSGraphQL
         field :user_id, ID, "The id of the associated user creating the planner note.Example: 1578941", null: true
         field :workflow_state, String, "The current published state of the planner note.Example: active", null: true
         field :course_id, ID, "The course that the note is in relation too, if applicable.Example: 1578941", null: true
-        field :todo_date, LMSGraphQL::Types::DateTimeType, "The datetime of when the planner note should show up on their planner.Example: 2017-05-09T10:12:00Z", null: true
+        field :todo_date, GraphQL::Types::ISO8601DateTime, "The datetime of when the planner note should show up on their planner.Example: 2017-05-09T10:12:00Z", null: true
         field :linked_object_type, String, "the type of the linked learning object.Example: assignment", null: true
         field :linked_object_id, ID, "the id of the linked learning object.Example: 131072", null: true
         field :linked_object_html_url, String, "the Canvas web URL of the linked learning object.Example: https://canvas.example.com/courses/1578941/assignments/131072", null: true

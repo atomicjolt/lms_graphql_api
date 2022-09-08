@@ -6,7 +6,7 @@ module LMSGraphQL
       class CreateModule < BaseMutation
         argument :course_id, ID, required: true
         argument :module_name, String, required: true
-        argument :module_unlock_at, LMSGraphQL::Types::DateTimeType, required: false
+        argument :module_unlock_at, GraphQL::Types::ISO8601DateTime, required: false
         argument :module_position, Int, required: false
         argument :module_require_sequential_progress, Boolean, required: false
         argument :module_prerequisite_module_ids, [String], required: false

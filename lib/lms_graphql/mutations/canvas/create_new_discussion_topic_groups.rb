@@ -9,9 +9,9 @@ module LMSGraphQL
         argument :message, String, required: false
         argument :discussion_type, String, required: false
         argument :published, Boolean, required: false
-        argument :delayed_post_at, LMSGraphQL::Types::DateTimeType, required: false
+        argument :delayed_post_at, GraphQL::Types::ISO8601DateTime, required: false
         argument :allow_rating, Boolean, required: false
-        argument :lock_at, LMSGraphQL::Types::DateTimeType, required: false
+        argument :lock_at, GraphQL::Types::ISO8601DateTime, required: false
         argument :podcast_enabled, Boolean, required: false
         argument :podcast_has_student_posts, Boolean, required: false
         argument :require_initial_post, Boolean, required: false

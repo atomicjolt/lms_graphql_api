@@ -24,9 +24,9 @@ module LMSGraphQL
         end
         description "SIS Imports. API Docs: https://canvas.instructure.com/doc/api/sis_imports.html"
         field :id, ID, "The unique identifier for the SIS import..Example: 1", null: true
-        field :created_at, LMSGraphQL::Types::DateTimeType, "The date the SIS import was created..Example: 2013-12-01T23:59:00-06:00", null: true
-        field :ended_at, LMSGraphQL::Types::DateTimeType, "The date the SIS import finished. Returns null if not finished..Example: 2013-12-02T00:03:21-06:00", null: true
-        field :updated_at, LMSGraphQL::Types::DateTimeType, "The date the SIS import was last updated..Example: 2013-12-02T00:03:21-06:00", null: true
+        field :created_at, GraphQL::Types::ISO8601DateTime, "The date the SIS import was created..Example: 2013-12-01T23:59:00-06:00", null: true
+        field :ended_at, GraphQL::Types::ISO8601DateTime, "The date the SIS import finished. Returns null if not finished..Example: 2013-12-02T00:03:21-06:00", null: true
+        field :updated_at, GraphQL::Types::ISO8601DateTime, "The date the SIS import was last updated..Example: 2013-12-02T00:03:21-06:00", null: true
         field :workflow_state, SisImportWorkflowStateEnum, "The current state of the SIS import.
  - 'initializing': The SIS import is being created, if this gets stuck in initializing, it will not import and will continue on to next import.
  - 'created': The SIS import has been created.
@@ -54,7 +54,9 @@ module LMSGraphQL
         field :override_sis_stickiness, Boolean, "Whether UI changes were overridden..Example: false", null: true
         field :add_sis_stickiness, Boolean, "Whether stickiness was added to the batch changes..Example: false", null: true
         field :clear_sis_stickiness, Boolean, "Whether stickiness was cleared..Example: false", null: true
+        field :diffing_threshold_exceeded, Boolean, "Whether a diffing job failed because the threshold limit got exceeded..Example: true", null: true
         field :diffing_data_set_identifier, String, "The identifier of the data set that this SIS batch diffs against.Example: account-5-enrollments", null: true
+        field :diffing_remaster, Boolean, "Whether diffing remaster data was enabled..Example: false", null: true
         field :diffed_against_import_id, ID, "The ID of the SIS Import that this import was diffed against.Example: 1", null: true
         field :csv_attachments, [String], "An array of CSV files for processing.", null: true
 

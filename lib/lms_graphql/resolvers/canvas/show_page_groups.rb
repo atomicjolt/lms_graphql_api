@@ -6,13 +6,13 @@ module LMSGraphQL
       class ShowPageGroup < CanvasBaseResolver
         type LMSGraphQL::Types::Canvas::CanvasPage, null: false
         argument :group_id, ID, required: true
-        argument :url, String, required: true
-        def resolve(group_id:, url:, get_all: false)
+        argument :url_or_id, ID, required: true
+        def resolve(group_id:, url_or_id:, get_all: false)
           result = context[:canvas_api].call("SHOW_PAGE_GROUPS").proxy(
             "SHOW_PAGE_GROUPS",
             {
               "group_id": group_id,
-              "url": url            },
+              "url_or_id": url_or_id            },
             nil,
             get_all,
           )

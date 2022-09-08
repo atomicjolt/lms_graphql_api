@@ -7,8 +7,8 @@ module LMSGraphQL
         type [LMSGraphQL::Types::Canvas::CanvasSisImport], null: false
         argument :get_all, Boolean, required: false
         argument :account_id, ID, required: true
-        argument :created_since, LMSGraphQL::Types::DateTimeType, required: false
-        argument :created_before, LMSGraphQL::Types::DateTimeType, required: false
+        argument :created_since, GraphQL::Types::ISO8601DateTime, required: false
+        argument :created_before, GraphQL::Types::ISO8601DateTime, required: false
         argument :workflow_state, [String], required: false
         def resolve(account_id:, created_since: nil, created_before: nil, workflow_state: nil, get_all: false)
           result = context[:canvas_api].call("GET_SIS_IMPORT_LIST").proxy(

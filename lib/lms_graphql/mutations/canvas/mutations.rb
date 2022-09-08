@@ -8,6 +8,8 @@ module LMSGraphQL
       class MutationType < LMSGraphQL::Types::Canvas::BaseType
         description "Canvas API mutations"
 
+        field :update_calendar_s_visibility, mutation: LMSGraphQL::Mutations::Canvas::UpdateCalendarSVisibility
+        field :update_many_calendars_visibility, mutation: LMSGraphQL::Mutations::Canvas::UpdateManyCalendarsVisibility
         field :close_notification_for_user, mutation: LMSGraphQL::Mutations::Canvas::CloseNotificationForUser
         field :create_global_notification, mutation: LMSGraphQL::Mutations::Canvas::CreateGlobalNotification
         field :update_global_notification, mutation: LMSGraphQL::Mutations::Canvas::UpdateGlobalNotification
@@ -44,6 +46,13 @@ module LMSGraphQL
         field :update_authentication_provider, mutation: LMSGraphQL::Mutations::Canvas::UpdateAuthenticationProvider
         field :delete_authentication_provider, mutation: LMSGraphQL::Mutations::Canvas::DeleteAuthenticationProvider
         field :update_account_auth_settings, mutation: LMSGraphQL::Mutations::Canvas::UpdateAccountAuthSetting
+        field :create_blackout_date_courses, mutation: LMSGraphQL::Mutations::Canvas::CreateBlackoutDateCourse
+        field :create_blackout_date_accounts, mutation: LMSGraphQL::Mutations::Canvas::CreateBlackoutDateAccount
+        field :update_blackout_date_courses, mutation: LMSGraphQL::Mutations::Canvas::UpdateBlackoutDateCourse
+        field :update_blackout_date_accounts, mutation: LMSGraphQL::Mutations::Canvas::UpdateBlackoutDateAccount
+        field :delete_blackout_date_courses, mutation: LMSGraphQL::Mutations::Canvas::DeleteBlackoutDateCourse
+        field :delete_blackout_date_accounts, mutation: LMSGraphQL::Mutations::Canvas::DeleteBlackoutDateAccount
+        field :update_list_of_blackout_dates, mutation: LMSGraphQL::Mutations::Canvas::UpdateListOfBlackoutDate
         field :update_associated_courses, mutation: LMSGraphQL::Mutations::Canvas::UpdateAssociatedCourse
         field :begin_migration_to_push_to_associated_courses, mutation: LMSGraphQL::Mutations::Canvas::BeginMigrationToPushToAssociatedCourse
         field :set_or_remove_restrictions_on_blueprint_course_object, mutation: LMSGraphQL::Mutations::Canvas::SetOrRemoveRestrictionsOnBlueprintCourseObject
@@ -55,6 +64,7 @@ module LMSGraphQL
         field :reserve_time_slot_participant_id, mutation: LMSGraphQL::Mutations::Canvas::ReserveTimeSlotParticipantId
         field :update_calendar_event, mutation: LMSGraphQL::Mutations::Canvas::UpdateCalendarEvent
         field :delete_calendar_event, mutation: LMSGraphQL::Mutations::Canvas::DeleteCalendarEvent
+        field :save_enabled_account_calendars, mutation: LMSGraphQL::Mutations::Canvas::SaveEnabledAccountCalendar
         field :set_course_timetable, mutation: LMSGraphQL::Mutations::Canvas::SetCourseTimetable
         field :create_or_update_events_directly_for_course_timetable, mutation: LMSGraphQL::Mutations::Canvas::CreateOrUpdateEventsDirectlyForCourseTimetable
         field :create_communication_channel, mutation: LMSGraphQL::Mutations::Canvas::CreateCommunicationChannel
@@ -103,6 +113,7 @@ module LMSGraphQL
         field :update_course, mutation: LMSGraphQL::Mutations::Canvas::UpdateCourse
         field :update_courses, mutation: LMSGraphQL::Mutations::Canvas::UpdateCourse
         field :reset_course, mutation: LMSGraphQL::Mutations::Canvas::ResetCourse
+        field :remove_quiz_migration_alert, mutation: LMSGraphQL::Mutations::Canvas::RemoveQuizMigrationAlert
         field :copy_course_content, mutation: LMSGraphQL::Mutations::Canvas::CopyCourseContent
         field :create_custom_gradebook_column, mutation: LMSGraphQL::Mutations::Canvas::CreateCustomGradebookColumn
         field :update_custom_gradebook_column, mutation: LMSGraphQL::Mutations::Canvas::UpdateCustomGradebookColumn
@@ -390,8 +401,10 @@ module LMSGraphQL
         field :mark_submission_as_read_sections, mutation: LMSGraphQL::Mutations::Canvas::MarkSubmissionAsReadSection
         field :mark_submission_as_unread_courses, mutation: LMSGraphQL::Mutations::Canvas::MarkSubmissionAsUnreadCourse
         field :mark_submission_as_unread_sections, mutation: LMSGraphQL::Mutations::Canvas::MarkSubmissionAsUnreadSection
-        field :mark_rubric_comments_as_read_courses, mutation: LMSGraphQL::Mutations::Canvas::MarkRubricCommentsAsReadCourse
-        field :mark_rubric_comments_as_read_sections, mutation: LMSGraphQL::Mutations::Canvas::MarkRubricCommentsAsReadSection
+        field :mark_rubric_assessments_as_read_courses_rubric_comments, mutation: LMSGraphQL::Mutations::Canvas::MarkRubricAssessmentsAsReadCoursesRubricComment
+        field :mark_rubric_assessments_as_read_courses_rubric_assessments, mutation: LMSGraphQL::Mutations::Canvas::MarkRubricAssessmentsAsReadCoursesRubricAssessment
+        field :mark_rubric_assessments_as_read_sections_rubric_comments, mutation: LMSGraphQL::Mutations::Canvas::MarkRubricAssessmentsAsReadSectionsRubricComment
+        field :mark_rubric_assessments_as_read_sections_rubric_assessments, mutation: LMSGraphQL::Mutations::Canvas::MarkRubricAssessmentsAsReadSectionsRubricAssessment
         field :mark_document_annotations_as_read_courses, mutation: LMSGraphQL::Mutations::Canvas::MarkDocumentAnnotationsAsReadCourse
         field :mark_document_annotations_as_read_sections, mutation: LMSGraphQL::Mutations::Canvas::MarkDocumentAnnotationsAsReadSection
         field :update_tab_for_course, mutation: LMSGraphQL::Mutations::Canvas::UpdateTabForCourse

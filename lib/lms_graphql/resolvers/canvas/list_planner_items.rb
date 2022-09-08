@@ -5,8 +5,8 @@ module LMSGraphQL
     module Canvas
       class ListPlannerItem < CanvasBaseResolver
         type Boolean, null: false
-        argument :start_date, LMSGraphQL::Types::DateTimeType, required: false
-        argument :end_date, LMSGraphQL::Types::DateTimeType, required: false
+        argument :start_date, GraphQL::Types::ISO8601DateTime, required: false
+        argument :end_date, GraphQL::Types::ISO8601DateTime, required: false
         argument :context_codes, String, required: false
         argument :filter, String, required: false
         def resolve(start_date: nil, end_date: nil, context_codes: nil, filter: nil, get_all: false)

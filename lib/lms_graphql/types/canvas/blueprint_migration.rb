@@ -11,10 +11,10 @@ module LMSGraphQL
         field :subscription_id, ID, "The ID of the associated course's blueprint subscription. Only present when querying a course associated with a blueprint..Example: 101", null: true
         field :user_id, ID, "The ID of the user who queued the migration..Example: 3", null: true
         field :workflow_state, String, "Current state of the content migration: queued, exporting, imports_queued, completed, exports_failed, imports_failed.Example: running", null: true
-        field :created_at, LMSGraphQL::Types::DateTimeType, "Time when the migration was queued.Example: 2013-08-28T23:59:00-06:00", null: true
-        field :exports_started_at, LMSGraphQL::Types::DateTimeType, "Time when the exports begun.Example: 2013-08-28T23:59:00-06:00", null: true
-        field :imports_queued_at, LMSGraphQL::Types::DateTimeType, "Time when the exports were completed and imports were queued.Example: 2013-08-28T23:59:00-06:00", null: true
-        field :imports_completed_at, LMSGraphQL::Types::DateTimeType, "Time when the imports were completed.Example: 2013-08-28T23:59:00-06:00", null: true
+        field :created_at, GraphQL::Types::ISO8601DateTime, "Time when the migration was queued.Example: 2013-08-28T23:59:00-06:00", null: true
+        field :exports_started_at, GraphQL::Types::ISO8601DateTime, "Time when the exports begun.Example: 2013-08-28T23:59:00-06:00", null: true
+        field :imports_queued_at, GraphQL::Types::ISO8601DateTime, "Time when the exports were completed and imports were queued.Example: 2013-08-28T23:59:00-06:00", null: true
+        field :imports_completed_at, GraphQL::Types::ISO8601DateTime, "Time when the imports were completed.Example: 2013-08-28T23:59:00-06:00", null: true
         field :comment, String, "User-specified comment describing changes made in this operation.Example: Fixed spelling in question 3 of midterm exam", null: true
 
       end

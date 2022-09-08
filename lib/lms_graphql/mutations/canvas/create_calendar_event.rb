@@ -7,24 +7,26 @@ module LMSGraphQL
         argument :calendar_event_context_code, String, required: true
         argument :calendar_event_title, String, required: false
         argument :calendar_event_description, String, required: false
-        argument :calendar_event_start_at, LMSGraphQL::Types::DateTimeType, required: false
-        argument :calendar_event_end_at, LMSGraphQL::Types::DateTimeType, required: false
+        argument :calendar_event_start_at, GraphQL::Types::ISO8601DateTime, required: false
+        argument :calendar_event_end_at, GraphQL::Types::ISO8601DateTime, required: false
         argument :calendar_event_location_name, String, required: false
         argument :calendar_event_location_address, String, required: false
         argument :calendar_event_time_zone_edited, String, required: false
         argument :calendar_event_all_day, Boolean, required: false
-        argument :calendar_event_child_event_data_X_start_at, LMSGraphQL::Types::DateTimeType, required: false
-        argument :calendar_event_child_event_data_X_end_at, LMSGraphQL::Types::DateTimeType, required: false
+        argument :calendar_event_child_event_data_X_start_at, GraphQL::Types::ISO8601DateTime, required: false
+        argument :calendar_event_child_event_data_X_end_at, GraphQL::Types::ISO8601DateTime, required: false
         argument :calendar_event_child_event_data_X_context_code, String, required: false
         argument :calendar_event_duplicate_count, Float, required: false
         argument :calendar_event_duplicate_interval, Float, required: false
         argument :calendar_event_duplicate_frequency, String, required: false
         argument :calendar_event_duplicate_append_iterator, Boolean, required: false
+        argument :calendar_event_rrule, String, required: false
+        argument :calendar_event_blackout_date, Boolean, required: false
         
         
         field :return_value, Boolean, null: false
         
-        def resolve(calendar_event_context_code:, calendar_event_title: nil, calendar_event_description: nil, calendar_event_start_at: nil, calendar_event_end_at: nil, calendar_event_location_name: nil, calendar_event_location_address: nil, calendar_event_time_zone_edited: nil, calendar_event_all_day: nil, calendar_event_child_event_data_X_start_at: nil, calendar_event_child_event_data_X_end_at: nil, calendar_event_child_event_data_X_context_code: nil, calendar_event_duplicate_count: nil, calendar_event_duplicate_interval: nil, calendar_event_duplicate_frequency: nil, calendar_event_duplicate_append_iterator: nil)
+        def resolve(calendar_event_context_code:, calendar_event_title: nil, calendar_event_description: nil, calendar_event_start_at: nil, calendar_event_end_at: nil, calendar_event_location_name: nil, calendar_event_location_address: nil, calendar_event_time_zone_edited: nil, calendar_event_all_day: nil, calendar_event_child_event_data_X_start_at: nil, calendar_event_child_event_data_X_end_at: nil, calendar_event_child_event_data_X_context_code: nil, calendar_event_duplicate_count: nil, calendar_event_duplicate_interval: nil, calendar_event_duplicate_frequency: nil, calendar_event_duplicate_append_iterator: nil, calendar_event_rrule: nil, calendar_event_blackout_date: nil)
           context[:canvas_api].call("CREATE_CALENDAR_EVENT").proxy(
             "CREATE_CALENDAR_EVENT",
             {},
@@ -44,7 +46,9 @@ module LMSGraphQL
               "calendar_event[duplicate][count]": calendar_event_duplicate_count,
               "calendar_event[duplicate][interval]": calendar_event_duplicate_interval,
               "calendar_event[duplicate][frequency]": calendar_event_duplicate_frequency,
-              "calendar_event[duplicate][append_iterator]": calendar_event_duplicate_append_iterator
+              "calendar_event[duplicate][append_iterator]": calendar_event_duplicate_append_iterator,
+              "calendar_event[rrule]": calendar_event_rrule,
+              "calendar_event[blackout_date]": calendar_event_blackout_date
             },
           ).parsed_response
         end

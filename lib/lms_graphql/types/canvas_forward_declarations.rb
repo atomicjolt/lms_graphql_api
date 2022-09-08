@@ -8,6 +8,8 @@ require_relative "canvas_base_input_type"
 module LMSGraphQL
   module Types
     module Canvas
+      class CanvasAccountCalendarInput < BaseInputObject;end
+      class CanvasAccountCalendar < BaseType;end
       class CanvasAccountNotificationInput < BaseInputObject;end
       class CanvasAccountNotification < BaseType;end
       class CanvasReportInput < BaseInputObject;end
@@ -70,6 +72,8 @@ module LMSGraphQL
       class CanvasFederatedAttributeConfig < BaseType;end
       class CanvasAuthenticationEventInput < BaseInputObject;end
       class CanvasAuthenticationEvent < BaseType;end
+      class CanvasBlackoutDateInput < BaseInputObject;end
+      class CanvasBlackoutDate < BaseType;end
       class CanvasBlueprintTemplateInput < BaseInputObject;end
       class CanvasBlueprintTemplate < BaseType;end
       class CanvasBlueprintMigrationInput < BaseInputObject;end

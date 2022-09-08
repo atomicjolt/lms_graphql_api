@@ -6,8 +6,8 @@ module LMSGraphQL
       class ListPlannerNote < CanvasBaseResolver
         type [LMSGraphQL::Types::Canvas::CanvasPlannerNote], null: false
         argument :get_all, Boolean, required: false
-        argument :start_date, LMSGraphQL::Types::DateTimeType, required: false
-        argument :end_date, LMSGraphQL::Types::DateTimeType, required: false
+        argument :start_date, GraphQL::Types::ISO8601DateTime, required: false
+        argument :end_date, GraphQL::Types::ISO8601DateTime, required: false
         argument :context_codes, [String], required: false
         def resolve(start_date: nil, end_date: nil, context_codes: nil, get_all: false)
           result = context[:canvas_api].call("LIST_PLANNER_NOTES").proxy(

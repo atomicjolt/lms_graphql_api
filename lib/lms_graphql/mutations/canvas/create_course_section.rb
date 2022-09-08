@@ -8,8 +8,8 @@ module LMSGraphQL
         argument :course_section_name, String, required: false
         argument :course_section_sis_section_id, String, required: false
         argument :course_section_integration_id, String, required: false
-        argument :course_section_start_at, LMSGraphQL::Types::DateTimeType, required: false
-        argument :course_section_end_at, LMSGraphQL::Types::DateTimeType, required: false
+        argument :course_section_start_at, GraphQL::Types::ISO8601DateTime, required: false
+        argument :course_section_end_at, GraphQL::Types::ISO8601DateTime, required: false
         argument :course_section_restrict_enrollments_to_section_dates, Boolean, required: false
         argument :enable_sis_reactivation, Boolean, required: false
         

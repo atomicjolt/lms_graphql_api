@@ -1,4 +1,3 @@
-require_relative "date_time_type"
 
 module LMSGraphQL
   module Types

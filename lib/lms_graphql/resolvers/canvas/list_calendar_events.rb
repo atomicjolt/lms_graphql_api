@@ -7,14 +7,16 @@ module LMSGraphQL
         type [LMSGraphQL::Types::Canvas::CanvasCalendarEvent], null: false
         argument :get_all, Boolean, required: false
         argument :type, String, required: false
-        argument :start_date, LMSGraphQL::Types::DateTimeType, required: false
-        argument :end_date, LMSGraphQL::Types::DateTimeType, required: false
+        argument :start_date, GraphQL::Types::ISO8601DateTime, required: false
+        argument :end_date, GraphQL::Types::ISO8601DateTime, required: false
         argument :undated, Boolean, required: false
         argument :all_events, Boolean, required: false
         argument :context_codes, [String], required: false
         argument :excludes, [String], required: false
+        argument :includes, [String], required: false
         argument :important_dates, Boolean, required: false
-        def resolve(type: nil, start_date: nil, end_date: nil, undated: nil, all_events: nil, context_codes: nil, excludes: nil, important_dates: nil, get_all: false)
+        argument :blackout_date, Boolean, required: false
+        def resolve(type: nil, start_date: nil, end_date: nil, undated: nil, all_events: nil, context_codes: nil, excludes: nil, includes: nil, important_dates: nil, blackout_date: nil, get_all: false)
           result = context[:canvas_api].call("LIST_CALENDAR_EVENTS").proxy(
             "LIST_CALENDAR_EVENTS",
             {
@@ -25,7 +27,9 @@ module LMSGraphQL
               "all_events": all_events,
               "context_codes": context_codes,
               "excludes": excludes,
-              "important_dates": important_dates            },
+              "includes": includes,
+              "important_dates": important_dates,
+              "blackout_date": blackout_date            },
             nil,
             get_all,
           )

@@ -15,7 +15,7 @@ module LMSGraphQL
         argument :submission_media_comment_type, String, required: false
         argument :submission_user_id, Int, required: false
         argument :submission_annotatable_attachment_id, Int, required: false
-        argument :submission_submitted_at, LMSGraphQL::Types::DateTimeType, required: false
+        argument :submission_submitted_at, GraphQL::Types::ISO8601DateTime, required: false
         
         
         field :return_value, Boolean, null: false

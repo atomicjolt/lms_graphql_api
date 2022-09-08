@@ -7,6 +7,22 @@ module LMSGraphQL
     module Canvas
       class QueryType < BaseType
         description "The root query of Canvas schema"
+        field :list_available_account_calendars,
+          resolver: LMSGraphQL::Resolvers::Canvas::ListAvailableAccountCalendar,
+          description: "List available account calendars. Returns a paginated list of account calendars available to the current user.   Includes visible account calendars where the user has an account association."
+
+        field :get_single_account_calendar,
+          resolver: LMSGraphQL::Resolvers::Canvas::GetSingleAccountCalendar,
+          description: "Get a single account calendar. Get details about a specific account calendar."
+
+        field :list_all_account_calendars,
+          resolver: LMSGraphQL::Resolvers::Canvas::ListAllAccountCalendar,
+          description: "List all account calendars. Returns a paginated list of account calendars for the provided account and   its first level of sub-accounts. Includes hidden calendars in the response.   Requires the `manage_account_calendar_visibility` permission."
+
+        field :count_of_all_visible_account_calendars,
+          resolver: LMSGraphQL::Resolvers::Canvas::CountOfAllVisibleAccountCalendar,
+          description: "Count of all visible account calendars. Returns the number of visible account calendars."
+
         field :search_account_domains,
           resolver: LMSGraphQL::Resolvers::Canvas::SearchAccountDomain,
           description: "Search account domains. Returns a list of up to 5 matching account domains      Partial match on name / domain are supported"
@@ -49,7 +65,7 @@ module LMSGraphQL
 
         field :settings,
           resolver: LMSGraphQL::Resolvers::Canvas::Setting,
-          description: "Settings. Returns all of the settings for the specified account as a JSON object. The caller must be an Account   admin with the manage_account_settings permission."
+          description: "Settings. Returns settings for the specified account as a JSON object. The caller must be an Account   admin with the manage_account_settings permission."
 
         field :permissions,
           resolver: LMSGraphQL::Resolvers::Canvas::Permission,
@@ -258,6 +274,30 @@ module LMSGraphQL
         field :query_by_user,
           resolver: LMSGraphQL::Resolvers::Canvas::QueryByUser,
           description: "Query by user.. List authentication events for a given user."
+
+        field :list_blackout_dates_courses,
+          resolver: LMSGraphQL::Resolvers::Canvas::ListBlackoutDatesCourse,
+          description: "List blackout dates. Returns the list of blackout dates for the current context."
+
+        field :list_blackout_dates_accounts,
+          resolver: LMSGraphQL::Resolvers::Canvas::ListBlackoutDatesAccount,
+          description: "List blackout dates. Returns the list of blackout dates for the current context."
+
+        field :get_single_blackout_date_courses,
+          resolver: LMSGraphQL::Resolvers::Canvas::GetSingleBlackoutDateCourse,
+          description: "Get a single blackout date. Returns the blackout date with the given id."
+
+        field :get_single_blackout_date_accounts,
+          resolver: LMSGraphQL::Resolvers::Canvas::GetSingleBlackoutDateAccount,
+          description: "Get a single blackout date. Returns the blackout date with the given id."
+
+        field :new_blackout_date_courses,
+          resolver: LMSGraphQL::Resolvers::Canvas::NewBlackoutDateCourse,
+          description: "New Blackout Date. Initialize an unsaved Blackout Date for the given context."
+
+        field :new_blackout_date_accounts,
+          resolver: LMSGraphQL::Resolvers::Canvas::NewBlackoutDateAccount,
+          description: "New Blackout Date. Initialize an unsaved Blackout Date for the given context."
 
         field :get_blueprint_information,
           resolver: LMSGraphQL::Resolvers::Canvas::GetBlueprintInformation,
@@ -793,7 +833,7 @@ module LMSGraphQL
 
         field :list_environment_features,
           resolver: LMSGraphQL::Resolvers::Canvas::ListEnvironmentFeature,
-          description: "List environment features. Return a hash of global feature settings that pertain to the   Canvas user interface. This is the same information supplied to the   web interface as +ENV.FEATURES+."
+          description: "List environment features. Return a hash of global feature options that pertain to the   Canvas user interface. This is the same information supplied to the   web interface as +ENV.FEATURES+."
 
         field :get_feature_flag_courses,
           resolver: LMSGraphQL::Resolvers::Canvas::GetFeatureFlagCourse,
@@ -854,6 +894,10 @@ module LMSGraphQL
         field :get_file_users,
           resolver: LMSGraphQL::Resolvers::Canvas::GetFileUser,
           description: "Get file. Returns the standard attachment json object"
+
+        field :translate_file_reference,
+          resolver: LMSGraphQL::Resolvers::Canvas::TranslateFileReference,
+          description: "Translate file reference. Get information about a file from a course copy file reference"
 
         field :list_folders,
           resolver: LMSGraphQL::Resolvers::Canvas::ListFolder,
@@ -1081,7 +1125,7 @@ module LMSGraphQL
 
         field :list_line_items,
           resolver: LMSGraphQL::Resolvers::Canvas::ListLineItem,
-          description: "List line Items. "
+          description: "List line Items. List all Line Items for a course"
 
         field :list_live_assessment_results,
           resolver: LMSGraphQL::Resolvers::Canvas::ListLiveAssessmentResult,
@@ -1254,6 +1298,14 @@ module LMSGraphQL
         field :get_outcome_import_status_courses,
           resolver: LMSGraphQL::Resolvers::Canvas::GetOutcomeImportStatusCourse,
           description: "Get Outcome import status. Get the status of an already created Outcome import. Pass 'latest' for the outcome import id   for the latest import.        Examples:       curl 'https: <canvas>/api/v1/accounts/<account_id>/outcome_imports/<outcome_import_id>' \           -H 'Authorization: Bearer <token>'       curl 'https: <canvas>/api/v1/courses/<course_id>/outcome_imports/<outcome_import_id>' \           -H 'Authorization: Bearer <token>'"
+
+        field :get_ids_of_outcome_groups_created_after_successful_import_accounts,
+          resolver: LMSGraphQL::Resolvers::Canvas::GetIdsOfOutcomeGroupsCreatedAfterSuccessfulImportAccount,
+          description: "Get IDs of outcome groups created after successful import. Get the IDs of the outcome groups created after a successful import.   Pass 'latest' for the outcome import id for the latest import.        Examples:       curl 'https: <canvas>/api/v1/accounts/<account_id>/outcome_imports/outcomes_group_ids/<outcome_import_id>' \           -H 'Authorization: Bearer <token>'       curl 'https: <canvas>/api/v1/courses/<course_id>/outcome_imports/outcome_group_ids/<outcome_import_id>' \           -H 'Authorization: Bearer <token>'"
+
+        field :get_ids_of_outcome_groups_created_after_successful_import_courses,
+          resolver: LMSGraphQL::Resolvers::Canvas::GetIdsOfOutcomeGroupsCreatedAfterSuccessfulImportCourse,
+          description: "Get IDs of outcome groups created after successful import. Get the IDs of the outcome groups created after a successful import.   Pass 'latest' for the outcome import id for the latest import.        Examples:       curl 'https: <canvas>/api/v1/accounts/<account_id>/outcome_imports/outcomes_group_ids/<outcome_import_id>' \           -H 'Authorization: Bearer <token>'       curl 'https: <canvas>/api/v1/courses/<course_id>/outcome_imports/outcome_group_ids/<outcome_import_id>' \           -H 'Authorization: Bearer <token>'"
 
         field :get_outcome_results,
           resolver: LMSGraphQL::Resolvers::Canvas::GetOutcomeResult,
@@ -1639,13 +1691,21 @@ module LMSGraphQL
           resolver: LMSGraphQL::Resolvers::Canvas::ListMultipleAssignmentsGradeableStudent,
           description: "List multiple assignments gradeable students. A paginated list of students eligible to submit a list of assignments. The caller must have   permission to view grades for the requested course.      Section-limited instructors will only see students in their own sections."
 
-        field :get_rubric_comments_read_state_courses,
-          resolver: LMSGraphQL::Resolvers::Canvas::GetRubricCommentsReadStateCourse,
-          description: "Get rubric comments read state. Return whether new rubric comments made on a submission have been seen by the student being assessed."
+        field :get_rubric_assessments_read_state_courses_rubric_comments,
+          resolver: LMSGraphQL::Resolvers::Canvas::GetRubricAssessmentsReadStateCoursesRubricComment,
+          description: "Get rubric assessments read state. Return whether new rubric comments/grading made on a submission have been seen by the student being assessed."
 
-        field :get_rubric_comments_read_state_sections,
-          resolver: LMSGraphQL::Resolvers::Canvas::GetRubricCommentsReadStateSection,
-          description: "Get rubric comments read state. Return whether new rubric comments made on a submission have been seen by the student being assessed."
+        field :get_rubric_assessments_read_state_courses_rubric_assessments,
+          resolver: LMSGraphQL::Resolvers::Canvas::GetRubricAssessmentsReadStateCoursesRubricAssessment,
+          description: "Get rubric assessments read state. Return whether new rubric comments/grading made on a submission have been seen by the student being assessed."
+
+        field :get_rubric_assessments_read_state_sections_rubric_comments,
+          resolver: LMSGraphQL::Resolvers::Canvas::GetRubricAssessmentsReadStateSectionsRubricComment,
+          description: "Get rubric assessments read state. Return whether new rubric comments/grading made on a submission have been seen by the student being assessed."
+
+        field :get_rubric_assessments_read_state_sections_rubric_assessments,
+          resolver: LMSGraphQL::Resolvers::Canvas::GetRubricAssessmentsReadStateSectionsRubricAssessment,
+          description: "Get rubric assessments read state. Return whether new rubric comments/grading made on a submission have been seen by the student being assessed."
 
         field :get_document_annotations_read_state_courses,
           resolver: LMSGraphQL::Resolvers::Canvas::GetDocumentAnnotationsReadStateCourse,

@@ -37,8 +37,8 @@ module LMSGraphQL
         field :hide_results, QuizHideResultEnum, "let students see their quiz responses? possible values: null, 'always', 'until_after_last_attempt'.Example: always", null: true
         field :show_correct_answers, Boolean, "show which answers were correct when results are shown? only valid if hide_results=null.Example: true", null: true
         field :show_correct_answers_last_attempt, Boolean, "restrict the show_correct_answers option above to apply only to the last submitted attempt of a quiz that allows multiple attempts. only valid if show_correct_answers=true and allowed_attempts > 1.Example: true", null: true
-        field :show_correct_answers_at, LMSGraphQL::Types::DateTimeType, "when should the correct answers be visible by students? only valid if show_correct_answers=true.Example: 2013-01-23T23:59:00-07:00", null: true
-        field :hide_correct_answers_at, LMSGraphQL::Types::DateTimeType, "prevent the students from seeing correct answers after the specified date has passed. only valid if show_correct_answers=true.Example: 2013-01-23T23:59:00-07:00", null: true
+        field :show_correct_answers_at, GraphQL::Types::ISO8601DateTime, "when should the correct answers be visible by students? only valid if show_correct_answers=true.Example: 2013-01-23T23:59:00-07:00", null: true
+        field :hide_correct_answers_at, GraphQL::Types::ISO8601DateTime, "prevent the students from seeing correct answers after the specified date has passed. only valid if show_correct_answers=true.Example: 2013-01-23T23:59:00-07:00", null: true
         field :one_time_results, Boolean, "prevent the students from seeing their results more than once (right after they submit the quiz).Example: true", null: true
         field :scoring_policy, QuizScoringPolicyEnum, "which quiz score to keep (only if allowed_attempts != 1) possible values: 'keep_highest', 'keep_latest'.Example: keep_highest", null: true
         field :allowed_attempts, Int, "how many times a student can take the quiz -1 = unlimited attempts.Example: 3", null: true
@@ -48,9 +48,9 @@ module LMSGraphQL
         field :cant_go_back, Boolean, "lock questions after answering? only valid if one_question_at_a_time=true.", null: true
         field :access_code, String, "access code to restrict quiz access.Example: 2beornot2be", null: true
         field :ip_filter, String, "IP address or range that quiz access is limited to.Example: 123.123.123.123", null: true
-        field :due_at, LMSGraphQL::Types::DateTimeType, "when the quiz is due.Example: 2013-01-23T23:59:00-07:00", null: true
-        field :lock_at, LMSGraphQL::Types::DateTimeType, "when to lock the quiz.", null: true
-        field :unlock_at, LMSGraphQL::Types::DateTimeType, "when to unlock the quiz.Example: 2013-01-21T23:59:00-07:00", null: true
+        field :due_at, GraphQL::Types::ISO8601DateTime, "when the quiz is due.Example: 2013-01-23T23:59:00-07:00", null: true
+        field :lock_at, GraphQL::Types::ISO8601DateTime, "when to lock the quiz.", null: true
+        field :unlock_at, GraphQL::Types::ISO8601DateTime, "when to unlock the quiz.Example: 2013-01-21T23:59:00-07:00", null: true
         field :published, Boolean, "whether the quiz has a published or unpublished draft state..Example: true", null: true
         field :unpublishable, Boolean, "Whether the assignment's 'published' state can be changed to false. Will be false if there are student submissions for the quiz..Example: true", null: true
         field :locked_for_user, Boolean, "Whether or not this is locked for the user..", null: true
