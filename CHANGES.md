@@ -1,3 +1,11 @@
+# 2.1.0
+Update to the latest Canvas API.
+Add custom type for module user and module progress
+
+# 2.0.0
+Fixes for graphql-ruby 1.13
+Rename input enums to prevent duplicate types
+
 # 1.2.0
 Provides support for graphql-ruby 1.10.x
 
