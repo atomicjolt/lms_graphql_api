@@ -14,6 +14,7 @@ module LMSGraphQL
       argument :end_at, LMSGraphQL::Types::DateTimeType, "The datetime of the end of the term..Example: 2014-05-16T05:00:00-04:00", required: false
       argument :workflow_state, String, "The state of the term. Can be 'active' or 'deleted'..Example: active", required: false
       argument :overrides, String, "Term date overrides for specific enrollment types.Example: {'start_at'=>'2014-01-07T08:00:00-05:00', 'end_at'=>'2014-05-14T05:00:00-04:0'}", required: false
+      argument :course_count, Int, "The number of courses in the term (available via include).Example: 80", required: false
 
       end
     end

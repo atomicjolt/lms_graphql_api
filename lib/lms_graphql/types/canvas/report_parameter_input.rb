@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasReportParameterInput < BaseInputObject
-          class ReportParameterOrderEnum < ::GraphQL::Schema::Enum
+          class ReportParameterInputOrderEnum < ::GraphQL::Schema::Enum
           value "users"
           value "courses"
           value "outcomes"
@@ -14,7 +14,7 @@ module LMSGraphQL
       argument :enrollment_term_id, ID, "The canvas id of the term to get grades from.Example: 2", required: false
       argument :include_deleted, Boolean, "If true, deleted objects will be included. If false, deleted objects will be omitted..", required: false
       argument :course_id, ID, "The id of the course to report on.Example: 2", required: false
-      argument :order, ReportParameterOrderEnum, "The sort order for the csv, Options: 'users', 'courses', 'outcomes'..Example: users", required: false
+      argument :order, ReportParameterInputOrderEnum, "The sort order for the csv, Options: 'users', 'courses', 'outcomes'..Example: users", required: false
       argument :users, Boolean, "If true, user data will be included. If false, user data will be omitted..", required: false
       argument :accounts, Boolean, "If true, account data will be included. If false, account data will be omitted..", required: false
       argument :terms, Boolean, "If true, term data will be included. If false, term data will be omitted..", required: false

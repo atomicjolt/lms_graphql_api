@@ -10,6 +10,7 @@ module LMSGraphQL
           value "n_mastery"
           value "latest"
           value "highest"
+          value "average"
         end
         description "Outcomes. API Docs: https://canvas.instructure.com/doc/api/outcomes.html"
         field :id, ID, "the ID of the outcome.Example: 1", null: true

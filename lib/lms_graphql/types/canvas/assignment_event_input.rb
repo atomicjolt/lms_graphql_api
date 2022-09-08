@@ -6,7 +6,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasAssignmentEventInput < BaseInputObject
-          class AssignmentEventWorkflowStateEnum < ::GraphQL::Schema::Enum
+          class AssignmentEventInputWorkflowStateEnum < ::GraphQL::Schema::Enum
           value "published"
           value "deleted"
         end
@@ -17,7 +17,7 @@ module LMSGraphQL
       argument :end_at, LMSGraphQL::Types::DateTimeType, "The due_at timestamp of the assignment.Example: 2012-07-19T23:59:00-06:00", required: false
       argument :description, String, "The HTML description of the assignment.Example: <b>Write an essay. Whatever you want.</b>", required: false
       argument :context_code, String, "the context code of the (course) calendar this assignment belongs to.Example: course_123", required: false
-      argument :workflow_state, AssignmentEventWorkflowStateEnum, "Current state of the assignment ('published' or 'deleted').Example: published", required: false
+      argument :workflow_state, AssignmentEventInputWorkflowStateEnum, "Current state of the assignment ('published' or 'deleted').Example: published", required: false
       argument :url, String, "URL for this assignment (note that updating/deleting should be done via the Assignments API).Example: https://example.com/api/v1/calendar_events/assignment_987", required: false
       argument :html_url, String, "URL for a user to view this assignment.Example: http://example.com/courses/123/assignments/987", required: false
       argument :all_day_date, LMSGraphQL::Types::DateTimeType, "The due date of this assignment.Example: 2012-07-19", required: false
@@ -26,7 +26,7 @@ module LMSGraphQL
       argument :updated_at, LMSGraphQL::Types::DateTimeType, "When the assignment was last updated.Example: 2012-07-12T10:55:20-06:00", required: false
       argument :assignment, LMSGraphQL::Types::Canvas::CanvasAssignmentInput, "The full assignment JSON data (See the Assignments API).", required: false
       argument :assignment_overrides, LMSGraphQL::Types::Canvas::CanvasAssignmentOverrideInput, "The list of AssignmentOverrides that apply to this event (See the Assignments API). This information is useful for determining which students or sections this assignment-due event applies to..", required: false
-      argument :important_dates, Boolean, "Boolean indicating whether this has important dates. Only present if the Important Dates feature flag is enabled.Example: true", required: false
+      argument :important_dates, Boolean, "Boolean indicating whether this has important dates..Example: true", required: false
 
       end
     end

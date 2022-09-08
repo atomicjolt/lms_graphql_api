@@ -8,8 +8,8 @@ require_relative "canvas_base_input_type"
 module LMSGraphQL
   module Types
     module Canvas
-      class CanvasScopeInput < BaseInputObject;end
-      class CanvasScope < BaseType;end
+      class CanvasAccountCalendarInput < BaseInputObject;end
+      class CanvasAccountCalendar < BaseType;end
       class CanvasAccountNotificationInput < BaseInputObject;end
       class CanvasAccountNotification < BaseType;end
       class CanvasReportInput < BaseInputObject;end
@@ -30,6 +30,8 @@ module LMSGraphQL
       class CanvasAdmin < BaseType;end
       class CanvasExternalFeedInput < BaseInputObject;end
       class CanvasExternalFeed < BaseType;end
+      class CanvasScopeInput < BaseInputObject;end
+      class CanvasScope < BaseType;end
       class CanvasAppointmentInput < BaseInputObject;end
       class CanvasAppointment < BaseType;end
       class CanvasAppointmentGroupInput < BaseInputObject;end
@@ -70,6 +72,8 @@ module LMSGraphQL
       class CanvasFederatedAttributeConfig < BaseType;end
       class CanvasAuthenticationEventInput < BaseInputObject;end
       class CanvasAuthenticationEvent < BaseType;end
+      class CanvasBlackoutDateInput < BaseInputObject;end
+      class CanvasBlackoutDate < BaseType;end
       class CanvasBlueprintTemplateInput < BaseInputObject;end
       class CanvasBlueprintTemplate < BaseType;end
       class CanvasBlueprintMigrationInput < BaseInputObject;end
@@ -148,6 +152,14 @@ module LMSGraphQL
       class CanvasGrade < BaseType;end
       class CanvasEnrollmentInput < BaseInputObject;end
       class CanvasEnrollment < BaseType;end
+      class CanvasePortfolioInput < BaseInputObject;end
+      class CanvasePortfolio < BaseType;end
+      class CanvasePortfolioPageInput < BaseInputObject;end
+      class CanvasePortfolioPage < BaseType;end
+      class CanvasCourseEpubExportInput < BaseInputObject;end
+      class CanvasCourseEpubExport < BaseType;end
+      class CanvasEpubExportInput < BaseInputObject;end
+      class CanvasEpubExport < BaseType;end
       class CanvasErrorReportInput < BaseInputObject;end
       class CanvasErrorReport < BaseType;end
       class CanvasFavoriteInput < BaseInputObject;end
@@ -190,8 +202,8 @@ module LMSGraphQL
       class CanvasGroupMembership < BaseType;end
       class CanvasHistoryEntryInput < BaseInputObject;end
       class CanvasHistoryEntry < BaseType;end
-      class CanvasInstIDInput < BaseInputObject;end
-      class CanvasInstID < BaseType;end
+      class CanvasInstAccessTokenInput < BaseInputObject;end
+      class CanvasInstAccessToken < BaseType;end
       class CanvasJWTInput < BaseInputObject;end
       class CanvasJWT < BaseType;end
       class CanvasLatePolicyInput < BaseInputObject;end
@@ -284,10 +296,10 @@ module LMSGraphQL
       class CanvasPollSession < BaseType;end
       class CanvasPollChoiceInput < BaseInputObject;end
       class CanvasPollChoice < BaseType;end
-      class CanvasPollSubmissionInput < BaseInputObject;end
-      class CanvasPollSubmission < BaseType;end
       class CanvasPollInput < BaseInputObject;end
       class CanvasPoll < BaseType;end
+      class CanvasPollSubmissionInput < BaseInputObject;end
+      class CanvasPollSubmission < BaseType;end
       class CanvasProficiencyRatingInput < BaseInputObject;end
       class CanvasProficiencyRating < BaseType;end
       class CanvasProficiencyInput < BaseInputObject;end
@@ -358,6 +370,12 @@ module LMSGraphQL
       class CanvasRubricAssessment < BaseType;end
       class CanvasRubricAssociationInput < BaseInputObject;end
       class CanvasRubricAssociation < BaseType;end
+      class CanvasScoreInput < BaseInputObject;end
+      class CanvasScore < BaseType;end
+      class CanvasSectionInput < BaseInputObject;end
+      class CanvasSection < BaseType;end
+      class CanvasSharedBrandConfigInput < BaseInputObject;end
+      class CanvasSharedBrandConfig < BaseType;end
       class CanvasSisImportErrorInput < BaseInputObject;end
       class CanvasSisImportError < BaseType;end
       class CanvasSisImportDatumInput < BaseInputObject;end
@@ -384,12 +402,6 @@ module LMSGraphQL
       class CanvasUserAssignmentOverrideAttribute < BaseType;end
       class CanvasStudentAttributeInput < BaseInputObject;end
       class CanvasStudentAttribute < BaseType;end
-      class CanvasScoreInput < BaseInputObject;end
-      class CanvasScore < BaseType;end
-      class CanvasSectionInput < BaseInputObject;end
-      class CanvasSection < BaseType;end
-      class CanvasSharedBrandConfigInput < BaseInputObject;end
-      class CanvasSharedBrandConfig < BaseType;end
       class CanvasMediaCommentInput < BaseInputObject;end
       class CanvasMediaComment < BaseType;end
       class CanvasSubmissionCommentInput < BaseInputObject;end
@@ -416,10 +428,6 @@ module LMSGraphQL
       class CanvasPageViewLink < BaseType;end
       class CanvasCourseNicknameInput < BaseInputObject;end
       class CanvasCourseNickname < BaseType;end
-      class CanvasCourseEpubExportInput < BaseInputObject;end
-      class CanvasCourseEpubExport < BaseType;end
-      class CanvasEpubExportInput < BaseInputObject;end
-      class CanvasEpubExport < BaseType;end
     end
   end
 end

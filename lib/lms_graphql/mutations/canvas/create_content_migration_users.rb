@@ -19,6 +19,7 @@ module LMSGraphQL
         argument :settings_insert_into_module_type, String, required: false
         argument :settings_insert_into_module_position, Int, required: false
         argument :settings_move_to_assignment_group_id, Int, required: false
+        argument :settings_importer_skips, [String], required: false
         argument :date_shift_options_shift_dates, Boolean, required: false
         argument :date_shift_options_old_start_date, LMSGraphQL::Types::DateTimeType, required: false
         argument :date_shift_options_old_end_date, LMSGraphQL::Types::DateTimeType, required: false
@@ -32,7 +33,7 @@ module LMSGraphQL
         
         field :content_migration, LMSGraphQL::Types::Canvas::CanvasContentMigration, null: false
         
-        def resolve(user_id:, migration_type:, pre_attachment_name: nil, pre_attachment_star: nil, settings_file_url: nil, settings_content_export_id: nil, settings_source_course_id: nil, settings_folder_id: nil, settings_overwrite_quizzes: nil, settings_question_bank_id: nil, settings_question_bank_name: nil, settings_insert_into_module_id: nil, settings_insert_into_module_type: nil, settings_insert_into_module_position: nil, settings_move_to_assignment_group_id: nil, date_shift_options_shift_dates: nil, date_shift_options_old_start_date: nil, date_shift_options_old_end_date: nil, date_shift_options_new_start_date: nil, date_shift_options_new_end_date: nil, date_shift_options_day_substitutions_X: nil, date_shift_options_remove_dates: nil, selective_import: nil, select: nil)
+        def resolve(user_id:, migration_type:, pre_attachment_name: nil, pre_attachment_star: nil, settings_file_url: nil, settings_content_export_id: nil, settings_source_course_id: nil, settings_folder_id: nil, settings_overwrite_quizzes: nil, settings_question_bank_id: nil, settings_question_bank_name: nil, settings_insert_into_module_id: nil, settings_insert_into_module_type: nil, settings_insert_into_module_position: nil, settings_move_to_assignment_group_id: nil, settings_importer_skips: nil, date_shift_options_shift_dates: nil, date_shift_options_old_start_date: nil, date_shift_options_old_end_date: nil, date_shift_options_new_start_date: nil, date_shift_options_new_end_date: nil, date_shift_options_day_substitutions_X: nil, date_shift_options_remove_dates: nil, selective_import: nil, select: nil)
           context[:canvas_api].call("CREATE_CONTENT_MIGRATION_USERS").proxy(
             "CREATE_CONTENT_MIGRATION_USERS",
             {
@@ -53,6 +54,7 @@ module LMSGraphQL
               "settings[insert_into_module_type]": settings_insert_into_module_type,
               "settings[insert_into_module_position]": settings_insert_into_module_position,
               "settings[move_to_assignment_group_id]": settings_move_to_assignment_group_id,
+              "settings[importer_skips]": settings_importer_skips,
               "date_shift_options[shift_dates]": date_shift_options_shift_dates,
               "date_shift_options[old_start_date]": date_shift_options_old_start_date,
               "date_shift_options[old_end_date]": date_shift_options_old_end_date,

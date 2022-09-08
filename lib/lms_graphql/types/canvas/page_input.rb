@@ -7,6 +7,7 @@ module LMSGraphQL
     module Canvas
       class CanvasPageInput < BaseInputObject
           description "Pages. API Docs: https://canvas.instructure.com/doc/api/pages.html"
+      argument :page_id, ID, "the ID of the page.Example: 1", required: false
       argument :url, String, "the unique locator for the page.Example: my-page-title", required: false
       argument :title, String, "the title of the page.Example: My Page Title", required: false
       argument :created_at, LMSGraphQL::Types::DateTimeType, "the creation date for the page.Example: 2012-08-06T16:46:33-06:00", required: false

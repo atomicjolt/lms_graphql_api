@@ -29,8 +29,9 @@ module LMSGraphQL
         field :uuid, String, "the UUID of the course.Example: WvAHhY5FINzq5IyRIJybGeiXyFkG3SqHUPb7jZY5", null: true
         field :integration_id, ID, "the integration identifier for the course, if defined. This field is only included if the user has permission to view SIS information..", null: true
         field :sis_import_id, ID, "the unique identifier for the SIS import. This field is only included if the user has permission to manage SIS information..Example: 34", null: true
-        field :name, String, "the full name of the course.Example: InstructureCon 2012", null: true
+        field :name, String, "the full name of the course. If the requesting user has set a nickname for the course, the nickname will be shown here..Example: InstructureCon 2012", null: true
         field :course_code, String, "the course code.Example: INSTCON12", null: true
+        field :original_name, String, "the actual course name. This field is returned only if the requesting user has set a nickname for the course..Example: InstructureCon-2012-01", null: true
         field :workflow_state, CourseWorkflowStateEnum, "the current state of the course one of 'unpublished', 'available', 'completed', or 'deleted'.Example: available", null: true
         field :account_id, ID, "the account associated with the course.Example: 81259", null: true
         field :root_account_id, ID, "the root account associated with the course.Example: 81259", null: true

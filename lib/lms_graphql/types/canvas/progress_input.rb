@@ -5,7 +5,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasProgressInput < BaseInputObject
-          class ProgressWorkflowStateEnum < ::GraphQL::Schema::Enum
+          class ProgressInputWorkflowStateEnum < ::GraphQL::Schema::Enum
           value "queued"
           value "running"
           value "completed"
@@ -18,7 +18,7 @@ module LMSGraphQL
       argument :user_id, ID, "the id of the user who started the job.Example: 123", required: false
       argument :tag, String, "the type of operation.Example: course_batch_update", required: false
       argument :completion, Int, "percent completed.Example: 100", required: false
-      argument :workflow_state, ProgressWorkflowStateEnum, "the state of the job one of 'queued', 'running', 'completed', 'failed'.Example: completed", required: false
+      argument :workflow_state, ProgressInputWorkflowStateEnum, "the state of the job one of 'queued', 'running', 'completed', 'failed'.Example: completed", required: false
       argument :created_at, LMSGraphQL::Types::DateTimeType, "the time the job was created.Example: 2013-01-15T15:00:00Z", required: false
       argument :updated_at, LMSGraphQL::Types::DateTimeType, "the time the job was last updated.Example: 2013-01-15T15:04:00Z", required: false
       argument :message, String, "optional details about the job.Example: 17 courses processed", required: false

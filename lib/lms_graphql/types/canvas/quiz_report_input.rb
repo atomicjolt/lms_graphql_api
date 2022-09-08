@@ -6,14 +6,14 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasQuizReportInput < BaseInputObject
-          class QuizReportReportTypeEnum < ::GraphQL::Schema::Enum
+          class QuizReportInputReportTypeEnum < ::GraphQL::Schema::Enum
           value "student_analysis"
           value "item_analysis"
         end
         description "Quiz Reports. API Docs: https://canvas.instructure.com/doc/api/quiz_reports.html"
       argument :id, ID, "the ID of the quiz report.Example: 5", required: false
       argument :quiz_id, ID, "the ID of the quiz.Example: 4", required: false
-      argument :report_type, QuizReportReportTypeEnum, "which type of report this is possible values: 'student_analysis', 'item_analysis'.Example: student_analysis", required: false
+      argument :report_type, QuizReportInputReportTypeEnum, "which type of report this is possible values: 'student_analysis', 'item_analysis'.Example: student_analysis", required: false
       argument :readable_type, String, "a human-readable (and localized) version of the report_type.Example: Student Analysis", required: false
       argument :includes_all_versions, Boolean, "boolean indicating whether the report represents all submissions or only the most recent ones for each student.Example: true", required: false
       argument :anonymous, Boolean, "boolean indicating whether the report is for an anonymous survey. if true, no student names will be included in the csv.", required: false

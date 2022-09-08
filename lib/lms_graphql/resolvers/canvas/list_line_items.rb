@@ -10,7 +10,8 @@ module LMSGraphQL
         argument :resource_id, ID, required: false
         argument :resource_link_id, ID, required: false
         argument :limit, String, required: false
-        def resolve(course_id:, tag: nil, resource_id: nil, resource_link_id: nil, limit: nil, get_all: false)
+        argument :include, [String], required: false
+        def resolve(course_id:, tag: nil, resource_id: nil, resource_link_id: nil, limit: nil, include: nil, get_all: false)
           result = context[:canvas_api].call("LIST_LINE_ITEMS").proxy(
             "LIST_LINE_ITEMS",
             {
@@ -18,7 +19,8 @@ module LMSGraphQL
               "tag": tag,
               "resource_id": resource_id,
               "resource_link_id": resource_link_id,
-              "limit": limit            },
+              "limit": limit,
+              "include": include            },
             nil,
             get_all,
           )

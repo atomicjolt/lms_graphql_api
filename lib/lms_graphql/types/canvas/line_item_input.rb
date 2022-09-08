@@ -13,6 +13,7 @@ module LMSGraphQL
       argument :resource_id, String, "A Tool Provider specified id for the Line Item. Multiple line items can share the same resourceId within a given context.Example: 50", required: false
       argument :resource_link_id, String, "The resource link id the Line Item is attached to.Example: 50", required: false
       argument :submission_type, String, "The extension that defines the submission_type of the line_item. Only returns if set through the line_item create endpoint..Example: { 	'type':'external_tool', 	'external_tool_url':'https://my.launch.url', }", required: false
+      argument :launch_url, String, "The launch url of the Line Item. Only returned if `include=launch_url` query parameter is passed, and only for Show and List actions..Example: https://my.tool.url/launch", required: false
 
       end
     end

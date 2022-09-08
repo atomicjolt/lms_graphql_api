@@ -1,5 +1,5 @@
 require_relative "../canvas_base_type"
-
+require_relative "uuid"
 
 module LMSGraphQL
   module Types
@@ -38,7 +38,11 @@ module LMSGraphQL
         field :available_slots, Int, "If the event is a time slot and it has a participant limit, an integer indicating how many slots are available.", null: true
         field :user, String, "If the event is a user-level reservation, this will contain the user participant JSON (refer to the Users API)..", null: true
         field :group, String, "If the event is a group-level reservation, this will contain the group participant JSON (refer to the Groups API)..", null: true
-        field :important_dates, Boolean, "Boolean indicating whether this has important dates. Only present if the Important Dates feature flag is enabled.Example: true", null: true
+        field :important_dates, Boolean, "Boolean indicating whether this has important dates..Example: true", null: true
+        field :series_uuid, String, "Identifies the recurring event series this event may belong to.", null: true
+        field :rrule, String, "An iCalendar RRULE for defining how events in a recurring event series repeat..", null: true
+        field :series_natural_language, String, "A natural language expression of how events occur in the series. (e.g. Daily, 2 times).", null: true
+        field :blackout_date, Boolean, "Boolean indicating whether this has blackout date..Example: true", null: true
 
       end
     end

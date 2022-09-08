@@ -14,11 +14,12 @@ module LMSGraphQL
         argument :ratings_points, [Int], required: false
         argument :calculation_method, String, required: false
         argument :calculation_int, Int, required: false
+        argument :add_defaults, Boolean, required: false
         
         
         field :outcome, LMSGraphQL::Types::Canvas::CanvasOutcome, null: false
         
-        def resolve(id:, title: nil, display_name: nil, description: nil, vendor_guid: nil, mastery_points: nil, ratings_description: nil, ratings_points: nil, calculation_method: nil, calculation_int: nil)
+        def resolve(id:, title: nil, display_name: nil, description: nil, vendor_guid: nil, mastery_points: nil, ratings_description: nil, ratings_points: nil, calculation_method: nil, calculation_int: nil, add_defaults: nil)
           context[:canvas_api].call("UPDATE_OUTCOME").proxy(
             "UPDATE_OUTCOME",
             {
@@ -33,7 +34,8 @@ module LMSGraphQL
               "ratings[description]": ratings_description,
               "ratings[points]": ratings_points,
               "calculation_method": calculation_method,
-              "calculation_int": calculation_int
+              "calculation_int": calculation_int,
+              "add_defaults": add_defaults
             },
           ).parsed_response
         end

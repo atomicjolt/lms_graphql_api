@@ -14,7 +14,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasAssignmentInput < BaseInputObject
-          class AssignmentSubmissionTypeEnum < ::GraphQL::Schema::Enum
+          class AssignmentInputSubmissionTypeEnum < ::GraphQL::Schema::Enum
           value "discussion_topic"
           value "online_quiz"
           value "on_paper"
@@ -28,7 +28,7 @@ module LMSGraphQL
           value "student_annotation"
         end
 
-                class AssignmentGradingTypeEnum < ::GraphQL::Schema::Enum
+                class AssignmentInputGradingTypeEnum < ::GraphQL::Schema::Enum
           value "pass_fail"
           value "percent"
           value "letter_grade"
@@ -71,9 +71,9 @@ module LMSGraphQL
       argument :integration_id, ID, "(optional, Third Party unique identifier for Assignment).Example: 12341234", required: false
       argument :integration_data, String, "(optional, Third Party integration data for assignment).Example: 0954", required: false
       argument :points_possible, Float, "the maximum points possible for the assignment.Example: 12.0", required: false
-      argument :submission_types, AssignmentSubmissionTypeEnum, "the types of submissions allowed for this assignment list containing one or more of the following: 'discussion_topic', 'online_quiz', 'on_paper', 'none', 'external_tool', 'online_text_entry', 'online_url', 'online_upload', 'media_recording', 'student_annotation'.Example: online_text_entry", required: false
+      argument :submission_types, AssignmentInputSubmissionTypeEnum, "the types of submissions allowed for this assignment list containing one or more of the following: 'discussion_topic', 'online_quiz', 'on_paper', 'none', 'external_tool', 'online_text_entry', 'online_url', 'online_upload', 'media_recording', 'student_annotation'.Example: online_text_entry", required: false
       argument :has_submitted_submissions, Boolean, "If true, the assignment has been submitted to by at least one student.Example: true", required: false
-      argument :grading_type, AssignmentGradingTypeEnum, "The type of grading the assignment receives; one of 'pass_fail', 'percent', 'letter_grade', 'gpa_scale', 'points'.Example: points", required: false
+      argument :grading_type, AssignmentInputGradingTypeEnum, "The type of grading the assignment receives; one of 'pass_fail', 'percent', 'letter_grade', 'gpa_scale', 'points'.Example: points", required: false
       argument :grading_standard_id, ID, "The id of the grading standard being applied to this assignment. Valid if grading_type is 'letter_grade' or 'gpa_scale'..", required: false
       argument :published, Boolean, "Whether the assignment is published.Example: true", required: false
       argument :unpublishable, Boolean, "Whether the assignment's 'published' state can be changed to false. Will be false if there are student submissions for the assignment..", required: false
@@ -105,6 +105,11 @@ module LMSGraphQL
       argument :post_manually, Boolean, "Whether the assignment has manual posting enabled. Only relevant for courses using New Gradebook..Example: true", required: false
       argument :score_statistics, LMSGraphQL::Types::Canvas::CanvasScoreStatisticInput, "(Optional) If 'score_statistics' and 'submission' are included in the 'include' parameter and statistics are available, includes the min, max, and mode for this assignment.", required: false
       argument :can_submit, Boolean, "(Optional) If retrieving a single assignment and 'can_submit' is included in the 'include' parameter, flags whether user has the right to submit the assignment (i.e. checks enrollment dates, submission types, locked status, attempts remaining, etc...). Including 'can submit' automatically includes 'submission' in the include parameter. Not available when observed_users are included..Example: true", required: false
+      argument :annotatable_attachment_id, ID, "The id of the attachment to be annotated by students. Relevant only if submission_types includes 'student_annotation'..", required: false
+      argument :anonymize_students, Boolean, "(Optional) Boolean indicating whether student names are anonymized.", required: false
+      argument :require_lockdown_browser, Boolean, "(Optional) Boolean indicating whether the Respondus LockDown Browser® is required for this assignment..", required: false
+      argument :important_dates, Boolean, "(Optional) Boolean indicating whether this assignment has important dates..", required: false
+      argument :muted, Boolean, "(Optional, Deprecated) Boolean indicating whether notifications are muted for this assignment..", required: false
 
       end
     end

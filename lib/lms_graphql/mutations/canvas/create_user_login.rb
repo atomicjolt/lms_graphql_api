@@ -11,11 +11,12 @@ module LMSGraphQL
         argument :login_sis_user_id, String, required: false
         argument :login_integration_id, String, required: false
         argument :login_authentication_provider_id, String, required: false
+        argument :login_declared_user_type, String, required: false
         
         
         field :return_value, Boolean, null: false
         
-        def resolve(account_id:, user_id:, login_unique_id:, login_password: nil, login_sis_user_id: nil, login_integration_id: nil, login_authentication_provider_id: nil)
+        def resolve(account_id:, user_id:, login_unique_id:, login_password: nil, login_sis_user_id: nil, login_integration_id: nil, login_authentication_provider_id: nil, login_declared_user_type: nil)
           context[:canvas_api].call("CREATE_USER_LOGIN").proxy(
             "CREATE_USER_LOGIN",
             {
@@ -27,7 +28,8 @@ module LMSGraphQL
               "login[password]": login_password,
               "login[sis_user_id]": login_sis_user_id,
               "login[integration_id]": login_integration_id,
-              "login[authentication_provider_id]": login_authentication_provider_id
+              "login[authentication_provider_id]": login_authentication_provider_id,
+              "login[declared_user_type]": login_declared_user_type
             },
           ).parsed_response
         end

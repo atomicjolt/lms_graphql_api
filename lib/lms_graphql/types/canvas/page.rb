@@ -7,6 +7,7 @@ module LMSGraphQL
     module Canvas
       class CanvasPage < BaseType
           description "Pages. API Docs: https://canvas.instructure.com/doc/api/pages.html"
+        field :page_id, ID, "the ID of the page.Example: 1", null: true
         field :url, String, "the unique locator for the page.Example: my-page-title", null: true
         field :title, String, "the title of the page.Example: My Page Title", null: true
         field :created_at, LMSGraphQL::Types::DateTimeType, "the creation date for the page.Example: 2012-08-06T16:46:33-06:00", null: true

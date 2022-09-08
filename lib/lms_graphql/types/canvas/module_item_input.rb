@@ -6,7 +6,7 @@ module LMSGraphQL
   module Types
     module Canvas
       class CanvasModuleItemInput < BaseInputObject
-          class ModuleItemTypeEnum < ::GraphQL::Schema::Enum
+          class ModuleItemInputTypeEnum < ::GraphQL::Schema::Enum
           value "File"
           value "Page"
           value "Discussion"
@@ -22,7 +22,7 @@ module LMSGraphQL
       argument :position, Int, "the position of this item in the module (1-based).Example: 1", required: false
       argument :title, String, "the title of this item.Example: Square Roots: Irrational numbers or boxy vegetables?", required: false
       argument :indent, Int, "0-based indent level; module items may be indented to show a hierarchy.Example: 0", required: false
-      argument :type, ModuleItemTypeEnum, "the type of object referred to one of 'File', 'Page', 'Discussion', 'Assignment', 'Quiz', 'SubHeader', 'ExternalUrl', 'ExternalTool'.Example: Assignment", required: false
+      argument :type, ModuleItemInputTypeEnum, "the type of object referred to one of 'File', 'Page', 'Discussion', 'Assignment', 'Quiz', 'SubHeader', 'ExternalUrl', 'ExternalTool'.Example: Assignment", required: false
       argument :content_id, ID, "the id of the object referred to applies to 'File', 'Discussion', 'Assignment', 'Quiz', 'ExternalTool' types.Example: 1337", required: false
       argument :html_url, String, "link to the item in Canvas.Example: https://canvas.example.edu/courses/222/modules/items/768", required: false
       argument :url, String, "(Optional) link to the Canvas API object, if applicable.Example: https://canvas.example.edu/api/v1/courses/222/assignments/987", required: false

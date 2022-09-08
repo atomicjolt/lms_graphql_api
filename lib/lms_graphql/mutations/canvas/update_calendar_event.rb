@@ -17,11 +17,14 @@ module LMSGraphQL
         argument :calendar_event_child_event_data_X_start_at, LMSGraphQL::Types::DateTimeType, required: false
         argument :calendar_event_child_event_data_X_end_at, LMSGraphQL::Types::DateTimeType, required: false
         argument :calendar_event_child_event_data_X_context_code, String, required: false
+        argument :calendar_event_rrule, String, required: false
+        argument :which, String, required: false
+        argument :calendar_event_blackout_date, Boolean, required: false
         
         
         field :return_value, Boolean, null: false
         
-        def resolve(id:, calendar_event_context_code: nil, calendar_event_title: nil, calendar_event_description: nil, calendar_event_start_at: nil, calendar_event_end_at: nil, calendar_event_location_name: nil, calendar_event_location_address: nil, calendar_event_time_zone_edited: nil, calendar_event_all_day: nil, calendar_event_child_event_data_X_start_at: nil, calendar_event_child_event_data_X_end_at: nil, calendar_event_child_event_data_X_context_code: nil)
+        def resolve(id:, calendar_event_context_code: nil, calendar_event_title: nil, calendar_event_description: nil, calendar_event_start_at: nil, calendar_event_end_at: nil, calendar_event_location_name: nil, calendar_event_location_address: nil, calendar_event_time_zone_edited: nil, calendar_event_all_day: nil, calendar_event_child_event_data_X_start_at: nil, calendar_event_child_event_data_X_end_at: nil, calendar_event_child_event_data_X_context_code: nil, calendar_event_rrule: nil, which: nil, calendar_event_blackout_date: nil)
           context[:canvas_api].call("UPDATE_CALENDAR_EVENT").proxy(
             "UPDATE_CALENDAR_EVENT",
             {
@@ -39,7 +42,10 @@ module LMSGraphQL
               "calendar_event[all_day]": calendar_event_all_day,
               "calendar_event[child_event_data][X][start_at]": calendar_event_child_event_data_X_start_at,
               "calendar_event[child_event_data][X][end_at]": calendar_event_child_event_data_X_end_at,
-              "calendar_event[child_event_data][X][context_code]": calendar_event_child_event_data_X_context_code
+              "calendar_event[child_event_data][X][context_code]": calendar_event_child_event_data_X_context_code,
+              "calendar_event[rrule]": calendar_event_rrule,
+              "which": which,
+              "calendar_event[blackout_date]": calendar_event_blackout_date
             },
           ).parsed_response
         end

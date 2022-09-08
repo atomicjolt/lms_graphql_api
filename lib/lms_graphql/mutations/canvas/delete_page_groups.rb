@@ -5,17 +5,17 @@ module LMSGraphQL
     module Canvas
       class DeletePageGroup < BaseMutation
         argument :group_id, ID, required: true
-        argument :url, String, required: true
+        argument :url_or_id, ID, required: true
         
         
         field :page, LMSGraphQL::Types::Canvas::CanvasPage, null: false
         
-        def resolve(group_id:, url:)
+        def resolve(group_id:, url_or_id:)
           context[:canvas_api].call("DELETE_PAGE_GROUPS").proxy(
             "DELETE_PAGE_GROUPS",
             {
               "group_id": group_id,
-              "url": url
+              "url_or_id": url_or_id
             },
             {},
           ).parsed_response

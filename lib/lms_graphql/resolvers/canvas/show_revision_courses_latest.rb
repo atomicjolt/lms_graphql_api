@@ -6,14 +6,14 @@ module LMSGraphQL
       class ShowRevisionCoursesLatest < CanvasBaseResolver
         type LMSGraphQL::Types::Canvas::CanvasPageRevision, null: false
         argument :course_id, ID, required: true
-        argument :url, String, required: true
+        argument :url_or_id, ID, required: true
         argument :summary, Boolean, required: false
-        def resolve(course_id:, url:, summary: nil, get_all: false)
+        def resolve(course_id:, url_or_id:, summary: nil, get_all: false)
           result = context[:canvas_api].call("SHOW_REVISION_COURSES_LATEST").proxy(
             "SHOW_REVISION_COURSES_LATEST",
             {
               "course_id": course_id,
-              "url": url,
+              "url_or_id": url_or_id,
               "summary": summary            },
             nil,
             get_all,

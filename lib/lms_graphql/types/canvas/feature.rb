@@ -19,12 +19,10 @@ module LMSGraphQL
  * Account features may be controlled by flags on accounts and their parent accounts.
  * Course features may be controlled by flags on courses and their parent accounts.
  * User features may be controlled by flags on users and site admin only..Example: Course", null: true
-        field :enable_at, LMSGraphQL::Types::DateTimeType, "The date this feature will be globally enabled, or null if this is not planned. (This information is subject to change.).Example: 2014-01-01T00:00:00Z", null: true
         field :feature_flag, LMSGraphQL::Types::Canvas::CanvasFeatureFlag, "The FeatureFlag that applies to the caller.Example: fancy_wickets, allowed", null: true
         field :root_opt_in, Boolean, "If true, a feature that is 'allowed' globally will be 'off' by default in root accounts. Otherwise, root accounts inherit the global 'allowed' setting, which allows sub-accounts and courses to turn features on with no root account action..Example: true", null: true
-        field :beta, Boolean, "Whether the feature is a beta feature. If true, the feature may not be fully polished and may be subject to change in the future..Example: true", null: true
+        field :beta, Boolean, "Whether the feature is a feature preview. If true, opting in includes ongoing updates outside the regular release schedule..Example: true", null: true
         field :autoexpand, Boolean, "Whether the details of the feature are autoexpanded on page load vs. the user clicking to expand..Example: true", null: true
-        field :development, Boolean, "Whether the feature is in active development. Features in this state are only visible in test and beta instances and are not yet available for production use..", null: true
         field :release_notes_url, String, "A URL to the release notes describing the feature.Example: http://canvas.example.com/release_notes#fancy_wickets", null: true
 
       end

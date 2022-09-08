@@ -13,14 +13,17 @@ module LMSGraphQL
         argument :user_locale, String, required: false
         argument :user_avatar_token, String, required: false
         argument :user_avatar_url, String, required: false
+        argument :user_avatar_state, String, required: false
         argument :user_title, String, required: false
         argument :user_bio, String, required: false
         argument :user_pronouns, String, required: false
+        argument :user_event, String, required: false
+        argument :override_sis_stickiness, Boolean, required: false
         
         
         field :user, LMSGraphQL::Types::Canvas::CanvasUser, null: false
         
-        def resolve(id:, user_name: nil, user_short_name: nil, user_sortable_name: nil, user_time_zone: nil, user_email: nil, user_locale: nil, user_avatar_token: nil, user_avatar_url: nil, user_title: nil, user_bio: nil, user_pronouns: nil)
+        def resolve(id:, user_name: nil, user_short_name: nil, user_sortable_name: nil, user_time_zone: nil, user_email: nil, user_locale: nil, user_avatar_token: nil, user_avatar_url: nil, user_avatar_state: nil, user_title: nil, user_bio: nil, user_pronouns: nil, user_event: nil, override_sis_stickiness: nil)
           context[:canvas_api].call("EDIT_USER").proxy(
             "EDIT_USER",
             {
@@ -35,9 +38,12 @@ module LMSGraphQL
               "user[locale]": user_locale,
               "user[avatar][token]": user_avatar_token,
               "user[avatar][url]": user_avatar_url,
+              "user[avatar][state]": user_avatar_state,
               "user[title]": user_title,
               "user[bio]": user_bio,
-              "user[pronouns]": user_pronouns
+              "user[pronouns]": user_pronouns,
+              "user[event]": user_event,
+              "override_sis_stickiness": override_sis_stickiness
             },
           ).parsed_response
         end

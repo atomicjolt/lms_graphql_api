@@ -50,7 +50,7 @@ module LMSGraphQL
         field :assignment_visible, Boolean, "Whether the assignment is visible to the user who submitted the assignment. Submissions where `assignment_visible` is false no longer count towards the student's grade and the assignment can no longer be accessed by the student. `assignment_visible` becomes false for submissions that do not have a grade and whose assignment is no longer assigned to the student's section..Example: true", null: true
         field :excused, Boolean, "Whether the assignment is excused.  Excused assignments have no impact on a user's grade..Example: true", null: true
         field :missing, Boolean, "Whether the assignment is missing..Example: true", null: true
-        field :late_policy_status, String, "The status of the submission in relation to the late policy. Can be late, missing, none, or null..Example: missing", null: true
+        field :late_policy_status, String, "The status of the submission in relation to the late policy. Can be late, missing, extended, none, or null..Example: missing", null: true
         field :points_deducted, Float, "The amount of points automatically deducted from the score by the missing/late policy for a late or missing assignment..Example: 12.3", null: true
         field :seconds_late, Float, "The amount of time, in seconds, that an submission is late by..Example: 300", null: true
         field :workflow_state, SubmissionWorkflowStateEnum, "The current state of the submission.Example: submitted", null: true
@@ -58,6 +58,7 @@ module LMSGraphQL
         field :anonymous_id, ID, "A unique short ID identifying this submission without reference to the owning user. Only included if the caller has administrator access for the current account..Example: acJ4Q", null: true
         field :posted_at, LMSGraphQL::Types::DateTimeType, "The date this submission was posted to the student, or nil if it has not been posted..Example: 2020-01-02T11:10:30Z", null: true
         field :read_status, SubmissionReadStatusEnum, "The read status of this submission for the given user (optional). Including read_status will mark submission(s) as read..Example: read", null: true
+        field :redo_request, Boolean, "This indicates whether the submission has been reassigned by the instructor..Example: true", null: true
 
       end
     end

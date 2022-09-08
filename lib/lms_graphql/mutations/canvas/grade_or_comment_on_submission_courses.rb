@@ -8,11 +8,13 @@ module LMSGraphQL
         argument :assignment_id, ID, required: true
         argument :user_id, ID, required: true
         argument :comment_text_comment, String, required: false
+        argument :comment_attempt, Int, required: false
         argument :comment_group_comment, Boolean, required: false
         argument :comment_media_comment_id, String, required: false
         argument :comment_media_comment_type, String, required: false
         argument :comment_file_ids, [Int], required: false
         argument :include_visibility, String, required: false
+        argument :prefer_points_over_scheme, Boolean, required: false
         argument :submission_posted_grade, String, required: false
         argument :submission_excuse, Boolean, required: false
         argument :submission_late_policy_status, String, required: false
@@ -22,7 +24,7 @@ module LMSGraphQL
         
         field :return_value, Boolean, null: false
         
-        def resolve(course_id:, assignment_id:, user_id:, comment_text_comment: nil, comment_group_comment: nil, comment_media_comment_id: nil, comment_media_comment_type: nil, comment_file_ids: nil, include_visibility: nil, submission_posted_grade: nil, submission_excuse: nil, submission_late_policy_status: nil, submission_seconds_late_override: nil, rubric_assessment: nil)
+        def resolve(course_id:, assignment_id:, user_id:, comment_text_comment: nil, comment_attempt: nil, comment_group_comment: nil, comment_media_comment_id: nil, comment_media_comment_type: nil, comment_file_ids: nil, include_visibility: nil, prefer_points_over_scheme: nil, submission_posted_grade: nil, submission_excuse: nil, submission_late_policy_status: nil, submission_seconds_late_override: nil, rubric_assessment: nil)
           context[:canvas_api].call("GRADE_OR_COMMENT_ON_SUBMISSION_COURSES").proxy(
             "GRADE_OR_COMMENT_ON_SUBMISSION_COURSES",
             {
@@ -32,11 +34,13 @@ module LMSGraphQL
             },
             {
               "comment[text_comment]": comment_text_comment,
+              "comment[attempt]": comment_attempt,
               "comment[group_comment]": comment_group_comment,
               "comment[media_comment_id]": comment_media_comment_id,
               "comment[media_comment_type]": comment_media_comment_type,
               "comment[file_ids]": comment_file_ids,
               "include[visibility]": include_visibility,
+              "prefer_points_over_scheme": prefer_points_over_scheme,
               "submission[posted_grade]": submission_posted_grade,
               "submission[excuse]": submission_excuse,
               "submission[late_policy_status]": submission_late_policy_status,
